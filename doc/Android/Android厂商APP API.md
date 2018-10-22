@@ -524,8 +524,8 @@
 |:---------|:-----------|:--------------------------------------|
 |  type | String | <p>帐号操作类型</p>|
 
-|类型|说明
-|-|
+| 类型     | 说明       |
+|:---------|:-----------|
 |AUTH_TYPE|微信授权票据类型|
 |REFRESH_TYPE|微信刷新票据类型|
 |WX_TVSIDRECV_TYPE|微信TVSID接收类型|
@@ -540,16 +540,16 @@
 ## EloginPlatform ##
 &emsp;登录帐号类型枚举</br>
 
-|枚举值|说明
-|-|
+| 枚举值     | 说明       |
+|:---------|:-----------|
 |WX|微信帐号|
 |QQOpen|QQ互联帐号|
 
 ## EloginEnv ##
 &emsp;帐号后台环境配置</br>
 
-|枚举值|说明
-|-|
+| 枚举值     | 说明       |
+|:---------|:-----------|
 |FORMAL|正式环境|
 |TEST|测试环境|
 |EX|体验环境|
@@ -592,8 +592,8 @@
 |  type | String | <p>帐号操作类型</p>|
 |  commOpInfo | CommOpInfo | <p>调用结果信息</p>|
 
-|类型|说明
-|-|
+| 类型     | 说明       |
+|:---------|:-----------|
 |GET_CAPTCHA_TYPE|获取短信验证码类型|
 |BIND_PHONENUMBER_TYPE|绑定手机号类型|
 |SET_PUSH_MAP_INFOEX_TYPE|设备绑定类型|
@@ -654,8 +654,8 @@
 ## EUserAttrType ##
 &emsp;用户中心类型枚举</br>
 
-|枚举值|说明
-|-|
+| 枚举值     | 说明       |
+|:---------|:-----------|
 |HOMEPAGE|主页|
 |CPOPERATION|运营页面|
 |INFOSETTING|常用信息设置页面|
@@ -693,8 +693,8 @@
 |  platform | EPlatform | <p>帐号类型</p>|
 |  commOpInfo | CommOpInfo | <p>调用结果信息</p>|
 
-|类型|说明
-|-|
+| 类型     | 说明       |
+|:---------|:-----------|
 |LOGIN_TYPE|登录状态类型|
 |LOGOUT_TYPE|注销状态类型|
 |REFRESH_TYPE|刷票类型|
