@@ -1,6 +1,8 @@
-# 环境变量(TVSEnvironment.h)
+# DMSDK(iOS) API 文档
 
-## TVSServerEnv 后台环境枚举
+## 环境变量(TVSEnvironment.h)
+
+### TVSServerEnv 后台环境枚举
 
 | 名称 | 描述 |
 | ------ | ------ |
@@ -8,18 +10,18 @@
 | TVSServerEnvExplore | 体验环节（灰度） |
 | TVSServerEnvTest | 测试环境 |
 
-## TVSEnvironment 环境变量类
+### TVSEnvironment 环境变量类
 
-### 成员
+#### 成员
 
 | 名称 | 类型 | 描述 |
 | ------ | ------ | ------ |
 | serverEnv | TVSServerEnv | 后台环境 |
 | logEnabled | BOOL | 是否开启日志 |
 
-### 方法
+#### 方法
 
-#### `+(instancetype)shared;`
+##### `+(instancetype)shared;`
 
   **描述**:
 
@@ -33,9 +35,9 @@
 
   TVSEnvironment 实例；
 
-# 账号管理(TVSAccount.h)
+## 账号管理(TVSAccount.h)
 
-## TVSAccountType 账号登录类型枚举
+### TVSAccountType 账号登录类型枚举
 
 | 名称 | 描述 |
 | ------ | ------ |
@@ -47,9 +49,9 @@
 | TVSAccountTypeIOSVistor | iOS 访客 |
 | TVSAccountTypeUnknown | 未知类型 |
 
-## TVSAccountInfo 账号信息类
+### TVSAccountInfo 账号信息类
 
-### 成员
+#### 成员
 
 | 名称 | 类型 | 描述 |
 | ------ | ------ | ------ |
@@ -62,9 +64,9 @@
 | tvsId | NSString* | TVS 平台返回的账号 id |
 | userId | NSString* | TVS 平台返回的 userId |
 
-### 方法
+#### 方法
 
-#### `+(NSString*)clientIdWithDSN:(NSString*)dsn productId:(NSString*)productId;`
+##### `+(NSString*)clientIdWithDSN:(NSString*)dsn productId:(NSString*)productId;`
 
   **描述**:
 
@@ -82,9 +84,9 @@
 
   TVS 平台 ClientId;
 
-## TVSGeoLocation 用户地理位置信息类
+### TVSGeoLocation 用户地理位置信息类
 
-### 成员
+#### 成员
 
 | 名称 | 类型 | 描述 |
 | ------ | ------ | ------ |
@@ -97,13 +99,13 @@
 | cabLng | NSString* | 打车点经度 |
 | cabLat | NSString* | 打车点纬度 |
 
-### 方法
+#### 方法
 
   无；
 
-## TVSUserInfo 用户资料信息类
+### TVSUserInfo 用户资料信息类
 
-### 成员
+#### 成员
 
 | 名称 | 类型 | 描述 |
 | ------ | ------ | ------ |
@@ -115,19 +117,19 @@
 | homelocation | TVSGeoLocation* | 家庭地址信息 |
 | companyLocation | TVSGeoLocation* | 公司地址信息 |
 
-### 方法
+#### 方法
 
   无；
 
-## TVSAccount 账号管理类
+### TVSAccount 账号管理类
 
-### 成员
+#### 成员
 
   无；
 
-### 方法
+#### 方法
 
-#### `+(instancetype)shared;`
+##### `+(instancetype)shared;`
 
   **描述**:
 
@@ -141,7 +143,7 @@
  
   TVSAccount 类实例；
 
-#### `-(void)registerApp;`
+##### `-(void)registerApp;`
 
   **描述**:
 
@@ -156,7 +158,7 @@
 
   无；
   
-#### `-(BOOL)handleOpenUrl:(NSURL*)url;`
+##### `-(BOOL)handleOpenUrl:(NSURL*)url;`
 
   **描述**:
 
@@ -173,7 +175,7 @@
 
   是否成功处理 URL 跳转；
   
-#### `-(BOOL)isWXTokenExist;`
+##### `-(BOOL)isWXTokenExist;`
 
   **描述**:
 
@@ -187,7 +189,7 @@
   
   是否存在；
   
-#### `-(BOOL)isQQTokenExist;`
+##### `-(BOOL)isQQTokenExist;`
 
   **描述**:
 
@@ -201,7 +203,7 @@
  
   是否存在；
   
-#### `-(void)wxLoginWithHandler:(void(^)(BOOL))handler;`
+##### `-(void)wxLoginWithHandler:(void(^)(BOOL))handler;`
 
   **描述**:
 
@@ -218,7 +220,7 @@
 
   无；
   
-#### `-(void)wxLoginWithViewController:(UIViewController*)vc handler:(void(^)(BOOL))handler;`
+##### `-(void)wxLoginWithViewController:(UIViewController*)vc handler:(void(^)(BOOL))handler;`
 
   **描述**:
 
@@ -236,7 +238,7 @@
 
   无；
   
-#### `-(void)wxPayWithAppId:(NSString*)appId partnerid:(NSString*)partnerid prepayid:(NSString*)prepayid package:(NSString*)package noncestr:(NSString*)noncestr sign:(NSString*)sign timestamp:(UInt32)timestamp handler:(void(^)(BOOL,NSString*))handler;`
+##### `-(void)wxPayWithAppId:(NSString*)appId partnerid:(NSString*)partnerid prepayid:(NSString*)prepayid package:(NSString*)package noncestr:(NSString*)noncestr sign:(NSString*)sign timestamp:(UInt32)timestamp handler:(void(^)(BOOL,NSString*))handler;`
 
   **描述**:
 
@@ -254,13 +256,13 @@
   | noncestr | NSString* | 后台生成的微信支付订单 noncestr | 是 |
   | sign | NSString* | 后台生成的微信支付订单签名 | 是 |
   | timestamp | UInt32 | 后台生成的微信支付订单时间戳 | 是 |
-  | handler | void(^)(BOOL,NSString*) |  回调，BOOL 表示是否支付成功，NSString* 为微信支付返回的 key |  |
+  | handler | void(^)(BOOL,NSString*) |  回调，BOOL 表示是否支付成功，NSString* 为微信支付返回的 key | 是 |
 
   **返回**:
 
   无；
   
-#### `-(void)wxPayWithAppId:(NSString*)appId partnerid:(NSString*)partnerid prepayid:(NSString*)prepayid package:(NSString*)package noncestr:(NSString*)noncestr sign:(NSString*)sign timestamp:(UInt32)timestamp;`
+##### `-(void)wxPayWithAppId:(NSString*)appId partnerid:(NSString*)partnerid prepayid:(NSString*)prepayid package:(NSString*)package noncestr:(NSString*)noncestr sign:(NSString*)sign timestamp:(UInt32)timestamp;`
 
   **描述**:
 
@@ -283,7 +285,7 @@
 
   无；
   
-#### `-(BOOL)checkWXAppWithAlert:(BOOL)alert;`
+##### `-(BOOL)checkWXAppWithAlert:(BOOL)alert;`
 
   **描述**:
 
@@ -300,7 +302,7 @@
   安装微信且版本支持返回 `YES`;
 
   
-#### `-(void)qqLoginWithHandler:(void(^)(BOOL))handler;`
+##### `-(void)qqLoginWithHandler:(void(^)(BOOL))handler;`
 
   **描述**:
 
@@ -317,7 +319,7 @@
 
   无；
   
-#### `-(void)wxTokenRefreshWithHandler:(void(^)(BOOL))handler;`
+##### `-(void)wxTokenRefreshWithHandler:(void(^)(BOOL))handler;`
 
   **描述**:
 
@@ -334,7 +336,7 @@
 
   无；
   
-#### `-(void)qqTokenVerifyWithHandler:(void(^)(BOOL))handler;`
+##### `-(void)qqTokenVerifyWithHandler:(void(^)(BOOL))handler;`
 
   **描述**:
 
@@ -351,7 +353,7 @@
 
   无；
   
-#### `-(void)tvsAuthWithOpenId:(NSString*)openId accessToken:(NSString*)accessToken isWX:(BOOL)isWX handler:(void(^)(BOOL))handler;`
+##### `-(void)tvsAuthWithOpenId:(NSString*)openId accessToken:(NSString*)accessToken isWX:(BOOL)isWX handler:(void(^)(BOOL))handler;`
 
   **描述**:
 
@@ -371,7 +373,7 @@
 
   无；
   
-#### `-(void)verifyQQTokenWithOpenId:(NSString*)openId accessToken:(NSString*)accessToken handler:(void(^)(BOOL))handler;`
+##### `-(void)verifyQQTokenWithOpenId:(NSString*)openId accessToken:(NSString*)accessToken handler:(void(^)(BOOL))handler;`
 
   **描述**:
 
@@ -390,7 +392,7 @@
 
   无；
   
-#### `-(BOOL)setUserProfileJson:(NSString*)json;`
+##### `-(BOOL)setUserProfileJson:(NSString*)json;`
 
   **描述**:
 
@@ -408,7 +410,7 @@
   是否设置成功；
 
   
-#### `-(BOOL)startWXQRCodeAuthWithImageHandler:(void(^)(UIImage*))imageHandler scannedHandler:(void(^)(void))scannedHandler finishHandler:(void(^)(BOOL))finishHandler;`
+##### `-(BOOL)startWXQRCodeAuthWithImageHandler:(void(^)(UIImage*))imageHandler scannedHandler:(void(^)(void))scannedHandler finishHandler:(void(^)(BOOL))finishHandler;`
 
   **描述**:
 
@@ -427,7 +429,7 @@
   是否请求成功；
 
   
-#### `-(BOOL)stopWXQRCodeAuth;`
+##### `-(BOOL)stopWXQRCodeAuth;`
 
   **描述**:
 
@@ -441,7 +443,7 @@
  
   是否成功；
   
-#### `-(TVSAccountInfo*)accountInfo;`
+##### `-(TVSAccountInfo*)accountInfo;`
 
   **描述**:
 
@@ -456,7 +458,7 @@
 
   TVSAccountInfo* 账号信息；
   
-#### `-(TVSUserInfo*)userInfo;`
+##### `-(TVSUserInfo*)userInfo;`
 
   **描述**:
 
@@ -471,7 +473,7 @@
 
   TVSUserInfo* 用户资料信息；
   
-#### `-(void)logout;`
+##### `-(void)logout;`
 
   **描述**:
 
@@ -485,7 +487,7 @@
  
   无；
   
-#### `-(void)getCaptchaWithPhoneNumber:(NSString*)phoneNumber handler:(void(^)(BOOL))handler;`
+##### `-(void)getCaptchaWithPhoneNumber:(NSString*)phoneNumber handler:(void(^)(BOOL))handler;`
 
   **描述**:
 
@@ -503,7 +505,7 @@
 
   无；
   
-#### `-(void)bindPhoneNumber:(NSString*)phoneNumber captcha:(NSString*)captcha handler:(void(^)(BOOL))handler;`
+##### `-(void)bindPhoneNumber:(NSString*)phoneNumber captcha:(NSString*)captcha handler:(void(^)(BOOL))handler;`
 
   **描述**:
 
@@ -522,7 +524,7 @@
 
   否；
   
-#### `-(void)setCustomUserInfoWithNickName:(NSString*)nickName avatarUrl:(NSString*)avatarUrl handler:(void(^)(BOOL))handler;`
+##### `-(void)setCustomUserInfoWithNickName:(NSString*)nickName avatarUrl:(NSString*)avatarUrl handler:(void(^)(BOOL))handler;`
 
   **描述**:
 
@@ -541,11 +543,11 @@
 
   无；
 
-# 设备管理(TVSDeviceBind.h)
+## 设备管理(TVSDeviceBind.h)
 
-## TVSPushDevice 设备信息实体类
+### TVSPushDevice 设备信息实体类
 
-### 成员
+#### 成员
 
 | 名称 | 类型 | 描述 |
 | ------ | ------ | ------ |
@@ -570,19 +572,19 @@
 | bindTime | long long | 绑定时间 |
 | extra | NSDictionary* | 扩展信息字典 |
 
-### 方法
+#### 方法
 
   无；
 
-## TVSDeviceBind 设备绑定类
+### TVSDeviceBind 设备绑定类
 
-### 成员
+#### 成员
 
   无；
 
-### 方法
+#### 方法
 
-#### `+(instancetype)shared;`
+##### `+(instancetype)shared;`
 
   **描述**:
 
@@ -596,7 +598,7 @@
 
   TVSDeviceBind 实例；
 
-#### `-(void)bindAppWithGuid:(NSString*)guid deviceToken:(NSString*)deviceToken bundleId:(NSString*)bundleId qua:(NSString*)qua extra:(NSDictionary*)extra handler:(void(^)(BOOL))handler;`
+##### `-(void)bindAppWithGuid:(NSString*)guid deviceToken:(NSString*)deviceToken bundleId:(NSString*)bundleId qua:(NSString*)qua extra:(NSDictionary*)extra handler:(void(^)(BOOL))handler;`
 
   **描述**：
 
@@ -618,7 +620,7 @@
 
   无；
 
-#### `-(void)bindDevice:(TVSPushDevice*)pushDevice handler:(void(^)(BOOL))handler;`
+##### `-(void)bindDevice:(TVSPushDevice*)pushDevice handler:(void(^)(BOOL))handler;`
 
   **描述**：
 
@@ -636,7 +638,7 @@
 
   无；
 
-#### `-(void)unbindDeviceWithProductId:(NSString*)productId dsn:(NSString*)dsn handler:(void(^)(BOOL))handler;`
+##### `-(void)unbindDeviceWithProductId:(NSString*)productId dsn:(NSString*)dsn handler:(void(^)(BOOL))handler;`
 
   **描述**：
 
@@ -655,7 +657,7 @@
 
   无；
 
-#### `-(void)queryPushDevicesWithHandler:(void(^)(NSArray<TVSPushDevice*>*))handler;`
+##### `-(void)queryPushDevicesWithHandler:(void(^)(NSArray<TVSPushDevice*>*))handler;`
 
   **描述**：
 
@@ -672,7 +674,7 @@
 
   无；
 
-#### `-(void)queryBoundAccountWithDeviceProductId:(NSString*)productId dsn:(NSString*)dsn handler:(void(^)(TVSAccountInfo*))handler;`
+##### `-(void)queryBoundAccountWithDeviceProductId:(NSString*)productId dsn:(NSString*)dsn handler:(void(^)(TVSAccountInfo*))handler;`
 
   **描述**：
 
@@ -690,9 +692,9 @@
 
   无；
 
-# H5页面(TVSWebPage.h)
+## H5页面(TVSWebPage.h)
 
-## TVSWebPageType H5 页面类型枚举
+### TVSWebPageType H5 页面类型枚举
 
 | 名称 | 描述 |
 | ------ | ------ |
@@ -703,9 +705,9 @@
 | TVSWebPageTypeFeedback | 用户反馈页面 |
 | TVSWebPageTypeAITrainer | AI 训练师（自定义问答）页面 |
 
-## TVSWebPageDelegate H5 页面回调协议
+### TVSWebPageDelegate H5 页面回调协议
 
-#### `-(void)TVSDidLoadPage:(TVSWebPageType)pageType;`
+##### `-(void)TVSDidLoadPage:(TVSWebPageType)pageType;`
 
   **描述**:
 
@@ -721,7 +723,7 @@
 
   无;
 
-#### `-(void)TVSWillAppearPage:(TVSWebPageType)pageType;`
+##### `-(void)TVSWillAppearPage:(TVSWebPageType)pageType;`
 
   **描述**:
 
@@ -737,7 +739,7 @@
 
   无;
 
-#### `-(void)TVSDidAppearPage:(TVSWebPageType)pageType;`
+##### `-(void)TVSDidAppearPage:(TVSWebPageType)pageType;`
 
   **描述**:
 
@@ -753,7 +755,7 @@
 
   无;
 
-#### `-(void)TVSWillDisappearPage:(TVSWebPageType)pageType;`
+##### `-(void)TVSWillDisappearPage:(TVSWebPageType)pageType;`
 
   **描述**:
 
@@ -769,7 +771,7 @@
 
   无;
 
-#### `-(void)TVSDidDisappearPage:(TVSWebPageType)pageType;`
+##### `-(void)TVSDidDisappearPage:(TVSWebPageType)pageType;`
 
   **描述**:
 
@@ -785,7 +787,7 @@
 
   无;
 
-#### `-(void)TVSPage:(TVSWebPageType)pageType qqLoginResult:(BOOL)result;`
+##### `-(void)TVSPage:(TVSWebPageType)pageType qqLoginResult:(BOOL)result;`
 
   **描述**:
 
@@ -802,7 +804,7 @@
 
   无;
 
-#### `-(void)TVSPage:(TVSWebPageType)pageType wxLoginResult:(BOOL)result;`
+##### `-(void)TVSPage:(TVSWebPageType)pageType wxLoginResult:(BOOL)result;`
 
   **描述**:
 
@@ -819,7 +821,7 @@
 
   无;
 
-#### `-(void)TVSPage:(TVSWebPageType)pageType verifyQQTokenResult:(BOOL)result;`
+##### `-(void)TVSPage:(TVSWebPageType)pageType verifyQQTokenResult:(BOOL)result;`
 
   **描述**:
 
@@ -836,7 +838,7 @@
 
   无;
 
-#### `-(void)TVSPage:(TVSWebPageType)pageType refreshWXTokenResult:(BOOL)result;`
+##### `-(void)TVSPage:(TVSWebPageType)pageType refreshWXTokenResult:(BOOL)result;`
 
   **描述**:
 
@@ -853,7 +855,7 @@
 
   无;
 
-#### `-(void)TVSPage:(TVSWebPageType)pageType wxPayResult:(BOOL)result;`
+##### `-(void)TVSPage:(TVSWebPageType)pageType wxPayResult:(BOOL)result;`
 
   **描述**:
 
@@ -870,7 +872,7 @@
 
   无;
 
-#### `-(void)TVSUnbindAtPage:(TVSWebPageType)pageType;`
+##### `-(void)TVSUnbindAtPage:(TVSWebPageType)pageType;`
 
   **描述**:
 
@@ -886,7 +888,7 @@
 
   无;
 
-#### `-(void)TVSPage:(TVSWebPageType)pageType receivedRemoteControlEvent:(UIEvent*)event;`
+##### `-(void)TVSPage:(TVSWebPageType)pageType receivedRemoteControlEvent:(UIEvent*)event;`
 
   **描述**:
 
@@ -903,15 +905,15 @@
 
   无;
 
-## TVSWebPage H5 页面类
+### TVSWebPage H5 页面类
 
-### 成员
+#### 成员
 
   无；
 
-### 方法
+#### 方法
 
-#### `+(instancetype)shared;`
+##### `+(instancetype)shared;`
 
   **描述**:
 
@@ -925,7 +927,7 @@
 
   TVSWebPage 类的实例；
 
-#### `-(void)setDeviceType:(NSString*)deviceType deviceOEM:(NSString*)deviceOEM productId:(NSString*)productId DSN:(NSString*)dsn;`
+##### `-(void)setDeviceType:(NSString*)deviceType deviceOEM:(NSString*)deviceOEM productId:(NSString*)productId DSN:(NSString*)dsn;`
 
   **描述**：
 
@@ -944,7 +946,7 @@
 
   无；
 
-#### `-(BOOL)enterPage:(TVSWebPageType)pageType fromViewController:(UIViewController*)fromViewController title:(NSString*)title delegate:(id<TVSWebPageDelegate>)delegate;`
+##### `-(BOOL)enterPage:(TVSWebPageType)pageType fromViewController:(UIViewController*)fromViewController title:(NSString*)title delegate:(id<TVSWebPageDelegate>)delegate;`
 
   **描述**：
 
@@ -963,30 +965,30 @@
 
   是否成功；
 
-# 会员(TVSMember.h)
+## 会员(TVSMember.h)
 
-## TVSMemberType 会员类型枚举
+### TVSMemberType 会员类型枚举
 
 | 名称 | 描述 |
 | ------ | ------ |
 | TVSMemmerTypeQQMusic | QQ 音乐会员 |
 
-## TVSMemberUnit 会员时长单位枚举
+### TVSMemberUnit 会员时长单位枚举
 
 | 名称 | 描述 |
 | ------ | ------ |
 | TVSMemberUnitYear | 年 |
 | TVSMemberUnitMonth | 月 |
 
-## TVSMember 会员类
+### TVSMember 会员类
 
-### 成员
+#### 成员
 
   无；
 
-### 方法
+#### 方法
 
-#### `-(instancetype)initWithDeviceType:(NSString*)deviceType deviceOEM:(NSString*)deviceOEM productId:(NSString*)productId DSN:(NSString*)dsn;`
+##### `-(instancetype)initWithDeviceType:(NSString*)deviceType deviceOEM:(NSString*)deviceOEM productId:(NSString*)productId DSN:(NSString*)dsn;`
 
   **描述**：
 
@@ -1005,7 +1007,7 @@
 
   TVSMember 类实例；
 
-#### `-(void)queryDeviceStatusWithType:(TVSMemberType)type handler:(void(^)(BOOL,NSInteger,TVSMemberUnit))handler;`
+##### `-(void)queryDeviceStatusWithType:(TVSMemberType)type handler:(void(^)(BOOL,NSInteger,TVSMemberUnit))handler;`
 
   **描述**：
 
@@ -1023,7 +1025,7 @@
 
   无；
 
-#### `-(void)queryMemberStatusWithType:(TVSMemberType)type handler:(void(^)(BOOL,NSDate*,NSDate*))handler;`
+##### `-(void)queryMemberStatusWithType:(TVSMemberType)type handler:(void(^)(BOOL,NSDate*,NSDate*))handler;`
 
   **描述**：
 
@@ -1041,11 +1043,11 @@
 
   无；
 
-# OCMS(TVSOCMS.h)
+## OCMS(TVSOCMS.h)
 
-## TVSAISpeechItem 音色配置类
+### TVSAISpeechItem 音色配置类
 
-### 成员
+#### 成员
 
 | 名称 | 类型 | 描述 |
 | ------ | ------ | ------ |
@@ -1054,19 +1056,19 @@
 | speechEnum | NSString* | AISpeechType 枚举值 |
 | isDefaultOption | NSString* | 是否默认音色 |
 
-### 方法
+#### 方法
 
   无；
 
-## TVSOCMS 类
+### TVSOCMS 类
 
-### 成员
+#### 成员
 
   无；
 
-### 方法
+#### 方法
 
-#### `+(instancetype)shared;`
+##### `+(instancetype)shared;`
 
   **描述**：
 
@@ -1080,7 +1082,7 @@
 
   TVSOCMS 类实例；
 
-#### `-(void)getBotAISpeechOptionWithProductId:(NSString*)productId handler:(void(^)(NSArray<TVSAISpeechItem*>*))handler;`
+##### `-(void)getBotAISpeechOptionWithProductId:(NSString*)productId handler:(void(^)(NSArray<TVSAISpeechItem*>*))handler;`
 
   **描述**：
 
@@ -1097,7 +1099,7 @@
 
   无；
 
-#### `-(void)getDeviceAISpeechWithDeviceGUID:(NSString*)deviceGUID productId:(NSString*)productId DSN:(NSString*)dsn handler:(void(^)(TVSAISpeechItem*))handler;`
+##### `-(void)getDeviceAISpeechWithDeviceGUID:(NSString*)deviceGUID productId:(NSString*)productId DSN:(NSString*)dsn handler:(void(^)(TVSAISpeechItem*))handler;`
 
   **描述**：
 
@@ -1108,7 +1110,7 @@
 
   | 名称 | 类型 | 描述 | 是否必填 |
   | ------ | ------ | ------ | ------ |
-  | deviceGUID | NSString* | 设备 guid |  |
+  | deviceGUID | NSString* | 设备 guid | 是 |
   | productId | NSString* | 设备 productId | 是 |
   | DSN | NSString* | 设备序列号 | 是 |
   | handler | void(^)(TVSAISpeechItem*) | 回调，返回音色配置 | 是 |
@@ -1117,7 +1119,7 @@
 
   无；
 
-#### `-(void)setDeviceAISpeechId:(NSString*)speechID productId:(NSString*)productId DSN:(NSString*)dsn handler:(void(^)(BOOL))handler;`
+##### `-(void)setDeviceAISpeechId:(NSString*)speechID productId:(NSString*)productId DSN:(NSString*)dsn handler:(void(^)(BOOL))handler;`
   **描述**：
 
   设置设备音色；
@@ -1136,17 +1138,17 @@
 
   无；
 
-# TSKM(TVSTSKM.h)
+## TSKM(TVSTSKM.h)
 
-## TVSTSKM 类
+### TVSTSKM 类
 
-### 成员
+#### 成员
 
   无；
 
-### 方法
+#### 方法
 
-#### `+(instancetype)shared;`
+##### `+(instancetype)shared;`
 
   **描述**：
 
@@ -1160,7 +1162,7 @@
 
   TVSTSKM 实例；
 
-#### `-(void)uniAccessWithDeviceSerialNum:(NSString*)deviceSerialNum deviceGuid:(NSString*)deviceGuid deviceProductId:(NSString*)deviceProductId domain:(NSString*)domain intent:(NSString*)intent blobInfo:(NSDictionary*)blobInfo handler:(void(^)(BOOL,NSDictionary*))handler;`
+##### `-(void)uniAccessWithDeviceSerialNum:(NSString*)deviceSerialNum deviceGuid:(NSString*)deviceGuid deviceProductId:(NSString*)deviceProductId domain:(NSString*)domain intent:(NSString*)intent blobInfo:(NSDictionary*)blobInfo handler:(void(^)(BOOL,NSDictionary*))handler;`
 
   **描述**：
 
@@ -1183,9 +1185,9 @@
 
   无；
 
-# 闹钟提醒管理(TVSAlarmManager.h)
+## 闹钟提醒管理(TVSAlarmManager.h)
 
-## TVSAlarmRepeatType 闹钟提醒重复类型枚举
+### TVSAlarmRepeatType 闹钟提醒重复类型枚举
 
 | 名称 | 描述 |
 | ------ | ------ |
@@ -1196,9 +1198,9 @@
 | TVSAlarmRepeatTypeWorkday | 工作日重复 |
 | TVSAlarmRepeatTypeWeekend | 周末重复 |
 
-## TVSAlarm 闹钟提醒实体类
+### TVSAlarm 闹钟提醒实体类
 
-### 成员
+#### 成员
 
 | 名称 | 类型 | 描述 |
 | ------ | ------ | ------ |
@@ -1209,19 +1211,19 @@
 | deviceProductId | NSString* | 设备 productId |
 | deviceGuid | NSString* | 设备 guid |
 
-### 方法
+#### 方法
 
   无；
 
-## TVSAlarmManager 闹钟提醒管理类
+### TVSAlarmManager 闹钟提醒管理类
 
-### 成员
+#### 成员
 
   无；
 
-### 方法
+#### 方法
 
-#### `-(instancetype)initWithBussiness:(NSString*)business botKey:(NSString*)botKey botToken:(NSString*)botToken;`
+##### `-(instancetype)initWithBussiness:(NSString*)business botKey:(NSString*)botKey botToken:(NSString*)botToken;`
 
   **描述**：
 
@@ -1239,7 +1241,7 @@
 
   TVSAlarmManager 类实例；
 
-#### `-(void)queryAlarmsWithDeviceProductId:(NSString*)deviceProductId deviceGuid:(NSString*)deviceGuid handler:(void(^)(NSArray<TVSAlarm*>*))handler;`
+##### `-(void)queryAlarmsWithDeviceProductId:(NSString*)deviceProductId deviceGuid:(NSString*)deviceGuid handler:(void(^)(NSArray<TVSAlarm*>*))handler;`
 
   **描述**：
 
@@ -1257,7 +1259,7 @@
 
   无；
 
-#### `-(void)addAlarms:(NSArray<TVSAlarm*>*)alarms handler:(void(^)(BOOL))handler;`
+##### `-(void)addAlarms:(NSArray<TVSAlarm*>*)alarms handler:(void(^)(BOOL))handler;`
 
   **描述**：
 
@@ -1274,7 +1276,7 @@
 
   无；
 
-#### `-(void)updateAlarms:(NSArray<TVSAlarm*>*)alarms handler:(void(^)(BOOL))handler;`
+##### `-(void)updateAlarms:(NSArray<TVSAlarm*>*)alarms handler:(void(^)(BOOL))handler;`
 
   **描述**：
 
@@ -1291,7 +1293,7 @@
 
   无；
 
-#### `-(void)deleteAlarms:(NSArray<TVSAlarm*>*)alarms handler:(void(^)(BOOL))handler;`
+##### `-(void)deleteAlarms:(NSArray<TVSAlarm*>*)alarms handler:(void(^)(BOOL))handler;`
 
   **描述**：
 
@@ -1308,17 +1310,17 @@
 
   无；
 
-# 工具(TVSUtils.h)
+## 工具(TVSUtils.h)
 
-## TVSUtils 工具类
+### TVSUtils 工具类
 
-### 成员
+#### 成员
 
   无；
 
-### 方法
+#### 方法
 
-#### `+(void)pickGuidWithOldGuid:(NSString*)oldGuid business:(NSString*)business productId:(NSString*)productId dsn:(NSString*)dsn qua:(NSString*)qua imei:(NSString*)imei lc:(NSString*)lc mac:(NSString*)mac handler:(void(^)(NSString*))handler;`
+##### `+(void)pickGuidWithOldGuid:(NSString*)oldGuid business:(NSString*)business productId:(NSString*)productId dsn:(NSString*)dsn qua:(NSString*)qua imei:(NSString*)imei lc:(NSString*)lc mac:(NSString*)mac handler:(void(^)(NSString*))handler;`
 
   **描述**:
 
@@ -1342,7 +1344,7 @@
 
   无；
 
-#### `+(BOOL)launchMiniProgramWithUsername:(NSString*)username path:(NSString*)path type:(NSInteger)type handler:(void(^)(NSString*))handler;`
+##### `+(BOOL)launchMiniProgramWithUsername:(NSString*)username path:(NSString*)path type:(NSInteger)type handler:(void(^)(NSString*))handler;`
 
   **描述**:
 
