@@ -61,8 +61,8 @@
 | refreshToken | NSString* | 微信用于刷票的 refreshToken |
 | unionId | NSString* | 微信登录返回的 unionId |
 | expireTime | NSInteger | QQ/微信 token 过期时间 |
-| tvsId | NSString* | TVS 平台返回的账号 id |
-| userId | NSString* | TVS 平台返回的 userId |
+| tvsId | NSString* |腾讯云叮当开放平台返回的账号 id |
+| userId | NSString* |腾讯云叮当开放平台返回的 userId |
 
 #### 方法
 
@@ -70,7 +70,7 @@
 
   **描述**:
 
-  获取 TVS 平台 ClientId；
+  获取腾讯云叮当开放平台 ClientId；
   必须确保已登录！
 
   **参数**：
@@ -78,11 +78,11 @@
   | 名称 | 类型 | 描述 | 是否必填 |
   | ------ | ------ | ------ | ------ |
   | dsn | NSString* | 设备序列号 | 是 |
-  | productId | NSString* | TVS 后台申请的 appid/accessToken 信息 | 是 |
+  | productId | NSString* |腾讯云叮当开放平台申请的 appid/accessToken 信息 | 是 |
 
   **返回**：
 
-  TVS 平台 ClientId;
+  腾讯云叮当开放平台 ClientId;
 
 ### TVSGeoLocation 用户地理位置信息类
 
@@ -208,7 +208,7 @@
   **描述**:
 
   微信登录；
-  如果微信 token 不存在，则必须调用此方法，以获得 TVS 后台返回的相关账户信息！
+  如果微信 token 不存在，则必须调用此方法，以获得腾讯云叮当开放平台返回的相关账户信息！
 
   **参数**:
 
@@ -225,7 +225,7 @@
   **描述**:
 
   微信登录(支持未安装微信的情况)；
-  如果微信 token 不存在，则必须调用此方法，以获得 TVS 后台返回的相关账户信息！
+  如果微信 token 不存在，则必须调用此方法，以获得腾讯云叮当开放平台返回的相关账户信息！
 
   **参数**:
 
@@ -307,7 +307,7 @@
   **描述**:
 
   QQ 登录；
-  如果 QQ token 不存在，则必须调用此方法，以获得 TVS 后台返回的相关账户信息！
+  如果 QQ token 不存在，则必须调用此方法，以获得腾讯云叮当开放平台返回的相关账户信息！
 
   **参数**:
 
@@ -324,7 +324,7 @@
   **描述**:
 
   刷新微信 token；
-  如果微信 token 存在，则必须调用此方法，以获得(更新) TVS 后台返回的相关账户信息！
+  如果微信 token 存在，则必须调用此方法，以获得(更新)腾讯云叮当开放平台返回的相关账户信息！
 
   **参数**:
 
@@ -341,7 +341,7 @@
   **描述**:
 
   验证 QQ token;
-  如果 QQ token 存在，则必须调用此方法，以获得(更新) TVS 后台返回的相关账户信息!
+  如果 QQ token 存在，则必须调用此方法，以获得(更新)腾讯云叮当开放平台返回的相关账户信息!
 
   **参数**:
 
@@ -357,7 +357,7 @@
 
   **描述**:
 
-  通过微信/QQ 账号信息直接到 TVS 后台授权（换取tvsId）；
+  通过微信/QQ 账号信息直接到腾讯云叮当开放平台授权（换取tvsId）；
   仅针对之前已经独自接入 QQ/微信 SDK，且自己维护 token 过期刷新的场景！
 
   **参数**:
@@ -551,7 +551,7 @@
 
 | 名称 | 类型 | 描述 |
 | ------ | ------ | ------ |
-| productId | NSString* | TVS 后台申请的 appid/accessToken 信息 |
+| productId | NSString* |腾讯云叮当开放平台申请的 appid/accessToken 信息 |
 | DSN | NSString* | 设备序列号 |
 | pushId | NSString* | 用于 push 的标识 |
 | pushIdExtra | NSString* | pushId 扩展字段 |
@@ -649,7 +649,7 @@
 
   | 名称 | 类型 | 描述 | 是否必填 |
   | ------ | ------ | ------ | ------ |
-  | productId | NSString* | TVS 后台申请的 appid/accessToken 信息 | 是 |
+  | productId | NSString* |腾讯云叮当开放平台申请的 appid/accessToken 信息 | 是 |
   | dsn | NSString* | 设备序列号 | 是 |
   | handler | void(^)(BOOL) | 回调，BOOL标识是否解绑成功 | 是 |
 
@@ -684,7 +684,7 @@
 
   | 名称 | 类型 | 描述 | 是否必填 |
   | ------ | ------ | ------ | ------ |
-  | productId | NSString* | TVS 后台申请的 appid/accessToken 信息  | 是 |
+  | productId | NSString* |腾讯云叮当开放平台申请的 appid/accessToken 信息  | 是 |
   | dsn | NSString* | 设备序列号 | 是 |
   | handler | void(^)(TVSAccountInfo*) | 回调，返回账号信息 TVSAccountInfo，具体字段定义详见账号管理部分  | 是 |
 
@@ -1166,7 +1166,7 @@
 
   **描述**：
 
-  TVS 各领域服务统一访问接口；
+  腾讯云叮当开放平台各领域服务统一访问接口；
   必须确保已经登录！
 
   **参数**：
@@ -1332,7 +1332,7 @@
   | ------ | ------ | ------ | ------ |
   | oldGuid | NSString* | 旧的 guid | 否 |
   | business | NSString* | 业务名，一般传 BundleId | 是 |
-  | productId | NSString* | TVS 后台申请的产品 id | 否 |
+  | productId | NSString* |腾讯云叮当开放平台申请的产品 id | 否 |
   | dsn | NSString* | 设备序列号 | 否 |
   | qua | NSString* |  | 否 |
   | imei | NSString* |  | 否 |
