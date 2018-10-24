@@ -61,8 +61,8 @@
 | refreshToken | NSString* | 微信用于刷票的 refreshToken |
 | unionId | NSString* | 微信登录返回的 unionId |
 | expireTime | NSInteger | QQ/微信 token 过期时间 |
-| tvsId | NSString* |腾讯云叮当开放平台返回的账号 id |
-| userId | NSString* |腾讯云叮当开放平台返回的 userId |
+| tvsId | NSString* | 腾讯云叮当开放平台返回的账号 id |
+| userId | NSString* | 腾讯云叮当开放平台返回的 userId |
 
 #### 方法
 
@@ -78,7 +78,7 @@
   | 名称 | 类型 | 描述 | 是否必填 |
   | ------ | ------ | ------ | ------ |
   | dsn | NSString* | 设备序列号 | 是 |
-  | productId | NSString* |腾讯云叮当开放平台申请的 appid/accessToken 信息 | 是 |
+  | productId | NSString* | 腾讯云叮当开放平台申请的 appid/accessToken 信息 | 是 |
 
   **返回**：
 
@@ -551,7 +551,7 @@
 
 | 名称 | 类型 | 描述 |
 | ------ | ------ | ------ |
-| productId | NSString* |腾讯云叮当开放平台申请的 appid/accessToken 信息 |
+| productId | NSString* | 腾讯云叮当开放平台申请的 appid/accessToken 信息 |
 | DSN | NSString* | 设备序列号 |
 | pushId | NSString* | 用于 push 的标识 |
 | pushIdExtra | NSString* | pushId 扩展字段 |
@@ -649,7 +649,7 @@
 
   | 名称 | 类型 | 描述 | 是否必填 |
   | ------ | ------ | ------ | ------ |
-  | productId | NSString* |腾讯云叮当开放平台申请的 appid/accessToken 信息 | 是 |
+  | productId | NSString* | 腾讯云叮当开放平台申请的 appid/accessToken 信息 | 是 |
   | dsn | NSString* | 设备序列号 | 是 |
   | handler | void(^)(BOOL) | 回调，BOOL标识是否解绑成功 | 是 |
 
@@ -684,7 +684,7 @@
 
   | 名称 | 类型 | 描述 | 是否必填 |
   | ------ | ------ | ------ | ------ |
-  | productId | NSString* |腾讯云叮当开放平台申请的 appid/accessToken 信息  | 是 |
+  | productId | NSString* | 腾讯云叮当开放平台申请的 appid/accessToken 信息  | 是 |
   | dsn | NSString* | 设备序列号 | 是 |
   | handler | void(^)(TVSAccountInfo*) | 回调，返回账号信息 TVSAccountInfo，具体字段定义详见账号管理部分  | 是 |
 
@@ -1332,7 +1332,7 @@
   | ------ | ------ | ------ | ------ |
   | oldGuid | NSString* | 旧的 guid | 否 |
   | business | NSString* | 业务名，一般传 BundleId | 是 |
-  | productId | NSString* |腾讯云叮当开放平台申请的产品 id | 否 |
+  | productId | NSString* | 腾讯云叮当开放平台申请的产品 id | 否 |
   | dsn | NSString* | 设备序列号 | 否 |
   | qua | NSString* |  | 否 |
   | imei | NSString* |  | 否 |
