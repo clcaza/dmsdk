@@ -1,11 +1,11 @@
 # 厂商APP接入说明 #
 ## 1. 登录验证流程 ##
-TVS（Tencent Voice Service）开放平台的帐号验证和Token传递流程仿照AVS（Alexa Voice Service）的验证流程来进行的。
+帐号验证和Token传递流程仿照AVS（Alexa Voice Service）的验证流程来进行的。
 ### 1.1 厂商APP-LWA（Login With Amazon）-AVS音箱-AVS验证流程 ###
 ![](image/avsopen.png)
-### 1.2 厂商APP-微信开放平台-TVS后台-TVS音箱-TVS验证流程 ###
+### 1.2 厂商APP-微信开放平台-叮当后台-设备-叮当服务验证流程 ###
 ![](image/wxopen.png)
-### 1.3 厂商APP-微信开放平台-TVS后台-TVS音箱-TVS验证流程 ###
+### 1.3 厂商APP-微信开放平台-叮当后台-设备-叮当服务验证流程 ###
 ![](image/qqopen.png)
 ## 2. 名词解释 ##
 ### 2.1 openid ###

@@ -120,7 +120,7 @@ public class QRomWupConfig extends QRomWupBaseConfig {</br>
 ### 7.1 开发指南 ###
 #### 7.1.1 设备绑定逻辑图 ####
 ![](image/devicebind.png)
-#### 7.1.2 厂商APP接入TVS设备管理系统配置步骤 ####
+#### 7.1.2 厂商APP接入设备管理系统配置步骤 ####
 <li>1、aar配置 </li>
 将tvsdevicelib-release.aar，放入app\libs目录下
 <li>2、gradle配置</li>

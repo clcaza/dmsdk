@@ -1,6 +1,6 @@
 # Android厂商APP API #
 ## LoginProxy ##
-&emsp;TVS登录功能代理类</br>
+&emsp;帐号和设备管理功能代理类</br>
 ### getInstance ###
 &emsp;获取LoginProxy实例</br>
 <pre><code>static LoginProxy getInstance(String appIdWx, String appIdQQOpen, Context context)</code></pre>
@@ -23,7 +23,7 @@
 |  platform | ELoginPlatform | <p>帐号平台类型</p>|
 
 ### requestLogin ###
-&emsp;请求TVS登录</br>
+&emsp;请求登录</br>
 <pre><code>void requestLogin(ELoginPlatform platform, String productId, String dsn, Activity activity)</code></pre>
 
 #### 参数
@@ -36,7 +36,7 @@
 |  activity | Activity | <p>登录Activity实例</p>|
 
 ### requestLogin ###
-&emsp;请求TVS登录</br>
+&emsp;请求登录</br>
 <pre><code>void requestLogin(ELoginPlatform platform, Activity activity)</code></pre>
 
 #### 参数
@@ -445,7 +445,7 @@
 &emsp;判断手机是否安装微信</br>
 <pre><code>boolean isWXAppInstalled()</code></pre>
 ### tvsAuth ###
-&emsp;请求授权到TVS叮当平台（包括微信授权、刷票；QQ授权）</br>
+&emsp;请求授权到叮当平台（包括微信授权、刷票；QQ授权）</br>
 <pre><code>void tvsAuth(ELoginPlatform platform, String acctRet)</code></pre>
 #### 参数
 | 名称     | 类型       | 说明                           |
@@ -482,7 +482,7 @@
 | refreshToken | String | 授权登录的RefreshToken |
 | openID | String | 用户的OpenID |
 | expireTime | long | AccessToken的有效期 |
-| tvsID| String | 授权叮当后请求到的tvsID |
+| tvsID| String | 授权叮当后请求到的叮当ID |
 | appId| String | 叮当登录的微信或QQ的AppId |
 | manageAcctOperType| String | manageAcct帐号操作类型 |
 
@@ -528,8 +528,8 @@
 |:---------|:-----------|
 |AUTH_TYPE|微信授权票据类型|
 |REFRESH_TYPE|微信刷新票据类型|
-|WX_TVSIDRECV_TYPE|微信TVSID接收类型|
-|QQOPEN_TVSIDRECV_TYPE|QQ TVSID接收类型|
+|WX_TVSIDRECV_TYPE|微信叮当ID接收类型|
+|QQOPEN_TVSIDRECV_TYPE|QQ 叮当ID接收类型|
 |TOKENVERIFY_TYPE|QQ帐号AccessToken验证类型|
 |USERINFORECV_TYPE|用户信息获取类型|
 |WX_VALID_LOGIN_TYPE|微信合法登录类型|
@@ -648,8 +648,8 @@
 | bindAccountType | int | 绑定的帐号类型 |
 | bindTime | long | 绑定时间 |
 | enrollTime | long | 注册时间 |
-| productId | String | TVS标准信息设备ID |
-| dsn | String | TVS标准信息设备序列号 |
+| productId | String | 叮当标准信息设备ID |
+| dsn | String | 叮当标准信息设备序列号 |
 
 ## EUserAttrType ##
 &emsp;用户中心类型枚举</br>
@@ -756,5 +756,5 @@
 | openId|String| 主账号OpenId |
 | accessToken| String | 主账号AccessToken |
 | refreshToken | String | 主账号RefreshToken |
-| tvsId | String | 主账号TVSId |
+| tvsId | String | 主账号叮当Id |
 | expireTime | long | 主账号票据过期时间 |
