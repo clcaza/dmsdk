@@ -575,6 +575,15 @@
 #### 方法
 
   无；
+  
+### TVSDeviceBindType 设备绑定类型枚举
+
+| 名称 | 描述 |
+| ------ | ------ |
+| TVSDeviceBindTypeSDKApp | SDK 接入方案的 App |
+| TVSDeviceBindTypeSDKSpeaker | SDK 接入方案的音箱 |
+| TVSDeviceBindTypeTVSApp | 云端 API 接入方案的 App |
+| TVSDeviceBindTypeTVSSpeaker | 云端 API 接入方案的音箱 |
 
 ### TVSDeviceBind 设备绑定类
 
