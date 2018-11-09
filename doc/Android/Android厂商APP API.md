@@ -473,6 +473,19 @@
 |  openID | String | <p>QQ互联登录的OpenID</p>|
 |  accessToken | String | <p>QQ互联登录的票据信息</p>|
 
+
+### requestGetDeviceInfoList ###
+&emsp;根据用户OpenId或设备guid查询绑定列表</br>
+<pre><code>void requestGetDeviceInfoList(ELoginPlatform platform, int queryDeviceType, String deviceGUID, PushInfoManager pushInfoManager)</code></pre>
+#### 参数
+| 名称     | 类型       | 说明                           |
+|:---------|:-----------|:--------------------------------------|
+|  platform | EPlatform | <p>帐号类型</p>|
+|  queryDeviceType | int | <p>查询类型</p>|
+|  deviceGUID | String | <p>设备GUID，如果根据用户来查找可以置空</p>|
+|  pushInfoManager | PushInfoManager | <p>Push信息管理器</p>|
+
+
 ## LoginInfoManager ##
 &emsp;登录信息管理类，被WxInfoManager和QQOpenInfoManager继承。</br></br>
 
