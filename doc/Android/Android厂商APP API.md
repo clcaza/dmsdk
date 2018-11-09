@@ -618,6 +618,7 @@
 |GET_BOT_AI_SPEECH_OPTION_TYPE|获取ProductID支持TTS音色列表类型|
 |SET_DEVICE_AI_SPEECH_TYPE|设置设备TTS音色|
 |GET_DEVICE_AI_SPEECH_TYPE|获取设备上TTS音色|
+|GET_DEVICE_INFOLIST_TYPE|获取绑定设备列表类型|
 
 
 ## PushInfoManager ##
@@ -740,6 +741,7 @@
 | currAISpeechItem | AISpeechItem | 当前TTS音色信息 |
 | supportAISpeechItems | ArrayList | 当前ProductID支持的TTS音色列表 |
 | alarmBusiness | AlarmBusiness | 闹钟V1协议事务数据 |
+| boundDeviceInfoList | ArrayList<BoundItem> | 绑定设备信息列表 |
 
 ## AIAcctInfo ##
 &emsp;用于获取查询云端绑定对应帐号信息的结构体类</br>
