@@ -927,7 +927,7 @@
 
   TVSWebPage 类的实例；
 
-##### `-(void)setDeviceType:(NSString*)deviceType deviceOEM:(NSString*)deviceOEM productId:(NSString*)productId DSN:(NSString*)dsn;`
+##### `-(void)setDeviceBindType:(TVSDeviceBindType)deviceBindType deviceType:(NSString*)deviceType deviceOEM:(NSString*)deviceOEM productId:(NSString*)productId DSN:(NSString*)dsn;`
 
   **描述**：
 
@@ -937,6 +937,7 @@
 
   | 名称 | 类型 | 描述 | 是否必填 |
   | ------ | ------ | ------ | ------ |
+  | deviceBindType | TVSDeviceBindType | 设备绑定类型 | 是 |
   | deviceType | NSString* | 设备类型 | 是 |
   | deviceOEM | NSString* | 设备厂商 | 是 |
   | productId | NSString* | 设备 productId | 是 |
