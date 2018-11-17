@@ -89,6 +89,21 @@
 |  deviceManager | DeviceManager | <p>设备管理器</p>|
 |  env | ELoginEnv | <p>网络环境</p>|
 
+### requestQRAuth ###
+&emsp;请求有屏设备QQ音乐帐号绑定二维码登录</br>
+<pre><code>void requestQRAuth(QRAuthInfo qrAuthInfo, UserCenterStateListener stateListener, ProxyDataListener dataListener, MotionEventListener motionEventListener, DeviceManager deviceManager, String url)</code></pre>
+#### 参数
+
+| 名称     | 类型       | 说明                           |
+|:---------|:-----------|:--------------------------------------|
+|  qrAuthInfo | QRAuthInfo | <p>主账号基本信息结构体</p>|
+|  stateListener | UserCenterStateListener | <p>H5页面主账号行为回调监听器</p>|
+|  dataListener | ProxyDataListener | <p>前端与终端SDK数据透传通道回调监听器</p>|
+|  motionEventListener | MotionEventListener | <p>H5页面触摸事件回调监听器</p>|
+|  deviceManager | DeviceManager | <p>设备管理器</p>|
+|  url | String | <p>需要承载二维码的URL</p>|
+
+
 ### requestWebAuth ###
 &emsp;请求无屏设备QQ音乐帐号登录</br>
 <pre><code>void requestWebAuth(UserCenterStateListener stateListener, ProxyDataListener dataListener, MotionEventListener motionEventListener, ELoginEnv env)</code></pre>
