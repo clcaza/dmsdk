@@ -91,7 +91,7 @@
 
 ### requestQRAuth ###
 &emsp;请求有屏设备QQ音乐帐号绑定二维码登录</br>
-<pre><code>void requestQRAuth(QRAuthInfo qrAuthInfo, UserCenterStateListener stateListener, ProxyDataListener dataListener, MotionEventListener motionEventListener, DeviceManager deviceManager, String url)</code></pre>
+<pre><code>void requestQRAuth(QRAuthInfo qrAuthInfo, UserCenterStateListener stateListener, ProxyDataListener dataListener, MotionEventListener motionEventListener, DeviceManager deviceManager, String url, int[] loadingPaddingRect)</code></pre>
 #### 参数
 
 | 名称     | 类型       | 说明                           |
@@ -102,6 +102,7 @@
 |  motionEventListener | MotionEventListener | <p>H5页面触摸事件回调监听器</p>|
 |  deviceManager | DeviceManager | <p>设备管理器</p>|
 |  url | String | <p>需要承载二维码的URL</p>|
+|  loadingPaddingRect | int[] | <p>加载Progress位置padding，左上右下</p>|
 
 
 ### requestWebAuth ###
