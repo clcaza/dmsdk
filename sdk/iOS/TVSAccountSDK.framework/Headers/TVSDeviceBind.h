@@ -12,6 +12,33 @@
 
 
 /*!
+ * @brief 设备绑定类型
+ */
+typedef NS_ENUM(NSInteger,TVSDeviceBindType) {
+    /*!
+     * @brief SDK 接入方案的 App
+     */
+    TVSDeviceBindTypeSDKApp,
+    
+    /*!
+     * @brief SDK 接入方案的音箱
+     */
+    TVSDeviceBindTypeSDKSpeaker,
+    
+    /*!
+     * @brief 云端 API 接入方案的 App
+     */
+    TVSDeviceBindTypeTVSApp,
+    
+    /*!
+     * @brief 云端 API 接入方案的音箱
+     */
+    TVSDeviceBindTypeTVSSpeaker
+};
+
+
+
+/*!
  * @class TVSPushDevice
  * @brief TVS Push 设备
  */
@@ -26,6 +53,11 @@
  * @brief DSN 设备序列号
  */
 @property(nonatomic,copy) NSString* DSN;
+
+/*!
+ * @brief bindType 设备绑定类型
+ */
+@property(nonatomic,assign) TVSDeviceBindType bindType;
 
 /*!
  * @brief pushId
@@ -112,10 +144,16 @@
  */
 @property(nonatomic,assign) long long bindTime;
 
+
 /*!
  * @brief extra 扩展信息
  */
 @property(nonatomic,strong) NSDictionary* extra;
+
+/*!
+ * @brief accountinfo 账号信息
+ */
+@property(nonatomic,strong) TVSAccountInfo* accountinfo;
 
 @end
 
@@ -134,48 +172,59 @@
 +(instancetype)shared;
 
 /*!
- * @brief 绑定 APP
- * @warning 必须确保已登录
- * @param guid
- * @param deviceToken
- * @param bundleId
- * @param qua
- * @param extra
+ * @brief 有屏音箱扫码预绑定
+ * @warning 必须确保已登录！！
+ * @param pushDevice 设备信息，其中 productId 、 DSN、bindType 必传!!
+ * @param cancel 是否取消预绑定
  * @param handler 回调，BOOL 值表示是否成功
  */
--(void)bindAppWithGuid:(NSString*)guid deviceToken:(NSString*)deviceToken bundleId:(NSString*)bundleId qua:(NSString*)qua extra:(NSDictionary*)extra handler:(void(^)(BOOL))handler;
+-(void)preBindScreenDevice:(TVSPushDevice*)pushDevice cancel:(BOOL)cancel handler:(void(^)(BOOL))handler;
 
 /*!
  * @brief 绑定设备
- * @warning 必须确保已登录
- * @param pushDevice 设备信息，其中 productId 和 DSN(设备序列号)必传，其他字段根据需要透传
+ * @warning 必须确保已登录！！
+ * @param pushDevice 设备信息，其中 productId、 DSN、bindType 必传!!
  * @param handler 回调，BOOL 值表示是否成功
  */
 -(void)bindDevice:(TVSPushDevice*)pushDevice handler:(void(^)(BOOL))handler;
 
 /*!
  * @brief 解绑设备
- * @warning 必须确保已登录
- * @param productId 设备 productId
- * @param dsn 设备序列号
+ * @warning 必须确保已登录！！
+ * @param pushDevice 设备信息，其中 productId、 DSN、bindType 必传!!
  * @param handler 回调，BOOL 值表示是否成功
  */
--(void)unbindDeviceWithProductId:(NSString*)productId dsn:(NSString*)dsn handler:(void(^)(BOOL))handler;
+-(void)unbindDevice:(TVSPushDevice*)pushDevice handler:(void(^)(BOOL))handler;
 
 /*!
- * @brief 查询绑定过的 push 设备列表
- * @warning 必须确保已登录
+ * @brief 通过 guid 查询设备列表
+ * @param guid
+ * @param bindType 设备绑定类型
  * @param handler 回调
  */
--(void)queryPushDevicesWithHandler:(void(^)(NSArray<TVSPushDevice*>*))handler;
+-(void)queryDevicesByGuid:(NSString*)guid bindType:(TVSDeviceBindType)bindType handler:(void(^)(NSArray<TVSPushDevice*>*))handler;
 
+/*!
+ * @brief 通过账号查询设备列表
+ * @warning 必须确保已登录！！
+ * @param bindType 设备绑定类型
+ * @param handler 回调
+ */
+-(void)queryDevicesByAccountWithBindType:(TVSDeviceBindType)bindType handler:(void(^)(NSArray<TVSPushDevice*>*))handler;
 
 /*!
  * @brief 根据设备信息反查绑定的账号信息
- * @param productId 设备 productId
- * @param dsn 设备序列号
+ * @param pushDevice 设备信息，其中 productId、 DSN、bindType 必传!!
  * @param handler 回调，TVSAccountInfo 为账号信息
  */
--(void)queryBoundAccountWithDeviceProductId:(NSString*)productId dsn:(NSString*)dsn handler:(void(^)(TVSAccountInfo*))handler;
+-(void)queryAccountWithDevice:(TVSPushDevice*)pushDevice handler:(void(^)(TVSAccountInfo*))handler;
+
+/*!
+ * @brief 根据设备信息反查绑定的账号信息
+ * @param productId
+ * @param dsn
+ * @param handler 回调，TVSAccountInfo 为账号信息
+ */
+-(void)queryAccountWithDeviceProductId:(NSString*)productId dsn:(NSString*)dsn handler:(void(^)(TVSAccountInfo*))handler;
 
 @end

@@ -228,6 +228,30 @@ extern NSString* const TVSInvalidRefreshToken;
 
 
 /*!
+ * @brief TVS 授权结果
+ */
+typedef NS_ENUM(NSInteger,TVSAuthResult) {
+    /*!
+     * @brief 授权成功
+     */
+    TVSAuthResultSuccess,
+    /*!
+     * @brief 授权失败（网络原因）
+     */
+    TVSAuthResultFailedNetwork,
+    /*!
+     * @brief 授权失败（未登录）
+     */
+    TVSAuthResultFailedNotLogin,
+    /*!
+     * @brief 授权成功（其他原因）
+     */
+    TVSAuthResultFailedOther
+};
+
+
+
+/*!
  * @class TVSAuth
  * @brief TVS 账号授权接口
  */
@@ -268,17 +292,17 @@ extern NSString* const TVSInvalidRefreshToken;
 /*!
  * @brief 微信登录
  * @warning 如果微信 token 不存在，则必须调用此方法，以获得 TVS 后台返回的相关账户信息
- * @param handler 回调，BOOL 值表示是否成功
+ * @param handler 回调，TVSAuthResult 值表示结果
  */
--(void)wxLoginWithHandler:(void(^)(BOOL))handler;
+-(void)wxLoginWithHandler:(void(^)(TVSAuthResult))handler;
 
 /*!
  * @brief 微信登录(支持未安装微信的情况)
  * @warning 如果微信 token 不存在，则必须调用此方法，以获得 TVS 后台返回的相关账户信息
  * @@param viewController 发起微信登录的界面
- * @param handler 回调，BOOL 值表示是否成功
+ * @param handler 回调，TVSAuthResult 值表示结果
  */
--(void)wxLoginWithViewController:(UIViewController*)vc handler:(void(^)(BOOL))handler;
+-(void)wxLoginWithViewController:(UIViewController*)vc handler:(void(^)(TVSAuthResult))handler;
 
 /*!
  * @brief 微信支付(NativeSDK方式)
@@ -317,23 +341,23 @@ extern NSString* const TVSInvalidRefreshToken;
 /*!
  * @brief QQ 登录
  * @warning 如果 QQ token 不存在，则必须调用此方法，以获得 TVS 后台返回的相关账户信息
- * @param handler 回调，BOOL 值表示是否成功
+ * @param handler 回调，TVSAuthResult 值表示结果
  */
--(void)qqLoginWithHandler:(void(^)(BOOL))handler;
+-(void)qqLoginWithHandler:(void(^)(TVSAuthResult))handler;
 
 /*!
  * @brief 刷新微信 Token
  * @warning 如果微信 token 存在，则必须调用此方法，以获得(更新) TVS 后台返回的相关账户信息
- * @param handler 回调，BOOL 值表示是否成功
+ * @param handler 回调，TVSAuthResult 值表示结果
  */
--(void)wxTokenRefreshWithHandler:(void(^)(BOOL))handler;
+-(void)wxTokenRefreshWithHandler:(void(^)(TVSAuthResult))handler;
 
 /*!
  * @brief 验证 QQ Token
  * @warning 如果 QQ token 存在，则必须调用此方法，以获得(更新) TVS 后台返回的相关账户信息
- * @param handler 回调，BOOL 值表示是否成功
+ * @param handler 回调，TVSAuthResult 值表示结果
  */
--(void)qqTokenVerifyWithHandler:(void(^)(BOOL))handler;
+-(void)qqTokenVerifyWithHandler:(void(^)(TVSAuthResult))handler;
 
 /*!
  * @brief 通过微信/QQ 账号信息直接到 TVS 后台授权（换取tvsId）
@@ -350,9 +374,9 @@ extern NSString* const TVSInvalidRefreshToken;
  * @warning 仅针对之前已经独自接入 QQ/微信 SDK，且自己维护 token 过期刷新的场景！!
  * @param openId QQ/微信登录后返回的 openId
  * @param accessToken QQ/微信登录后返回的 accessToken
- * @param handler 回调，BOOL 值表示是否成功
+ * @param handler 回调，TVSAuthResult 值表示结果
  */
--(void)verifyQQTokenWithOpenId:(NSString*)openId accessToken:(NSString*)accessToken handler:(void(^)(BOOL))handler;
+-(void)verifyQQTokenWithOpenId:(NSString*)openId accessToken:(NSString*)accessToken handler:(void(^)(TVSAuthResult))handler;
 
 /*!
  * @brief 保存微信/QQ登录返回的用户资料信息
@@ -366,10 +390,10 @@ extern NSString* const TVSInvalidRefreshToken;
  * @brief 开始微信二维码登录
  * @param imageHandler 获取到二维码回调
  * @param scannedHandler 二维码被扫描回调
- * @param finishHandler 完成授权回调，BOOL参数表示是否成功
+ * @param finishHandler 完成授权回调，TVSAuthResult 参数表示结果
  * @return 是否请求成功
  */
--(BOOL)startWXQRCodeAuthWithImageHandler:(void(^)(UIImage*))imageHandler scannedHandler:(void(^)(void))scannedHandler finishHandler:(void(^)(BOOL))finishHandler;
+-(BOOL)startWXQRCodeAuthWithImageHandler:(void(^)(UIImage*))imageHandler scannedHandler:(void(^)(void))scannedHandler finishHandler:(void(^)(TVSAuthResult))finishHandler;
 
 /*!
  * @brief 停止微信二维码登录

@@ -197,14 +197,17 @@ typedef NS_ENUM(NSInteger,TVSDeviceRelationQueryType) {
  */
 -(void)queryDeviceRelationBaseInfoByQRCodeScanResult:(NSString*)scanResult handler:(void(^)(TVSDeviceRelationBaseInfo*))handler;
 
+-(void)addRelationWithType:(TVSDeviceRelationAddType)type baseInfo:(TVSDeviceRelationBaseInfo*)baseInfo accountInfo:(TVSDeviceRelationAccountInfo*)accountInfo handler:(void(^)(BOOL))handler;
+
 /*!
- * @brief 添加用户
+ * @brief 预添加用户
  * @param type 添加类型
  * @param baseInfo 亲友圈基本信息（其中设备信息和管理员信息都需要传！）
  * @param accountInfo 待添加的用户账号信息（其中 accounttype、accountid、accountappid 三个字段必填！）
+ * @param cancel 是否取消
  * @param handler 回调，bool 参数表示是否成功
  */
--(void)addRelationWithType:(TVSDeviceRelationAddType)type baseInfo:(TVSDeviceRelationBaseInfo*)baseInfo accountInfo:(TVSDeviceRelationAccountInfo*)accountInfo handler:(void(^)(BOOL))handler;
+-(void)preAddRelationWithType:(TVSDeviceRelationAddType)type baseInfo:(TVSDeviceRelationBaseInfo*)baseInfo accountInfo:(TVSDeviceRelationAccountInfo*)accountInfo cancel:(BOOL)cancel handler:(void(^)(BOOL))handler;
 
 /*!
  * @brief 删除用户

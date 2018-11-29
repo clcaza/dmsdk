@@ -9,6 +9,26 @@
 #import <Foundation/Foundation.h>
 
 /*!
+ * @class TVSTTSConfig
+ * @brief TVS TTS配置
+ */
+@interface TVSTTSConfig : NSObject
+
+/*!
+ * @brief 速度
+ */
+@property(nonatomic,assign) NSInteger* speed;
+
+/*!
+ * @brief 音量
+ */
+@property(nonatomic,assign) NSInteger* volume;
+
+@end
+
+
+
+/*!
  * @class TVSAISpeechItem
  * @brief TVS 音色配置
  */
@@ -34,7 +54,13 @@
  */
 @property(nonatomic,strong) NSString* isDefaultOption;
 
+/*!
+ * @brief TTS 配置
+ */
+@property(nonatomic,strong) TVSTTSConfig* ttsConfig;
+
 @end
+
 
 
 /*!
@@ -99,11 +125,12 @@
  * @brief 设置设备音色
  * @warning 必须登录后调用！！
  * @param speechID 音色ID
+ * @param ttsConfig TTS配置
  * @param productId
  * @param DSN
  * @param handler 回调，BOOL参数表示是否设置成功
  */
--(void)setDeviceAISpeechId:(NSString*)speechID productId:(NSString*)productId DSN:(NSString*)dsn handler:(void(^)(BOOL))handler;
+-(void)setDeviceAISpeechId:(NSString*)speechID ttsConfig:(TVSTTSConfig*)ttsConfig productId:(NSString*)productId DSN:(NSString*)dsn handler:(void(^)(BOOL))handler;
 
 /*!
  * @brief 写入护眼模式配置

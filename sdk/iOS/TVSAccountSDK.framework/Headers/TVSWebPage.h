@@ -8,11 +8,16 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "TVSDeviceBind.h"
 
 /*!
  * @brief TVS 相关 WEB 页面
  */
 typedef NS_ENUM(NSInteger,TVSWebPageType) {
+    /*!
+     * @brief 账号授权页面
+     */
+    TVSWebPageTypeAuth,
     /*!
      * @brief 个人中心页面
      */
@@ -148,12 +153,13 @@ typedef NS_ENUM(NSInteger,TVSWebPageType) {
 
 /*!
  * @brief 设置设备相关信息（用于领取会员）
+ * @param deviceBindType 设备绑定类型
  * @param deviceType 设备类型
  * @param deviceOEM 设备厂商
  * @param productId TVS 后台申请的产品 id
  * @param dsn 设备号
  */
--(void)setDeviceType:(NSString*)deviceType deviceOEM:(NSString*)deviceOEM productId:(NSString*)productId DSN:(NSString*)dsn;
+-(void)setDeviceBindType:(TVSDeviceBindType)deviceBindType deviceType:(NSString*)deviceType deviceOEM:(NSString*)deviceOEM productId:(NSString*)productId DSN:(NSString*)dsn;
 
 /*!
  * @brief 打开会员相关 H5 页面
