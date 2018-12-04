@@ -133,13 +133,19 @@ typedef NS_ENUM(NSInteger,TVSWebPageType) {
  */
 -(void)TVSUnbindAtPage:(TVSWebPageType)pageType;
 
+
+#ifdef DINGDANG_APP
 @optional
-/*!
- * @brief H5页面收到远程控制事件
- * @param pageType 页面类型
- * @param event 远程控制事件
- */
 -(void)TVSPage:(TVSWebPageType)pageType receivedRemoteControlEvent:(UIEvent*)event;
+@optional
+-(void)TVSPage:(TVSWebPageType)pageType navBack:(BOOL)last;
+@optional
+-(void)TVSPage:(TVSWebPageType)pageType loadUrlResult:(BOOL)success;
+@optional
+-(void)TVSPageStartRecord:(TVSWebPageType)pageType;
+@optional
+-(void)TVSPageStopRecord:(TVSWebPageType)pageType;
+#endif
 
 @end
 
