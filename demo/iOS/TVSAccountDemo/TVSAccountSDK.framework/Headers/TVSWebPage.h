@@ -179,6 +179,18 @@ typedef NS_ENUM(NSInteger,TVSWebPageType) {
 -(BOOL)enterPage:(TVSWebPageType)pageType fromViewController:(UIViewController*)fromViewController title:(NSString*)title delegate:(id<TVSWebPageDelegate>)delegate;
 
 /*!
+ * @brief 打开会员相关 H5 页面
+ * @warning 暂时只支持微信支付
+ * @param pageType H5 页面类型
+ * @param fromViewController 起始页面
+ * @param title 标题，如果传空会自动读取网页标题
+ * @param delegate 页面回调
+ * @param checkDeviceBind 是否检查设备绑定
+ * @return 是否成功
+ */
+-(BOOL)enterPage:(TVSWebPageType)pageType fromViewController:(UIViewController*)fromViewController title:(NSString*)title delegate:(id<TVSWebPageDelegate>)delegate checkDeviceBind:(BOOL)checkDeviceBind;
+
+/*!
  * @brief 打开任意 H5 页面
  * @warning 暂时只支持微信支付
  * @param url H5 页面链接
