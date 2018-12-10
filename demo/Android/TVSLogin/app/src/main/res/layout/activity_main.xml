@@ -506,10 +506,29 @@
                     />
             </LinearLayout>
             <LinearLayout
+                android:id="@+id/getdeviceinfolistlayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_below="@id/dmconfiglayout">
+                <Button
+                    android:id="@+id/getdeviceinfolistbutton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAllCaps="false"
+                    android:text="GetDMConfig"
+                    />
+                <TextView
+                    android:id="@+id/getdeviceinfolisttext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    />
+            </LinearLayout>
+            <LinearLayout
                 android:id="@+id/wxtokenlayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/dmconfiglayout"
+                android:layout_below="@id/getdeviceinfolistlayout"
                 android:orientation="vertical"
                 android:visibility="gone">
                 <TextView

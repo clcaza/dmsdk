@@ -28,6 +28,7 @@ import com.tencent.ai.tvs.business.EAlarmOper;
 import com.tencent.ai.tvs.business.EAlarmRepeatType;
 import com.tencent.ai.tvs.business.UniAccessInfo;
 import com.tencent.ai.tvs.comm.CommOpInfo;
+import com.tencent.ai.tvs.devrelation.DevRelationMemberInfo;
 import com.tencent.ai.tvs.env.ELoginEnv;
 import com.tencent.ai.tvs.env.ELoginPlatform;
 import com.tencent.ai.tvs.env.EUserAttrType;
@@ -50,10 +51,12 @@ import com.tencent.ai.tvs.qrcodesdk.WxQRCodeInfoManager;
 import com.tencent.ai.tvs.ui.MotionEventListener;
 import com.tencent.ai.tvs.ui.ProxyDataListener;
 import com.tencent.ai.tvs.ui.UserCenterStateListener;
+import com.tencent.ai.tvs.zxing.activity.DDQRScanUserActionListener;
 import com.tencent.ai.tvs.zxing.util.DDQRCodeFontUICallback;
-import com.tencent.ai.tvs.zxing.util.QRKeyEventCallback;
+import com.tencent.ai.tvs.zxing.util.DRQREndListener;
 import com.tencent.ai.tvs.zxing.util.DevRelationQRFontUICallback;
 import com.tencent.ai.tvs.zxing.util.DingDangQRInfoManager;
+import com.tencent.ai.tvs.zxing.util.QRKeyEventCallback;
 import com.tencent.ai.tvs.zxing.util.QRScanResultListener;
 import com.tencent.connect.common.Constants;
 
@@ -62,7 +65,10 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 import SmartService.EAIPushIdType;
+import SmartService.EAcctDeviceBindState;
 import SmartService.EQRCodeState;
+import SmartService.EQueryDeviceType;
+import SmartService.TTSConfigs;
 
 public class MainActivity extends AppCompatActivity implements AuthorizeListener, BindingListener {
 
@@ -179,6 +185,9 @@ public class MainActivity extends AppCompatActivity implements AuthorizeListener
     private Button getBotAISpeechOptionButton, setDeviceAISpeechButton, getDeviceAISpeechButton;
     private Button uniAccessButton;
     private Button getDMConfigButton, setDMConfigButton;
+    private Button getdeviceinfolistButton;
+
+    private TextView getdeviceinfolistTextView;
 
     private Button qrAuthButton, webAuthButton;
 
@@ -479,9 +488,11 @@ public class MainActivity extends AppCompatActivity implements AuthorizeListener
                 PushInfoManager pushManager = PushInfoManager.getInstance();
                 DeviceManager devManager = new DeviceManager();
                 pushManager.idType = EAIPushIdType._ETVSSpeakerIdentifier;
+//                pushManager.idType = EAIPushIdType._EWehomeSpeakerIdentifier;
                 pushManager.idExtra = ConstantValues.PUSHMGR_IDEXTRA;
                 devManager.productId = TEST_PRODUCTID;
                 devManager.dsn = TEST_DSN;
+                devManager.acctDevBindState = EAcctDeviceBindState._e_state_valid;
 
                 proxy.requestSetPushMapInfoEx(TEST_PLATFORM, pushManager, devManager);
             }
@@ -607,7 +618,7 @@ public class MainActivity extends AppCompatActivity implements AuthorizeListener
                 deviceManager.productId = TEST_PRODUCTID;
                 deviceManager.dsn = TEST_DSN;
                 String jsonData = "";
-                proxy.requestDingDangQRShow(MainActivity.this, deviceManager, qrStateListener, qrCustomViewListener, ddqrCodeFontUICallback, qrKeyEventCallback, jsonData);
+                proxy.requestDingDangQRShow(MainActivity.this, deviceManager, qrStateListener, qrCustomViewListener, ddqrCodeFontUICallback, qrKeyEventCallback, jsonData, 0L);
             }
         });
 
@@ -622,6 +633,11 @@ public class MainActivity extends AppCompatActivity implements AuthorizeListener
 
                     @Override
                     public void onCancel(Object msg) {
+
+                    }
+                }, new DDQRScanUserActionListener() {
+                    @Override
+                    public void onStatManager(String eventName, String paramKey1, String paramValue1) {
 
                     }
                 });
@@ -650,7 +666,7 @@ public class MainActivity extends AppCompatActivity implements AuthorizeListener
                 DeviceManager deviceManager = new DeviceManager();
                 deviceManager.productId = TEST_PRODUCTID;
                 deviceManager.dsn = TEST_DSN;
-                proxy.requestDevRelationQRShow(MainActivity.this, deviceManager, qrStateListener, qrCustomViewListener, devRelationQRFontUICallback, qrKeyEventCallback);
+                proxy.requestDevRelationQRShow(MainActivity.this, deviceManager, qrStateListener, qrCustomViewListener, devRelationQRFontUICallback, qrKeyEventCallback, drqrEndListener, 0L);
             }
         });
 
@@ -678,7 +694,10 @@ public class MainActivity extends AppCompatActivity implements AuthorizeListener
                 deviceManager.productId = TEST_PRODUCTID;
                 deviceManager.dsn = TEST_DSN;
                 String speechID = "";
-                proxy.requestSetDeviceAISpeech(ELoginPlatform.WX, deviceManager, speechID);
+                TTSConfigs ttsConfigs = new TTSConfigs();
+                ttsConfigs.iSpeed = 0;
+                ttsConfigs.iVolume = 1;
+                proxy.requestSetDeviceAISpeech(ELoginPlatform.WX, deviceManager, speechID, ttsConfigs);
             }
         });
 
@@ -717,6 +736,9 @@ public class MainActivity extends AppCompatActivity implements AuthorizeListener
                 info.refreshToken = "refreshToken";
                 info.tvsId = "13b1bbf10005a73e";
                 info.expireTime = 7776000L;
+                DeviceManager deviceManager = new DeviceManager();
+                deviceManager.productId = TEST_PRODUCTID;
+                deviceManager.dsn = TEST_DSN;
                 proxy.requestQRAuth(info,
                         new UserCenterStateListener() {
                             @Override
@@ -743,39 +765,7 @@ public class MainActivity extends AppCompatActivity implements AuthorizeListener
                             public void onMotionDown() {
 
                             }
-                        }, ELoginEnv.EX);
-            }
-        });
-
-        webAuthButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                proxy.requestWebAuth(new UserCenterStateListener() {
-                    @Override
-                    public void onSuccess(ELoginPlatform platform, int type, CommOpInfo commOpInfo) {
-
-                    }
-
-                    @Override
-                    public void onError(int type, CommOpInfo commOpInfo) {
-
-                    }
-
-                    @Override
-                    public void onCancel(int type, CommOpInfo commOpInfo) {
-
-                    }
-                }, new ProxyDataListener() {
-                    @Override
-                    public boolean onDataRecv(JSONObject data) {
-                        return true;
-                    }
-                }, new MotionEventListener() {
-                    @Override
-                    public void onMotionDown() {
-
-                    }
-                }, ELoginEnv.EX);
+                        }, deviceManager, "www.qq.com", 200, 0, 0, 0);
             }
         });
 
@@ -790,6 +780,23 @@ public class MainActivity extends AppCompatActivity implements AuthorizeListener
             @Override
             public void onClick(View v) {
                 proxy.requestSetDMSDKConfig(TEST_PRODUCTID, "abcdefg");
+            }
+        });
+
+        getdeviceinfolistButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ELoginPlatform platform = ELoginPlatform.WX;
+                int queryDeviceType = EQueryDeviceType._QUERY_BY_ACCT;
+                PushInfoManager pushManager = PushInfoManager.getInstance();
+                pushManager.idType = EAIPushIdType._EWehomeSpeakerIdentifier;
+                pushManager.idExtra = "";
+                proxy.requestGetDeviceInfoList(platform, queryDeviceType, "", pushManager);
+
+
+                queryDeviceType = EQueryDeviceType._QUERY_BY_GUID;
+                String guid = "DeviceGuid";
+                proxy.requestGetDeviceInfoList(platform, queryDeviceType, guid, pushManager);
             }
         });
     }
@@ -912,6 +919,9 @@ public class MainActivity extends AppCompatActivity implements AuthorizeListener
                 Toast.makeText(MainActivity.this, "uniAccess success", Toast.LENGTH_SHORT).show();
                 Log.v(LOG_TAG, "uniAccess Resp = " + commOpInfo.errMsg);
                 break;
+            case BindingListener.GET_DEVICE_INFOLIST_TYPE:
+                getdeviceinfolistTextView.setText("boundDeviceInfoList Size = " + ProductManager.getInstance().boundDeviceInfoList.size());
+                break;
         }
     }
 
@@ -991,6 +1001,9 @@ public class MainActivity extends AppCompatActivity implements AuthorizeListener
                 break;
             case AuthorizeListener.UNIACCESS_TYPE:
                 Toast.makeText(MainActivity.this, "requestUniAccess onError", Toast.LENGTH_SHORT).show();
+                break;
+            case BindingListener.GET_DEVICE_INFOLIST_TYPE:
+                Toast.makeText(MainActivity.this, "getDeviceInfoList onError", Toast.LENGTH_SHORT).show();
                 break;
         }
     }
@@ -1081,6 +1094,9 @@ public class MainActivity extends AppCompatActivity implements AuthorizeListener
 
         getDMConfigButton = (Button) findViewById(R.id.getdmconfigbutton);
         setDMConfigButton = (Button) findViewById(R.id.setdmconfigbutton);
+
+        getdeviceinfolistButton = (Button) findViewById(R.id.getdeviceinfolistbutton);
+        getdeviceinfolistTextView = (TextView) findViewById(R.id.getdeviceinfolisttext);
 
         wxTokenLayout = (LinearLayout) findViewById(R.id.wxtokenlayout);
         wxATTextView = (TextView)findViewById(R.id.accesstokenid);
@@ -1237,6 +1253,13 @@ public class MainActivity extends AppCompatActivity implements AuthorizeListener
     QRCodeFontUICallback qrCodeFontUICallback = new QRCodeFontUICallback() {
         @Override
         public void onFontChange(TextView titleTextView, TextView hintTextView, TextView customTextView, TextView refreshTextView) {
+
+        }
+    };
+
+    DRQREndListener drqrEndListener = new DRQREndListener() {
+        @Override
+        public void onDevReleationQREnd(DevRelationMemberInfo memberInfo) {
 
         }
     };
