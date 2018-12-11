@@ -17,12 +17,12 @@
 /*!
  * @brief 速度
  */
-@property(nonatomic,assign) NSInteger* speed;
+@property(nonatomic,assign) NSInteger speed;
 
 /*!
  * @brief 音量
  */
-@property(nonatomic,assign) NSInteger* volume;
+@property(nonatomic,assign) NSInteger volume;
 
 @end
 
