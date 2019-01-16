@@ -201,4 +201,18 @@ typedef NS_ENUM(NSInteger,TVSWebPageType) {
  */
 -(BOOL)openUrl:(NSString*)url fromViewController:(UIViewController*)fromViewController title:(NSString*)title delegate:(id<TVSWebPageDelegate>)delegate;
 
+/*!
+ * @brief 设置账号信息（适用于未调用 TVSAccount 作账号授权，自己做 QQ/微信 登录的场景）
+ * @warning 其中 openId、tvsID、accessToken、refreshToken 必传，QQ 登录的 refreshToken 传 TVSInvalidRefreshToken
+ * @param accountInfo 账号信息
+ */
+-(void)setAccountinfo:(TVSAccountInfo*)accountInfo;
+
+/*!
+ * @brief 设置用户资料信息（适用于未调用 TVSAccount 作账号授权，自己做 QQ/微信 登录的场景）
+ * @warning 其中 sex、nickName、headImgUrl 必传;
+ * @param userInfo 用户资料信息
+ */
+-(void)setUserInfo:(TVSUserInfo*)userInfo;
+
 @end

@@ -100,6 +100,11 @@ typedef NS_ENUM(NSInteger,TVSDeviceBindType) {
 @property(nonatomic,copy) NSString* deviceOEM;
 
 /*!
+ * @brief deviceOEM 设备厂商 token（用于 PushKit）
+ */
+@property(nonatomic,copy) NSString* deviceOEMToken;
+
+/*!
  * @brief deviceOEMUrl 设备品牌图标
  */
 @property(nonatomic,copy) NSString* deviceOEMUrl;
