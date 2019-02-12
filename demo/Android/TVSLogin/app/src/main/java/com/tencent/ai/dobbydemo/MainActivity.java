@@ -476,7 +476,7 @@ public class MainActivity extends AppCompatActivity implements AuthorizeListener
                 }, new ProxyDataListener() {
                     @Override
                     public boolean onDataRecv(JSONObject data) {
-                        return true;
+                        return false;
                     }
                 });
             }
