@@ -481,11 +481,39 @@
                     />
             </LinearLayout>
             <LinearLayout
-                android:id="@+id/dmconfiglayout"
+                android:id="@+id/uniaccessbindlayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_below="@id/uniaccesslayout">
+                <Button
+                    android:id="@+id/uniAccessBindButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAllCaps="false"
+                    android:text="UniAccessBind"
+                    />
+                <Button
+                    android:id="@+id/uniAccessunbindButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAllCaps="false"
+                    android:text="UniAccessUnbind"
+                    />
+                <Button
+                    android:id="@+id/uniAccessQueryButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAllCaps="false"
+                    android:text="UniAccessQuery"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/dmconfiglayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_below="@id/uniaccessbindlayout">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -516,7 +544,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAllCaps="false"
-                    android:text="GetDMConfig"
+                    android:text="GetDeviceInfoList"
                     />
                 <TextView
                     android:id="@+id/getdeviceinfolisttext"
@@ -525,10 +553,29 @@
                     />
             </LinearLayout>
             <LinearLayout
+                android:id="@+id/updatedeviceinfolayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_below="@id/getdeviceinfolistlayout">
+                <Button
+                    android:id="@+id/updatedeviceinfobutton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAllCaps="false"
+                    android:text="UpdateDeviceInfo"
+                    />
+                <TextView
+                    android:id="@+id/updatedeviceinfotext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    />
+            </LinearLayout>
+            <LinearLayout
                 android:id="@+id/wxtokenlayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/getdeviceinfolistlayout"
+                android:layout_below="@id/updatedeviceinfolayout"
                 android:orientation="vertical"
                 android:visibility="gone">
                 <TextView

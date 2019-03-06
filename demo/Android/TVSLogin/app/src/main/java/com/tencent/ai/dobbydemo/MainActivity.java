@@ -29,6 +29,7 @@ import com.tencent.ai.tvs.business.EAlarmRepeatType;
 import com.tencent.ai.tvs.business.UniAccessInfo;
 import com.tencent.ai.tvs.comm.CommOpInfo;
 import com.tencent.ai.tvs.devrelation.DevRelationMemberInfo;
+import com.tencent.ai.tvs.env.EDeviceInfoType;
 import com.tencent.ai.tvs.env.ELoginEnv;
 import com.tencent.ai.tvs.env.ELoginPlatform;
 import com.tencent.ai.tvs.env.EUserAttrType;
@@ -38,6 +39,8 @@ import com.tencent.ai.tvs.info.DeviceManager;
 import com.tencent.ai.tvs.info.ProductManager;
 import com.tencent.ai.tvs.info.PushInfoManager;
 import com.tencent.ai.tvs.info.QQOpenInfoManager;
+import com.tencent.ai.tvs.info.ThirdPartAcctInfo;
+import com.tencent.ai.tvs.info.ThirdPartDeviceInfo;
 import com.tencent.ai.tvs.info.UserInfoManager;
 import com.tencent.ai.tvs.info.WxInfoManager;
 import com.tencent.ai.tvs.miniprogram.EMiniProgType;
@@ -64,15 +67,19 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+import SmartService.AIDeviceInfo;
+import SmartService.DeviceIdentity;
+import SmartService.DeviceInfo;
 import SmartService.EAIPushIdType;
 import SmartService.EAcctDeviceBindState;
 import SmartService.EQRCodeState;
 import SmartService.EQueryDeviceType;
+import SmartService.KeyValue;
 import SmartService.TTSConfigs;
 
 public class MainActivity extends AppCompatActivity implements AuthorizeListener, BindingListener {
 
-    private static final String LOG_TAG = MainActivity.class.getSimpleName();
+    private static final String LOG_TAG = "Demo_"+ MainActivity.class.getSimpleName();
 
     private static final String TEST_APPID_WX = "wxdbd76c1af795f58e";
     private static final String TEST_APPSECRET_WX = "723f0aca78996958212e2fdd41ebfc68";
@@ -103,7 +110,6 @@ public class MainActivity extends AppCompatActivity implements AuthorizeListener
     private static final String TEST_QQOPEN_AUTH_RET = "{\"ret\":0,\"openid\":\"24361BBA12837FFA742C79EC810A6DA8\",\"access_token\":\"B8EC8C0ADD6DEF7F2E380C8DC8CD6451\",\"pay_token\":\"399D4E199447C1D2B51376E6692CC55C\",\"expires_in\":7776000,\"pf\":\"desktop_m_qq-10000144-android-2002-\",\"pfkey\":\"7195cbb183f325e51c93a09d441f9243\",\"msg\":\"\",\"login_cost\":98,\"query_authority_cost\":352,\"authority_cost\":0,\"expires_time\":1530603609881}";
     private static final String TEST_WX_USER_RET = " {\"openid\":\"olW1HwuZs4zRIiTs8xN_5i65DU4Q\",\"nickname\":\"时间段hddjd大喊大叫觉得\",\"sex\":0,\"language\":\"zh_CN\",\"city\":\"\",\"province\":\"\",\"country\":\"\",\"headimgurl\":\"http:\\/\\/thirdwx.qlogo.cn\\/mmopen\\/vi_32\\/eM2qvBP8HYxrXdCTlAib2ibmeJw4LYZfJOYsbDShNocXuIUWEnQ1Nwh5Nk5lBjb3LJhOt1r2dt5lHtIAdcUGx7RA\\/132\",\"privilege\":[],\"unionid\":\"o9GiTuAkK5sryCobPgdS_iDo1W8A\"}";
     private static final String TEST_QQOPEN_USER_RET = "{\"ret\":0,\"msg\":\"\",\"is_lost\":0,\"nickname\":\"\",\"gender\":\"男\",\"province\":\"\",\"city\":\"\",\"year\":\"0\",\"figureurl\":\"http:\\/\\/qzapp.qlogo.cn\\/qzapp\\/1105886239\\/24361BBA12837FFA742C79EC810A6DA8\\/30\",\"figureurl_1\":\"http:\\/\\/qzapp.qlogo.cn\\/qzapp\\/1105886239\\/24361BBA12837FFA742C79EC810A6DA8\\/50\",\"figureurl_2\":\"http:\\/\\/qzapp.qlogo.cn\\/qzapp\\/1105886239\\/24361BBA12837FFA742C79EC810A6DA8\\/100\",\"figureurl_qq_1\":\"http:\\/\\/thirdqq.qlogo.cn\\/qqapp\\/1105886239\\/24361BBA12837FFA742C79EC810A6DA8\\/40\",\"figureurl_qq_2\":\"http:\\/\\/thirdqq.qlogo.cn\\/qqapp\\/1105886239\\/24361BBA12837FFA742C79EC810A6DA8\\/100\",\"is_yellow_vip\":\"0\",\"vip\":\"0\",\"yellow_vip_level\":\"0\",\"level\":\"0\",\"is_yellow_year_vip\":\"0\"}";
-
     private static final String DD_AUTH_ALADE_URL = "dingdang://add_device?oem=alavening";
     private static final String DD_DOWNLOAD_URL = "http://a.app.qq.com/o/simple.jsp?pkgname=com.tencent.ai.dobby";
 
@@ -183,11 +189,13 @@ public class MainActivity extends AppCompatActivity implements AuthorizeListener
     private Button ddQRShowButton, ddQRScanButton, ddQRUnbindAndClearButton;
     private Button drQRShowButton, drQRScanButton;
     private Button getBotAISpeechOptionButton, setDeviceAISpeechButton, getDeviceAISpeechButton;
-    private Button uniAccessButton;
+    private Button uniAccessButton, uniAccessBindButton, uniAccessUnbindButton, uniAccessQueryButton;
     private Button getDMConfigButton, setDMConfigButton;
     private Button getdeviceinfolistButton;
+    private Button updatedeviceinfoButton;
 
     private TextView getdeviceinfolistTextView;
+    private TextView updatedeviceinfoTextView;
 
     private Button qrAuthButton, webAuthButton;
 
@@ -197,6 +205,7 @@ public class MainActivity extends AppCompatActivity implements AuthorizeListener
     private DeviceManager deviceManager;
 
     private static ELoginPlatform TEST_PLATFORM = ELoginPlatform.WX;
+    private static EDeviceInfoType TEST_DEVICEINFOTYPE = EDeviceInfoType.TVS;
 
     private boolean isSimpleInterface;
 
@@ -456,7 +465,7 @@ public class MainActivity extends AppCompatActivity implements AuthorizeListener
             @Override
             public void onClick(View v) {
                 if (tvsOpenUrlEditText.getText().toString().equals("")) {
-                    tvsOpenUrlEditText.setText("https://sdk.sparta.html5.qq.com/v2p/qrcode_login.html");
+                    tvsOpenUrlEditText.setText("https://sdk.sparta.html5.qq.com/v2m/music");
                 }
                 proxy.tvsOpenUrlWithCallback(tvsOpenUrlEditText.getText().toString(), new UserCenterStateListener() {
                     @Override
@@ -487,9 +496,16 @@ public class MainActivity extends AppCompatActivity implements AuthorizeListener
             public void onClick(View v) {
                 PushInfoManager pushManager = PushInfoManager.getInstance();
                 DeviceManager devManager = new DeviceManager();
-                pushManager.idType = EAIPushIdType._ETVSSpeakerIdentifier;
-//                pushManager.idType = EAIPushIdType._EWehomeSpeakerIdentifier;
-                pushManager.idExtra = ConstantValues.PUSHMGR_IDEXTRA;
+
+                if (EDeviceInfoType.TVS == TEST_DEVICEINFOTYPE) {
+                    pushManager.idType = EAIPushIdType._ETVSSpeakerIdentifier;
+                    pushManager.idExtra = ConstantValues.PUSHMGR_IDEXTRA;
+                }
+                else if (EDeviceInfoType.SDK == TEST_DEVICEINFOTYPE) {
+                    pushManager.idType = EAIPushIdType._EWehomeSpeakerIdentifier;
+                    pushManager.idExtra = getApplicationContext().getPackageName();
+                }
+
                 devManager.productId = TEST_PRODUCTID;
                 devManager.dsn = TEST_DSN;
                 devManager.acctDevBindState = EAcctDeviceBindState._e_state_valid;
@@ -503,8 +519,14 @@ public class MainActivity extends AppCompatActivity implements AuthorizeListener
             public void onClick(View v) {
                 PushInfoManager pushManager = PushInfoManager.getInstance();
                 DeviceManager devManager = new DeviceManager();
-                pushManager.idType = EAIPushIdType._ETVSSpeakerIdentifier;
-                pushManager.idExtra = ConstantValues.PUSHMGR_IDEXTRA;
+                if (EDeviceInfoType.TVS == TEST_DEVICEINFOTYPE) {
+                    pushManager.idType = EAIPushIdType._ETVSSpeakerIdentifier;
+                    pushManager.idExtra = ConstantValues.PUSHMGR_IDEXTRA;
+                }
+                else if (EDeviceInfoType.SDK == TEST_DEVICEINFOTYPE) {
+                    pushManager.idType = EAIPushIdType._EWehomeSpeakerIdentifier;
+                    pushManager.idExtra = getApplicationContext().getPackageName();
+                }
                 devManager.productId = TEST_PRODUCTID;
                 devManager.dsn = TEST_DSN;
 
@@ -524,8 +546,14 @@ public class MainActivity extends AppCompatActivity implements AuthorizeListener
             public void onClick(View v) {
                 PushInfoManager pushManager = PushInfoManager.getInstance();
                 DeviceManager devManager = new DeviceManager();
-                pushManager.idType = EAIPushIdType._ETVSSpeakerIdentifier;
-                pushManager.idExtra = ConstantValues.PUSHMGR_IDEXTRA;
+                if (EDeviceInfoType.TVS == TEST_DEVICEINFOTYPE) {
+                    pushManager.idType = EAIPushIdType._ETVSSpeakerIdentifier;
+                    pushManager.idExtra = ConstantValues.PUSHMGR_IDEXTRA;
+                }
+                else if (EDeviceInfoType.SDK == TEST_DEVICEINFOTYPE) {
+                    pushManager.idType = EAIPushIdType._EWehomeSpeakerIdentifier;
+                    pushManager.idExtra = getApplicationContext().getPackageName();
+                }
                 devManager.productId = TEST_PRODUCTID;
                 devManager.dsn = TEST_DSN;
                 proxy.requestGetBoundAcctByPushInfo(TEST_PLATFORM, pushManager, devManager);
@@ -725,6 +753,53 @@ public class MainActivity extends AppCompatActivity implements AuthorizeListener
             }
         });
 
+        uniAccessBindButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // 云叮当app里操作，设备信息为云叮当app的信息，帐号为云叮当帐号
+                // ThirdPartAcctInfo是厂商帐号，ThirdPartDeviceInfo是设备信息
+                ThirdPartAcctInfo thirdPartAcctInfo = new ThirdPartAcctInfo();
+                thirdPartAcctInfo.loginPlatform = ELoginPlatform.QQOpen;
+                thirdPartAcctInfo.appid = "101470979";
+                thirdPartAcctInfo.openid = "8395B6D75FB288F14791167CC1C77F50";
+                thirdPartAcctInfo.accessToken = "50E86ABAFCA91FD8B3458E8983FD8DE2";
+                ThirdPartDeviceInfo thirdPartDeviceInfo = new ThirdPartDeviceInfo();
+                thirdPartDeviceInfo.productId = TEST_PRODUCTID;
+                thirdPartDeviceInfo.dsn = TEST_DSN;
+                thirdPartDeviceInfo.guid = "guidddddd";
+                proxy.reqUniAccThirdPartAcctBindOp(ConstantValues.THIRDPARTBINDING_BIND, ELoginPlatform.WX, thirdPartAcctInfo, thirdPartDeviceInfo);
+            }
+        });
+
+        uniAccessUnbindButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // 云叮当app里操作，设备信息为云叮当app的信息，帐号为云叮当帐号
+                // ThirdPartAcctInfo是厂商帐号，ThirdPartDeviceInfo是设备信息
+                ThirdPartAcctInfo thirdPartAcctInfo = new ThirdPartAcctInfo();
+                thirdPartAcctInfo.loginPlatform = ELoginPlatform.QQOpen;
+                thirdPartAcctInfo.appid = "101470979";
+                thirdPartAcctInfo.openid = "8395B6D75FB288F14791167CC1C77F50";
+                thirdPartAcctInfo.accessToken = "50E86ABAFCA91FD8B3458E8983FD8DE2";
+                ThirdPartDeviceInfo thirdPartDeviceInfo = new ThirdPartDeviceInfo();
+                thirdPartDeviceInfo.productId = TEST_PRODUCTID;
+                thirdPartDeviceInfo.dsn = TEST_DSN;
+                thirdPartDeviceInfo.guid = "guidddddd";
+                proxy.reqUniAccThirdPartAcctBindOp(ConstantValues.THIRDPARTBINDING_UNBIND, ELoginPlatform.WX, thirdPartAcctInfo, thirdPartDeviceInfo);
+            }
+        });
+
+        uniAccessQueryButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // 厂商app里操作，返回绑定的云叮当帐号信息
+                DeviceManager deviceManager = new DeviceManager();
+                deviceManager.productId = TEST_PRODUCTID;
+                deviceManager.dsn = TEST_DSN;
+                proxy.reqUniAccQueryThirdPartAcctBindingOp(ELoginPlatform.QQOpen, deviceManager);
+            }
+        });
+
         qrAuthButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -787,16 +862,51 @@ public class MainActivity extends AppCompatActivity implements AuthorizeListener
             @Override
             public void onClick(View v) {
                 ELoginPlatform platform = ELoginPlatform.WX;
-                int queryDeviceType = EQueryDeviceType._QUERY_BY_ACCT;
+
                 PushInfoManager pushManager = PushInfoManager.getInstance();
-                pushManager.idType = EAIPushIdType._EWehomeSpeakerIdentifier;
-                pushManager.idExtra = "";
-                proxy.requestGetDeviceInfoList(platform, queryDeviceType, "", pushManager);
 
 
-                queryDeviceType = EQueryDeviceType._QUERY_BY_GUID;
-                String guid = "DeviceGuid";
-                proxy.requestGetDeviceInfoList(platform, queryDeviceType, guid, pushManager);
+                // 通过帐号查询
+                int queryDeviceType = EQueryDeviceType._QUERY_BY_ACCT;
+//                if (EDeviceInfoType.TVS == TEST_DEVICEINFOTYPE) {
+//                    pushManager.idType = EAIPushIdType._ETVSSpeakerIdentifier;
+//                    pushManager.idExtra = ConstantValues.PUSHMGR_IDEXTRA ;
+//                }
+//                else if (EDeviceInfoType.SDK == TEST_DEVICEINFOTYPE) {
+//                    pushManager.idType = EAIPushIdType._EWehomeSpeakerIdentifier;
+//                    pushManager.idExtra = "";
+//                }
+//                else {
+//                    // 查询帐号绑定的所有类型的设备
+//                }
+//                proxy.requestGetDeviceInfoList(platform, queryDeviceType, "", pushManager);
+
+                // 通过GUID查询
+//                queryDeviceType = EQueryDeviceType._QUERY_BY_GUID;
+//                String guid = "DeviceGuid";
+//                proxy.requestGetDeviceInfoList(platform, queryDeviceType, guid, pushManager);
+
+                // 通过ProductID和DSN查询
+                queryDeviceType = EQueryDeviceType._QUERY_BY_PRODUCTID_DSN;
+                DeviceIdentity deviceIdentity = new DeviceIdentity();
+                deviceIdentity.strProductID = TEST_PRODUCTID;
+                deviceIdentity.strDSN = TEST_DSN;
+                proxy.requestGetDeviceInfoList(platform, queryDeviceType, "", pushManager, deviceIdentity);
+            }
+        });
+
+        updatedeviceinfoButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DeviceManager deviceManager = new DeviceManager();
+                deviceManager.productId = TEST_PRODUCTID;
+                deviceManager.dsn = TEST_DSN;
+                ArrayList<KeyValue> deviceAttrs = new ArrayList<KeyValue>();
+                KeyValue versionAttr = new KeyValue();
+                versionAttr.strKey = "OTAVersion";
+                versionAttr.strValues = "1.2.0";
+                deviceAttrs.add(versionAttr);
+                proxy.requestUpdateDeviceInfo(TEST_PLATFORM, deviceManager, deviceAttrs);
             }
         });
     }
@@ -804,7 +914,7 @@ public class MainActivity extends AppCompatActivity implements AuthorizeListener
     @Override
     protected void onResume() {
         super.onResume();
-        proxy.handleCheckQQOpenTokenValid();
+//        proxy.handleCheckQQOpenTokenValid();
     }
 
     @Override
@@ -920,7 +1030,17 @@ public class MainActivity extends AppCompatActivity implements AuthorizeListener
                 Log.v(LOG_TAG, "uniAccess Resp = " + commOpInfo.errMsg);
                 break;
             case BindingListener.GET_DEVICE_INFOLIST_TYPE:
-                getdeviceinfolistTextView.setText("boundDeviceInfoList Size = " + ProductManager.getInstance().boundDeviceInfoList.size());
+                ArrayList<DeviceInfo> deviceInfos = ProductManager.getInstance().boundDeviceInfoList;
+                getdeviceinfolistTextView.setText("boundDeviceInfoList Size = " + deviceInfos.size());
+                Log.v(LOG_TAG, "Device GUID = " + deviceInfos.get(0).bindInfo.strGuid);
+                Log.v(LOG_TAG, "Device BusinessExtra = " + deviceInfos.get(0).deviceExtra.strDeviceBusinessExtra);
+                break;
+            case BindingListener.GET_USER_INFO_TYPE:
+                Toast.makeText(MainActivity.this, ProductManager.getInstance().targetUserInfo.strNickName
+                        + ", " + ProductManager.getInstance().targetUserInfo.strHeadImageURL, Toast.LENGTH_SHORT).show();
+                break;
+            case BindingListener.UPDATE_DEVICE_INFO:
+                updatedeviceinfoTextView.setText("UpdateDeviceInfo Success");
                 break;
         }
     }
@@ -1004,6 +1124,14 @@ public class MainActivity extends AppCompatActivity implements AuthorizeListener
                 break;
             case BindingListener.GET_DEVICE_INFOLIST_TYPE:
                 Toast.makeText(MainActivity.this, "getDeviceInfoList onError", Toast.LENGTH_SHORT).show();
+                break;
+            case BindingListener.GET_USER_INFO_TYPE:
+                Toast.makeText(MainActivity.this, "getUserInfo onError", Toast.LENGTH_SHORT).show();
+                break;
+            case BindingListener.UPDATE_DEVICE_INFO:
+                if (commOpInfo != null) {
+                    updatedeviceinfoTextView.setText(commOpInfo.errMsg);
+                }
                 break;
         }
     }
@@ -1089,6 +1217,9 @@ public class MainActivity extends AppCompatActivity implements AuthorizeListener
         setDeviceAISpeechButton = (Button) findViewById(R.id.setDeviceAISpeechButton);
 
         uniAccessButton = (Button) findViewById(R.id.uniAccessButton);
+        uniAccessBindButton = (Button) findViewById(R.id.uniAccessBindButton);
+        uniAccessUnbindButton = (Button) findViewById(R.id.uniAccessunbindButton);
+        uniAccessQueryButton = (Button) findViewById(R.id.uniAccessQueryButton);
         qrAuthButton = (Button) findViewById(R.id.qrauthbtn);
         webAuthButton = (Button) findViewById(R.id.webAuthbtn);
 
@@ -1097,6 +1228,9 @@ public class MainActivity extends AppCompatActivity implements AuthorizeListener
 
         getdeviceinfolistButton = (Button) findViewById(R.id.getdeviceinfolistbutton);
         getdeviceinfolistTextView = (TextView) findViewById(R.id.getdeviceinfolisttext);
+
+        updatedeviceinfoButton = (Button) findViewById(R.id.updatedeviceinfobutton);
+        updatedeviceinfoTextView = (TextView) findViewById(R.id.updatedeviceinfotext);
 
         wxTokenLayout = (LinearLayout) findViewById(R.id.wxtokenlayout);
         wxATTextView = (TextView)findViewById(R.id.accesstokenid);
