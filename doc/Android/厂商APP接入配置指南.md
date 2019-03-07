@@ -17,6 +17,7 @@ api 'com.google.zxing:core:3.3.0'</br>
 api 'com.android.support:design:27.1.1'</br>
 api 'com.squareup.okhttp3:okhttp:3.8.1'</br>
 api 'com.google.code.gson:gson:2.8.1'</br>
+api 'commons-io:commons-io:2.6' </br>
 ### 2.4 flatDir ###
 配置flatDir</br>
 repositories {</br>
