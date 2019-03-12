@@ -4,6 +4,8 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
+	<key>CFBundleDisplayName</key>
+	<string>DMSDK</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -23,7 +25,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>wxd077c3460b51e427</string>
+				<string>wxdbd76c1af795f58e</string>
 			</array>
 		</dict>
 		<dict>
@@ -33,7 +35,7 @@
 			<string>tencentopenapi</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>tencent1234567890</string>
+				<string>tencent101470979</string>
 			</array>
 		</dict>
 	</array>
@@ -53,6 +55,7 @@
 		<string>mqqopensdkapi</string>
 		<string>mqqopensdkapiV2</string>
 		<string>mqqopensdkapiV3</string>
+		<string>wtloginmqq</string>
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
@@ -74,9 +77,6 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationPortraitUpsideDown</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>

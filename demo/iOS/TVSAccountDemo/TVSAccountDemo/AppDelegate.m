@@ -2,29 +2,26 @@
 //  AppDelegate.m
 //  TvsLoginDemo
 //
-//  Created by ZACARDFANG on 2017/8/11.
-//  Copyright © 2017年 tencent. All rights reserved.
+//  Created by Rinc Liu on 2019/1/28.
+//  Copyright © 2019 tencent. All rights reserved.
 //
 
 #import "AppDelegate.h"
-#import <TVSAccountSDK/TVSAccount.h>
-#import <TVSAccountSDK/TVSEnvironment.h>
+#import <TVSCore/TVSCore.h>
 
 @implementation AppDelegate
 
+//SDK 初始化
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [TVSEnvironment shared].serverEnv = TVSServerEnvTest;//测试环境
+    NSLog(@"DMSDK version:%@", [TVSEnvironment shared].sdkVersion);//SDK 版本
     [TVSEnvironment shared].logEnabled = YES;//开启日志
-    [[TVSAccount shared]registerApp];
+    [[TVSAuthManager shared]registerApp];//读取配置信息
     return YES;
 }
 
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-    return [[TVSAccount shared] handleOpenUrl:url];
-}
-
-- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
-    return [[TVSAccount shared]handleOpenUrl:url];
+//处理 微信/QQ 等 URL 跳转
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
+    return [[TVSAuthManager shared] handleOpenUrl:url];
 }
 
 

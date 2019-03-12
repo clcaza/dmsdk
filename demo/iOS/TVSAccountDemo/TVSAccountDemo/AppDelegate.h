@@ -2,8 +2,8 @@
 //  AppDelegate.h
 //  TvsLoginDemo
 //
-//  Created by ZACARDFANG on 2017/8/11.
-//  Copyright © 2017年 tencent. All rights reserved.
+//  Created by Rinc Liu on 2019/1/28.
+//  Copyright © 2019 tencent. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
