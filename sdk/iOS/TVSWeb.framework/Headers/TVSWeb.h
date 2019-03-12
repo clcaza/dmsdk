@@ -180,6 +180,11 @@ typedef NS_ENUM(NSInteger,TVSWebPageType) {
 @property(nonatomic,strong) TVSDeviceInfo* device;
 
 /*
+ * @brief 
+ */
+@property(nonatomic,strong) NSString* tvsToken;
+
+/*
  * @brief 是否自动检查设备绑定
  * @warning LinkPlay 设备打开个人中心页面需要检查绑定
  */
