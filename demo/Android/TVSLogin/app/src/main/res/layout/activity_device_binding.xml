@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.tencent.ai.tvs.dmsdk.demo.DeviceBindingActivity">
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/productIDLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/productIDEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="ProductID" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/dsnLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/productIDLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/dsnEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="DSN" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <Button
+        android:id="@+id/bindButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="绑定"
+        app:layout_constraintTop_toBottomOf="@id/dsnLayout"
+        app:layout_constraintEnd_toStartOf="@id/unbindButton"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/unbindButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="解绑"
+        app:layout_constraintStart_toEndOf="@id/bindButton"
+        app:layout_constraintEnd_toStartOf="@id/queryDeviceButton"
+        app:layout_constraintTop_toBottomOf="@id/dsnLayout" />
+
+    <Button
+        android:id="@+id/queryDeviceButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="帐号查设备"
+        app:layout_constraintTop_toBottomOf="@id/dsnLayout"
+        app:layout_constraintStart_toEndOf="@id/unbindButton"
+        app:layout_constraintEnd_toStartOf="@id/queryAccountButton" />
+
+    <Button
+        android:id="@+id/queryAccountButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="设备查帐号"
+        app:layout_constraintStart_toEndOf="@id/queryDeviceButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dsnLayout" />
+
+    <com.tencent.ai.tvs.dmsdk.demo.widget.LogView
+        android:id="@+id/logView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/bindButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

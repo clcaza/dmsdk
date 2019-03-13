@@ -1,48 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.tencent.ai.dobbydemo"
-    android:versionCode="171204"
-    android:versionName="171204_Beta">
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.tencent.ai.dobbydemo">
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name="com.tencent.ai.tvsdevice.DeviceApplication"
-        android:allowBackup="true"
-        android:exported="true"
+        android:name="com.tencent.ai.tvs.dmsdk.demo.DemoApplication"
+        android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <!-- Use CustomApplication Context Start -->
-        <!-- android:name="com.tencent.ai.dobbydemo.CustomApplication -->
-        <!-- Use CustomApplication Context End -->
-        <activity
-            android:name=".MainActivity"
-            android:windowSoftInputMode="adjustUnspecified|stateHidden"
-            android:launchMode="singleTask">
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name="com.tencent.ai.tvs.dmsdk.demo.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SmartLinkActivity" />
-        <activity android:name=".SoftAPActivity" />
         <activity
-            android:name="com.tencent.tauth.AuthActivity"
-            android:noHistory="true"
-            android:launchMode="singleTask" >
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="tencent101470979" />
-            </intent-filter>
-        </activity>
-        <provider
-            android:name="qrom.component.wup.runInfo.QRomWupProvider"
-            android:exported="true"
-            android:process=":tcm_service"
-            android:authorities="com.tencent.ai.dobbydemo.wup.QRomProvider" />
+            android:name="com.tencent.ai.tvs.dmsdk.demo.AccountActivity"
+            android:label="@string/module_account" />
+        <activity
+            android:name="com.tencent.ai.tvs.dmsdk.demo.DeviceBindingActivity"
+            android:label="@string/module_device_binding" />
+        <activity
+            android:name="com.tencent.ai.tvs.dmsdk.demo.WebActivity"
+            android:label="@string/module_web"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.tencent.ai.tvs.dmsdk.demo.MemberActivity"
+            android:label="@string/module_member" />
+        <activity
+            android:name="com.tencent.ai.tvs.dmsdk.demo.TSKMActivity"
+            android:label="@string/module_tskm" />
+        <activity
+            android:name="com.tencent.ai.tvs.dmsdk.demo.AISpeechActivity"
+            android:label="@string/module_ai_speech" />
     </application>
 
 </manifest>
