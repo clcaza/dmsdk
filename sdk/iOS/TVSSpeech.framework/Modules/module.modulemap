@@ -1,6 +1,0 @@
-framework module TVSSpeech {
-  umbrella header "TVSSpeech.h"
-
-  export *
-  module * { export * }
-}
