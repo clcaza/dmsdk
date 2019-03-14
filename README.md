@@ -13,11 +13,13 @@
 
 * 模块化拆分，核心模块(环境配置/账号/设备绑定)为必须，H5 等模块根据需要可选；
 
-* H5 模块由 `ViewController` 页面改为 `WebView` 组件形式，可定制化程度更高；
+* H5 模块由 `ViewController`/`TVSAssistActivity` 页面改为 `WebView` 组件形式，可定制化程度更高；
 
 * H5 模块支持自己实现账号授权（不调用此 SDK 做登录和刷票）；
 
 * 新增二维码模块，用于无屏设备账号授权；
+
+* Android SDK新增Javadoc，可以到[http://TencentDingdang.github.io/dmsdk](http://TencentDingdang.github.io/dmsdk)查看。
 
 ### [v1.0][1]:
 
