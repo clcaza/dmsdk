@@ -1,46 +1,71 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 27
-    buildToolsVersion '27.0.3'
-
-    defaultConfig {
-        applicationId "com.tencent.ai.dobbydemo"
-        minSdkVersion 15
-        targetSdkVersion 27
-    }
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-    }
-
     repositories {
         flatDir {
             dirs 'libs'
         }
     }
-	
-	signingConfigs {
+    compileSdkVersion 27
+    defaultConfig {
+//        applicationId "com.tencent.ai.tvs.dmsdk.demo"
+        applicationId "com.tencent.ai.dobbydemo"
+        minSdkVersion 15
+        // TODO: Target latest version
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
         debug {
-            storeFile file('../debug.keystore')
+            signingConfig signingConfigs.debug
+        }
+        release {
+            signingConfig signingConfigs.debug
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    signingConfigs {
+        debug {
             keyAlias 'androiddebugkey'
             keyPassword 'android'
+            storeFile rootProject.file('debug.keystore')
             storePassword 'android'
         }
     }
 }
 
 dependencies {
-    api fileTree(dir: 'libs', include: ['*.jar'])
-    api(name:'tvsloginlib-release', ext:'aar')
-    api(name:'tvsdevicelib-release', ext:'aar')
-    api 'com.android.support:appcompat-v7:27.1.1'
-    api 'com.android.support.constraint:constraint-layout:1.0.2'
-    api 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:+'
-    api 'com.google.zxing:core:3.3.0'
-    api 'com.android.support:design:27.1.1'
-    api 'com.squareup.okhttp3:okhttp:3.8.1'
-    api 'com.google.code.gson:gson:2.8.1'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    implementation 'com.android.support:design:27.1.1'
+    def tvsVer = '2.0.0'
+    // 核心模块，必须
+    implementation (name: "tvscore-${tvsVer}-release", ext: 'aar')
+    // 核心模块依赖微信登录
+    implementation 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:+'
+    // DMSDK各模块均依赖OK HTTP
+    implementation 'com.squareup.okhttp3:okhttp:3.8.1'
+    // AI Speech模块，可选
+    implementation (name: "tvsaispeech-${tvsVer}-release", ext: 'aar')
+    // QQ音乐会员模块，可选
+    implementation (name: "tvsmember-${tvsVer}-release", ext: 'aar')
+    // 二维码业务模块，可选
+    implementation (name: "tvsqrcode-${tvsVer}-release", ext: 'aar')
+    // 音箱配置模块，可选
+    implementation (name: "tvsspeaker-${tvsVer}-release", ext: 'aar')
+    // TSKM技能服务模块，可选
+    implementation (name: "tvstskm-${tvsVer}-release", ext: 'aar')
+    // HTML5 WebView模块，可选
+    implementation (name: "tvsweb-${tvsVer}-release", ext: 'aar')
+    // HTML5 WebView模块依赖appcompat
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    // TVS Device SDK和相关依赖
+    implementation (name: "tvsdevicelib-release", ext: 'aar')
+    implementation 'com.google.code.gson:gson:2.8.1'
 }
