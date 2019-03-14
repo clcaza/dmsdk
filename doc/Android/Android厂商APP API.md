@@ -675,111 +675,24 @@ Deprecated. 改用#getMemberStatus(String, String, TVSCallback1)。 获取设�
 
 时间单位枚举类型，用于会员相关接口的回调。
 
-### MONTH
-
-一个月。
-
-```
-public static final DateUnit MONTH
-```
-
-### YEAR
-
-一年。
-
-```
-public static final DateUnit YEAR
-```
-
-### values
-
-Returns an array containing the constants of this enum type, in the order they are declared. This method may be used to iterate over the constants as follows:
-for (DateUnit c : DateUnit.values())   System.out.println(c);
-
-```
-public static DateUnit[] values()
-```
-
-#### 返回
-
-an array containing the constants of this enum type, in the order they are declared
-
-### valueOf
-
-Returns the enum constant of this type with the specified name. The string must match exactly an identifier used to declare an enum constant in this type. (Extraneous whitespace characters are not permitted.)
-
-```
-public static DateUnit valueOf(java.lang.String name)
-```
-
-#### 参数
+### 枚举值列表
 
 | 名称 | 说明 |
 |:---|:---|
-| name | the name of the enum constant to be returned. |
-
-#### 返回
-
-java.lang.NullPointerException - if the argument is null
+| MONTH | 一个月。 |
+| YEAR | 一年。 |
 
 ## EMiniProgType
 
 小程序类型。
 
-### RELEASE
-
-正式版。
-
-```
-public static final EMiniProgType RELEASE
-```
-
-### TEST
-
-测试（开发）版。
-
-```
-public static final EMiniProgType TEST
-```
-
-### PREVIEW
-
-预览版。
-
-```
-public static final EMiniProgType PREVIEW
-```
-
-### values
-
-Returns an array containing the constants of this enum type, in the order they are declared. This method may be used to iterate over the constants as follows:
-for (EMiniProgType c : EMiniProgType.values())   System.out.println(c);
-
-```
-public static EMiniProgType[] values()
-```
-
-#### 返回
-
-an array containing the constants of this enum type, in the order they are declared
-
-### valueOf
-
-Returns the enum constant of this type with the specified name. The string must match exactly an identifier used to declare an enum constant in this type. (Extraneous whitespace characters are not permitted.)
-
-```
-public static EMiniProgType valueOf(java.lang.String name)
-```
-
-#### 参数
+### 枚举值列表
 
 | 名称 | 说明 |
 |:---|:---|
-| name | the name of the enum constant to be returned. |
-
-#### 返回
-
-java.lang.NullPointerException - if the argument is null
+| RELEASE | 正式版。 |
+| TEST | 测试（开发）版。 |
+| PREVIEW | 预览版。 |
 
 ## MiniProgCallback
 
@@ -797,9 +710,11 @@ void onReceiveExtMsg(java.lang.String msg)
 
 代表音箱信息的简单类。
 
-### nickname
+### 字段列表
 
-音箱昵称。
+| 名称 | 说明 |
+|:---|:---|
+| nickname | 音箱昵称。 |
 
 ### TVSSpeakerInfo
 
@@ -845,17 +760,13 @@ void onError(int code)
 
 当前查询到的二维码状态。
 
-### qrCodeState
+### 字段列表
 
-二维码状态。
-
-### accountInfo
-
-帐号信息。
-
-### userInfo
-
-用户信息。
+| 名称 | 说明 |
+|:---|:---|
+| qrCodeState | 二维码状态。 |
+| accountInfo | 帐号信息。 |
+| userInfo | 用户信息。 |
 
 ### QRCodeInfo
 
@@ -903,101 +814,34 @@ void onError(int code)
 
 用来表示设备信息的简单类。
 
-### productID
+### 字段列表
 
-后台申请的Product ID。
-
-### dsn
-
-设备序列号。
-
-### pushID
-
-Push ID。
-
-### pushIDExtra
-
-Push ID Extra。
-
-### guid
-
-GUID。
-
-### deviceID
-
-设备ID。
-
-### deviceName
-
-设备名称。
-
-### deviceType
-
-设备类型。
-
-### deviceSerial
-
-设备系列。
-
-### deviceOEM
-
-设备厂商。
-
-### deviceOEMURL
-
-设备品牌标志URL。
-
-### deviceOEMToken
-
-设备厂商Token（用于PushKit）。
-
-### deviceRemark
-
-设备备注。
-
-### imei
-
-IMEI。
-
-### qua
-
-QUA。
-
-### lc
-
-LC。
-
-### mac
-
-MAC地址。
-
-### qimei
-
-QIMEI。
-
-### enrollTime
-
-注册时间。
-
-### bindTime
-
-绑定时间。
-
-### bindType
-
-绑定类型。
-
-### extra
-
-扩展信息。
-
-### businessExtra
-
-业务扩展信息。
-
-### accountInfo
-
-设备关联的账户信息。
+| 名称 | 说明 |
+|:---|:---|
+| productID | 后台申请的Product ID。 |
+| dsn | 设备序列号。 |
+| pushID | Push ID。 |
+| pushIDExtra | Push ID Extra。 |
+| guid | GUID。 |
+| deviceID | 设备ID。 |
+| deviceName | 设备名称。 |
+| deviceType | 设备类型。 |
+| deviceSerial | 设备系列。 |
+| deviceOEM | 设备厂商。 |
+| deviceOEMURL | 设备品牌标志URL。 |
+| deviceOEMToken | 设备厂商Token（用于PushKit）。 |
+| deviceRemark | 设备备注。 |
+| imei | IMEI。 |
+| qua | QUA。 |
+| lc | LC。 |
+| mac | MAC地址。 |
+| qimei | QIMEI。 |
+| enrollTime | 注册时间。 |
+| bindTime | 绑定时间。 |
+| bindType | 绑定类型。 |
+| extra | 扩展信息。 |
+| businessExtra | 业务扩展信息。 |
+| accountInfo | 设备关联的账户信息。 |
 
 ### TVSDevice
 
@@ -1037,25 +881,15 @@ void onError(int code)
 
 代表音色信息的简单POJO类。
 
-### speechID
+### 字段列表
 
-音色ID。
-
-### speechName
-
-音色名称。
-
-### speechEnum
-
-音色枚举类型。
-
-### isDefaultOption
-
-是否是默认选项。
-
-### ttsConfig
-
-TTS配置。
+| 名称 | 说明 |
+|:---|:---|
+| speechID | 音色ID。 |
+| speechName | 音色名称。 |
+| speechEnum | 音色枚举类型。 |
+| isDefaultOption | 是否是默认选项。 |
+| ttsConfig | TTS配置。 |
 
 ### TVSAISpeechItem
 
@@ -1069,80 +903,25 @@ public TVSAISpeechItem()
 
 二维码扫描状态枚举类型。
 
-### NOT_SCANNED
-
-未被扫描。
-
-```
-public static final QRCodeState NOT_SCANNED
-```
-
-### SCANNED
-
-已经被扫描但没有后续操作。
-
-```
-public static final QRCodeState SCANNED
-```
-
-### SCANNED_AND_CONFIRMED
-
-用户扫描后确认。
-
-```
-public static final QRCodeState SCANNED_AND_CONFIRMED
-```
-
-### SCANNED_AND_CANCELED
-
-用户扫描后取消。
-
-```
-public static final QRCodeState SCANNED_AND_CANCELED
-```
-
-### values
-
-Returns an array containing the constants of this enum type, in the order they are declared. This method may be used to iterate over the constants as follows:
-for (QRCodeState c : QRCodeState.values())   System.out.println(c);
-
-```
-public static QRCodeState[] values()
-```
-
-#### 返回
-
-an array containing the constants of this enum type, in the order they are declared
-
-### valueOf
-
-Returns the enum constant of this type with the specified name. The string must match exactly an identifier used to declare an enum constant in this type. (Extraneous whitespace characters are not permitted.)
-
-```
-public static QRCodeState valueOf(java.lang.String name)
-```
-
-#### 参数
+### 枚举值列表
 
 | 名称 | 说明 |
 |:---|:---|
-| name | the name of the enum constant to be returned. |
-
-#### 返回
-
-java.lang.NullPointerException - if the argument is null
+| NOT_SCANNED | 未被扫描。 |
+| SCANNED | 已经被扫描但没有后续操作。 |
+| SCANNED_AND_CONFIRMED | 用户扫描后确认。 |
+| SCANNED_AND_CANCELED | 用户扫描后取消。 |
 
 ## TVSTTSConfig
 
 代表TTS配置的简单POJO类。
 
-### speed
+### 字段列表
 
-语音语速。
-
-### volume
-
-语音音量。
+| 名称 | 说明 |
+|:---|:---|
+| speed | 语音语速。 |
+| volume | 语音音量。 |
 
 ### TVSTTSConfig
 
@@ -1156,68 +935,14 @@ public TVSTTSConfig()
 
 设备绑定类型的枚举类型。
 
-### SDK_APP
-
-SDK 接入方案的 App
-
-```
-public static final TVSDeviceBindType SDK_APP
-```
-
-### SDK_SPEAKER
-
-SDK 接入方案的音箱
-
-```
-public static final TVSDeviceBindType SDK_SPEAKER
-```
-
-### TVS_APP
-
-云端 API 接入方案的 App
-
-```
-public static final TVSDeviceBindType TVS_APP
-```
-
-### TVS_SPEAKER
-
-云端 API 接入方案的音箱
-
-```
-public static final TVSDeviceBindType TVS_SPEAKER
-```
-
-### values
-
-Returns an array containing the constants of this enum type, in the order they are declared. This method may be used to iterate over the constants as follows:
-for (TVSDeviceBindType c : TVSDeviceBindType.values())   System.out.println(c);
-
-```
-public static TVSDeviceBindType[] values()
-```
-
-#### 返回
-
-an array containing the constants of this enum type, in the order they are declared
-
-### valueOf
-
-Returns the enum constant of this type with the specified name. The string must match exactly an identifier used to declare an enum constant in this type. (Extraneous whitespace characters are not permitted.)
-
-```
-public static TVSDeviceBindType valueOf(java.lang.String name)
-```
-
-#### 参数
+### 枚举值列表
 
 | 名称 | 说明 |
 |:---|:---|
-| name | the name of the enum constant to be returned. |
-
-#### 返回
-
-java.lang.NullPointerException - if the argument is null
+| SDK_APP | SDK 接入方案的 App |
+| SDK_SPEAKER | SDK 接入方案的音箱 |
+| TVS_APP | 云端 API 接入方案的 App |
+| TVS_SPEAKER | 云端 API 接入方案的音箱 |
 
 ### fromInternalEnum
 
@@ -1239,13 +964,12 @@ public static int toInternalEnum(TVSDeviceBindType type)
 
 用户信息管理模块单例，可以获取当前登录用户的用户信息。
 
-### MALE
+### 字段列表
 
-性别男性。
-
-### FEMALE
-
-性别女性。
+| 名称 | 说明 |
+|:---|:---|
+| MALE | 性别男性。 |
+| FEMALE | 性别女性。 |
 
 ### UserInfoManager
 
@@ -1615,13 +1339,12 @@ public void setScope(java.lang.String scope)
 
 代表用户信息的简单POJO类。
 
-### ID_TYPE_WX
+### 字段列表
 
-微信用户信息类型。
-
-### ID_TYPE_QQ_OPEN
-
-QQ用户信息类型。
+| 名称 | 说明 |
+|:---|:---|
+| ID_TYPE_WX | 微信用户信息类型。 |
+| ID_TYPE_QQ_OPEN | QQ用户信息类型。 |
 
 ### TVSUserInfo
 
@@ -2361,60 +2084,13 @@ Deprecated. 改用 setQRCodeState(QRCodeState, TVSCallback)
 
 
 
-### UNKNOWN
-
-
-
-```
-public static final QRCodeType UNKNOWN
-```
-
-### BIND
-
-
-
-```
-public static final QRCodeType BIND
-```
-
-### JOIN_RELATIONSHIP
-
-
-
-```
-public static final QRCodeType JOIN_RELATIONSHIP
-```
-
-### values
-
-Returns an array containing the constants of this enum type, in the order they are declared. This method may be used to iterate over the constants as follows:
-for (QRCodeType c : QRCodeType.values())   System.out.println(c);
-
-```
-public static QRCodeType[] values()
-```
-
-#### 返回
-
-an array containing the constants of this enum type, in the order they are declared
-
-### valueOf
-
-Returns the enum constant of this type with the specified name. The string must match exactly an identifier used to declare an enum constant in this type. (Extraneous whitespace characters are not permitted.)
-
-```
-public static QRCodeType valueOf(java.lang.String name)
-```
-
-#### 参数
+### 枚举值列表
 
 | 名称 | 说明 |
 |:---|:---|
-| name | the name of the enum constant to be returned. |
-
-#### 返回
-
-java.lang.NullPointerException - if the argument is null
+| UNKNOWN |  |
+| BIND |  |
+| JOIN_RELATIONSHIP |  |
 
 ## TVSAISpeech
 
@@ -2815,119 +2491,25 @@ public TVSWebController getController()
 
 登录环境，对整个SDK有效。不同的登录环境使用不同的TVS后台服务，开发时切换环境便于调试。 注意：HTML5 WebView模块内的预设网页没有体验环境，体验环境使用正式环境的URL。
 
-### FORMAL
-
-正式环境（生产环境）。
-
-```
-public static final ELoginEnv FORMAL
-```
-
-### TEST
-
-测试环境。
-
-```
-public static final ELoginEnv TEST
-```
-
-### EX
-
-体验环境。
-
-```
-public static final ELoginEnv EX
-```
-
-### values
-
-Returns an array containing the constants of this enum type, in the order they are declared. This method may be used to iterate over the constants as follows:
-for (ELoginEnv c : ELoginEnv.values())   System.out.println(c);
-
-```
-public static ELoginEnv[] values()
-```
-
-#### 返回
-
-an array containing the constants of this enum type, in the order they are declared
-
-### valueOf
-
-Returns the enum constant of this type with the specified name. The string must match exactly an identifier used to declare an enum constant in this type. (Extraneous whitespace characters are not permitted.)
-
-```
-public static ELoginEnv valueOf(java.lang.String name)
-```
-
-#### 参数
+### 枚举值列表
 
 | 名称 | 说明 |
 |:---|:---|
-| name | the name of the enum constant to be returned. |
-
-#### 返回
-
-java.lang.NullPointerException - if the argument is null
+| FORMAL | 正式环境（生产环境）。 |
+| TEST | 测试环境。 |
+| EX | 体验环境。 |
 
 ## ELoginPlatform
 
 登录平台。
 
-### WX
-
-微信开放平台登录。
-
-```
-public static final ELoginPlatform WX
-```
-
-### QQOpen
-
-QQ互联平台登录。
-
-```
-public static final ELoginPlatform QQOpen
-```
-
-### Unknown
-
-未知，仅备用。
-
-```
-public static final ELoginPlatform Unknown
-```
-
-### values
-
-Returns an array containing the constants of this enum type, in the order they are declared. This method may be used to iterate over the constants as follows:
-for (ELoginPlatform c : ELoginPlatform.values())   System.out.println(c);
-
-```
-public static ELoginPlatform[] values()
-```
-
-#### 返回
-
-an array containing the constants of this enum type, in the order they are declared
-
-### valueOf
-
-Returns the enum constant of this type with the specified name. The string must match exactly an identifier used to declare an enum constant in this type. (Extraneous whitespace characters are not permitted.)
-
-```
-public static ELoginPlatform valueOf(java.lang.String name)
-```
-
-#### 参数
+### 枚举值列表
 
 | 名称 | 说明 |
 |:---|:---|
-| name | the name of the enum constant to be returned. |
-
-#### 返回
-
-java.lang.NullPointerException - if the argument is null
+| WX | 微信开放平台登录。 |
+| QQOpen | QQ互联平台登录。 |
+| Unknown | 未知，仅备用。 |
 
 ### fromInternalEnum
 
@@ -2949,124 +2531,21 @@ public static int toInternalEnum(ELoginPlatform platform)
 
 HTML5 WebView模块预设网页的枚举类型。
 
-### HOMEPAGE
-
-用户个人中心。
-
-```
-public static final EUserAttrType HOMEPAGE
-```
-
-### CPOPERATION
-
-会员领取页面。
-
-```
-public static final EUserAttrType CPOPERATION
-```
-
-### INFOSETTING
-
-手机号信息页面。
-
-```
-public static final EUserAttrType INFOSETTING
-```
-
-### AGREEMENT
-
-用户协议页面。
-
-```
-public static final EUserAttrType AGREEMENT
-```
-
-### PRIVACY
-
-隐私策略页面。
-
-```
-public static final EUserAttrType PRIVACY
-```
-
-### FEEDBACK
-
-反馈页面。
-
-```
-public static final EUserAttrType FEEDBACK
-```
-
-### RECHARGE
-
-会员充值页面。
-
-```
-public static final EUserAttrType RECHARGE
-```
-
-### TSKCENTER
-
-TSKM中心页面。
-
-```
-public static final EUserAttrType TSKCENTER
-```
-
-### AGREEMENT_V1
-
-V1版本用户协议页面。
-
-```
-public static final EUserAttrType AGREEMENT_V1
-```
-
-### AUTH
-
-账号授权页面。
-
-```
-public static final EUserAttrType AUTH
-```
-
-### QQ_MUSIC
-
-QQ音乐页面。
-
-```
-public static final EUserAttrType QQ_MUSIC
-```
-
-### values
-
-Returns an array containing the constants of this enum type, in the order they are declared. This method may be used to iterate over the constants as follows:
-for (EUserAttrType c : EUserAttrType.values())   System.out.println(c);
-
-```
-public static EUserAttrType[] values()
-```
-
-#### 返回
-
-an array containing the constants of this enum type, in the order they are declared
-
-### valueOf
-
-Returns the enum constant of this type with the specified name. The string must match exactly an identifier used to declare an enum constant in this type. (Extraneous whitespace characters are not permitted.)
-
-```
-public static EUserAttrType valueOf(java.lang.String name)
-```
-
-#### 参数
+### 枚举值列表
 
 | 名称 | 说明 |
 |:---|:---|
-| name | the name of the enum constant to be returned. |
-
-#### 返回
-
-java.lang.NullPointerException - if the argument is null
+| HOMEPAGE | 用户个人中心。 |
+| CPOPERATION | 会员领取页面。 |
+| INFOSETTING | 手机号信息页面。 |
+| AGREEMENT | 用户协议页面。 |
+| PRIVACY | 隐私策略页面。 |
+| FEEDBACK | 反馈页面。 |
+| RECHARGE | 会员充值页面。 |
+| TSKCENTER | TSKM中心页面。 |
+| AGREEMENT_V1 | V1版本用户协议页面。 |
+| AUTH | 账号授权页面。 |
+| QQ_MUSIC | QQ音乐页面。 |
 
 ## TVSTSKM
 
