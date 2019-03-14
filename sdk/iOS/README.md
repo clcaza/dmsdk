@@ -1,6 +1,6 @@
 ## iOS SDK 模块介绍:
 
-* **TVSCore.framework**: 核心模块（环境配置、账号授权、设备管理），必选； 
+* **TVSCore.framework**: 核心模块（环境配置、账号授权、设备管理），**必选**； 
 
 * **TVSMember.framework**: 会员状态查询，根据需要可选；
 
