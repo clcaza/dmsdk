@@ -4,9 +4,9 @@
 
 | 文件夹  | 说明 |
 | -------- | --------- |
-| demo | 手机端SDK的demo参考 |
-| doc | 手机端SDK文档 |
-| sdk | 手机端SDK |
+| demo | 手机端 SDK 的 demo 参考 |
+| doc | 手机端 SDK 文档 |
+| sdk | 手机端 SDK |
 
 
 ## 更新日志：
