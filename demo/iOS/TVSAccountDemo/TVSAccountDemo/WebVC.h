@@ -12,6 +12,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface WebVC : BaseVC
 
+@property (strong, nonatomic) IBOutlet UITextField *tfPid;
+
+@property (strong, nonatomic) IBOutlet UITextField *tfDsn;
+
 @property (strong, nonatomic) IBOutlet UIPickerView *picker;
 
 @property (strong, nonatomic) IBOutlet UITextField *tfUrl;

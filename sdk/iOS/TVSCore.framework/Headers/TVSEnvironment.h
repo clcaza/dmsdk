@@ -43,11 +43,6 @@ typedef NS_ENUM(NSInteger,TVSServerEnv) {
 @property(nonatomic,assign) TVSServerEnv serverEnv;
 
 /*
- * @brief 是否开启日志
- */
-@property(nonatomic,assign) BOOL logEnabled;
-
-/*
  * @brief 获得 TVS 环境类单例对象
  * @return TVS 环境类实例
  */
@@ -58,6 +53,11 @@ typedef NS_ENUM(NSInteger,TVSServerEnv) {
  * @return TVS 后台环境
  */
 -(TVSServerEnv)serverEnv;
+
+/*
+ * @brief 开启日志
+ */
+-(void)enableLog;
 
 /*
  * @brief 设置 TVS 后台环境

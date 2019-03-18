@@ -21,10 +21,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _pageTypeArray = @[@"QQ 音乐", @"账号授权", @"个人中心", @"会员领取", @"会员充值", @"手机号地址", @"用户反馈"];
+    _pageTypeArray = @[@"智能家居", @"QQ 音乐", @"账号授权", @"个人中心", @"会员领取", @"会员充值", @"手机号地址", @"用户反馈"];
     _picker.dataSource = self;
     _picker.delegate = self;
-    _pageType = TVSWebPageTypeRecharge;
+    _pageType = TVSWebPageTypeMember;
     [_picker selectRow:_pageType inComponent:0 animated:NO];
 }
 
@@ -40,7 +40,7 @@
 
 //打开指定类型的 H5 页面
 - (IBAction)onClickBtnOpenPage:(id)sender {
-    BrowserVC* bv = [BrowserVC new];
+    BrowserVC* bv = [self browserVc];
     bv.pageType = _pageType;
     [self.navigationController pushViewController:bv animated:YES];
 }
@@ -48,10 +48,17 @@
 // 打开自定义 URL
 - (IBAction)onClickBtnOpenUrl:(id)sender {
     if (NotEmpty(_tfUrl.text)) {
-        BrowserVC* bv = [BrowserVC new];
+        BrowserVC* bv = [self browserVc];
         bv.url = _tfUrl.text;
         [self.navigationController pushViewController:bv animated:YES];
     }
+}
+
+-(BrowserVC*)browserVc {
+    BrowserVC* bv = [BrowserVC new];
+    bv.pid = _tfPid.text;
+    bv.dsn = _tfDsn.text;
+    return bv;
 }
 
 #pragma mark UIPickerViewDataSource

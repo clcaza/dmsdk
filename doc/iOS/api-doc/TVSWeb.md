@@ -12,7 +12,7 @@
 | TVSWebPageTypePhoneAddress | 手机号地址页面 |
 | TVSWebPageTypeFeedback | 用户反馈页面 |
 
-### TVSWebUIDelegate Web 页面 UI 回调协议
+### TVSWebUniversalDelegate Web 页面通用回调协议
 
 ##### `-(void)TVSWebLoadStart;`
 
@@ -89,6 +89,22 @@
   **返回**:
 
   无;
+
+##### `-(BOOL)TVSWebShouldLoadUrl:(NSString*)url;`
+
+  **描述**:
+
+  Web 页面是否允许加载指定链接；
+
+  **参数**:
+
+  | 名称 | 类型 | 描述 |
+  | ------ | ------ | ------ |
+  | url | NSString* | 网页链接 |
+
+  **返回**:
+
+  是否允许加载；
 
 ### TVSWebBusinessDelegate Web 页面业务回调协议
 
@@ -208,7 +224,7 @@
 
   | 名称 | 类型 | 描述 | 备注 |
   | ------ | ------ | ------ | ------ |
-  | webUIDelegate | TVSWebUIDelegate | Web 页面 UI 回调 |  |
+  | webUniversalDelegate | TVSWebUniversalDelegate | Web 页面通用回调 |  |
   | webBusinessDelegate | TVSWebBusinessDelegate | Web 页面业务回调 |  |
   | authDelegate | TVSAuthDelegate | 账号授权协议 | 如果不使用 SDK 里面的 TVSAuthManager 授权，而是自己调用微信/QQ SDK，则必须实现此协议！ |
   | useSystemDefaultUserAgent | BOOL | 是否使用系统默认 UserAgent | 一般叮当的 Web 页面需要传 NO（内部会设为特定的 UA），其他第三方页面为了适配移动页面可能要传 YES |

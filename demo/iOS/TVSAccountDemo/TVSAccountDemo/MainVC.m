@@ -21,6 +21,9 @@
     [super viewDidLoad];
     _pickerView.dataSource = self;
     _pickerView.delegate = self;
+    
+    // 读取 SDK 版本号
+    self.title = [NSString stringWithFormat:@"DMSDK(v%@)", [TVSEnvironment shared].sdkVersion];
     // 读取后台环境配置
     [_pickerView selectRow:[TVSEnvironment shared].serverEnv inComponent:0 animated:NO];
 }
@@ -67,6 +70,8 @@
 
 // 由于不同环境账号信息不互通，切换环境后需要重新登录
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+    if ([TVSEnvironment shared].serverEnv == row) return;
+    
     if ([TVSAuthManager shared].isQQTokenExist || [TVSAuthManager shared].isWXTokenExist) {
         UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"不同环境下账号信息不互通，切换后需要重新登录。确定要切换么？" preferredStyle:UIAlertControllerStyleAlert];
         [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {

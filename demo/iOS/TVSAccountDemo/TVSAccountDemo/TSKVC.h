@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) IBOutlet UITextField *tfDomain;
 @property (strong, nonatomic) IBOutlet UITextField *tfIntent;
 @property (strong, nonatomic) IBOutlet UITextView *tvResult;
+@property (strong, nonatomic) IBOutlet UITextView *tvBlob;
 
 @end
 

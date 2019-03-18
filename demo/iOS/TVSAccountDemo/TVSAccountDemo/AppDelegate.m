@@ -13,8 +13,7 @@
 
 //SDK 初始化
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    NSLog(@"DMSDK version:%@", [TVSEnvironment shared].sdkVersion);//SDK 版本
-    [TVSEnvironment shared].logEnabled = YES;//开启日志
+    [[TVSEnvironment shared]enableLog];//开启日志
     [[TVSAuthManager shared]registerApp];//读取配置信息
     return YES;
 }

@@ -15,6 +15,10 @@
  */
 typedef NS_ENUM(NSInteger,TVSWebPageType) {
     /*
+     * @brief 智能家居页面
+     */
+    TVSWebPageTypeSmartHome,
+    /*
      * @brief QQ 音乐页面
      */
     TVSWebPageTypeMusic,
@@ -47,10 +51,10 @@ typedef NS_ENUM(NSInteger,TVSWebPageType) {
 
 
 /*
- * @protocol TVSWebUIDelegate
- * @brief TVS WEB 页面 UI 回调
+ * @protocol TVSWebUniversalDelegate
+ * @brief TVS WEB 页面通用回调
  */
-@protocol TVSWebUIDelegate <NSObject>
+@protocol TVSWebUniversalDelegate <NSObject>
 
 @optional
 /*
@@ -83,6 +87,14 @@ typedef NS_ENUM(NSInteger,TVSWebPageType) {
  * @param title 网页标题
  */
 -(void)TVSWebGotTitle:(NSString*)title;
+
+@optional
+/*
+ * @brief Web 页面是否加载链接
+ * @param url 网页链接
+ * @return 是否允许链接跳转
+ */
+-(BOOL)TVSWebShouldLoadUrl:(NSString*)url;
 
 @end
 
@@ -152,9 +164,9 @@ typedef NS_ENUM(NSInteger,TVSWebPageType) {
 @interface TVSWebView : UIView
 
 /*
- * @brief 网页 UI 回调
+ * @brief 网页通用回调
  */
-@property(nonatomic,weak) id<TVSWebUIDelegate> webUIDelegate;
+@property(nonatomic,weak) id<TVSWebUniversalDelegate> webUniversalDelegate;
 
 /*
  * @brief 网页业务回调

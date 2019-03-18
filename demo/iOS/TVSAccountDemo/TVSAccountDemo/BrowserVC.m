@@ -8,7 +8,7 @@
 
 #import "BrowserVC.h"
 
-@interface BrowserVC()<TVSWebUIDelegate, TVSWebBusinessDelegate>
+@interface BrowserVC()<TVSWebUniversalDelegate, TVSWebBusinessDelegate>
 
 @property(nonatomic,strong) UIView* vNav;
 @property(nonatomic,strong) UIButton *btnBack, *btnReload, *btnStop, *btnForward;
@@ -35,15 +35,15 @@
     
     // 添加 TVSWebView
     _webview = [[TVSWebView alloc] initWithFrame:self.view.bounds];
-    _webview.webUIDelegate = self;
+    _webview.webUniversalDelegate = self;
     _webview.webBusinessDelegate = self;
     // QQ 音乐会员相关页面需要设备信息
     _webview.device = [TVSDeviceInfo new];
     _webview.device.bindType = TVSDeviceBindTypeTVSSpeaker;
     _webview.device.deviceType = @"ScreenSpeaker";
     _webview.device.deviceOEM = @"TencentDingdang";
-    _webview.device.productId = @"2b82efec-a77c-46cd-a2c2-8df9bbd1d1c3:b50fd5a7baa547188516fec1fb5e3348";
-    _webview.device.dsn = @"1g:3g:b4:7f:f8:d9:d0:k8";
+    _webview.device.productId = _pid;
+    _webview.device.dsn = _dsn;
     [self.view insertSubview:_webview belowSubview:_progressView];
     // 自定义 TVSWebView 内部的 UIScrollView
     _webview.scrollView.bounces = YES;
@@ -71,6 +71,7 @@
 -(void)refreshButtons {
     _btnReload.enabled = YES;
     _btnBack.enabled = [_webview canGoBack];
+    _btnBack.enabled = YES;//[_webview canGoBack];
     _btnForward.enabled = [_webview canGoForward];
 }
 
@@ -107,6 +108,7 @@
 // 网页加载进度更新
 -(void)TVSWebLoadProgress:(double)progress {
     _progressView.progress = progress;
+    [self refreshButtons];
 }
 
 // 网页加载完成
@@ -122,6 +124,7 @@
     _progressView.hidden = YES;
     _progressView.progress = 0;
     _btnStop.enabled = NO;
+    [self refreshButtons];
     NSLog(@"TVSWeb load error:%@", error.localizedDescription);
 }
 
@@ -140,6 +143,11 @@
 // 网页请求关闭
 -(void)TVSWebRequestExit {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+// 是否允许加载指定网页链接
+-(BOOL)TVSWebShouldLoadUrl:(NSString *)url {
+    return YES;
 }
 
 @end
