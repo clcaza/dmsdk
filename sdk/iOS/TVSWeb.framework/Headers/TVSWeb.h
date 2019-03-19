@@ -180,12 +180,6 @@ typedef NS_ENUM(NSInteger,TVSWebPageType) {
 @property(nonatomic,weak) id<TVSAuthDelegate> authDelegate;
 
 /*
- * @brief 是否使用系统默认的 UserAgent
- * @warning 一般叮当的 Web 页面需要传 NO（内部会设为特定的 UA），其他第三方页面为了适配移动页面可能要传 YES
- */
-@property(nonatomic,assign) BOOL useSystemDefaultUserAgent;
-
-/*
  * @brief 设备相关信息（QQ 音乐会员等页面需要）
  * @warning 其中 deviceBindType、deviceType、deviceOEM、productId、DSN 几个字段为必填!!
  */

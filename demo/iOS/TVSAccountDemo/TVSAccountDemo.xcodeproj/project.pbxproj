@@ -124,6 +124,62 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		80A709DB22408F94007A8E51 /* Web */ = {
+			isa = PBXGroup;
+			children = (
+				80C3905C2200120600698F7D /* WebVC.h */,
+				80C3905D2200120600698F7D /* WebVC.m */,
+				808E8EE4223258CC00BEFFB0 /* BrowserVC.h */,
+				808E8EE5223258CC00BEFFB0 /* BrowserVC.m */,
+			);
+			name = Web;
+			sourceTree = "<group>";
+		};
+		80A709DC22408FBE007A8E51 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				8AD808231F3DB0E80040C9CF /* AuthVC.h */,
+				8AD808241F3DB0E80040C9CF /* AuthVC.m */,
+			);
+			name = Auth;
+			sourceTree = "<group>";
+		};
+		80A709DD22408FCE007A8E51 /* Device */ = {
+			isa = PBXGroup;
+			children = (
+				80C39059220011F200698F7D /* DeviceVC.h */,
+				80C3905A220011F200698F7D /* DeviceVC.m */,
+			);
+			name = Device;
+			sourceTree = "<group>";
+		};
+		80A709DE22408FE2007A8E51 /* Member */ = {
+			isa = PBXGroup;
+			children = (
+				80C3905F2200121800698F7D /* MemberVC.h */,
+				80C390602200121800698F7D /* MemberVC.m */,
+			);
+			name = Member;
+			sourceTree = "<group>";
+		};
+		80A709DF22408FF2007A8E51 /* TSK */ = {
+			isa = PBXGroup;
+			children = (
+				80C390622200122A00698F7D /* TSKVC.h */,
+				80C390632200122A00698F7D /* TSKVC.m */,
+			);
+			name = TSK;
+			sourceTree = "<group>";
+		};
+		80A709E022409003007A8E51 /* Speech */ = {
+			isa = PBXGroup;
+			children = (
+				80029D8F222E9EB2003F12F5 /* SpeechVC.h */,
+				80029D90222E9EB2003F12F5 /* SpeechVC.m */,
+			);
+			name = Speech;
+			sourceTree = "<group>";
+		};
 		80C39058220000B000698F7D /* VC */ = {
 			isa = PBXGroup;
 			children = (
@@ -131,20 +187,12 @@
 				80C39120220044F000698F7D /* BaseVC.m */,
 				800818CF222F7C6800A02B99 /* MainVC.h */,
 				800818D0222F7C6800A02B99 /* MainVC.m */,
-				8AD808231F3DB0E80040C9CF /* AuthVC.h */,
-				8AD808241F3DB0E80040C9CF /* AuthVC.m */,
-				80C39059220011F200698F7D /* DeviceVC.h */,
-				80C3905A220011F200698F7D /* DeviceVC.m */,
-				80C3905C2200120600698F7D /* WebVC.h */,
-				80C3905D2200120600698F7D /* WebVC.m */,
-				808E8EE4223258CC00BEFFB0 /* BrowserVC.h */,
-				808E8EE5223258CC00BEFFB0 /* BrowserVC.m */,
-				80C3905F2200121800698F7D /* MemberVC.h */,
-				80C390602200121800698F7D /* MemberVC.m */,
-				80C390622200122A00698F7D /* TSKVC.h */,
-				80C390632200122A00698F7D /* TSKVC.m */,
-				80029D8F222E9EB2003F12F5 /* SpeechVC.h */,
-				80029D90222E9EB2003F12F5 /* SpeechVC.m */,
+				80A709DC22408FBE007A8E51 /* Auth */,
+				80A709DD22408FCE007A8E51 /* Device */,
+				80A709DB22408F94007A8E51 /* Web */,
+				80A709DE22408FE2007A8E51 /* Member */,
+				80A709DF22408FF2007A8E51 /* TSK */,
+				80A709E022409003007A8E51 /* Speech */,
 			);
 			name = VC;
 			sourceTree = "<group>";
@@ -246,8 +294,8 @@
 				TargetAttributes = {
 					8AD808191F3DB0E80040C9CF = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = 5TNCWX532Z;
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = 88L2Q4487U;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -504,7 +552,8 @@
 			baseConfigurationReference = 8280EAE70BEB3A47F85369CA /* Pods-TVSAccountDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 5TNCWX532Z;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 88L2Q4487U;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/",
@@ -523,8 +572,9 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.tencent.dingdang.dmsdk.demo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tencent.dingdang.dmsdk.demoxyz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "com.tencent.dingdang.dmsdk.demoxyz Development";
 			};
 			name = Debug;
 		};
@@ -533,7 +583,8 @@
 			baseConfigurationReference = 9469E77371DE60DE145348FE /* Pods-TVSAccountDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 5TNCWX532Z;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/",
@@ -552,8 +603,9 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.tencent.dingdang.dmsdk.demo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tencent.dingdang.dmsdk.demoxyz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};
