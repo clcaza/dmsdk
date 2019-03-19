@@ -6,10 +6,13 @@
 | doc | 手机端 SDK 文档 |
 | sdk | 手机端 SDK |
 
-
 ## 更新日志：
 
-### v2.0.0: :new:
+### v2.0.1: :new:
+
+* H5 新增链接加载拦截回调；
+
+### [v2.0.0][2]:
 
 * 模块化拆分，核心模块(环境配置/账号/设备绑定)为必须，H5 等模块根据需要可选；
 
@@ -19,11 +22,9 @@
 
 * 新增二维码模块，用于无屏设备账号授权；
 
-* Android SDK新增Javadoc，可以到[http://TencentDingdang.github.io/dmsdk](http://TencentDingdang.github.io/dmsdk)查看。
-
 ### [v1.0][1]:
 
 * 提供基本的账号授权、设备绑定、H5 等功能； 
 
-
 [1]: https://github.com/TencentDingdang/dmsdk/tree/v1.0
+[2]: https://github.com/TencentDingdang/dmsdk/tree/v2.0.0
