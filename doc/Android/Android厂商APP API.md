@@ -68,6 +68,32 @@ public boolean isTokenExist(ELoginPlatform platform)
 
 所查询的平台是否登录
 
+### isLogoutBeforeRelogin
+
+是否在再次调用tvsLogin(ELoginPlatform, Activity, TVSCallback)时先退出登录，默认为会退出。
+
+```
+public boolean isLogoutBeforeRelogin()
+```
+
+#### 返回
+
+是否再次登录前退出登录
+
+### setLogoutBeforeRelogin
+
+设置是否在再次调用tvsLogin(ELoginPlatform, Activity, TVSCallback)时先退出登录。需要在应用启动的时候设置（如Application.onCreate()）。
+
+```
+public void setLogoutBeforeRelogin(boolean isLogoutAfterCancel)
+```
+
+#### 参数
+
+| 名称 | 说明 |
+|:---|:---|
+| isLogoutAfterCancel | 是否再次登录前退出登录 |
+
 ### tvsLogin
 
 发起登录流程。 若登录QQ平台，受QQ互联SDK限制，需要传入一个Activity实例，该实例会被调用 startActivityForResult 且需要在 onActivityResult 中调用 handleQQOpenIntent(int, int, Intent)。
@@ -359,7 +385,7 @@ public boolean handleQQOpenIntent(int requestCode, int resultCode, android.c
 
 ### clearToken
 
-Deprecated.
+已过时。
 
 ```
 @Deprecated public void clearToken(ELoginPlatform platform, android.content.Context context)
@@ -367,7 +393,7 @@ Deprecated.
 
 ### getClientId
 
-Deprecated.
+已过时。 改用 AccountInfoManager.getClientId(String, String)
 
 ```
 @Deprecated public java.lang.String getClientId(ELoginPlatform platform)
@@ -375,7 +401,7 @@ Deprecated.
 
 ### getInfoManager
 
-Deprecated.
+已过时。
 
 ```
 @Deprecated public com.tencent.ai.tvs.info.LoginInfoManager getInfoManager(ELoginPlatform platform)
@@ -383,7 +409,7 @@ Deprecated.
 
 ### getInstance
 
-Deprecated.
+已过时。
 
 ```
 @Deprecated public static LoginProxy getInstance(java.lang.String appIdWx, java.lang.String appIdQQOpen, android.content.Context context)
@@ -391,7 +417,7 @@ Deprecated.
 
 ### getUserId
 
-Deprecated.
+已过时。
 
 ```
 @Deprecated public java.lang.String getUserId()
@@ -399,7 +425,7 @@ Deprecated.
 
 ### initDDQREnv
 
-Deprecated.
+已过时。
 
 ```
 @Deprecated public void initDDQREnv()
@@ -407,7 +433,7 @@ Deprecated.
 
 ### initNetEnv
 
-Deprecated.
+已过时。
 
 ```
 @Deprecated public void initNetEnv()
@@ -415,7 +441,7 @@ Deprecated.
 
 ### isTokenExist
 
-Deprecated.
+已过时。
 
 ```
 @Deprecated public boolean isTokenExist(ELoginPlatform platform, android.content.Context context)
@@ -423,7 +449,7 @@ Deprecated.
 
 ### readLoginInfo
 
-Deprecated.
+已过时。
 
 ```
 @Deprecated public void readLoginInfo(android.content.Context context, ELoginPlatform platform)
@@ -431,7 +457,7 @@ Deprecated.
 
 ### requestBindPhoneNumber
 
-Deprecated.
+已过时。
 
 ```
 @Deprecated public void requestBindPhoneNumber(ELoginPlatform platform, java.lang.String phoneNumber, java.lang.String captcha)
@@ -439,7 +465,7 @@ Deprecated.
 
 ### requestDelPushMapInfo
 
-Deprecated.
+已过时。
 
 ```
 @Deprecated public void requestDelPushMapInfo(ELoginPlatform platform, com.tencent.ai.tvs.info.PushInfoManager pushInfoManager, com.tencent.ai.tvs.info.DeviceManager deviceManager)
@@ -447,7 +473,7 @@ Deprecated.
 
 ### requestGetBoundAcctByPushInfo
 
-Deprecated.
+已过时。
 
 ```
 @Deprecated public void requestGetBoundAcctByPushInfo(ELoginPlatform platform, com.tencent.ai.tvs.info.PushInfoManager pushInfoManager, com.tencent.ai.tvs.info.DeviceManager deviceManager)
@@ -455,7 +481,7 @@ Deprecated.
 
 ### requestGetCaptcha
 
-Deprecated.
+已过时。
 
 ```
 @Deprecated public void requestGetCaptcha(ELoginPlatform platform, java.lang.String phoneNumber)
@@ -463,7 +489,7 @@ Deprecated.
 
 ### requestGetDeviceInfoList
 
-Deprecated.
+已过时。
 
 ```
 @Deprecated public void requestGetDeviceInfoList(ELoginPlatform platform, int queryDeviceType, java.lang.String deviceGUID, com.tencent.ai.tvs.info.PushInfoManager pushInfoManager)
@@ -471,7 +497,7 @@ Deprecated.
 
 ### requestGetDeviceInfoList
 
-Deprecated.
+已过时。
 
 ```
 @Deprecated public void requestGetDeviceInfoList(ELoginPlatform platform, int queryDeviceType, java.lang.String deviceGUID, com.tencent.ai.tvs.info.PushInfoManager pushInfoManager, SmartService.DeviceIdentity deviceIdentity)
@@ -479,7 +505,7 @@ Deprecated.
 
 ### requestLogin
 
-Deprecated.
+已过时。
 
 ```
 @Deprecated public void requestLogin(ELoginPlatform platform, android.app.Activity activity)
@@ -487,7 +513,7 @@ Deprecated.
 
 ### requestLogin
 
-Deprecated.
+已过时。
 
 ```
 @Deprecated public void requestLogin(ELoginPlatform platform, java.lang.String productId, java.lang.String dsn, android.app.Activity activity)
@@ -495,7 +521,7 @@ Deprecated.
 
 ### requestSetPushMapInfoEx
 
-Deprecated.
+已过时。
 
 ```
 @Deprecated public void requestSetPushMapInfoEx(ELoginPlatform platform, com.tencent.ai.tvs.info.PushInfoManager pushInfoManager, com.tencent.ai.tvs.info.DeviceManager deviceManager)
@@ -503,7 +529,7 @@ Deprecated.
 
 ### requestTokenVerify
 
-Deprecated.
+已过时。
 
 ```
 @Deprecated public void requestTokenVerify(ELoginPlatform platform)
@@ -511,7 +537,7 @@ Deprecated.
 
 ### requestTokenVerify
 
-Deprecated.
+已过时。
 
 ```
 @Deprecated public void requestTokenVerify(ELoginPlatform platform, java.lang.String productId, java.lang.String dsn)
@@ -519,7 +545,7 @@ Deprecated.
 
 ### setAuthorizeListener
 
-Deprecated.
+已过时。
 
 ```
 @Deprecated public void setAuthorizeListener(com.tencent.ai.tvs.AuthorizeListener listener)
@@ -527,7 +553,7 @@ Deprecated.
 
 ### setBindingListener
 
-Deprecated.
+已过时。
 
 ```
 @Deprecated public void setBindingListener(com.tencent.ai.tvs.BindingListener listener)
@@ -535,7 +561,7 @@ Deprecated.
 
 ### setConfigListener
 
-Deprecated.
+已过时。
 
 ```
 @Deprecated public void setConfigListener(com.tencent.ai.tvs.ConfigListener listener)
@@ -543,7 +569,7 @@ Deprecated.
 
 ### setDDQREnv
 
-Deprecated.
+已过时。
 
 ```
 @Deprecated public void setDDQREnv(ELoginEnv env)
@@ -551,7 +577,7 @@ Deprecated.
 
 ### setLoginEnv
 
-Deprecated.
+已过时。
 
 ```
 @Deprecated public void setLoginEnv(ELoginEnv env)
@@ -559,7 +585,7 @@ Deprecated.
 
 ### setOwnActivity
 
-Deprecated.
+已过时。
 
 ```
 @Deprecated public void setOwnActivity(android.app.Activity activity)
@@ -567,7 +593,7 @@ Deprecated.
 
 ### setUserCenterEnv
 
-Deprecated.
+已过时。
 
 ```
 @Deprecated public void setUserCenterEnv(ELoginEnv env)
@@ -575,7 +601,7 @@ Deprecated.
 
 ### startupNetEnv
 
-Deprecated.
+已过时。
 
 ```
 @Deprecated public void startupNetEnv()
@@ -583,7 +609,7 @@ Deprecated.
 
 ### tvsAuth
 
-Deprecated.
+已过时。
 
 ```
 @Deprecated public void tvsAuth(ELoginPlatform platform, java.lang.String acctRet)
@@ -591,46 +617,30 @@ Deprecated.
 
 ### tvsQQOpenVerify
 
-Deprecated.
+已过时。
 
 ```
 @Deprecated public void tvsQQOpenVerify(java.lang.String appId, java.lang.String openID, java.lang.String accessToken)
 ```
 
-## TVSMember
+## TVSTSKM
 
-会员模块。
+TSKM平台模块。
 
-### TVSMember
+### TVSTSKM
 
 
-
-```
-public TVSMember()
-```
-
-### getDeviceStatus
-
-获取设备QQ音乐会员领取状态。
 
 ```
-public static void getDeviceStatus(java.lang.String productID, java.lang.String dsn, TVSCallback3<java.lang.Boolean,java.lang.Integer,DateUnit> callback)
+public TVSTSKM()
 ```
 
-#### 参数
+### requestTSKMUniAccessByDSN
 
-| 名称 | 说明 |
-|:---|:---|
-| productID | 设备的Product ID |
-| dsn | 设备的DSN |
-| callback | 请求结果回调，成功时三个参数依次表示是否能够领取会员、能够领取的时长的数值、能够领取的时长的单位 |
-
-### getMemberStatus
-
-获取QQ会员领取状态。
+发送TSKM平台的通用请求。云端闹钟管理旧版接口被废弃，改用该接口。
 
 ```
-public static void getMemberStatus(java.lang.String productID, java.lang.String dsn, TVSCallback3<java.lang.Boolean,java.util.Date,java.util.Date> callback)
+public static void requestTSKMUniAccessByDSN(java.lang.String productID, java.lang.String dsn, java.lang.String domain, java.lang.String intent, java.lang.String blobInfo, TVSCallback1<java.lang.String> callback)
 ```
 
 #### 参数
@@ -639,326 +649,409 @@ public static void getMemberStatus(java.lang.String productID, java.lang.Stri
 |:---|:---|
 | productID | 设备的Product ID |
 | dsn | 设备的DSN |
+| domain | 请求的TSKM服务领域 |
+| intent | 请求的TSKM服务意图 |
+| blobInfo | 请求的额外JSON格式参数 |
+| callback | 请求结果回调，成功时返回JSON格式的请求结果 |
+
+### requestTSKMUniAccessByGUID
+
+发送TSKM平台的通用请求。云端闹钟管理旧版接口被废弃，改用该接口。
+
+```
+public static void requestTSKMUniAccessByGUID(java.lang.String productID, java.lang.String guid, java.lang.String domain, java.lang.String intent, java.lang.String blobInfo, TVSCallback1<java.lang.String> callback)
+```
+
+#### 参数
+
+| 名称 | 说明 |
+|:---|:---|
+| productID | 设备的Product ID |
+| guid | 设备的GUID |
+| domain | 请求的TSKM服务领域 |
+| intent | 请求的TSKM服务意图 |
+| blobInfo | 请求的额外JSON格式参数 |
+| callback | 请求结果回调，成功时返回JSON格式的请求结果 |
+
+### requestTskmUniAccess
+
+已过时。 改用 requestTSKMUniAccessByDSN(String, String, String, String, String, TVSCallback1) 或 requestTSKMUniAccessByGUID(String, String, String, String, String, TVSCallback1) 云端闹钟管理V2接口。
+
+```
+@Deprecated public static void requestTskmUniAccess(ELoginPlatform platform, com.tencent.ai.tvs.info.DeviceManager deviceManager, com.tencent.ai.tvs.business.UniAccessInfo uniAccessInfo)
+```
+
+#### 参数
+
+| 名称 | 说明 |
+|:---|:---|
+| platform | 帐号平台类型 |
+| deviceManager | 设备信息管理器 |
+| uniAccessInfo | 通用接口数据结构体 |
+
+## TVSAuthDelegate
+
+使用SDK实现的TVS账号体系。通过SDK完成登录、刷票和认证信息缓存等功能。
+
+### TVSAuthDelegate
+
+默认构造器。
+
+```
+public TVSAuthDelegate(android.content.Context context, LoginProxy loginProxy)
+```
+
+#### 参数
+
+| 名称 | 说明 |
+|:---|:---|
+| context | 上下文。 |
+| loginProxy | 使用的Core模块的LoginProxy实例。可以通过LoginProxy.getInstance()获得。 |
+
+### onQQLoginActivityCreate
+
+SDK internal API.
+
+```
+public static void onQQLoginActivityCreate(int reqId, android.app.Activity activity)
+```
+
+### onQQLoginActivityResult
+
+SDK internal API.
+
+```
+public static void onQQLoginActivityResult(int reqId, int requestCode, int resultCode, android.content.Intent data)
+```
+
+### tvsWXLogin
+
+从接口复制的说明: AuthDelegate 请求微信登录。
+
+```
+public void tvsWXLogin(TVSCallback callback)
+```
+
+#### 参数
+
+| 名称 | 说明 |
+|:---|:---|
 | callback | 请求结果回调 |
 
-### getDeviceStatus
+### tvsWXTokenRefresh
 
-Deprecated. 改用#getDeviceStatus(String, String, TVSCallback1)。 获取设备会员状态接口
-
-```
-@Deprecated public static void getDeviceStatus(ELoginPlatform platform, com.tencent.ai.tvs.info.DeviceManager deviceManager)
-```
-
-#### 参数
-
-| 名称 | 说明 |
-|:---|:---|
-| platform | 帐号平台类型 |
-| deviceManager | 设备信息管理器 |
-
-### getMemberStatus
-
-Deprecated. 改用#getMemberStatus(String, String, TVSCallback1)。 获取设备领取会员信息接口
+从接口复制的说明: AuthDelegate 请求微信刷票。
 
 ```
-@Deprecated public static void getMemberStatus(ELoginPlatform platform, com.tencent.ai.tvs.info.DeviceManager deviceManager)
+public void tvsWXTokenRefresh(TVSCallback callback)
 ```
 
 #### 参数
 
 | 名称 | 说明 |
 |:---|:---|
-| platform | 帐号平台类型 |
-| deviceManager | 设备信息管理器 |
+| callback | 请求结果回调 |
 
-## DateUnit
+### tvsQQOpenLogin
 
-时间单位枚举类型，用于会员相关接口的回调。
+从接口复制的说明: AuthDelegate 请求QQ登录。
 
-### 枚举值列表
+```
+public void tvsQQOpenLogin(TVSCallback callback)
+```
+
+#### 参数
 
 | 名称 | 说明 |
 |:---|:---|
-| MONTH | 一个月。 |
-| YEAR | 一年。 |
+| callback | 请求结果回调 |
 
-## EMiniProgType
+### tvsLogout
 
-小程序类型。
+从接口复制的说明: AuthDelegate 请求退出登录，立即生效。
 
-### 枚举值列表
+```
+public void tvsLogout()
+```
+
+### getAccountInfo
+
+从接口复制的说明: AuthDelegate 获取账号信息。 其中的TVSAccountInfo.tvsID可以通过LoginProxy.tvsAuth(ELoginPlatform, String, TVSCallback1)获取。
+
+```
+public TVSAccountInfo getAccountInfo()
+```
+
+#### 返回
+
+账号信息对象
+
+### getUserInfo
+
+从接口复制的说明: AuthDelegate 获取用户信息。 其中的手机号字段不是必须的，可以不赋值，Web模块目前不会用到该字段。
+
+```
+public TVSUserInfo getUserInfo()
+```
+
+#### 返回
+
+用户信息对象
+
+### tvsSetPhoneNumber
+
+从接口复制的说明: AuthDelegate 用户信息中的手机号被Web中的页面更新，SDK无法立刻收到推送，因此这里由Web页面主动通知。 接入方实现时可以为空。
+
+```
+public void tvsSetPhoneNumber(java.lang.String phoneNumber)
+```
+
+#### 参数
 
 | 名称 | 说明 |
 |:---|:---|
-| RELEASE | 正式版。 |
-| TEST | 测试（开发）版。 |
-| PREVIEW | 预览版。 |
+| phoneNumber | 新的手机号 |
 
-## MiniProgCallback
+## AuthDelegate
 
+Created by perqinxie on 2019/01/30.
 
+### tvsWXLogin
 
-### onReceiveExtMsg
-
-
+请求微信登录。
 
 ```
-void onReceiveExtMsg(java.lang.String msg)
+void tvsWXLogin(TVSCallback callback)
 ```
 
-## TVSSpeakerInfo
+#### 参数
 
-代表音箱信息的简单类。
+| 名称 | 说明 |
+|:---|:---|
+| callback | 请求结果回调 |
+
+### tvsWXTokenRefresh
+
+请求微信刷票。
+
+```
+void tvsWXTokenRefresh(TVSCallback callback)
+```
+
+#### 参数
+
+| 名称 | 说明 |
+|:---|:---|
+| callback | 请求结果回调 |
+
+### tvsQQOpenLogin
+
+请求QQ登录。
+
+```
+void tvsQQOpenLogin(TVSCallback callback)
+```
+
+#### 参数
+
+| 名称 | 说明 |
+|:---|:---|
+| callback | 请求结果回调 |
+
+### tvsLogout
+
+请求退出登录，立即生效。
+
+```
+void tvsLogout()
+```
+
+### getAccountInfo
+
+获取账号信息。 其中的TVSAccountInfo.tvsID可以通过LoginProxy.tvsAuth(ELoginPlatform, String, TVSCallback1)获取。
+
+```
+TVSAccountInfo getAccountInfo()
+```
+
+#### 返回
+
+账号信息对象
+
+### getUserInfo
+
+获取用户信息。 其中的手机号字段不是必须的，可以不赋值，Web模块目前不会用到该字段。
+
+```
+TVSUserInfo getUserInfo()
+```
+
+#### 返回
+
+用户信息对象
+
+### tvsSetPhoneNumber
+
+用户信息中的手机号被Web中的页面更新，SDK无法立刻收到推送，因此这里由Web页面主动通知。 接入方实现时可以为空。
+
+```
+void tvsSetPhoneNumber(java.lang.String phoneNumber)
+```
+
+#### 参数
+
+| 名称 | 说明 |
+|:---|:---|
+| phoneNumber | 新的手机号 |
+
+## TVSUserInfo
+
+代表用户信息的简单POJO类。
 
 ### 字段列表
 
 | 名称 | 说明 |
 |:---|:---|
-| nickname | 音箱昵称。 |
+| ID_TYPE_WX | 微信用户信息类型。 |
+| ID_TYPE_QQ_OPEN | QQ用户信息类型。 |
 
-### TVSSpeakerInfo
+### TVSUserInfo
 
 
-
-```
-public TVSSpeakerInfo()
-```
-
-## TVSCallback1<R1>
-
-通用的请求结果回调接口。成功时有1个结果返回。
-
-### onSuccess
-
-接口调用成功。
 
 ```
-void onSuccess(R1 result)
+public TVSUserInfo()
 ```
 
-#### 参数
+### getIdType
 
-| 名称 | 说明 |
-|:---|:---|
-| result | 返回的结果 |
-
-### onError
-
-接口调用失败。
+获取用户信息类型。
 
 ```
-void onError(int code)
+public int getIdType()
+```
+
+#### 返回
+
+用户信息类型，可以是ID_TYPE_WX或ID_TYPE_QQ_OPEN
+
+### setIdType
+
+设置用户信息类型。
+
+```
+public void setIdType(int idType)
 ```
 
 #### 参数
 
 | 名称 | 说明 |
 |:---|:---|
-| code | 失败错误码 |
+| idType | 用户信息类型，可以是ID_TYPE_WX或ID_TYPE_QQ_OPEN |
 
-## QRCodeInfo
+### getNickName
 
-当前查询到的二维码状态。
-
-### 字段列表
-
-| 名称 | 说明 |
-|:---|:---|
-| qrCodeState | 二维码状态。 |
-| accountInfo | 帐号信息。 |
-| userInfo | 用户信息。 |
-
-### QRCodeInfo
-
-
+获取用户昵称。
 
 ```
-public QRCodeInfo()
+public java.lang.String getNickName()
 ```
 
-## TVSCallback3<R1,R2,R3>
+#### 返回
 
-通用的请求结果回调接口。成功时有3个结果返回。
+用户昵称
 
-### onSuccess
+### setNickName
 
-接口调用成功。
+设置用户昵称。
 
 ```
-void onSuccess(R1 result1, R2 result2, R3 result3)
+public void setNickName(java.lang.String nickName)
 ```
 
 #### 参数
 
 | 名称 | 说明 |
 |:---|:---|
-| result1 | 第1个结果 |
-| result2 | 第2个结果 |
-| result3 | 第3个结果 |
+| nickName | 用户昵称 |
 
-### onError
+### getHeadImgUrl
 
-接口调用失败。
+获取用户头像URL。
 
 ```
-void onError(int code)
+public java.lang.String getHeadImgUrl()
 ```
 
-#### 参数
+#### 返回
 
-| 名称 | 说明 |
-|:---|:---|
-| code | 失败错误码 |
+头像URL
 
-## TVSDevice
+### setHeadImgUrl
 
-用来表示设备信息的简单类。
-
-### 字段列表
-
-| 名称 | 说明 |
-|:---|:---|
-| productID | 后台申请的Product ID。 |
-| dsn | 设备序列号。 |
-| pushID | Push ID。 |
-| pushIDExtra | Push ID Extra。 |
-| guid | GUID。 |
-| deviceID | 设备ID。 |
-| deviceName | 设备名称。 |
-| deviceType | 设备类型。 |
-| deviceSerial | 设备系列。 |
-| deviceOEM | 设备厂商。 |
-| deviceOEMURL | 设备品牌标志URL。 |
-| deviceOEMToken | 设备厂商Token（用于PushKit）。 |
-| deviceRemark | 设备备注。 |
-| imei | IMEI。 |
-| qua | QUA。 |
-| lc | LC。 |
-| mac | MAC地址。 |
-| qimei | QIMEI。 |
-| enrollTime | 注册时间。 |
-| bindTime | 绑定时间。 |
-| bindType | 绑定类型。 |
-| extra | 扩展信息。 |
-| businessExtra | 业务扩展信息。 |
-| accountInfo | 设备关联的账户信息。 |
-
-### TVSDevice
-
-
+设置用户头像URL。
 
 ```
-public TVSDevice()
-```
-
-## TVSCallback
-
-通用的请求结果回调接口。成功时没有结果返回。
-
-### onSuccess
-
-接口调用成功。
-
-```
-void onSuccess()
-```
-
-### onError
-
-接口调用失败。
-
-```
-void onError(int code)
+public void setHeadImgUrl(java.lang.String headImgUrl)
 ```
 
 #### 参数
 
 | 名称 | 说明 |
 |:---|:---|
-| code | 失败错误码 |
+| headImgUrl | 头像URL |
 
-## TVSAISpeechItem
+### getSex
 
-代表音色信息的简单POJO类。
+获取用户性别。
 
-### 字段列表
+```
+public int getSex()
+```
+
+#### 返回
+
+用户性别，返回UserInfoManager.MALE或UserInfoManager.FEMALE
+
+### setSex
+
+设置用户性别。
+
+```
+public void setSex(int sex)
+```
+
+#### 参数
 
 | 名称 | 说明 |
 |:---|:---|
-| speechID | 音色ID。 |
-| speechName | 音色名称。 |
-| speechEnum | 音色枚举类型。 |
-| isDefaultOption | 是否是默认选项。 |
-| ttsConfig | TTS配置。 |
+| sex | 用户性别，有效值为UserInfoManager.MALE或UserInfoManager.FEMALE |
 
-### TVSAISpeechItem
+### getPhoneNumber
 
-
+获取用户手机号。
 
 ```
-public TVSAISpeechItem()
+public java.lang.String getPhoneNumber()
 ```
 
-## QRCodeState
+#### 返回
 
-二维码扫描状态枚举类型。
+手机号
 
-### 枚举值列表
+### setPhoneNumber
+
+设置用户手机号。
+
+```
+public void setPhoneNumber(java.lang.String phoneNumber)
+```
+
+#### 参数
 
 | 名称 | 说明 |
 |:---|:---|
-| NOT_SCANNED | 未被扫描。 |
-| SCANNED | 已经被扫描但没有后续操作。 |
-| SCANNED_AND_CONFIRMED | 用户扫描后确认。 |
-| SCANNED_AND_CANCELED | 用户扫描后取消。 |
-
-## TVSTTSConfig
-
-代表TTS配置的简单POJO类。
-
-### 字段列表
-
-| 名称 | 说明 |
-|:---|:---|
-| speed | 语音语速。 |
-| volume | 语音音量。 |
-
-### TVSTTSConfig
-
-
-
-```
-public TVSTTSConfig()
-```
-
-## TVSDeviceBindType
-
-设备绑定类型的枚举类型。
-
-### 枚举值列表
-
-| 名称 | 说明 |
-|:---|:---|
-| SDK_APP | SDK 接入方案的 App |
-| SDK_SPEAKER | SDK 接入方案的音箱 |
-| TVS_APP | 云端 API 接入方案的 App |
-| TVS_SPEAKER | 云端 API 接入方案的音箱 |
-
-### fromInternalEnum
-
-SDK internal API.
-
-```
-public static TVSDeviceBindType fromInternalEnum(int internal)
-```
-
-### toInternalEnum
-
-SDK internal API.
-
-```
-public static int toInternalEnum(TVSDeviceBindType type)
-```
+| phoneNumber | 手机号 |
 
 ## UserInfoManager
 
@@ -1076,6 +1169,235 @@ SDK internal API.
 ```
 public void clear()
 ```
+
+## AccountInfoManager
+
+账号信息模块。在使用SDK提供的账号认证体系的时候，该模块可以获取AppID、登录状态等信息。
+
+### AccountInfoManager
+
+
+
+```
+public AccountInfoManager()
+```
+
+### init
+
+SDK internal API.
+
+```
+public void init(android.content.Context context, java.lang.String wxAppID, java.lang.String qqOpenAppID)
+```
+
+### getPlatformType
+
+获取当前登录的平台。
+
+```
+public ELoginPlatform getPlatformType()
+```
+
+#### 返回
+
+当未登录时返回null，否则返回登录的平台
+
+### getAccessToken
+
+获取当前登录账号的Access Token。
+
+```
+public java.lang.String getAccessToken()
+```
+
+#### 返回
+
+如果已登录则返回登录帐号的Access Token
+
+### getRefreshToken
+
+获取当前登录账号的Refresh Token
+
+```
+public java.lang.String getRefreshToken()
+```
+
+#### 返回
+
+如果已登录则返回登录帐号的Refresh Token
+
+### getOpenID
+
+获取当前登录账号的Open ID
+
+```
+public java.lang.String getOpenID()
+```
+
+#### 返回
+
+如果已登录则返回登录帐号的Open ID
+
+### getExpireTime
+
+获取当前登录账号的票据超时时间
+
+```
+public long getExpireTime()
+```
+
+#### 返回
+
+如果已登录则返回登录帐号的票据超时时间
+
+### getTvsID
+
+获取当前登录账号的TVS ID
+
+```
+public java.lang.String getTvsID()
+```
+
+#### 返回
+
+如果已登录则返回登录帐号的TVS ID
+
+### getAppID
+
+获取当前登录账号的App ID
+
+```
+public java.lang.String getAppID()
+```
+
+#### 返回
+
+如果已登录则返回登录帐号的App ID，否则返回空字符串
+
+### getAppID
+
+获取指定平台的App ID
+
+```
+public java.lang.String getAppID(ELoginPlatform platform)
+```
+
+#### 参数
+
+| 名称 | 说明 |
+|:---|:---|
+| platform | 需要获取的App ID的平台类型 |
+
+#### 返回
+
+返回指定平台的App ID
+
+### getQbGuid
+
+SDK internal API.
+
+```
+public java.lang.String getQbGuid()
+```
+
+### setQbGuid
+
+SDK internal API.
+
+```
+public void setQbGuid(java.lang.String qbGuid)
+```
+
+### getUnionID
+
+获取当前登录微信账号的Union ID
+
+```
+public java.lang.String getUnionID()
+```
+
+#### 返回
+
+如果已登录微信则返回登录帐号的Union ID
+
+### getScope
+
+获取当前登录微信账号的Scope
+
+```
+public java.lang.String getScope()
+```
+
+#### 返回
+
+如果已登录微信则返回登录帐号的Scope
+
+### getUserId
+
+获取当前登录账号的用户ID
+
+```
+public java.lang.String getUserId()
+```
+
+#### 返回
+
+如果已登录则返回登录帐号的用户ID
+
+### getClientId
+
+获取当前登录账号的Client ID
+
+```
+public java.lang.String getClientId(java.lang.String productId, java.lang.String dsn)
+```
+
+#### 参数
+
+| 名称 | 说明 |
+|:---|:---|
+| productId | 设备Product ID |
+| dsn | 设备DSN |
+
+#### 返回
+
+如果已登录则返回登录帐号的Client ID
+
+### writeWxInfo
+
+SDK internal API.
+
+```
+public void writeWxInfo(java.lang.String tvsID, java.lang.String openID, java.lang.String accessToken, java.lang.String refreshToken, long expireTime, java.lang.String unionID)
+```
+
+### writeQQOpenInfo
+
+SDK internal API.
+
+```
+public void writeQQOpenInfo(java.lang.String tvsID, java.lang.String openID, java.lang.String accessToken, java.lang.String refreshToken, long expireTime)
+```
+
+### clear
+
+SDK internal API.
+
+```
+public void clear()
+```
+
+### getInstance
+
+获取该模块的单例。
+
+```
+public static AccountInfoManager getInstance()
+```
+
+#### 返回
+
+该模块的单例
 
 ## TVSAccountInfo
 
@@ -1335,884 +1657,320 @@ public void setScope(java.lang.String scope)
 |:---|:---|
 | scope | Scope |
 
-## TVSUserInfo
+## TVSCallback
 
-代表用户信息的简单POJO类。
+通用的请求结果回调接口。成功时没有结果返回。
+
+### onSuccess
+
+接口调用成功。
+
+```
+void onSuccess()
+```
+
+### onError
+
+接口调用失败。
+
+```
+void onError(int code)
+```
+
+#### 参数
+
+| 名称 | 说明 |
+|:---|:---|
+| code | 失败错误码 |
+
+## TVSSpeakerInfo
+
+代表音箱信息的简单类。
 
 ### 字段列表
 
 | 名称 | 说明 |
 |:---|:---|
-| ID_TYPE_WX | 微信用户信息类型。 |
-| ID_TYPE_QQ_OPEN | QQ用户信息类型。 |
+| nickname | 音箱昵称。 |
 
-### TVSUserInfo
-
+### TVSSpeakerInfo
 
 
-```
-public TVSUserInfo()
-```
-
-### getIdType
-
-获取用户信息类型。
 
 ```
-public int getIdType()
+public TVSSpeakerInfo()
 ```
 
-#### 返回
+## TVSTTSConfig
 
-用户信息类型，可以是ID_TYPE_WX或ID_TYPE_QQ_OPEN
+代表TTS配置的简单POJO类。
 
-### setIdType
-
-设置用户信息类型。
-
-```
-public void setIdType(int idType)
-```
-
-#### 参数
+### 字段列表
 
 | 名称 | 说明 |
 |:---|:---|
-| idType | 用户信息类型，可以是ID_TYPE_WX或ID_TYPE_QQ_OPEN |
+| speed | 语音语速。 |
+| volume | 语音音量。 |
 
-### getNickName
+### TVSTTSConfig
 
-获取用户昵称。
 
-```
-public java.lang.String getNickName()
-```
-
-#### 返回
-
-用户昵称
-
-### setNickName
-
-设置用户昵称。
 
 ```
-public void setNickName(java.lang.String nickName)
+public TVSTTSConfig()
 ```
 
-#### 参数
+## TVSDevice
+
+用来表示设备信息的简单类。
+
+### 字段列表
 
 | 名称 | 说明 |
 |:---|:---|
-| nickName | 用户昵称 |
-
-### getHeadImgUrl
-
-获取用户头像URL。
-
-```
-public java.lang.String getHeadImgUrl()
-```
-
-#### 返回
-
-头像URL
-
-### setHeadImgUrl
-
-设置用户头像URL。
-
-```
-public void setHeadImgUrl(java.lang.String headImgUrl)
-```
-
-#### 参数
-
-| 名称 | 说明 |
-|:---|:---|
-| headImgUrl | 头像URL |
-
-### getSex
-
-获取用户性别。
-
-```
-public int getSex()
-```
-
-#### 返回
-
-用户性别，返回UserInfoManager.MALE或UserInfoManager.FEMALE
-
-### setSex
-
-设置用户性别。
-
-```
-public void setSex(int sex)
-```
-
-#### 参数
-
-| 名称 | 说明 |
-|:---|:---|
-| sex | 用户性别，有效值为UserInfoManager.MALE或UserInfoManager.FEMALE |
-
-### getPhoneNumber
-
-获取用户手机号。
-
-```
-public java.lang.String getPhoneNumber()
-```
-
-#### 返回
-
-手机号
-
-### setPhoneNumber
-
-设置用户手机号。
-
-```
-public void setPhoneNumber(java.lang.String phoneNumber)
-```
-
-#### 参数
-
-| 名称 | 说明 |
-|:---|:---|
-| phoneNumber | 手机号 |
-
-## AuthDelegate
-
-Created by perqinxie on 2019/01/30.
-
-### tvsWXLogin
-
-请求微信登录。
-
-```
-void tvsWXLogin(TVSCallback callback)
-```
-
-#### 参数
-
-| 名称 | 说明 |
-|:---|:---|
-| callback | 请求结果回调 |
-
-### tvsWXTokenRefresh
-
-请求微信刷票。
-
-```
-void tvsWXTokenRefresh(TVSCallback callback)
-```
-
-#### 参数
-
-| 名称 | 说明 |
-|:---|:---|
-| callback | 请求结果回调 |
-
-### tvsQQOpenLogin
-
-请求QQ登录。
-
-```
-void tvsQQOpenLogin(TVSCallback callback)
-```
-
-#### 参数
-
-| 名称 | 说明 |
-|:---|:---|
-| callback | 请求结果回调 |
-
-### tvsLogout
-
-请求退出登录，立即生效。
-
-```
-void tvsLogout()
-```
-
-### getAccountInfo
-
-获取账号信息。 其中的TVSAccountInfo.tvsID可以通过LoginProxy.tvsAuth(ELoginPlatform, String, TVSCallback1)获取。
-
-```
-TVSAccountInfo getAccountInfo()
-```
-
-#### 返回
-
-账号信息对象
-
-### getUserInfo
-
-获取用户信息。 其中的手机号字段不是必须的，可以不赋值，Web模块目前不会用到该字段。
-
-```
-TVSUserInfo getUserInfo()
-```
-
-#### 返回
-
-用户信息对象
-
-### tvsSetPhoneNumber
-
-用户信息中的手机号被Web中的页面更新，SDK无法立刻收到推送，因此这里由Web页面主动通知。 接入方实现时可以为空。
-
-```
-void tvsSetPhoneNumber(java.lang.String phoneNumber)
-```
-
-#### 参数
-
-| 名称 | 说明 |
-|:---|:---|
-| phoneNumber | 新的手机号 |
-
-## TVSAuthDelegate
-
-使用SDK实现的TVS账号体系。通过SDK完成登录、刷票和认证信息缓存等功能。
-
-### TVSAuthDelegate
-
-默认构造器。
-
-```
-public TVSAuthDelegate(android.content.Context context, LoginProxy loginProxy)
-```
-
-#### 参数
-
-| 名称 | 说明 |
-|:---|:---|
-| context | 上下文。 |
-| loginProxy | 使用的Core模块的LoginProxy实例。可以通过LoginProxy.getInstance()获得。 |
-
-### onQQLoginActivityCreate
-
-SDK internal API.
-
-```
-public static void onQQLoginActivityCreate(int reqId, android.app.Activity activity)
-```
-
-### onQQLoginActivityResult
-
-SDK internal API.
-
-```
-public static void onQQLoginActivityResult(int reqId, int requestCode, int resultCode, android.content.Intent data)
-```
-
-### tvsWXLogin
-
-Description copied from interface: AuthDelegate 请求微信登录。
-
-```
-public void tvsWXLogin(TVSCallback callback)
-```
-
-#### 参数
-
-| 名称 | 说明 |
-|:---|:---|
-| callback | 请求结果回调 |
-
-### tvsWXTokenRefresh
-
-Description copied from interface: AuthDelegate 请求微信刷票。
-
-```
-public void tvsWXTokenRefresh(TVSCallback callback)
-```
-
-#### 参数
-
-| 名称 | 说明 |
-|:---|:---|
-| callback | 请求结果回调 |
-
-### tvsQQOpenLogin
-
-Description copied from interface: AuthDelegate 请求QQ登录。
-
-```
-public void tvsQQOpenLogin(TVSCallback callback)
-```
-
-#### 参数
-
-| 名称 | 说明 |
-|:---|:---|
-| callback | 请求结果回调 |
-
-### tvsLogout
-
-Description copied from interface: AuthDelegate 请求退出登录，立即生效。
-
-```
-public void tvsLogout()
-```
-
-### getAccountInfo
-
-Description copied from interface: AuthDelegate 获取账号信息。 其中的TVSAccountInfo.tvsID可以通过LoginProxy.tvsAuth(ELoginPlatform, String, TVSCallback1)获取。
-
-```
-public TVSAccountInfo getAccountInfo()
-```
-
-#### 返回
-
-账号信息对象
-
-### getUserInfo
-
-Description copied from interface: AuthDelegate 获取用户信息。 其中的手机号字段不是必须的，可以不赋值，Web模块目前不会用到该字段。
-
-```
-public TVSUserInfo getUserInfo()
-```
-
-#### 返回
-
-用户信息对象
-
-### tvsSetPhoneNumber
-
-Description copied from interface: AuthDelegate 用户信息中的手机号被Web中的页面更新，SDK无法立刻收到推送，因此这里由Web页面主动通知。 接入方实现时可以为空。
-
-```
-public void tvsSetPhoneNumber(java.lang.String phoneNumber)
-```
-
-#### 参数
-
-| 名称 | 说明 |
-|:---|:---|
-| phoneNumber | 新的手机号 |
-
-## AccountInfoManager
-
-账号信息模块。在使用SDK提供的账号认证体系的时候，该模块可以获取AppID、登录状态等信息。
-
-### AccountInfoManager
-
-
-
-```
-public AccountInfoManager()
-```
-
-### init
-
-SDK internal API.
-
-```
-public void init(android.content.Context context, java.lang.String wxAppID, java.lang.String qqOpenAppID)
-```
-
-### getPlatformType
-
-获取当前登录的平台。
-
-```
-public ELoginPlatform getPlatformType()
-```
-
-#### 返回
-
-当未登录时返回null，否则返回登录的平台
-
-### getAccessToken
-
-获取当前登录账号的Access Token。
-
-```
-public java.lang.String getAccessToken()
-```
-
-#### 返回
-
-如果已登录则返回登录帐号的Access Token
-
-### getRefreshToken
-
-获取当前登录账号的Refresh Token
-
-```
-public java.lang.String getRefreshToken()
-```
-
-#### 返回
-
-如果已登录则返回登录帐号的Refresh Token
-
-### getOpenID
-
-获取当前登录账号的Open ID
-
-```
-public java.lang.String getOpenID()
-```
-
-#### 返回
-
-如果已登录则返回登录帐号的Open ID
-
-### getExpireTime
-
-获取当前登录账号的票据超时时间
-
-```
-public long getExpireTime()
-```
-
-#### 返回
-
-如果已登录则返回登录帐号的票据超时时间
-
-### getTvsID
-
-获取当前登录账号的TVS ID
-
-```
-public java.lang.String getTvsID()
-```
-
-#### 返回
-
-如果已登录则返回登录帐号的TVS ID
-
-### getAppID
-
-获取当前登录账号的App ID
-
-```
-public java.lang.String getAppID()
-```
-
-#### 返回
-
-如果已登录则返回登录帐号的App ID，否则返回空字符串
-
-### getAppID
-
-获取指定平台的App ID
-
-```
-public java.lang.String getAppID(ELoginPlatform platform)
-```
-
-#### 参数
-
-| 名称 | 说明 |
-|:---|:---|
-| platform | 需要获取的App ID的平台类型 |
-
-#### 返回
-
-返回指定平台的App ID
-
-### getQbGuid
-
-SDK internal API.
-
-```
-public java.lang.String getQbGuid()
-```
-
-### setQbGuid
-
-SDK internal API.
-
-```
-public void setQbGuid(java.lang.String qbGuid)
-```
-
-### getUnionID
-
-获取当前登录微信账号的Union ID
-
-```
-public java.lang.String getUnionID()
-```
-
-#### 返回
-
-如果已登录微信则返回登录帐号的Union ID
-
-### getScope
-
-获取当前登录微信账号的Scope
-
-```
-public java.lang.String getScope()
-```
-
-#### 返回
-
-如果已登录微信则返回登录帐号的Scope
-
-### getUserId
-
-获取当前登录账号的用户ID
-
-```
-public java.lang.String getUserId()
-```
-
-#### 返回
-
-如果已登录则返回登录帐号的用户ID
-
-### getClientId
-
-获取当前登录账号的Client ID
-
-```
-public java.lang.String getClientId(java.lang.String productId, java.lang.String dsn)
-```
-
-#### 参数
-
-| 名称 | 说明 |
-|:---|:---|
-| productId | 设备Product ID |
-| dsn | 设备DSN |
-
-#### 返回
-
-如果已登录则返回登录帐号的Client ID
-
-### writeWxInfo
-
-SDK internal API.
-
-```
-public void writeWxInfo(java.lang.String tvsID, java.lang.String openID, java.lang.String accessToken, java.lang.String refreshToken, long expireTime, java.lang.String unionID)
-```
-
-### writeQQOpenInfo
-
-SDK internal API.
-
-```
-public void writeQQOpenInfo(java.lang.String tvsID, java.lang.String openID, java.lang.String accessToken, java.lang.String refreshToken, long expireTime)
-```
-
-### clear
-
-SDK internal API.
-
-```
-public void clear()
-```
-
-### getInstance
-
-获取该模块的单例。
-
-```
-public static AccountInfoManager getInstance()
-```
-
-#### 返回
-
-该模块的单例
-
-## TVSSpeaker
-
-音箱信息设置模块。
-
-### newInstance
-
-构造用于单个设备的实例，该实例的API调用都作用于该设备。
-
-```
-public static TVSSpeaker newInstance(java.lang.String productID, java.lang.String dsn)
-```
-
-#### 参数
-
-| 名称 | 说明 |
-|:---|:---|
-| productID | 设备的Product ID |
-| dsn | 设备的DSN |
-
-#### 返回
-
-指定单个设备的 TVSSpeaker 实例
-
-### getSpeakerInfo
-
-获取音箱信息。
-
-```
-public void getSpeakerInfo(TVSCallback1<TVSSpeakerInfo> callback)
-```
-
-#### 参数
-
-| 名称 | 说明 |
-|:---|:---|
-| callback | 请求结果回调，成功时返回的 TVSSpeakerInfo 参数包含音箱信息 |
-
-### setSpeakerInfo
-
-设置音箱信息。
-
-```
-public void setSpeakerInfo(TVSSpeakerInfo speakerInfo, TVSCallback callback)
-```
-
-#### 参数
-
-| 名称 | 说明 |
-|:---|:---|
-| speakerInfo | 要设置为的音箱信息 |
-| callback | 请求结果回调 |
-
-### requestGetSpeakerInfo
-
-Deprecated. 改用 getSpeakerInfo(TVSCallback1)
-
-```
-@Deprecated public static void requestGetSpeakerInfo(ELoginPlatform platform, com.tencent.ai.tvs.info.DeviceManager deviceManager)
-```
-
-### requestSetSpeakerInfo
-
-Deprecated. 改用 setSpeakerInfo(TVSSpeakerInfo, TVSCallback)
-
-```
-@Deprecated public static void requestSetSpeakerInfo(ELoginPlatform platform, com.tencent.ai.tvs.info.DeviceManager deviceManager)
-```
-
-## TVSQRCode
-
-二维码业务模块。
-
-### newInstance
-
-构造用于单个设备的实例，该实例的API调用都作用于该设备。
-
-```
-public static TVSQRCode newInstance(java.lang.String productID, java.lang.String dsn, QRCodeType qrCodeType)
-```
-
-#### 参数
-
-| 名称 | 说明 |
-|:---|:---|
-| productID | 设备的Product ID |
-| dsn | 设备的DSN |
-| qrCodeType | 二维码业务类型 |
-
-#### 返回
-
-指定单个设备的 TVSQRCode 实例
-
-### getQRCodeInfo
-
-查询二维码状态信息。
-
-```
-public void getQRCodeInfo(TVSCallback1<QRCodeInfo> callback)
-```
-
-#### 参数
-
-| 名称 | 说明 |
-|:---|:---|
-| callback | 请求结果回调，成功时返回的参数包含二维码状态和帐号信息、用户信息 |
-
-### setQRCodeState
-
-更新二维码状态。
-
-```
-public void setQRCodeState(QRCodeState qrCodeState, TVSCallback callback)
-```
-
-#### 参数
-
-| 名称 | 说明 |
-|:---|:---|
-| qrCodeState | 新的二维码状态 |
-| callback | 请求结果回调 |
-
-### queryQRScanResult
-
-通过二维码扫描结果，查询相关信息。
-
-```
-public void queryQRScanResult(java.lang.String scanResult, TVSCallback1<java.lang.String> callback)
-```
-
-#### 参数
-
-| 名称 | 说明 |
-|:---|:---|
-| scanResult | 二维码扫描结果 |
-| callback | 请求结果回调，成功时返回JSON格式的请求结果 |
-
-### requestGetQRCodeStateAndAcctInfo
-
-Deprecated. 改用 getQRCodeInfo(TVSCallback1)
-
-```
-@Deprecated public static void requestGetQRCodeStateAndAcctInfo(com.tencent.ai.tvs.info.DeviceManager deviceManager, java.lang.String qrType)
-```
-
-### requestSetQRCodeState
-
-Deprecated. 改用 setQRCodeState(QRCodeState, TVSCallback)
-
-```
-@Deprecated public static void requestSetQRCodeState(com.tencent.ai.tvs.info.DeviceManager deviceManager, java.lang.String qrType, int qrState)
-```
-
-## QRCodeType
-
-
+| productID | 后台申请的Product ID。 |
+| dsn | 设备序列号。 |
+| pushID | Push ID。 |
+| pushIDExtra | Push ID Extra。 |
+| guid | GUID。 |
+| deviceID | 设备ID。 |
+| deviceName | 设备名称。 |
+| deviceType | 设备类型。 |
+| deviceSerial | 设备系列。 |
+| deviceOEM | 设备厂商。 |
+| deviceOEMURL | 设备品牌标志URL。 |
+| deviceOEMToken | 设备厂商Token（用于PushKit）。 |
+| deviceRemark | 设备备注。 |
+| imei | IMEI。 |
+| qua | QUA。 |
+| lc | LC。 |
+| mac | MAC地址。 |
+| qimei | QIMEI。 |
+| enrollTime | 注册时间。 |
+| bindTime | 绑定时间。 |
+| bindType | 绑定类型。 |
+| extra | 扩展信息。 |
+| businessExtra | 业务扩展信息。 |
+| accountInfo | 设备关联的账户信息。 |
+
+### TVSDevice
+
+
+
+```
+public TVSDevice()
+```
+
+## TVSDeviceBindType
+
+设备绑定类型的枚举类型。
 
 ### 枚举值列表
 
 | 名称 | 说明 |
 |:---|:---|
-| UNKNOWN |  |
-| BIND |  |
-| JOIN_RELATIONSHIP |  |
+| SDK_APP | SDK 接入方案的 App |
+| SDK_SPEAKER | SDK 接入方案的音箱 |
+| TVS_APP | 云端 API 接入方案的 App |
+| TVS_SPEAKER | 云端 API 接入方案的音箱 |
 
-## TVSAISpeech
+### fromInternalEnum
 
-AI Speech模块。
+SDK internal API.
 
-### TVSAISpeech
+```
+public static TVSDeviceBindType fromInternalEnum(int internal)
+```
+
+### toInternalEnum
+
+SDK internal API.
+
+```
+public static int toInternalEnum(TVSDeviceBindType type)
+```
+
+## QRCodeState
+
+二维码扫描状态枚举类型。
+
+### 枚举值列表
+
+| 名称 | 说明 |
+|:---|:---|
+| NOT_SCANNED | 未被扫描。 |
+| SCANNED | 已经被扫描但没有后续操作。 |
+| SCANNED_AND_CONFIRMED | 用户扫描后确认。 |
+| SCANNED_AND_CANCELED | 用户扫描后取消。 |
+
+## TVSAISpeechItem
+
+代表音色信息的简单POJO类。
+
+### 字段列表
+
+| 名称 | 说明 |
+|:---|:---|
+| speechID | 音色ID。 |
+| speechName | 音色名称。 |
+| speechEnum | 音色枚举类型。 |
+| isDefaultOption | 是否是默认选项。 |
+| ttsConfig | TTS配置。 |
+
+### TVSAISpeechItem
 
 
 
 ```
-public TVSAISpeech()
+public TVSAISpeechItem()
 ```
 
-### getBotAISpeechOption
+## TVSCallback1<R1>
 
-获取当前ProductID下可支持的TTS音色列表
+通用的请求结果回调接口。成功时有1个结果返回。
+
+### onSuccess
+
+接口调用成功。
 
 ```
-public static void getBotAISpeechOption(java.lang.String productID, TVSCallback1<java.util.ArrayList<TVSAISpeechItem>> callback)
+void onSuccess(R1 result)
 ```
 
 #### 参数
 
 | 名称 | 说明 |
 |:---|:---|
-| productID | 设备的Product ID |
-| callback | 请求结果回调，成功时参数返回为该设备的BOT支持的音色列表 |
+| result | 返回的结果 |
 
-### getDeviceAISpeech
+### onError
 
-获取当前ProductID下音色信息
-
-```
-public static void getDeviceAISpeech(java.lang.String productID, java.lang.String dsn, TVSCallback1<TVSAISpeechItem> callback)
-```
-
-#### 参数
-
-| 名称 | 说明 |
-|:---|:---|
-| productID | 设备的Product ID |
-| dsn | 设备的DSN |
-| callback | 请求结果回调，成功时参数返回为该设备的音色信息 |
-
-### setDeviceAISpeech
-
-设置当前ProductID下的TTS
+接口调用失败。
 
 ```
-public static void setDeviceAISpeech(java.lang.String productID, java.lang.String dsn, java.lang.String speechID, @Nullable TVSTTSConfig ttsConfig, TVSCallback callback)
+void onError(int code)
 ```
 
 #### 参数
 
 | 名称 | 说明 |
 |:---|:---|
-| productID | 设备的Product ID |
-| dsn | 设备的DSN |
-| speechID | 要设置为的音色ID |
-| ttsConfig | 要设置为的TTS音量和语速，传null则表示不设置 |
-| callback | 请求结果回调 |
+| code | 失败错误码 |
 
-### requestGetBotAISpeechOption
+## QRCodeInfo
 
-Deprecated. 改用 getBotAISpeechOption(String, TVSCallback1) 获取当前ProductID下可支持的TTS音色列表
+当前查询到的二维码状态。
+
+### 字段列表
+
+| 名称 | 说明 |
+|:---|:---|
+| qrCodeState | 二维码状态。 |
+| accountInfo | 帐号信息。 |
+| userInfo | 用户信息。 |
+
+### QRCodeInfo
+
+
 
 ```
-@Deprecated public static void requestGetBotAISpeechOption(com.tencent.ai.tvs.info.DeviceManager deviceManager)
+public QRCodeInfo()
+```
+
+## TVSCallback3<R1,R2,R3>
+
+通用的请求结果回调接口。成功时有3个结果返回。
+
+### onSuccess
+
+接口调用成功。
+
+```
+void onSuccess(R1 result1, R2 result2, R3 result3)
 ```
 
 #### 参数
 
 | 名称 | 说明 |
 |:---|:---|
-| deviceManager | 设备信息管理器 |
+| result1 | 第1个结果 |
+| result2 | 第2个结果 |
+| result3 | 第3个结果 |
 
-### requestGetDeviceAISpeech
+### onError
 
-Deprecated. 改用 getDeviceAISpeech(String, String, TVSCallback1) 获取当前ProductID下音色ID
-
-```
-@Deprecated public static void requestGetDeviceAISpeech(ELoginPlatform platform, com.tencent.ai.tvs.info.DeviceManager deviceManager)
-```
-
-#### 参数
-
-| 名称 | 说明 |
-|:---|:---|
-| platform | 帐号平台类型 |
-| deviceManager | 设备信息管理器 |
-
-### requestSetDeviceAISpeech
-
-Deprecated. 改用 setDeviceAISpeech(String, String, String, TVSTTSConfig, TVSCallback) 设置当前ProductID下的TTS
+接口调用失败。
 
 ```
-@Deprecated public static void requestSetDeviceAISpeech(ELoginPlatform platform, com.tencent.ai.tvs.info.DeviceManager deviceManager, java.lang.String speechID)
+void onError(int code)
 ```
 
 #### 参数
 
 | 名称 | 说明 |
 |:---|:---|
-| platform | 帐号平台类型 |
-| deviceManager | 设备信息管理器 |
-| speechID | TTS音色ID |
+| code | 失败错误码 |
 
-### requestSetDeviceAISpeech
+## ELoginPlatform
 
-Deprecated. 改用 setDeviceAISpeech(String, String, String, TVSTTSConfig, TVSCallback) 设置当前ProductID下的TTS
+登录平台。
 
-```
-@Deprecated public static void requestSetDeviceAISpeech(ELoginPlatform platform, com.tencent.ai.tvs.info.DeviceManager deviceManager, java.lang.String speechID, SmartService.TTSConfigs ttsConfigs)
-```
-
-#### 参数
+### 枚举值列表
 
 | 名称 | 说明 |
 |:---|:---|
-| platform | 帐号平台类型 |
-| deviceManager | 设备信息管理器 |
-| speechID | TTS音色ID |
+| WX | 微信开放平台登录。 |
+| QQOpen | QQ互联平台登录。 |
+| Unknown | 未知，仅备用。 |
+
+### fromInternalEnum
+
+SDK internal API.
+
+```
+public static ELoginPlatform fromInternalEnum(int internal)
+```
+
+### toInternalEnum
+
+SDK internal API.
+
+```
+public static int toInternalEnum(ELoginPlatform platform)
+```
+
+## EUserAttrType
+
+HTML5 WebView模块预设网页的枚举类型。
+
+### 枚举值列表
+
+| 名称 | 说明 |
+|:---|:---|
+| HOMEPAGE | 用户个人中心。 |
+| CPOPERATION | 会员领取页面。 |
+| INFOSETTING | 手机号信息页面。 |
+| AGREEMENT | 用户协议页面。 |
+| PRIVACY | 隐私策略页面。 |
+| FEEDBACK | 反馈页面。 |
+| RECHARGE | 会员充值页面。 |
+| TSKCENTER | TSKM中心页面。 |
+| AGREEMENT_V1 | V1版本用户协议页面。 |
+| AUTH | 账号授权页面。 |
+| QQ_MUSIC | QQ音乐页面。 |
+| IOT | 智能家居页面。 |
+
+## ELoginEnv
+
+登录环境，对整个SDK有效。不同的登录环境使用不同的TVS后台服务，开发时切换环境便于调试。 注意：HTML5 WebView模块内的预设网页没有体验环境，体验环境使用正式环境的URL。
+
+### 枚举值列表
+
+| 名称 | 说明 |
+|:---|:---|
+| FORMAL | 正式环境（生产环境）。 |
+| TEST | 测试环境。 |
+| EX | 体验环境。 |
 
 ## TVSWebController
 
@@ -2404,6 +2162,46 @@ public void setBusinessEventListener(TVSWebController.BusinessEventListener b
 public void onDestroy()
 ```
 
+## TVSWebView
+
+WebView类，封装了TVS的业务逻辑，可以通过getController()获取控制类进行操作。
+
+### TVSWebView
+
+
+
+```
+public TVSWebView(@NonNull android.content.Context context)
+```
+
+### TVSWebView
+
+
+
+```
+public TVSWebView(@NonNull android.content.Context context, @Nullable android.util.AttributeSet attrs)
+```
+
+### TVSWebView
+
+
+
+```
+public TVSWebView(@NonNull android.content.Context context, @Nullable android.util.AttributeSet attrs, int defStyleAttr)
+```
+
+### getController
+
+获取用于控制当前WebView内容展示相关接口的控制类实例。
+
+```
+public TVSWebController getController()
+```
+
+#### 返回
+
+控制类实例。
+
 ## TVSWeb
 
 HTML5 WebView模块。
@@ -2447,124 +2245,16 @@ public static TVSWeb.Configuration getConfiguration()
 
 Web模块配置实例
 
-## TVSWebView
+## TVSQRCode
 
-WebView类，封装了TVS的业务逻辑，可以通过getController()获取控制类进行操作。
+二维码业务模块。
 
-### TVSWebView
+### newInstance
 
-
-
-```
-public TVSWebView(@NonNull android.content.Context context)
-```
-
-### TVSWebView
-
-
+构造用于单个设备的实例，该实例的API调用都作用于该设备。
 
 ```
-public TVSWebView(@NonNull android.content.Context context, @Nullable android.util.AttributeSet attrs)
-```
-
-### TVSWebView
-
-
-
-```
-public TVSWebView(@NonNull android.content.Context context, @Nullable android.util.AttributeSet attrs, int defStyleAttr)
-```
-
-### getController
-
-获取用于控制当前WebView内容展示相关接口的控制类实例。
-
-```
-public TVSWebController getController()
-```
-
-#### 返回
-
-控制类实例。
-
-## ELoginEnv
-
-登录环境，对整个SDK有效。不同的登录环境使用不同的TVS后台服务，开发时切换环境便于调试。 注意：HTML5 WebView模块内的预设网页没有体验环境，体验环境使用正式环境的URL。
-
-### 枚举值列表
-
-| 名称 | 说明 |
-|:---|:---|
-| FORMAL | 正式环境（生产环境）。 |
-| TEST | 测试环境。 |
-| EX | 体验环境。 |
-
-## ELoginPlatform
-
-登录平台。
-
-### 枚举值列表
-
-| 名称 | 说明 |
-|:---|:---|
-| WX | 微信开放平台登录。 |
-| QQOpen | QQ互联平台登录。 |
-| Unknown | 未知，仅备用。 |
-
-### fromInternalEnum
-
-SDK internal API.
-
-```
-public static ELoginPlatform fromInternalEnum(int internal)
-```
-
-### toInternalEnum
-
-SDK internal API.
-
-```
-public static int toInternalEnum(ELoginPlatform platform)
-```
-
-## EUserAttrType
-
-HTML5 WebView模块预设网页的枚举类型。
-
-### 枚举值列表
-
-| 名称 | 说明 |
-|:---|:---|
-| HOMEPAGE | 用户个人中心。 |
-| CPOPERATION | 会员领取页面。 |
-| INFOSETTING | 手机号信息页面。 |
-| AGREEMENT | 用户协议页面。 |
-| PRIVACY | 隐私策略页面。 |
-| FEEDBACK | 反馈页面。 |
-| RECHARGE | 会员充值页面。 |
-| TSKCENTER | TSKM中心页面。 |
-| AGREEMENT_V1 | V1版本用户协议页面。 |
-| AUTH | 账号授权页面。 |
-| QQ_MUSIC | QQ音乐页面。 |
-
-## TVSTSKM
-
-TSKM平台模块。
-
-### TVSTSKM
-
-
-
-```
-public TVSTSKM()
-```
-
-### requestTSKMUniAccessByDSN
-
-发送TSKM平台的通用请求。云端闹钟管理旧版接口被废弃，改用该接口。
-
-```
-public static void requestTSKMUniAccessByDSN(java.lang.String productID, java.lang.String dsn, java.lang.String domain, java.lang.String intent, java.lang.String blobInfo, TVSCallback1<java.lang.String> callback)
+public static TVSQRCode newInstance(java.lang.String productID, java.lang.String dsn, QRCodeType qrCodeType)
 ```
 
 #### 参数
@@ -2573,17 +2263,94 @@ public static void requestTSKMUniAccessByDSN(java.lang.String productID, java
 |:---|:---|
 | productID | 设备的Product ID |
 | dsn | 设备的DSN |
-| domain | 请求的TSKM服务领域 |
-| intent | 请求的TSKM服务意图 |
-| blobInfo | 请求的额外JSON格式参数 |
-| callback | 请求结果回调，成功时返回JSON格式的请求结果 |
+| qrCodeType | 二维码业务类型 |
 
-### requestTSKMUniAccessByGUID
+#### 返回
 
-发送TSKM平台的通用请求。云端闹钟管理旧版接口被废弃，改用该接口。
+指定单个设备的 TVSQRCode 实例
+
+### getQRCodeInfo
+
+查询二维码状态信息。
 
 ```
-public static void requestTSKMUniAccessByGUID(java.lang.String productID, java.lang.String guid, java.lang.String domain, java.lang.String intent, java.lang.String blobInfo, TVSCallback1<java.lang.String> callback)
+public void getQRCodeInfo(TVSCallback1<QRCodeInfo> callback)
+```
+
+#### 参数
+
+| 名称 | 说明 |
+|:---|:---|
+| callback | 请求结果回调，成功时返回的参数包含二维码状态和帐号信息、用户信息 |
+
+### setQRCodeState
+
+更新二维码状态。
+
+```
+public void setQRCodeState(QRCodeState qrCodeState, TVSCallback callback)
+```
+
+#### 参数
+
+| 名称 | 说明 |
+|:---|:---|
+| qrCodeState | 新的二维码状态 |
+| callback | 请求结果回调 |
+
+### queryQRScanResult
+
+通过二维码扫描结果，查询相关信息。
+
+```
+public void queryQRScanResult(java.lang.String scanResult, TVSCallback1<java.lang.String> callback)
+```
+
+#### 参数
+
+| 名称 | 说明 |
+|:---|:---|
+| scanResult | 二维码扫描结果 |
+| callback | 请求结果回调，成功时返回JSON格式的请求结果 |
+
+### requestGetQRCodeStateAndAcctInfo
+
+已过时。 改用 getQRCodeInfo(TVSCallback1)
+
+```
+@Deprecated public static void requestGetQRCodeStateAndAcctInfo(com.tencent.ai.tvs.info.DeviceManager deviceManager, java.lang.String qrType)
+```
+
+### requestSetQRCodeState
+
+已过时。 改用 setQRCodeState(QRCodeState, TVSCallback)
+
+```
+@Deprecated public static void requestSetQRCodeState(com.tencent.ai.tvs.info.DeviceManager deviceManager, java.lang.String qrType, int qrState)
+```
+
+## QRCodeType
+
+
+
+### 枚举值列表
+
+| 名称 | 说明 |
+|:---|:---|
+| UNKNOWN |  |
+| BIND |  |
+| JOIN_RELATIONSHIP |  |
+
+## TVSSpeaker
+
+音箱信息设置模块。
+
+### newInstance
+
+构造用于单个设备的实例，该实例的API调用都作用于该设备。
+
+```
+public static TVSSpeaker newInstance(java.lang.String productID, java.lang.String dsn)
 ```
 
 #### 参数
@@ -2591,18 +2358,131 @@ public static void requestTSKMUniAccessByGUID(java.lang.String productID, jav
 | 名称 | 说明 |
 |:---|:---|
 | productID | 设备的Product ID |
-| guid | 设备的GUID |
-| domain | 请求的TSKM服务领域 |
-| intent | 请求的TSKM服务意图 |
-| blobInfo | 请求的额外JSON格式参数 |
-| callback | 请求结果回调，成功时返回JSON格式的请求结果 |
+| dsn | 设备的DSN |
 
-### requestTskmUniAccess
+#### 返回
 
-Deprecated. 改用 requestTSKMUniAccessByDSN(String, String, String, String, String, TVSCallback1) 或 requestTSKMUniAccessByGUID(String, String, String, String, String, TVSCallback1) 云端闹钟管理V2接口。
+指定单个设备的 TVSSpeaker 实例
+
+### getSpeakerInfo
+
+获取音箱信息。
 
 ```
-@Deprecated public static void requestTskmUniAccess(ELoginPlatform platform, com.tencent.ai.tvs.info.DeviceManager deviceManager, com.tencent.ai.tvs.business.UniAccessInfo uniAccessInfo)
+public void getSpeakerInfo(TVSCallback1<TVSSpeakerInfo> callback)
+```
+
+#### 参数
+
+| 名称 | 说明 |
+|:---|:---|
+| callback | 请求结果回调，成功时返回的 TVSSpeakerInfo 参数包含音箱信息 |
+
+### setSpeakerInfo
+
+设置音箱信息。
+
+```
+public void setSpeakerInfo(TVSSpeakerInfo speakerInfo, TVSCallback callback)
+```
+
+#### 参数
+
+| 名称 | 说明 |
+|:---|:---|
+| speakerInfo | 要设置为的音箱信息 |
+| callback | 请求结果回调 |
+
+### requestGetSpeakerInfo
+
+已过时。 改用 getSpeakerInfo(TVSCallback1)
+
+```
+@Deprecated public static void requestGetSpeakerInfo(ELoginPlatform platform, com.tencent.ai.tvs.info.DeviceManager deviceManager)
+```
+
+### requestSetSpeakerInfo
+
+已过时。 改用 setSpeakerInfo(TVSSpeakerInfo, TVSCallback)
+
+```
+@Deprecated public static void requestSetSpeakerInfo(ELoginPlatform platform, com.tencent.ai.tvs.info.DeviceManager deviceManager)
+```
+
+## MiniProgCallback
+
+
+
+### onReceiveExtMsg
+
+
+
+```
+void onReceiveExtMsg(java.lang.String msg)
+```
+
+## EMiniProgType
+
+小程序类型。
+
+### 枚举值列表
+
+| 名称 | 说明 |
+|:---|:---|
+| RELEASE | 正式版。 |
+| TEST | 测试（开发）版。 |
+| PREVIEW | 预览版。 |
+
+## TVSMember
+
+会员模块。
+
+### TVSMember
+
+
+
+```
+public TVSMember()
+```
+
+### getDeviceStatus
+
+获取设备QQ音乐会员领取状态。
+
+```
+public static void getDeviceStatus(java.lang.String productID, java.lang.String dsn, TVSCallback3<java.lang.Boolean,java.lang.Integer,DateUnit> callback)
+```
+
+#### 参数
+
+| 名称 | 说明 |
+|:---|:---|
+| productID | 设备的Product ID |
+| dsn | 设备的DSN |
+| callback | 请求结果回调，成功时三个参数依次表示是否能够领取会员、能够领取的时长的数值、能够领取的时长的单位 |
+
+### getMemberStatus
+
+获取QQ会员领取状态。
+
+```
+public static void getMemberStatus(java.lang.String productID, java.lang.String dsn, TVSCallback3<java.lang.Boolean,java.util.Date,java.util.Date> callback)
+```
+
+#### 参数
+
+| 名称 | 说明 |
+|:---|:---|
+| productID | 设备的Product ID |
+| dsn | 设备的DSN |
+| callback | 请求结果回调 |
+
+### getDeviceStatus
+
+已过时。 改用#getDeviceStatus(String, String, TVSCallback1)。 获取设备会员状态接口
+
+```
+@Deprecated public static void getDeviceStatus(ELoginPlatform platform, com.tencent.ai.tvs.info.DeviceManager deviceManager)
 ```
 
 #### 参数
@@ -2611,5 +2491,152 @@ Deprecated. 改用 requestTSKMUniAccessByDSN(String, String, String, String, St
 |:---|:---|
 | platform | 帐号平台类型 |
 | deviceManager | 设备信息管理器 |
-| uniAccessInfo | 通用接口数据结构体 |
+
+### getMemberStatus
+
+已过时。 改用#getMemberStatus(String, String, TVSCallback1)。 获取设备领取会员信息接口
+
+```
+@Deprecated public static void getMemberStatus(ELoginPlatform platform, com.tencent.ai.tvs.info.DeviceManager deviceManager)
+```
+
+#### 参数
+
+| 名称 | 说明 |
+|:---|:---|
+| platform | 帐号平台类型 |
+| deviceManager | 设备信息管理器 |
+
+## DateUnit
+
+时间单位枚举类型，用于会员相关接口的回调。
+
+### 枚举值列表
+
+| 名称 | 说明 |
+|:---|:---|
+| MONTH | 一个月。 |
+| YEAR | 一年。 |
+
+## TVSAISpeech
+
+AI Speech模块。
+
+### TVSAISpeech
+
+
+
+```
+public TVSAISpeech()
+```
+
+### getBotAISpeechOption
+
+获取当前ProductID下可支持的TTS音色列表
+
+```
+public static void getBotAISpeechOption(java.lang.String productID, TVSCallback1<java.util.ArrayList<TVSAISpeechItem>> callback)
+```
+
+#### 参数
+
+| 名称 | 说明 |
+|:---|:---|
+| productID | 设备的Product ID |
+| callback | 请求结果回调，成功时参数返回为该设备的BOT支持的音色列表 |
+
+### getDeviceAISpeech
+
+获取当前ProductID下音色信息
+
+```
+public static void getDeviceAISpeech(java.lang.String productID, java.lang.String dsn, TVSCallback1<TVSAISpeechItem> callback)
+```
+
+#### 参数
+
+| 名称 | 说明 |
+|:---|:---|
+| productID | 设备的Product ID |
+| dsn | 设备的DSN |
+| callback | 请求结果回调，成功时参数返回为该设备的音色信息 |
+
+### setDeviceAISpeech
+
+设置当前ProductID下的TTS
+
+```
+public static void setDeviceAISpeech(java.lang.String productID, java.lang.String dsn, java.lang.String speechID, @Nullable TVSTTSConfig ttsConfig, TVSCallback callback)
+```
+
+#### 参数
+
+| 名称 | 说明 |
+|:---|:---|
+| productID | 设备的Product ID |
+| dsn | 设备的DSN |
+| speechID | 要设置为的音色ID |
+| ttsConfig | 要设置为的TTS音量和语速，传null则表示不设置 |
+| callback | 请求结果回调 |
+
+### requestGetBotAISpeechOption
+
+已过时。 改用 getBotAISpeechOption(String, TVSCallback1) 获取当前ProductID下可支持的TTS音色列表
+
+```
+@Deprecated public static void requestGetBotAISpeechOption(com.tencent.ai.tvs.info.DeviceManager deviceManager)
+```
+
+#### 参数
+
+| 名称 | 说明 |
+|:---|:---|
+| deviceManager | 设备信息管理器 |
+
+### requestGetDeviceAISpeech
+
+已过时。 改用 getDeviceAISpeech(String, String, TVSCallback1) 获取当前ProductID下音色ID
+
+```
+@Deprecated public static void requestGetDeviceAISpeech(ELoginPlatform platform, com.tencent.ai.tvs.info.DeviceManager deviceManager)
+```
+
+#### 参数
+
+| 名称 | 说明 |
+|:---|:---|
+| platform | 帐号平台类型 |
+| deviceManager | 设备信息管理器 |
+
+### requestSetDeviceAISpeech
+
+已过时。 改用 setDeviceAISpeech(String, String, String, TVSTTSConfig, TVSCallback) 设置当前ProductID下的TTS
+
+```
+@Deprecated public static void requestSetDeviceAISpeech(ELoginPlatform platform, com.tencent.ai.tvs.info.DeviceManager deviceManager, java.lang.String speechID)
+```
+
+#### 参数
+
+| 名称 | 说明 |
+|:---|:---|
+| platform | 帐号平台类型 |
+| deviceManager | 设备信息管理器 |
+| speechID | TTS音色ID |
+
+### requestSetDeviceAISpeech
+
+已过时。 改用 setDeviceAISpeech(String, String, String, TVSTTSConfig, TVSCallback) 设置当前ProductID下的TTS
+
+```
+@Deprecated public static void requestSetDeviceAISpeech(ELoginPlatform platform, com.tencent.ai.tvs.info.DeviceManager deviceManager, java.lang.String speechID, SmartService.TTSConfigs ttsConfigs)
+```
+
+#### 参数
+
+| 名称 | 说明 |
+|:---|:---|
+| platform | 帐号平台类型 |
+| deviceManager | 设备信息管理器 |
+| speechID | TTS音色ID |
 

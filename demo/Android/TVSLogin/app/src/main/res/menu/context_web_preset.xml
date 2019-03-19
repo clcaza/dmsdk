@@ -25,4 +25,8 @@
         android:id="@+id/phoneMenuItem"
         android:title="手机号地址" />
 
+    <item
+        android:id="@+id/iotMenuItem"
+        android:title="智能家居" />
+
 </menu>

@@ -18,9 +18,9 @@ public class TSKMActivity extends ModuleActivity {
         setContentView(R.layout.activity_tskm);
 
         mProductIDEditText = findViewById(R.id.productIDEditText);
-        mProductIDEditText.setText("ffb54fb08efe11e8a377658d0db82adb:cdc9a089b0b94747ae60d97f01310589");
+        mProductIDEditText.setText(DemoConstant.PRODUCT_ID);
         mDSNEditText = findViewById(R.id.dsnEditText);
-        mDSNEditText.setText("8989898989880000");
+        mDSNEditText.setText(DemoConstant.DSN);
         mDomainEditText = findViewById(R.id.domainEditText);
         mDomainEditText.setText("alarm");
         mIntentEditText = findViewById(R.id.intentEditText);

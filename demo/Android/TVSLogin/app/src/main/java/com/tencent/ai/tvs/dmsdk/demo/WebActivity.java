@@ -141,6 +141,9 @@ public class WebActivity extends ModuleActivity {
             case R.id.qqMusicMenuItem:
                 mWebViewController.toPresetURL(EUserAttrType.QQ_MUSIC);
                 return true;
+            case R.id.iotMenuItem:
+                mWebViewController.toPresetURL(EUserAttrType.IOT);
+                return true;
         }
         return super.onContextItemSelected(item);
     }
@@ -174,6 +177,11 @@ public class WebActivity extends ModuleActivity {
     private class DemoUIEventListener implements TVSWebController.UIEventListener {
         @Override
         public void requireUISettings(String settings) {
+        }
+
+        @Override
+        public boolean shouldOverrideUrlLoading(String url) {
+            return false;
         }
 
         @Override

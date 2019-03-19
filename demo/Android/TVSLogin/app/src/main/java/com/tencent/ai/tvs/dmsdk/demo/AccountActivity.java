@@ -1,8 +1,11 @@
 package com.tencent.ai.tvs.dmsdk.demo;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.TextView;
 
 import com.tencent.ai.dobbydemo.R;
 import com.tencent.ai.tvs.LoginProxy;
@@ -11,8 +14,10 @@ import com.tencent.ai.tvs.core.account.UserInfoManager;
 import com.tencent.ai.tvs.env.ELoginPlatform;
 
 public class AccountActivity extends ModuleActivity {
+    private TextView mWXTextView;
     private Button mWXLoginButton;
     private Button mWXRefreshButton;
+    private TextView mQQTextView;
     private Button mQQLoginButton;
     private Button mQQVerifyButton;
     private Button mAccountInfoButton;
@@ -29,10 +34,12 @@ public class AccountActivity extends ModuleActivity {
         String productID = "mProductId";
         String dsn ="mDSN";
 
+        mWXTextView = findViewById(R.id.wxTitleTextView);
         mWXLoginButton = findViewById(R.id.wxLoginButton);
         mWXLoginButton.setOnClickListener(v -> api.tvsLogin(ELoginPlatform.WX, null, new SimpleTVSCallback("微信登录")));
         mWXRefreshButton = findViewById(R.id.wxRefreshButton);
         mWXRefreshButton.setOnClickListener(v -> api.tvsTokenVerify(new SimpleTVSCallback("微信刷票")));
+        mQQTextView = findViewById(R.id.qqTitleTextView);
         mQQLoginButton = findViewById(R.id.qqLoginButton);
         mQQLoginButton.setOnClickListener(v -> api.tvsLogin(ELoginPlatform.QQOpen, this, new SimpleTVSCallback("QQ登录")));
         mQQVerifyButton = findViewById(R.id.qqRefreshButton);
@@ -65,6 +72,9 @@ public class AccountActivity extends ModuleActivity {
             logSection("退出登录");
             logLine("Success");
         });
+        CheckBox logoutBeforeReloginCheckBox = findViewById(R.id.logoutBeforeReloginCheckBox);
+        logoutBeforeReloginCheckBox.setChecked(LoginProxy.getInstance().isLogoutBeforeRelogin());
+        logoutBeforeReloginCheckBox.setOnClickListener(view -> LoginProxy.getInstance().setLogoutBeforeRelogin(logoutBeforeReloginCheckBox.isChecked()));
 
         // Init login state
         reloadState();
@@ -80,9 +90,11 @@ public class AccountActivity extends ModuleActivity {
 
     private void reloadState() {
         ELoginPlatform platform = AccountInfoManager.getInstance().getPlatformType();
-        mWXLoginButton.setEnabled(platform == null);
+        mWXTextView.setTextColor(platform == ELoginPlatform.WX ? Color.GREEN : Color.BLACK);
+        mWXLoginButton.setEnabled(platform != ELoginPlatform.QQOpen);
         mWXRefreshButton.setEnabled(platform == ELoginPlatform.WX);
-        mQQLoginButton.setEnabled(platform == null);
+        mQQTextView.setTextColor(platform == ELoginPlatform.QQOpen ? Color.GREEN : Color.BLACK);
+        mQQLoginButton.setEnabled(platform != ELoginPlatform.WX);
         mQQVerifyButton.setEnabled(platform == ELoginPlatform.QQOpen);
         mAccountInfoButton.setEnabled(platform != null);
         mUserInfoButton.setEnabled(platform != null);
@@ -106,6 +118,7 @@ public class AccountActivity extends ModuleActivity {
         public void onError(int code) {
             logSection(mAction);
             logLine("Error: code = " + code);
+            reloadState();
         }
     }
 }
