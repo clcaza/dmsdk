@@ -1,0 +1,2 @@
+# In case checking out from master does not clean demo build content
+/demo
