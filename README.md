@@ -70,4 +70,4 @@
 [2]: https://github.com/TencentDingdang/dmsdk/tree/v2.0.0
 [3]: https://github.com/TencentDingdang/dmsdk/tree/v2.0.1
 [4]: https://github.com/TencentDingdang/dmsdk/blob/master/doc/iOS/README.md#ios-sdk-v10---v200-%E5%8D%87%E7%BA%A7%E6%8C%87%E5%8D%97
-[5]: https://github.com/TencentDingdang/dmsdk/blob/master/doc/Android/版本更新日志.md
+[5]: https://github.com/TencentDingdang/dmsdk/blob/master/doc/Android/%E7%89%88%E6%9C%AC%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97.md#%E8%BF%81%E7%A7%BB%E6%8C%87%E5%8D%97-1
