@@ -30,7 +30,9 @@ v2.0.0+ SDK 做了模块化拆分，详细配置参考[接入配置指南][10];
 
 #### 字符串替换
 
-除 H5 模块外，其他模块主要是类名/方法名/参数名等变更，直接替换即可：
+除 H5 模块外，其他模块主要是类名/方法名/参数名等变更，直接替换即可。
+
+**头文件**:
 
 | v1.0 | v2.0.0+ |
 | ------ | ------ |
@@ -42,12 +44,26 @@ v2.0.0+ SDK 做了模块化拆分，详细配置参考[接入配置指南][10];
 | <TVSAccountSDK/TVSWebPage.h> | <TVSWeb/TVSWeb.h> |
 | <TVSAccountSDK/TVSTSKM.h> | <TVSTSKM/TVSTSKM.h> |
 | <TVSAccountSDK/TVSOCMS.h> | <TVSSpeech/TVSSpeech.h> |
+
+**类名**:
+
+| v1.0 | v2.0.0+ |
+| ------ | ------ |
 | TVSPushDevice | TVSDeviceInfo |
+| TVSAccount | VSAuthManager |
+| TVSDeviceBind | TVSDeviceManager |
+| TVSOCMS | TVSSpeech |
+
+**属性名**:
+
+| v1.0 | v2.0.0+ |
+| ------ | ------ |
 | .DSN | .dsn |
-| [TVSEnvironment shared].logEnabled = YES; | [[TVSEnvironment shared] setLogEnabled:YES]; |
-| [TVSAccount shared] | [TVSAuthManager shared] |
-| [TVSDeviceBind shared] | [TVSDeviceManager shared] |
-| [TVSOCMS shared] | [TVSSpeech shared] |
+
+**方法名**:
+
+| v1.0 | v2.0.0+ |
+| ------ | ------ |
 | -(instancetype)initWithDeviceType:(NSString*)deviceType deviceOEM:(NSString*)deviceOEM productId:(NSString*)productId DSN:(NSString*)dsn; | -(instancetype)initWithDeviceProductId:(NSString*)productId dsn:(NSString*)dsn; |
 | -(void)getDeviceAISpeechWithDeviceGUID:(NSString*)deviceGUID productId:(NSString*)productId DSN:(NSString*)dsn handler:(void(^)(TVSAISpeechItem*))handler; | -(void)getDeviceAISpeechWithProductId:(NSString*)productId dsn:(NSString*)dsn handler:(void(^)(TVSAISpeechItem*))handler; |
 | -(void)setDeviceAISpeechId:(NSString*)speechID productId:(NSString*)productId DSN:(NSString*)dsn handler:(void(^)(BOOL))handler; | -(void)setDeviceAISpeechId:(NSString*)speechID productId:(NSString*)productId dsn:(NSString*)dsn handler:(void(^)(BOOL))handler; |
