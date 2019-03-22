@@ -12,6 +12,8 @@
 
 [iOS](#iOS) (Latest: v2.0.1)
 
+**v1.0 到 v2.0.0+ API 变更较大，请阅读升级指南([Android 版][5] | [iOS 版][4])。**
+
 ### Android
 
 #### [v2.0.1][3]
@@ -25,8 +27,6 @@
 * Core 模块设备绑定相关接口修复不能获取设备businessExtra信息的问题。
 
 #### [v2.0.0][2]
-
-**该版本 API 变化较大，请阅读[迁移文档](doc/Android/版本更新日志.md)**。
 
 * 模块化拆分，核心模块(环境配置/账号/设备绑定)为必须，H5 等模块根据需要可选；
 
@@ -54,8 +54,6 @@
 
 #### [v2.0.0][2]:
 
-**该版本 API 变化较大，请阅读[升级指南][4]**。
-
 * 模块化拆分，核心模块(环境配置/账号/设备绑定)为必须，H5 等模块根据需要可选；
 
 * H5 模块由 `ViewController` 页面改为 `WebView` 组件形式，可定制化程度更高；
@@ -72,3 +70,4 @@
 [2]: https://github.com/TencentDingdang/dmsdk/tree/v2.0.0
 [3]: https://github.com/TencentDingdang/dmsdk/tree/v2.0.1
 [4]: https://github.com/TencentDingdang/dmsdk/blob/master/doc/iOS/README.md#ios-sdk-v10---v200-%E5%8D%87%E7%BA%A7%E6%8C%87%E5%8D%97
+[5]: https://github.com/TencentDingdang/dmsdk/blob/master/doc/Android/版本更新日志.md
