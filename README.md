@@ -8,7 +8,7 @@
 
 ## 更新日志：
 
-[Android](#Android) (Latest: v2.0.1)
+[Android](#Android) (Latest: v2.0.2)
 
 [iOS](#iOS) (Latest: v2.0.1)
 
@@ -16,7 +16,13 @@
 
 ### Android
 
-#### [v2.0.1][3]
+### v2.0.2
+
+*   修复Web模块的ProxyData回调收到的JSONObject结构，保持与iOS端DMSDK的结果一致；
+*   修复了二维码模块一个Crash；
+*   修复了TAuthActivity的QQOpenAppID配置错误导致可能无法QQ登录的问题，该问题的具体影响和解决方案请见迁移文档。
+
+### [v2.0.1][3]
 
 * H5 模块新增链接加载拦截回调；
 
@@ -71,3 +77,4 @@
 [3]: https://github.com/TencentDingdang/dmsdk/tree/v2.0.1
 [4]: https://github.com/TencentDingdang/dmsdk/blob/master/doc/iOS/README.md#ios-sdk-v10---v200-%E5%8D%87%E7%BA%A7%E6%8C%87%E5%8D%97
 [5]: https://github.com/TencentDingdang/dmsdk/blob/master/doc/Android/%E7%89%88%E6%9C%AC%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97.md#%E8%BF%81%E7%A7%BB%E6%8C%87%E5%8D%97-1
+[6]: https://github.com/TencentDingdang/dmsdk/tree/v2.0.2

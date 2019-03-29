@@ -25,7 +25,7 @@
 ```groovy
 dependencies {
     // ...
-    def tvsVer = '2.0.1'
+    def tvsVer = '2.0.2'
     // 核心模块，必须
     implementation (name: "tvscore-${tvsVer}-release", ext: 'aar')
     // 核心模块依赖微信登录
@@ -79,6 +79,22 @@ android {
             dirs project(':[aarmodulename]').file('libs')
         }
     }
+}
+```
+
+### 2.7 向AndroidManifest.xml注入QQ互联App ID
+
+修改您的应用模块的build.gradle：
+
+```groovy
+android {
+    defaultConfig {
+        manifestPlaceholders = [
+                qqOpenAppId: "您的QQ互联AppID"
+        ]
+        // Code...
+    }
+    // Code...
 }
 ```
 

@@ -15,6 +15,9 @@ android {
         targetSdkVersion 27
         versionCode 1
         versionName "1.0"
+        manifestPlaceholders = [
+                qqOpenAppId: "101470979"
+        ]
     }
     buildTypes {
         debug {
@@ -44,7 +47,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     implementation 'com.android.support:design:27.1.1'
-    def tvsVer = '2.0.1'
+    def tvsVer = '2.0.2'
     // 核心模块，必须
     implementation (name: "tvscore-${tvsVer}-release", ext: 'aar')
     // 核心模块依赖微信登录
@@ -65,7 +68,4 @@ dependencies {
     implementation (name: "tvsweb-${tvsVer}-release", ext: 'aar')
     // HTML5 WebView模块依赖appcompat
     implementation 'com.android.support:appcompat-v7:27.1.1'
-    // TVS Device SDK和相关依赖
-    implementation (name: "tvsdevicelib-release", ext: 'aar')
-    implementation 'com.google.code.gson:gson:2.8.1'
 }
