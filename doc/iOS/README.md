@@ -50,7 +50,7 @@ v2.0.0+ SDK 做了模块化拆分，详细配置参考[接入配置指南][10];
 | v1.0 | v2.0.0+ |
 | ------ | ------ |
 | TVSPushDevice | TVSDeviceInfo |
-| TVSAccount | VSAuthManager |
+| TVSAccount | TVSAuthManager |
 | TVSDeviceBind | TVSDeviceManager |
 | TVSOCMS | TVSSpeech |
 
