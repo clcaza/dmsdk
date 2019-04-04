@@ -84,7 +84,7 @@ H5 模块做了较大改动。
 
 ## H5 加载失败提示实现（仅供参考）
 
-* 使用 [AFNetworking][1] 项目的 `AFNetworkReachabilityManager` 做网络状态监听和判断（这块网上资料很多，不赘述）；
+* 使用 [AFNetworking][1] 项目的 `AFNetworkReachabilityManager` 做网络状态监听和判断；
 
 ```objective-c
 - (void)monitorNetwork {
