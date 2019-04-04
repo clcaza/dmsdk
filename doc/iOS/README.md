@@ -86,8 +86,8 @@ H5 模块做了较大改动。
 
 * 使用 [AFNetworking][1] 项目的 `AFNetworkReachabilityManager` 做网络状态监听和判断（这块网上资料很多，不赘述）；
 
-  ```objective-c
-  - (void)monitorNetwork {
+```objective-c
+- (void)monitorNetwork {
     AFNetworkReachabilityManager *mgr = [AFNetworkReachabilityManager sharedManager];
     [mgr setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
         BOOL connected = status == AFNetworkReachabilityStatusReachableViaWiFi || status == AFNetworkReachabilityStatusReachableViaWWAN;
@@ -98,18 +98,43 @@ H5 模块做了较大改动。
     [mgr startMonitoring];
     }
 
-  - (BOOL)networkConnected {
-      return netStatus == 1;
-  }
-  ```
+- (BOOL)networkConnected {
+    return netStatus == 1;
+}
+```
 
 * 处理网络状态变更：
 
   1. 如果处于断开，UI 提示断网；（`AlertViewController` 或者加载自定义 View）;
 
   2. 如果已经重新连接，调用 `TVSWebView` 的 `reload` 方法刷新或者直接调用 `loadUrl` 方法重新加载；
+  
+```objective-c
+-(void)onNetworkChanged:(NSNotification*)notify {
+    [super onNetworkChanged];
+    if ([AppConfig shared].networkConnected) {
+        [_webview reload];
+    } else {
+        [self alertDisconnected];
+    }
+}
+```
 
 * `TVSWebView` 遵守 `TVSWebUniversalDelegate` 协议，网页加载失败会回调 `-(void)TVSWebLoadError:(NSError*)error;` 方法，可以用来处理加载失败逻辑，类似上面的断网场景；
+
+```objective-c
+-(void)TVSWebLoadError:(NSError *)error {
+    _progressView.hidden = YES;
+    _progressView.progress = 0;
+    NSLog(@"TVSWeb load error:%@", error.localizedDescription);
+    if (![[AppConfig shared] networkConnected]) {
+        [self alertDisconnected];
+    } else {
+        [self alertLoadFailed];
+    }
+}
+```
+
  
 [1]: https://github.com/AFNetworking/AFNetworking
 
