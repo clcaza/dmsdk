@@ -93,7 +93,7 @@ H5 模块做了较大改动。
         BOOL connected = status == AFNetworkReachabilityStatusReachableViaWiFi || status == AFNetworkReachabilityStatusReachableViaWWAN;
         netStatus = connected ? 1 : -1;
         [[NSNotificationCenter defaultCenter] postNotificationName:NotifyNetworkChanged object:self userInfo:@{@"netStatus":[NSNumber numberWithInteger:netStatus]}];
-        DDLogDebug(@"NetworkChanged status:%ld netStatus:%d connected:%@", status, netStatus, connected?@"YES":@"NO");
+        NSLog(@"NetworkChanged status:%ld netStatus:%d connected:%@", status, netStatus, connected?@"YES":@"NO");
     }];
     [mgr startMonitoring];
     }
@@ -111,7 +111,6 @@ H5 模块做了较大改动。
   
 ```objective-c
 -(void)onNetworkChanged:(NSNotification*)notify {
-    [super onNetworkChanged];
     if ([AppConfig shared].networkConnected) {
         [_webview reload];
     } else {
@@ -124,8 +123,6 @@ H5 模块做了较大改动。
 
 ```objective-c
 -(void)TVSWebLoadError:(NSError *)error {
-    _progressView.hidden = YES;
-    _progressView.progress = 0;
     NSLog(@"TVSWeb load error:%@", error.localizedDescription);
     if (![[AppConfig shared] networkConnected]) {
         [self alertDisconnected];
