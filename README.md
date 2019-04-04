@@ -48,7 +48,7 @@
 
 ### iOS
 
-#### [v2.1.0][7]:
+#### v2.1.0:
 
 * 账号模块新增根据指定用户 openId 查询 UserInfo 接口；
 
@@ -86,4 +86,3 @@
 [4]: https://github.com/TencentDingdang/dmsdk/blob/master/doc/iOS/README.md#ios-sdk-v10---v200-%E5%8D%87%E7%BA%A7%E6%8C%87%E5%8D%97
 [5]: https://github.com/TencentDingdang/dmsdk/blob/master/doc/Android/%E7%89%88%E6%9C%AC%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97.md#%E8%BF%81%E7%A7%BB%E6%8C%87%E5%8D%97-1
 [6]: https://github.com/TencentDingdang/dmsdk/tree/v2.0.2-android
-[7]: https://github.com/TencentDingdang/dmsdk/tree/v2.1.0-iOS
