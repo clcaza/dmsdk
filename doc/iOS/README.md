@@ -96,7 +96,7 @@ H5 模块做了较大改动。
         NSLog(@"NetworkChanged status:%ld netStatus:%d connected:%@", status, netStatus, connected?@"YES":@"NO");
     }];
     [mgr startMonitoring];
-    }
+}
 
 - (BOOL)networkConnected {
     return netStatus == 1;
