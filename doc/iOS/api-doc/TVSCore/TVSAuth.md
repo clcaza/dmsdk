@@ -498,67 +498,36 @@
 
   否；
   
-##### `-(void)setCustomUserInfoWithNickName:(NSString*)nickName avatarUrl:(NSString*)avatarUrl handler:(void(^)(BOOL))handler;`
+##### `-(void)syncUserInfo:(TVSUserInfo*)userInfo handler:(void(^)(BOOL))handler;`
 
   **描述**:
 
-  设置用户自定义信息；
+  保存用户信息到 TVS 后台(暂时只支持头像昵称)；
   必须确保已登录！
 
   **参数**:
 
   | 名称 | 类型 | 描述 | 是否必填 |
   | ------ | ------ | ------ | ------ |
-  | nickName | NSString* | 昵称 | 是 |
-  | avatarUrl | NSString* | 头像 url | 是 |
+  | userInfo | TVSUserInfo* | 用户信息 | 是 |
   | handler | void(^)(BOOL) | 回调，BOOL 表示是否设置成功 | 是 |
 
   **返回**:
 
   无；
 
-##### `-(void)wxPayWithAppId:(NSString*)appId partnerid:(NSString*)partnerid prepayid:(NSString*)prepayid package:(NSString*)package noncestr:(NSString*)noncestr sign:(NSString*)sign timestamp:(UInt32)timestamp handler:(void(^)(BOOL,NSString*))handler;`
+  ##### `-(void)queryUserInfoWithOpenId:(NSString*)openId handler:(void(^)(TVSUserInfo*))handler;`
 
   **描述**:
 
-  微信支付(NativeSDK 方式)；
-  注意后台生成的订单类型必须是 app 支付，不能是 h5 订单，否则微信会报错“支付场景非法”；并且必须保证后台订单的 appId 和客户端微信 sdk 的 appid 一致！
+  通过 openId 查询用户信息(暂时只支持头像昵称);
 
   **参数**:
 
   | 名称 | 类型 | 描述 | 是否必填 |
   | ------ | ------ | ------ | ------ |
-  | appId | NSString* | 后台生成的微信支付订单 appid | 是 |
-  | partnerid | NSString* | 后台生成的微信支付订单商户 id | 是 |
-  | prepayid | NSString* | 后台生成的微信支付订单预支付 id | 是 |
-  | package | NSString* | 后台生成的微信支付订单 package | 是 |
-  | noncestr | NSString* | 后台生成的微信支付订单 noncestr | 是 |
-  | sign | NSString* | 后台生成的微信支付订单签名 | 是 |
-  | timestamp | UInt32 | 后台生成的微信支付订单时间戳 | 是 |
-  | handler | void(^)(BOOL,NSString*) |  回调，BOOL 表示是否支付成功，NSString* 为微信支付返回的 key | 是 |
-
-  **返回**:
-
-  无；
-  
-##### `-(void)wxPayWithAppId:(NSString*)appId partnerid:(NSString*)partnerid prepayid:(NSString*)prepayid package:(NSString*)package noncestr:(NSString*)noncestr sign:(NSString*)sign timestamp:(UInt32)timestamp;`
-
-  **描述**:
-
-  微信支付(openURL 方式)；
-  注意后台生成的订单类型必须是 app 支付，不能是 h5 订单，否则微信会报错“支付场景非法”！
-
-  **参数**:
-
-  | 名称 | 类型 | 描述 | 是否必填 |
-  | ------ | ------ | ------ | ------ |
-  | appId | NSString* | 后台生成的微信支付订单 appid | 是 |
-  | partnerid | NSString* | 后台生成的微信支付订单商户 id | 是 |
-  | prepayid | NSString* | 后台生成的微信支付订单预支付 id | 是 |
-  | package | NSString* | 后台生成的微信支付订单 package | 是 |
-  | noncestr | NSString* | 后台生成的微信支付订单 noncestr | 是 |
-  | sign | NSString* | 后台生成的微信支付订单签名 | 是 |
-  | timestamp | UInt32 | 后台生成的微信支付订单时间戳 | 是 |
+  | openId | NSString* | 用户 OpenId | 是 |
+  | handler | void(^)(TVSUserInfo*) | 回调，用于接收返回的用户信息 | 是 |
 
   **返回**:
 

@@ -8,6 +8,9 @@
 
 #import "MemberVC.h"
 #import <TVSMember/TVSMember.h>
+#import <TVSTSKM/TVSThirdPartyAuth.h>
+#import <TVSCore/TVSDevice.h>
+#import <TVSCore/TVSAuth.h>
 
 @interface MemberVC ()
 
@@ -50,6 +53,35 @@
             }
         }];
     }
+}
+
+// 第三方账号授权
+- (IBAction)onClickBtnThirdAuth:(id)sender {
+    [self hideKeyboard];
+    [self checkLogin:^{
+        [[TVSDeviceManager shared]queryDevicesByAccountWithBindType:TVSDeviceBindTypeTVSSpeaker handler:^(NSArray<TVSDeviceInfo *> * devices) {
+            if (devices && devices.count > 0) {
+                for (TVSDeviceInfo* device in devices) {
+                    if ([device.productId isEqualToString:_tfPID.text] && [device.dsn isEqualToString:_tfDSN.text]) {
+                        TVSAccountType accountType = [TVSAuthManager shared].accountInfo.accountType;
+                        NSURL* url = [TVSThirdPartyAuth urlWithAccountType:accountType productId:device.productId dsn:device.dsn deviceGuid:device.guid];
+                        if (url) {
+                            [[UIApplication sharedApplication]openURL:url options:@{} completionHandler:^(BOOL success) {
+                                if (!success) {
+                                    [self showText:@"跳转失败，请安装腾讯云叮当最新版本" view:self.tvResult];
+                                }
+                            }];
+                        } else {
+                            [self showText:@"跳转链接获取失败" view:self.tvResult];
+                        }
+                        break;
+                    }
+                }
+            } else {
+                [self showText:@"未查到设备" view:self.tvResult];
+            }
+        }];
+    }];
 }
 
 -(void)hideKeyboard {

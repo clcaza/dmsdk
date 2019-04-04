@@ -29,6 +29,10 @@ typedef NS_ENUM(NSInteger,TVSAccountType) {
     /*
      * @brief
      */
+    TVSAccountTypeUnknown,
+    /*
+     * @brief
+     */
     TVSAccountTypeQQNumber,
     
     /*
@@ -54,12 +58,7 @@ typedef NS_ENUM(NSInteger,TVSAccountType) {
     /*
      * @brief
      */
-    TVSAccountTypeIOSVistor,
-    
-    /*
-     * @brief
-     */
-    TVSAccountTypeUnknown
+    TVSAccountTypeIOSVistor
 };
 
 
@@ -193,28 +192,28 @@ typedef NS_ENUM(NSInteger,TVSAuthResult) {
  */
 @protocol TVSAuthDelegate <NSObject>
 
-@required
+@optional
 /*
  * @brief 微信登录实现
  * @param handler 结果回调
  */
 -(void)TVSAuthWXLoginWithHandler:(void(^)(TVSAuthResult))handler;
 
-@required
+@optional
 /*
  * @brief 微信刷票实现
  * @param handler 结果回调
  */
 -(void)TVSAuthWXTokenRefreshWithHandler:(void(^)(TVSAuthResult))handler;
 
-@required
+@optional
 /*
  * @brief QQ 登录实现
  * @param handler 结果回调
  */
 -(void)TVSAuthQQLoginWithHandler:(void(^)(TVSAuthResult))handler;
 
-@required
+@optional
 /*
  * @brief 注销账号实现
  */
@@ -227,7 +226,7 @@ typedef NS_ENUM(NSInteger,TVSAuthResult) {
  */
 -(TVSAccountInfo*)TVSAuthGetAccountInfo;
 
-@required
+@optional
 /*
  * @brief 获取用户信息
  * @return 用户信息
@@ -347,14 +346,14 @@ typedef NS_ENUM(NSInteger,TVSAuthResult) {
 
 /*
  * @brief 获取账号信息
- * @warning 必须在已登录状态调用
+ * @warning 必须确保已登录!!
  * @return accountInfo
  */
 -(TVSAccountInfo*)accountInfo;
 
 /*
  * @brief 获取用户信息
- * @warning 必须在已登录状态调用
+ * @warning 必须确保已登录!!
  * @return userInfo
  */
 -(TVSUserInfo*)userInfo;
@@ -366,7 +365,7 @@ typedef NS_ENUM(NSInteger,TVSAuthResult) {
 
 /*
  * @brief 获取用于绑定手机号的验证码
- * @warning 必须确保已登录
+ * @warning 必须确保已登录!!
  * @param phoneNumber 手机号
  * @param handler 回调
  */
@@ -374,7 +373,7 @@ typedef NS_ENUM(NSInteger,TVSAuthResult) {
 
 /*
  * @brief 绑定手机号
- * @warning 必须确保已登录
+ * @warning 必须确保已登录!!
  * @param phoneNumber 手机号
  * @param captcha 验证码
  * @param handler 回调，BOOL 值表示是否成功
@@ -382,39 +381,18 @@ typedef NS_ENUM(NSInteger,TVSAuthResult) {
 -(void)bindPhoneNumber:(NSString*)phoneNumber captcha:(NSString*)captcha handler:(void(^)(BOOL))handler;
 
 /*
- * @brief 设置用户自定义信息
- * @warning 必须确保已登录
- * @param nickName 昵称
- * @param avatarUrl 头像url
+ * @brief 保存用户信息到 TVS 后台(暂时只支持头像昵称)
+ * @warning 必须确保已登录!!
+ * @param userInfo 用户信息
  * @param handler 回调，BOOL 值表示是否成功
  */
--(void)setCustomUserInfoWithNickName:(NSString*)nickName avatarUrl:(NSString*)avatarUrl handler:(void(^)(BOOL))handler;
+-(void)syncUserInfo:(TVSUserInfo*)userInfo handler:(void(^)(BOOL))handler;
 
 /*
- * @brief 微信支付(NativeSDK方式)
- * @warning 注意后台生成的订单类型必须是app支付，不能是h5订单，否则微信会报错“支付场景非法”；并且必须保证后台订单的appId和客户端微信sdk的appid一致
- * @param appId (后台生成的微信支付订单)appid
- * @param partnerid (后台生成的微信支付订单)partnerid
- * @param prepayid (后台生成的微信支付订单)prepayid
- * @param package (后台生成的微信支付订单)package
- * @param noncestr (后台生成的微信支付订单)noncestr
- * @param sign (后台生成的微信支付订单)sign
- * @param timestamp (后台生成的微信支付订单)timestamp
- * @param handler 回调，BOOL 值表示是否成功，NSString 值为微信支付返回的 key
+ * @brief 通过 openId 查询用户信息(暂时只支持头像昵称)
+ * @param openId 用户 openId
+ * @param handler 回调，用于接收返回的用户信息
  */
--(void)wxPayWithAppId:(NSString*)appId partnerid:(NSString*)partnerid prepayid:(NSString*)prepayid package:(NSString*)package noncestr:(NSString*)noncestr sign:(NSString*)sign timestamp:(UInt32)timestamp handler:(void(^)(BOOL,NSString*))handler;
-
-/*
- * @brief 微信支付(openURL方式)
- * @warning 注意后台生成的订单类型必须是app支付，不能是h5订单，否则微信会报错“支付场景非法”
- * @param appId (后台生成的微信支付订单)appid
- * @param partnerid (后台生成的微信支付订单)partnerid
- * @param prepayid (后台生成的微信支付订单)prepayid
- * @param package (后台生成的微信支付订单)package
- * @param noncestr (后台生成的微信支付订单)noncestr
- * @param sign (后台生成的微信支付订单)sign
- * @param timestamp (后台生成的微信支付订单)timestamp
- */
--(void)wxPayWithAppId:(NSString*)appId partnerid:(NSString*)partnerid prepayid:(NSString*)prepayid package:(NSString*)package noncestr:(NSString*)noncestr sign:(NSString*)sign timestamp:(UInt32)timestamp;
+-(void)queryUserInfoWithOpenId:(NSString*)openId handler:(void(^)(TVSUserInfo*))handler;
 
 @end

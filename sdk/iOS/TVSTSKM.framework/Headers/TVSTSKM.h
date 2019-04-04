@@ -8,29 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
-/*
- * @class TVSTSKM
- * @brief TVS TSKM
- */
-@interface TVSTSKM : NSObject
+//! Project version number for TVSTSKM.
+FOUNDATION_EXPORT double TVSTSKMVersionNumber;
 
-/*
- * @brief 实例化
- * @return 实例
- */
-+(instancetype)shared;
+//! Project version string for TVSTSKM.
+FOUNDATION_EXPORT const unsigned char TVSTSKMVersionString[];
 
-/*
- * @brief UniAccess
- * @warning 必须确保已登录！！
- * @param deviceSerialNum 设备序列号（和guid二选一）
- * @param deviceGuid 设备 guid （和deviceSerialNum二选一）
- * @param deviceProductId 设备 productId
- * @param domain TSKM 服务领域
- * @param intent TSKM 服务意图
- * @param blobInfo 传入的参数字典
- * @param handler 回调，BOOL参数表示是否成功，NSDictionary 参数为返回的字典数据
- */
--(void)uniAccessWithDeviceSerialNum:(NSString*)deviceSerialNum deviceGuid:(NSString*)deviceGuid deviceProductId:(NSString*)deviceProductId domain:(NSString*)domain intent:(NSString*)intent blobInfo:(NSDictionary*)blobInfo handler:(void(^)(BOOL,NSDictionary*))handler;
+// In this header, you should import all the public headers of your framework using statements like #import <TVSTSKM/PublicHeader.h>
 
-@end
+#import <TVSTSKM/TVSTSKMProxy.h>
+#import <TVSTSKM/TVSAlarm.h>
+#import <TVSTSKM/TVSThirdPartyAuth.h>
+#import <TVSTSKM/TVSChildMode.h>
+#import <TVSTSKM/TVSDeviceControl.h>

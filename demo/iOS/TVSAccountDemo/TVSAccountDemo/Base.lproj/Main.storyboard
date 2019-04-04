@@ -193,7 +193,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="b0851325-3056-4853-921b-dcba21b491a3:ds8fds8fds8f8dsf98ds" borderStyle="roundedRect" placeholder="请输入 ProductId.." textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ECo-IF-6lP">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="ffb54fb08efe11e8a377658d0db82adb:cdc9a089b0b94747ae60d97f01310589" borderStyle="roundedRect" placeholder="请输入 ProductId.." textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ECo-IF-6lP">
                                 <rect key="frame" x="15" y="125" width="384" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Z29-Qn-CY5"/>
@@ -610,7 +610,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="b0851325-3056-4853-921b-dcba21b491a3:ds8fds8fds8f8dsf98ds" borderStyle="roundedRect" placeholder="请输入 ProductId.." textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="t6p-Jz-paV">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="ffb54fb08efe11e8a377658d0db82adb:cdc9a089b0b94747ae60d97f01310589" borderStyle="roundedRect" placeholder="请输入 ProductId.." textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="t6p-Jz-paV">
                                 <rect key="frame" x="15" y="125" width="384" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="30" id="9eJ-NP-IMi"/>
@@ -762,7 +762,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="b0851325-3056-4853-921b-dcba21b491a3:ds8fds8fds8f8dsf98ds" borderStyle="roundedRect" placeholder="请输入 ProductId.." textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="dV4-ds-JhV">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="ffb54fb08efe11e8a377658d0db82adb:cdc9a089b0b94747ae60d97f01310589" borderStyle="roundedRect" placeholder="请输入 ProductId.." textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="dV4-ds-JhV">
                                 <rect key="frame" x="15" y="125" width="384" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="fwh-It-Ahc"/>
@@ -825,13 +825,22 @@
                                             <action selector="onClickBtnQueryMemberStatus:" destination="6Cu-8r-CvG" eventType="touchUpInside" id="fEA-y9-Cr7"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j1t-e5-ODN">
+                                        <rect key="frame" x="168.66666666666666" y="5" width="77" height="30"/>
+                                        <state key="normal" title="第三方授权"/>
+                                        <connections>
+                                            <action selector="onClickBtnThirdAuth:" destination="6Cu-8r-CvG" eventType="touchUpInside" id="jFe-xr-79P"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="xRJ-Qq-WDI" secondAttribute="trailing" constant="15" id="5UV-Rr-1Wb"/>
                                     <constraint firstItem="0Sp-uJ-mXo" firstAttribute="leading" secondItem="769-xH-yUC" secondAttribute="leading" constant="15" id="Aec-bH-Dae"/>
                                     <constraint firstItem="xRJ-Qq-WDI" firstAttribute="top" secondItem="769-xH-yUC" secondAttribute="top" constant="5" id="Nwi-gu-4cN"/>
+                                    <constraint firstItem="j1t-e5-ODN" firstAttribute="centerX" secondItem="769-xH-yUC" secondAttribute="centerX" id="Y7l-8o-HXb"/>
                                     <constraint firstAttribute="height" constant="40" id="ev1-tJ-HZ6"/>
+                                    <constraint firstItem="j1t-e5-ODN" firstAttribute="centerY" secondItem="769-xH-yUC" secondAttribute="centerY" id="le1-0m-aTX"/>
                                     <constraint firstItem="0Sp-uJ-mXo" firstAttribute="top" secondItem="769-xH-yUC" secondAttribute="top" constant="5" id="nnq-Xc-r6p"/>
                                 </constraints>
                             </view>
@@ -888,7 +897,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="b0851325-3056-4853-921b-dcba21b491a3ds8fds8fds8f8dsf98ds" borderStyle="roundedRect" placeholder="请输入 ProductId.." textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="EaE-2n-j6x">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="ffb54fb08efe11e8a377658d0db82adb:cdc9a089b0b94747ae60d97f01310589" borderStyle="roundedRect" placeholder="请输入 ProductId.." textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="EaE-2n-j6x">
                                 <rect key="frame" x="15" y="128" width="384" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="SfI-Nr-em3"/>

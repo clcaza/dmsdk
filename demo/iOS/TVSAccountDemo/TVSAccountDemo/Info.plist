@@ -38,6 +38,16 @@
 				<string>tencent101470979</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>tvsauth</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>ffb54fb08efe11e8a377658d0db82adb</string>
+			</array>
+		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>

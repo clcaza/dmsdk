@@ -22,7 +22,13 @@
   
   **TVSTSKM.framework**:
 
-  * 技能服务 [<TVSTSKM/TVSTSKM.h>][7];
+  * 技能服务访问代理 [<TVSTSKM/TVSTSKMProxy.h>][7];
+
+  * 云端闹钟管理 [<TVSTSKM/TVSAlarm.h>][14];
+
+  * 儿童模式 [<TVSTSKM/TVSChildMode.h>][15];
+
+  * 第三方账号授权 [<TVSTSKM/TVSThirdPartyAuth.h>][16];
   
   **TVSSpeech.framework**:
 
@@ -54,7 +60,7 @@ v2.0.0+ SDK 做了模块化拆分，详细配置参考[接入配置指南][10];
 | <TVSAccountSDK/TVSDeviceBind.h> | <TVSCore/TVSDevice.h> |
 | <TVSAccountSDK/TVSMember.h> | <TVSMember/TVSMember.h> |
 | <TVSAccountSDK/TVSWebPage.h> | <TVSWeb/TVSWeb.h> |
-| <TVSAccountSDK/TVSTSKM.h> | <TVSTSKM/TVSTSKM.h> |
+| <TVSAccountSDK/TVSTSKM.h> | <TVSTSKM/TVSTSKMProxy.h> |
 | <TVSAccountSDK/TVSOCMS.h> | <TVSSpeech/TVSSpeech.h> |
 
 **类名**:
@@ -65,6 +71,7 @@ v2.0.0+ SDK 做了模块化拆分，详细配置参考[接入配置指南][10];
 | TVSAccount | TVSAuthManager |
 | TVSDeviceBind | TVSDeviceManager |
 | TVSOCMS | TVSSpeech |
+| TVSTSKM | TVSTSKMProxy |
 
 **属性名**:
 
@@ -74,11 +81,13 @@ v2.0.0+ SDK 做了模块化拆分，详细配置参考[接入配置指南][10];
 
 **方法名**:
 
-| v1.0 | v2.0.0+ |
-| ------ | ------ |
-| -(instancetype)initWithDeviceType:(NSString*)deviceType deviceOEM:(NSString*)deviceOEM productId:(NSString*)productId DSN:(NSString*)dsn; | -(instancetype)initWithDeviceProductId:(NSString*)productId dsn:(NSString*)dsn; |
-| -(void)getDeviceAISpeechWithDeviceGUID:(NSString*)deviceGUID productId:(NSString*)productId DSN:(NSString*)dsn handler:(void(^)(TVSAISpeechItem*))handler; | -(void)getDeviceAISpeechWithProductId:(NSString*)productId dsn:(NSString*)dsn handler:(void(^)(TVSAISpeechItem*))handler; |
-| -(void)setDeviceAISpeechId:(NSString*)speechID productId:(NSString*)productId DSN:(NSString*)dsn handler:(void(^)(BOOL))handler; | -(void)setDeviceAISpeechId:(NSString*)speechID productId:(NSString*)productId dsn:(NSString*)dsn handler:(void(^)(BOOL))handler; |
+| 类 | v1.0 | v2.0.0+ |
+| ------ | ------ | ------ |
+| TVSAccountInfo | +(NSString*)clientIdWithDSN:(NSString*)dsn productId:(NSString*)productId; | +(NSString*)clientIdWithProductId:(NSString*)productId dsn:(NSString*)dsn; |
+| TVSMember | -(instancetype)initWithDeviceType:(NSString*)deviceType deviceOEM:(NSString*)deviceOEM productId:(NSString*)productId DSN:(NSString*)dsn; | -(instancetype)initWithDeviceProductId:(NSString*)productId dsn:(NSString*)dsn; |
+| TVSSpeech | -(void)getDeviceAISpeechWithDeviceGUID:(NSString*)deviceGUID productId:(NSString*)productId DSN:(NSString*)dsn handler:(void(^)(TVSAISpeechItem*))handler; | -(void)getDeviceAISpeechWithProductId:(NSString*)productId dsn:(NSString*)dsn handler:(void(^)(TVSAISpeechItem*))handler; |
+| TVSSpeech | -(void)setDeviceAISpeechId:(NSString*)speechID productId:(NSString*)productId DSN:(NSString*)dsn handler:(void(^)(BOOL))handler; | -(void)setDeviceAISpeechId:(NSString*)speechID productId:(NSString*)productId dsn:(NSString*)dsn handler:(void(^)(BOOL))handler; |
+| TVSTSKM | +(instancetype)shared; | -(instancetype)initWithDeviceInfo:(TVSDeviceInfo*)deviceInfo accountInfo:(TVSAccountInfo*)accountInfo; |
 
 #### H5 模块
 
@@ -148,21 +157,21 @@ H5 模块做了较大改动。
 
   [1]: https://github.com/TencentDingdang/dmsdk/blob/master/doc/iOS/%E5%8E%82%E5%95%86APP(iOS)%E6%8E%A5%E5%85%A5%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97.md
 
-  [2]: https://github.com/TencentDingdang/dmsdk/blob/master/doc/iOS/api-doc/TVSEnvironment.md
+  [2]: https://github.com/TencentDingdang/dmsdk/blob/master/doc/iOS/api-doc/TVSCore/TVSEnvironment.md
 
-  [3]: https://github.com/TencentDingdang/dmsdk/blob/master/doc/iOS/api-doc/TVSAuth.md
+  [3]: https://github.com/TencentDingdang/dmsdk/blob/master/doc/iOS/api-doc/TVSCore/TVSAuth.md
 
-  [4]: https://github.com/TencentDingdang/dmsdk/blob/master/doc/iOS/api-doc/TVSDevice.md
+  [4]: https://github.com/TencentDingdang/dmsdk/blob/master/doc/iOS/api-doc/TVSCore/TVSDevice.md
 
-  [5]: https://github.com/TencentDingdang/dmsdk/blob/master/doc/iOS/api-doc/TVSWeb.md
+  [5]: https://github.com/TencentDingdang/dmsdk/blob/master/doc/iOS/api-doc/TVSWeb/TVSWeb.md
 
-  [6]: https://github.com/TencentDingdang/dmsdk/blob/master/doc/iOS/api-doc/TVSMember.md
+  [6]: https://github.com/TencentDingdang/dmsdk/blob/master/doc/iOS/api-doc/TVSMember/TVSMember.md
 
-  [7]: https://github.com/TencentDingdang/dmsdk/blob/master/doc/iOS/api-doc/TVSTSKM.md
+  [7]: https://github.com/TencentDingdang/dmsdk/blob/master/doc/iOS/api-doc/TVSTSKM/TVSTSKMProxy.md
 
-  [8]: https://github.com/TencentDingdang/dmsdk/blob/master/doc/iOS/api-doc/TVSSpeech.md
+  [8]: https://github.com/TencentDingdang/dmsdk/blob/master/doc/iOS/api-doc/TVSSpeech/TVSSpeech.md
 
-  [9]: https://github.com/TencentDingdang/dmsdk/blob/master/doc/iOS/api-doc/TVSQRCode.md
+  [9]: https://github.com/TencentDingdang/dmsdk/blob/master/doc/iOS/api-doc/TVSQRCode/TVSQRCode.md
   
   [10]: https://github.com/TencentDingdang/dmsdk/blob/master/doc/iOS/厂商APP(iOS)接入配置指南.md
   
@@ -171,3 +180,9 @@ H5 模块做了较大改动。
   [12]: https://github.com/TencentDingdang/dmsdk/blob/master/doc/iOS/api-doc/TVSWeb.md
   
   [13]: https://github.com/AFNetworking/AFNetworking
+
+  [14]: https://github.com/TencentDingdang/dmsdk/blob/master/doc/iOS/api-doc/TVSTSKM/TVSAlarm.md
+
+  [15]: https://github.com/TencentDingdang/dmsdk/blob/master/doc/iOS/api-doc/TVSTSKM/TVSChildMode.md
+
+  [16]: https://github.com/TencentDingdang/dmsdk/blob/master/doc/iOS/api-doc/TVSTSKM/TVSThirdPartyAuth.md

@@ -35,7 +35,11 @@
     if (NotEmpty(_tfPID.text) && NotEmpty(_tfDSN.text) && NotEmpty(_tfDomain.text) && NotEmpty(_tfIntent.text) && NotEmpty(_tvBlob.text)) {
         __weak typeof(self) weakSelf = self;
         [self checkLogin:^{
-            [[TVSTSKM shared]uniAccessWithDeviceSerialNum:weakSelf.tfDSN.text deviceGuid:nil deviceProductId:weakSelf.tfPID.text domain:weakSelf.tfDomain.text intent:weakSelf.tfIntent.text blobInfo:[self dictFromJson:weakSelf.tvBlob.text] handler:^(BOOL success, NSDictionary * result) {
+            TVSDeviceInfo* di = [TVSDeviceInfo new];
+            di.dsn = weakSelf.tfDSN.text;
+            di.productId = weakSelf.tfPID.text;
+            TVSTSKMProxy* tskm = [[TVSTSKMProxy alloc]initWithDeviceInfo:di accountInfo:nil];
+            [tskm uniAccessWithDomain:weakSelf.tfDomain.text intent:weakSelf.tfIntent.text blobInfo:[self dictFromJson:weakSelf.tvBlob.text] handler:^(BOOL success, NSDictionary * result) {
                 [self showText:[NSString stringWithFormat:@"请求是否成功:%d\n数据返回:%@", success, result] view:weakSelf.tvResult];
             }];
         }];
