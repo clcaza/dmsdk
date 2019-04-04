@@ -1,38 +1,38 @@
 # iOS SDK 接入文档
 
-## [SDK 接入配置指南][1]
+## 1. [SDK 接入配置指南][1]
 
-## API 文档:
+## 2. API 文档:
 
   **TVSCore.framework**:
 
-  * 环境配置 [<TVSCore/TVSEnvironment.h>][2]
+  * 环境配置 [<TVSCore/TVSEnvironment.h>][2];
 
-  * 账号授权 [<TVSCore/TVSAuth.h>][3]
+  * 账号授权 [<TVSCore/TVSAuth.h>][3];
 
-  * 设备绑定 [<TVSCore/TVSDevice.h>][4]
+  * 设备绑定 [<TVSCore/TVSDevice.h>][4];
 
   **TVSWeb.framework**:
 
-  * Web 页面 [<TVSWeb/TVSWeb.h>][5]
+  * Web 页面 [<TVSWeb/TVSWeb.h>][5];
 
   **TVSMember.framework**:
 
-  * 会员状态 [<TVSMember/TVSMember.h>][6]
+  * 会员状态 [<TVSMember/TVSMember.h>][6];
   
   **TVSTSKM.framework**:
 
-  * 技能服务 [<TVSTSKM/TVSTSKM.h>][7]
+  * 技能服务 [<TVSTSKM/TVSTSKM.h>][7];
   
   **TVSSpeech.framework**:
 
-  * 音色TTS [<TVSSpeech/TVSSpeech.h>][8]
+  * 音色TTS [<TVSSpeech/TVSSpeech.h>][8];
   
   **TVSQRCode.framework**:
 
-  * 二维码 [<TVSQRCode/TVSQRCode.h>][9]
+  * 二维码 [<TVSQRCode/TVSQRCode.h>][9];
   
-## iOS SDK v1.0 -> v2.0.0+ 升级指南
+## 3. iOS SDK v1.0 -> v2.0.0+ 升级指南
 
 ### 项目配置变更
 
@@ -94,7 +94,7 @@ H5 模块做了较大改动。
 
 具体接入流程可参考 [demo][11] 和 [API 文档][12]。
 
-## H5 加载失败提示实现（仅供参考）
+## 4. H5 加载失败提示实现（仅供参考）
 
 * 使用 [AFNetworking][1] 项目的 `AFNetworkReachabilityManager` 做网络状态监听和判断；
 
