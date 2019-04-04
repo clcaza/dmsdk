@@ -1,8 +1,8 @@
 # iOS SDK 接入文档
 
-## 1. [SDK 接入配置指南][1]
+## [SDK 接入配置指南][1]
 
-## 2. API 文档:
+## API 文档:
 
   **TVSCore.framework**:
 
@@ -32,7 +32,7 @@
 
   * 二维码 [<TVSQRCode/TVSQRCode.h>][9];
   
-## 3. iOS SDK v1.0 -> v2.0.0+ 升级指南
+## iOS SDK v1.0 -> v2.0.0+ 升级指南
 
 ### 项目配置变更
 
@@ -94,9 +94,9 @@ H5 模块做了较大改动。
 
 具体接入流程可参考 [demo][11] 和 [API 文档][12]。
 
-## 4. H5 加载失败提示实现（仅供参考）
+## H5 加载失败提示实现（仅供参考）
 
-* 使用 [AFNetworking][1] 项目的 `AFNetworkReachabilityManager` 做网络状态监听和判断；
+* 使用 [AFNetworking][13] 项目的 `AFNetworkReachabilityManager` 做网络状态监听和判断；
 
 ```objective-c
 - (void)monitorNetwork {
@@ -144,9 +144,6 @@ H5 模块做了较大改动。
 }
 ```
 
- 
-[1]: https://github.com/AFNetworking/AFNetworking
-
 
 
   [1]: https://github.com/TencentDingdang/dmsdk/blob/master/doc/iOS/%E5%8E%82%E5%95%86APP(iOS)%E6%8E%A5%E5%85%A5%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97.md
@@ -172,3 +169,5 @@ H5 模块做了较大改动。
   [11]: https://github.com/TencentDingdang/dmsdk/blob/master/demo/iOS/TVSAccountDemo/TVSAccountDemo/BrowserVC.m
   
   [12]: https://github.com/TencentDingdang/dmsdk/blob/master/doc/iOS/api-doc/TVSWeb.md
+  
+  [13]: https://github.com/AFNetworking/AFNetworking
