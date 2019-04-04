@@ -120,7 +120,7 @@ H5 模块做了较大改动。
 }
 ```
 
-* `TVSWebView` 遵守 `TVSWebUniversalDelegate` 协议，网页加载失败会回调 `-(void)TVSWebLoadError:(NSError*)error;` 方法，可以用来处理加载失败逻辑，类似上面的断网场景；
+* `TVSWebView` 遵守 `TVSWebUniversalDelegate` 协议，网页加载失败会回调 `-(void)TVSWebLoadError:(NSError*)error;` 方法，可以用来处理加载失败逻辑；
 
 ```objective-c
 -(void)TVSWebLoadError:(NSError *)error {
