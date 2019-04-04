@@ -82,6 +82,38 @@ H5 模块做了较大改动。
 
 具体接入流程可参考 [demo][11] 和 [API 文档][12]。
 
+## H5 加载失败提示实现（仅供参考）
+
+* 使用 [AFNetworking][1] 项目的 `AFNetworkReachabilityManager` 做网络状态监听和判断（这块网上资料很多，不赘述）；
+
+  ```objective-c
+  - (void)monitorNetwork {
+    AFNetworkReachabilityManager *mgr = [AFNetworkReachabilityManager sharedManager];
+    [mgr setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        BOOL connected = status == AFNetworkReachabilityStatusReachableViaWiFi || status == AFNetworkReachabilityStatusReachableViaWWAN;
+        netStatus = connected ? 1 : -1;
+        [[NSNotificationCenter defaultCenter] postNotificationName:NotifyNetworkChanged object:self userInfo:@{@"netStatus":[NSNumber numberWithInteger:netStatus]}];
+        DDLogDebug(@"NetworkChanged status:%ld netStatus:%d connected:%@", status, netStatus, connected?@"YES":@"NO");
+    }];
+    [mgr startMonitoring];
+    }
+
+  - (BOOL)networkConnected {
+      return netStatus == 1;
+  }
+  ```
+
+* 处理网络状态变更：
+
+  1. 如果处于断开，UI 提示断网；（`AlertViewController` 或者加载自定义 View）;
+
+  2. 如果已经重新连接，调用 `TVSWebView` 的 `reload` 方法刷新或者直接调用 `loadUrl` 方法重新加载；
+
+* `TVSWebView` 遵守 `TVSWebUniversalDelegate` 协议，网页加载失败会回调 `-(void)TVSWebLoadError:(NSError*)error;` 方法，可以用来处理加载失败逻辑，类似上面的断网场景；
+ 
+[1]: https://github.com/AFNetworking/AFNetworking
+
+
 
   [1]: https://github.com/TencentDingdang/dmsdk/blob/master/doc/iOS/%E5%8E%82%E5%95%86APP(iOS)%E6%8E%A5%E5%85%A5%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97.md
 
