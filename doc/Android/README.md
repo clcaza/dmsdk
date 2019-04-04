@@ -4,6 +4,8 @@
 
 *   [单页API文档](Android厂商APP%20API.md)
 
+*   [JavaDoc](http://TencentDingdang.github.io/dmsdk)
+
 *   [版本更新日志](版本更新日志.md)
 
-*   [JavaDoc](http://TencentDingdang.github.io/dmsdk)
+*   [常见问题](常见问题.md)
