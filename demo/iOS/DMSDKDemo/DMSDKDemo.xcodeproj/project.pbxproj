@@ -1,0 +1,621 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		80029D8E222E7FFF003F12F5 /* TVSWeb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80029D8D222E7FFF003F12F5 /* TVSWeb.framework */; };
+		80599B7C1FD82B7000901F7C /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 80599B7B1FD82B7000901F7C /* libWeChatSDK.a */; };
+		80599B7E1FD82BEE00901F7C /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 80599B7D1FD82BEE00901F7C /* libsqlite3.tbd */; };
+		80599B821FD82C4200901F7C /* TencentOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80599B811FD82C4200901F7C /* TencentOpenAPI.framework */; };
+		80599B841FD82CA800901F7C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80599B831FD82C9F00901F7C /* SystemConfiguration.framework */; };
+		80599B861FD82CBD00901F7C /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80599B851FD82CB600901F7C /* CoreTelephony.framework */; };
+		80814701225B6475000C023D /* DeviceVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 80814700225B6475000C023D /* DeviceVC.m */; };
+		80814706225B6487000C023D /* WebVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 80814704225B6486000C023D /* WebVC.m */; };
+		80814707225B6487000C023D /* BrowserVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 80814705225B6486000C023D /* BrowserVC.m */; };
+		8081470A225B6496000C023D /* MemberVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 80814708225B6496000C023D /* MemberVC.m */; };
+		8081470F225B64A9000C023D /* ThirdPartyAuthVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8081470D225B64A9000C023D /* ThirdPartyAuthVC.m */; };
+		80814713225B64BD000C023D /* SpeechVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 80814711225B64BD000C023D /* SpeechVC.m */; };
+		8081471A225B669A000C023D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 80814716225B669A000C023D /* AppDelegate.m */; };
+		80814721225B66BF000C023D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8081471D225B66BF000C023D /* Main.storyboard */; };
+		80814722225B66BF000C023D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8081471F225B66BF000C023D /* LaunchScreen.storyboard */; };
+		80814724225B66D4000C023D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80814723225B66D4000C023D /* Assets.xcassets */; };
+		80814729225B6704000C023D /* BaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 80814725225B6704000C023D /* BaseVC.m */; };
+		8081472A225B6704000C023D /* MainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 80814727225B6704000C023D /* MainVC.m */; };
+		8081472D225B6715000C023D /* AuthVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8081472C225B6715000C023D /* AuthVC.m */; };
+		80814731225B6D60000C023D /* libPods-DMSDKDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 80814730225B6D60000C023D /* libPods-DMSDKDemo.a */; };
+		80814735225B6F7B000C023D /* TSKMVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 80814734225B6F7B000C023D /* TSKMVC.m */; };
+		80814738225B6FB2000C023D /* AlarmManageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 80814737225B6FB2000C023D /* AlarmManageVC.m */; };
+		8081473B225B6FCD000C023D /* ChildModeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8081473A225B6FCD000C023D /* ChildModeVC.m */; };
+		8081473E225B705C000C023D /* DeviceControlVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8081473D225B705C000C023D /* DeviceControlVC.m */; };
+		808E8EE82237545F00BEFFB0 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 80599B7F1FD82BFF00901F7C /* libz.tbd */; };
+		80AB3A9C2252FBA9003D0DAE /* TVSTSKM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80AB3A9B2252FBA8003D0DAE /* TVSTSKM.framework */; };
+		80AB3AA02252FFD2003D0DAE /* TVSMember.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80AB3A9F2252FFD2003D0DAE /* TVSMember.framework */; };
+		80C3911D2200392700698F7D /* TVSSpeech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80C391192200392700698F7D /* TVSSpeech.framework */; };
+		80FD905321FAB325004FFCA3 /* TVSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80FD905221FAB325004FFCA3 /* TVSCore.framework */; };
+		8AD8081F1F3DB0E80040C9CF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AD8081E1F3DB0E80040C9CF /* main.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		809D23971FA72A4D00C2C455 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		80029D8D222E7FFF003F12F5 /* TVSWeb.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TVSWeb.framework; sourceTree = "<group>"; };
+		80599B7B1FD82B7000901F7C /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libWeChatSDK.a; path = WeChat/libWeChatSDK.a; sourceTree = "<group>"; };
+		80599B7D1FD82BEE00901F7C /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		80599B7F1FD82BFF00901F7C /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		80599B811FD82C4200901F7C /* TencentOpenAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TencentOpenAPI.framework; sourceTree = "<group>"; };
+		80599B831FD82C9F00901F7C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		80599B851FD82CB600901F7C /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		808146FF225B6475000C023D /* DeviceVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DeviceVC.h; path = VC/Device/DeviceVC.h; sourceTree = "<group>"; };
+		80814700225B6475000C023D /* DeviceVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DeviceVC.m; path = VC/Device/DeviceVC.m; sourceTree = "<group>"; };
+		80814702225B6486000C023D /* BrowserVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BrowserVC.h; path = VC/Web/BrowserVC.h; sourceTree = "<group>"; };
+		80814703225B6486000C023D /* WebVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WebVC.h; path = VC/Web/WebVC.h; sourceTree = "<group>"; };
+		80814704225B6486000C023D /* WebVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WebVC.m; path = VC/Web/WebVC.m; sourceTree = "<group>"; };
+		80814705225B6486000C023D /* BrowserVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BrowserVC.m; path = VC/Web/BrowserVC.m; sourceTree = "<group>"; };
+		80814708225B6496000C023D /* MemberVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MemberVC.m; path = VC/Member/MemberVC.m; sourceTree = "<group>"; };
+		80814709225B6496000C023D /* MemberVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MemberVC.h; path = VC/Member/MemberVC.h; sourceTree = "<group>"; };
+		8081470C225B64A9000C023D /* ThirdPartyAuthVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ThirdPartyAuthVC.h; path = VC/TSKM/ThirdPartyAuthVC.h; sourceTree = "<group>"; };
+		8081470D225B64A9000C023D /* ThirdPartyAuthVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ThirdPartyAuthVC.m; path = VC/TSKM/ThirdPartyAuthVC.m; sourceTree = "<group>"; };
+		80814711225B64BD000C023D /* SpeechVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpeechVC.m; path = VC/Speech/SpeechVC.m; sourceTree = "<group>"; };
+		80814712225B64BD000C023D /* SpeechVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpeechVC.h; path = VC/Speech/SpeechVC.h; sourceTree = "<group>"; };
+		80814716225B669A000C023D /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		80814717225B669A000C023D /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		80814719225B669A000C023D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8081471E225B66BF000C023D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		80814720225B66BF000C023D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		80814723225B66D4000C023D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
+		80814725225B6704000C023D /* BaseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseVC.m; path = VC/BaseVC.m; sourceTree = "<group>"; };
+		80814726225B6704000C023D /* BaseVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseVC.h; path = VC/BaseVC.h; sourceTree = "<group>"; };
+		80814727225B6704000C023D /* MainVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainVC.m; path = VC/MainVC.m; sourceTree = "<group>"; };
+		80814728225B6704000C023D /* MainVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainVC.h; path = VC/MainVC.h; sourceTree = "<group>"; };
+		8081472B225B6715000C023D /* AuthVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AuthVC.h; path = VC/Auth/AuthVC.h; sourceTree = "<group>"; };
+		8081472C225B6715000C023D /* AuthVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AuthVC.m; path = VC/Auth/AuthVC.m; sourceTree = "<group>"; };
+		80814730225B6D60000C023D /* libPods-DMSDKDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libPods-DMSDKDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		80814733225B6F7B000C023D /* TSKMVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TSKMVC.h; path = VC/TSKM/TSKMVC.h; sourceTree = "<group>"; };
+		80814734225B6F7B000C023D /* TSKMVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = TSKMVC.m; path = VC/TSKM/TSKMVC.m; sourceTree = "<group>"; };
+		80814736225B6FB2000C023D /* AlarmManageVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AlarmManageVC.h; path = VC/TSKM/AlarmManageVC.h; sourceTree = "<group>"; };
+		80814737225B6FB2000C023D /* AlarmManageVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AlarmManageVC.m; path = VC/TSKM/AlarmManageVC.m; sourceTree = "<group>"; };
+		80814739225B6FCD000C023D /* ChildModeVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ChildModeVC.h; path = VC/TSKM/ChildModeVC.h; sourceTree = "<group>"; };
+		8081473A225B6FCD000C023D /* ChildModeVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ChildModeVC.m; path = VC/TSKM/ChildModeVC.m; sourceTree = "<group>"; };
+		8081473C225B705C000C023D /* DeviceControlVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DeviceControlVC.h; path = VC/TSKM/DeviceControlVC.h; sourceTree = "<group>"; };
+		8081473D225B705C000C023D /* DeviceControlVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = DeviceControlVC.m; path = VC/TSKM/DeviceControlVC.m; sourceTree = "<group>"; };
+		80AB3A9B2252FBA8003D0DAE /* TVSTSKM.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TVSTSKM.framework; sourceTree = "<group>"; };
+		80AB3A9F2252FFD2003D0DAE /* TVSMember.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TVSMember.framework; sourceTree = "<group>"; };
+		80C391192200392700698F7D /* TVSSpeech.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TVSSpeech.framework; sourceTree = "<group>"; };
+		80FD905221FAB325004FFCA3 /* TVSCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TVSCore.framework; sourceTree = "<group>"; };
+		80FD905421FAB3AA004FFCA3 /* libstdc++.6.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.tbd"; path = "usr/lib/libstdc++.6.tbd"; sourceTree = SDKROOT; };
+		8280EAE70BEB3A47F85369CA /* Pods-DMSDKDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DMSDKDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DMSDKDemo/Pods-DMSDKDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		8AD8081A1F3DB0E80040C9CF /* DMSDKDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DMSDKDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8AD8081E1F3DB0E80040C9CF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		9469E77371DE60DE145348FE /* Pods-DMSDKDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DMSDKDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-DMSDKDemo/Pods-DMSDKDemo.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8AD808171F3DB0E80040C9CF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				80814731225B6D60000C023D /* libPods-DMSDKDemo.a in Frameworks */,
+				80AB3AA02252FFD2003D0DAE /* TVSMember.framework in Frameworks */,
+				80AB3A9C2252FBA9003D0DAE /* TVSTSKM.framework in Frameworks */,
+				80FD905321FAB325004FFCA3 /* TVSCore.framework in Frameworks */,
+				80029D8E222E7FFF003F12F5 /* TVSWeb.framework in Frameworks */,
+				80C3911D2200392700698F7D /* TVSSpeech.framework in Frameworks */,
+				80599B821FD82C4200901F7C /* TencentOpenAPI.framework in Frameworks */,
+				80599B7C1FD82B7000901F7C /* libWeChatSDK.a in Frameworks */,
+				80599B7E1FD82BEE00901F7C /* libsqlite3.tbd in Frameworks */,
+				808E8EE82237545F00BEFFB0 /* libz.tbd in Frameworks */,
+				80599B861FD82CBD00901F7C /* CoreTelephony.framework in Frameworks */,
+				80599B841FD82CA800901F7C /* SystemConfiguration.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		489A4B7CC496B5BB515224A5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8280EAE70BEB3A47F85369CA /* Pods-DMSDKDemo.debug.xcconfig */,
+				9469E77371DE60DE145348FE /* Pods-DMSDKDemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		80A709DB22408F94007A8E51 /* Web */ = {
+			isa = PBXGroup;
+			children = (
+				80814702225B6486000C023D /* BrowserVC.h */,
+				80814705225B6486000C023D /* BrowserVC.m */,
+				80814703225B6486000C023D /* WebVC.h */,
+				80814704225B6486000C023D /* WebVC.m */,
+			);
+			name = Web;
+			sourceTree = "<group>";
+		};
+		80A709DC22408FBE007A8E51 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				8081472B225B6715000C023D /* AuthVC.h */,
+				8081472C225B6715000C023D /* AuthVC.m */,
+			);
+			name = Auth;
+			sourceTree = "<group>";
+		};
+		80A709DD22408FCE007A8E51 /* Device */ = {
+			isa = PBXGroup;
+			children = (
+				808146FF225B6475000C023D /* DeviceVC.h */,
+				80814700225B6475000C023D /* DeviceVC.m */,
+			);
+			name = Device;
+			sourceTree = "<group>";
+		};
+		80A709DE22408FE2007A8E51 /* Member */ = {
+			isa = PBXGroup;
+			children = (
+				80814709225B6496000C023D /* MemberVC.h */,
+				80814708225B6496000C023D /* MemberVC.m */,
+			);
+			name = Member;
+			sourceTree = "<group>";
+		};
+		80A709DF22408FF2007A8E51 /* TSKM */ = {
+			isa = PBXGroup;
+			children = (
+				80814733225B6F7B000C023D /* TSKMVC.h */,
+				80814734225B6F7B000C023D /* TSKMVC.m */,
+				80814736225B6FB2000C023D /* AlarmManageVC.h */,
+				80814737225B6FB2000C023D /* AlarmManageVC.m */,
+				80814739225B6FCD000C023D /* ChildModeVC.h */,
+				8081473A225B6FCD000C023D /* ChildModeVC.m */,
+				8081473C225B705C000C023D /* DeviceControlVC.h */,
+				8081473D225B705C000C023D /* DeviceControlVC.m */,
+				8081470C225B64A9000C023D /* ThirdPartyAuthVC.h */,
+				8081470D225B64A9000C023D /* ThirdPartyAuthVC.m */,
+			);
+			name = TSKM;
+			sourceTree = "<group>";
+		};
+		80A709E022409003007A8E51 /* Speech */ = {
+			isa = PBXGroup;
+			children = (
+				80814712225B64BD000C023D /* SpeechVC.h */,
+				80814711225B64BD000C023D /* SpeechVC.m */,
+			);
+			name = Speech;
+			sourceTree = "<group>";
+		};
+		80C39058220000B000698F7D /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				80814726225B6704000C023D /* BaseVC.h */,
+				80814725225B6704000C023D /* BaseVC.m */,
+				80814728225B6704000C023D /* MainVC.h */,
+				80814727225B6704000C023D /* MainVC.m */,
+				80A709DC22408FBE007A8E51 /* Auth */,
+				80A709DD22408FCE007A8E51 /* Device */,
+				80A709DB22408F94007A8E51 /* Web */,
+				80A709DE22408FE2007A8E51 /* Member */,
+				80A709DF22408FF2007A8E51 /* TSKM */,
+				80A709E022409003007A8E51 /* Speech */,
+			);
+			name = VC;
+			sourceTree = "<group>";
+		};
+		8A9738311F418BBD003BD45B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				80814730225B6D60000C023D /* libPods-DMSDKDemo.a */,
+				80AB3A9F2252FFD2003D0DAE /* TVSMember.framework */,
+				80AB3A9B2252FBA8003D0DAE /* TVSTSKM.framework */,
+				80029D8D222E7FFF003F12F5 /* TVSWeb.framework */,
+				80C391192200392700698F7D /* TVSSpeech.framework */,
+				80FD905421FAB3AA004FFCA3 /* libstdc++.6.tbd */,
+				80FD905221FAB325004FFCA3 /* TVSCore.framework */,
+				80599B851FD82CB600901F7C /* CoreTelephony.framework */,
+				80599B831FD82C9F00901F7C /* SystemConfiguration.framework */,
+				80599B811FD82C4200901F7C /* TencentOpenAPI.framework */,
+				80599B7F1FD82BFF00901F7C /* libz.tbd */,
+				80599B7D1FD82BEE00901F7C /* libsqlite3.tbd */,
+				80599B7B1FD82B7000901F7C /* libWeChatSDK.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8AD808111F3DB0E80040C9CF = {
+			isa = PBXGroup;
+			children = (
+				8AD8081C1F3DB0E80040C9CF /* DMSDKDemo */,
+				8AD8081B1F3DB0E80040C9CF /* Products */,
+				8A9738311F418BBD003BD45B /* Frameworks */,
+				489A4B7CC496B5BB515224A5 /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		8AD8081B1F3DB0E80040C9CF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8AD8081A1F3DB0E80040C9CF /* DMSDKDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8AD8081C1F3DB0E80040C9CF /* DMSDKDemo */ = {
+			isa = PBXGroup;
+			children = (
+				80814717225B669A000C023D /* AppDelegate.h */,
+				80814716225B669A000C023D /* AppDelegate.m */,
+				80C39058220000B000698F7D /* VC */,
+				80814723225B66D4000C023D /* Assets.xcassets */,
+				8081471F225B66BF000C023D /* LaunchScreen.storyboard */,
+				8081471D225B66BF000C023D /* Main.storyboard */,
+				8AD8081E1F3DB0E80040C9CF /* main.m */,
+				80814719225B669A000C023D /* Info.plist */,
+			);
+			path = DMSDKDemo;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8AD808191F3DB0E80040C9CF /* DMSDKDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8AD808471F3DB0E80040C9CF /* Build configuration list for PBXNativeTarget "DMSDKDemo" */;
+			buildPhases = (
+				EF1AF91E94E3B925635D4A7D /* [CP] Check Pods Manifest.lock */,
+				8AD808161F3DB0E80040C9CF /* Sources */,
+				8AD808171F3DB0E80040C9CF /* Frameworks */,
+				8AD808181F3DB0E80040C9CF /* Resources */,
+				809D23971FA72A4D00C2C455 /* Embed Frameworks */,
+				800818CE222F669F00A02B99 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DMSDKDemo;
+			productName = TvsLoginDemo;
+			productReference = 8AD8081A1F3DB0E80040C9CF /* DMSDKDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8AD808121F3DB0E80040C9CF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = tencent;
+				TargetAttributes = {
+					8AD808191F3DB0E80040C9CF = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 88L2Q4487U;
+						ProvisioningStyle = Manual;
+					};
+				};
+			};
+			buildConfigurationList = 8AD808151F3DB0E80040C9CF /* Build configuration list for PBXProject "DMSDKDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				English,
+				en,
+				Base,
+			);
+			mainGroup = 8AD808111F3DB0E80040C9CF;
+			productRefGroup = 8AD8081B1F3DB0E80040C9CF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8AD808191F3DB0E80040C9CF /* DMSDKDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8AD808181F3DB0E80040C9CF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				80814721225B66BF000C023D /* Main.storyboard in Resources */,
+				80814722225B66BF000C023D /* LaunchScreen.storyboard in Resources */,
+				80814724225B66D4000C023D /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		800818CE222F669F00A02B99 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# compress application.\n/bin/rm -rf $CONFIGURATION_BUILD_DIR/Payload\n\n/bin/ls $CONFIGURATION_BUILD_DIR\n\n/bin/mkdir $CONFIGURATION_BUILD_DIR/Payload\n\n/bin/cp -R $CONFIGURATION_BUILD_DIR/$PRODUCT_NAME.app $CONFIGURATION_BUILD_DIR/Payload\n\n#/bin/cp iTunesArtwork/iTunesArtwork.png $CONFIGURATION_BUILD_DIR/iTunesArtwork\n\ncd $CONFIGURATION_BUILD_DIR\n\n# zip up the application directory\n\n#/usr/bin/zip -r $PRODUCT_NAME.ipa Payload iTunesArtwork\n\n/usr/bin/zip -r $PRODUCT_NAME.ipa Payload\n\n# 备份符号表\n#echo \"Backup the .dSYM ...\"\n\n#/usr/bin/zip -r AISDKDemo.ipa.dSYM.zip  AISDKDemo.app.dSYM\n\n/bin/ls $CONFIGURATION_BUILD_DIR\n\n#cat $CONFIGURATION_BUILD_DIR\n\n#echo \"Copy the .ipa to dir out/ ...\"\n\n# 将ipa文件copy到根目录下的result目录\n#/bin/rm -rf $SRCROOT/out\n\n#/bin/mkdir $SRCROOT/out\n\n#cp $CONFIGURATION_BUILD_DIR/$PRODUCT_NAME.ipa  $SRCROOT/out/$PRODUCT_NAME.ipa\n\necho \"Clean the build dir ...\"\n\n/bin/rm -rf Payload\n\n#/bin/rm -rf iTunesArtwork\n\necho \"Packet .ipa done.\"\n";
+		};
+		EF1AF91E94E3B925635D4A7D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DMSDKDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8AD808161F3DB0E80040C9CF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8081472A225B6704000C023D /* MainVC.m in Sources */,
+				80814706225B6487000C023D /* WebVC.m in Sources */,
+				80814729225B6704000C023D /* BaseVC.m in Sources */,
+				80814735225B6F7B000C023D /* TSKMVC.m in Sources */,
+				80814707225B6487000C023D /* BrowserVC.m in Sources */,
+				8081470F225B64A9000C023D /* ThirdPartyAuthVC.m in Sources */,
+				8081470A225B6496000C023D /* MemberVC.m in Sources */,
+				8AD8081F1F3DB0E80040C9CF /* main.m in Sources */,
+				80814738225B6FB2000C023D /* AlarmManageVC.m in Sources */,
+				8081471A225B669A000C023D /* AppDelegate.m in Sources */,
+				8081473B225B6FCD000C023D /* ChildModeVC.m in Sources */,
+				8081473E225B705C000C023D /* DeviceControlVC.m in Sources */,
+				80814701225B6475000C023D /* DeviceVC.m in Sources */,
+				8081472D225B6715000C023D /* AuthVC.m in Sources */,
+				80814713225B64BD000C023D /* SpeechVC.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		8081471D225B66BF000C023D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8081471E225B66BF000C023D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		8081471F225B66BF000C023D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				80814720225B66BF000C023D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8AD808451F3DB0E80040C9CF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8AD808461F3DB0E80040C9CF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8AD808481F3DB0E80040C9CF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8280EAE70BEB3A47F85369CA /* Pods-DMSDKDemo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 88L2Q4487U;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/",
+					"$(PROJECT_DIR)",
+				);
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/WeChat";
+				INFOPLIST_FILE = "$(SRCROOT)/DMSDKDemo/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/WeChat",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-lc++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.tencent.dingdang.dmsdk.demoxyz;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "com.tencent.dingdang.dmsdk.demoxyz Development";
+			};
+			name = Debug;
+		};
+		8AD808491F3DB0E80040C9CF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9469E77371DE60DE145348FE /* Pods-DMSDKDemo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/",
+					"$(PROJECT_DIR)",
+				);
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/WeChat";
+				INFOPLIST_FILE = "$(SRCROOT)/DMSDKDemo/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/WeChat",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-lc++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.tencent.dingdang.dmsdk.demoxyz;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8AD808151F3DB0E80040C9CF /* Build configuration list for PBXProject "DMSDKDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8AD808451F3DB0E80040C9CF /* Debug */,
+				8AD808461F3DB0E80040C9CF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8AD808471F3DB0E80040C9CF /* Build configuration list for PBXNativeTarget "DMSDKDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8AD808481F3DB0E80040C9CF /* Debug */,
+				8AD808491F3DB0E80040C9CF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8AD808121F3DB0E80040C9CF /* Project object */;
+}
