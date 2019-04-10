@@ -1124,8 +1124,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="alphabet"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Command:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eb4-ul-urn">
-                                <rect key="frame" x="333.33333333333331" y="103" width="65.666666666666686" height="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eb4-ul-urn">
+                                <rect key="frame" x="359.66666666666669" y="103" width="39.333333333333314" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="G3Y-ZZ-smb"/>
                                 </constraints>
@@ -1170,7 +1170,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="tfCommand" destination="wp7-vB-lSN" id="SwI-iv-dwI"/>
+                        <outlet property="tfName" destination="wp7-vB-lSN" id="dNd-ER-uol"/>
                         <outlet property="tfNamespace" destination="3C7-PE-Rje" id="tgx-gn-cMh"/>
                         <outlet property="tvPayload" destination="TpJ-Y4-1Eu" id="2go-Ue-iK7"/>
                         <outlet property="tvResult" destination="vHB-7f-xi1" id="Y71-zL-xwZ"/>

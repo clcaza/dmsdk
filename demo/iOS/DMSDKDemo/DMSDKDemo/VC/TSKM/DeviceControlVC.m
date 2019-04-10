@@ -32,6 +32,7 @@
 }
 */
 
+// 绑定设备
 - (IBAction)onClickBtnBind:(id)sender {
     [self hideKeyBoard];
     __weak typeof(self) weakSelf = self;
@@ -48,11 +49,12 @@
     }];
 }
 
+// 设备控制
 - (IBAction)onClickBtnControl:(id)sender {
     [self hideKeyBoard];
     __weak typeof(self) weakSelf = self;
-    if (NotEmpty(_tvPayload.text) && NotEmpty(_tfNamespace.text) && NotEmpty(_tfCommand.text)) {
-        [_deviceControl controlDeviceWithNamespace:_tfNamespace.text command:_tfCommand.text payload:[self dictFromJson:_tvPayload.text] handler:^(BOOL success, NSDictionary * result) {
+    if (NotEmpty(_tvPayload.text) && NotEmpty(_tfNamespace.text) && NotEmpty(_tfName.text)) {
+        [_deviceControl controlDeviceWithNamespace:_tfNamespace.text name:_tfName.text payload:[self dictFromJson:_tvPayload.text] handler:^(BOOL success, NSDictionary * result) {
             if (success) {
                 if (result) {
                     [weakSelf showText:[NSString stringWithFormat:@"控制成功:\n%@", result] view:weakSelf.tvResult];
@@ -68,7 +70,7 @@
 
 -(void)hideKeyBoard {
     [_tfNamespace resignFirstResponder];
-    [_tfCommand resignFirstResponder];
+    [_tfName resignFirstResponder];
     [_tvPayload resignFirstResponder];
 }
 
