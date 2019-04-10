@@ -46,7 +46,9 @@ public class DeviceBindingActivity extends ModuleActivity {
         TVSDevice device = new TVSDevice();
         device.productID = mProductIDEditText.getText().toString();
         device.dsn = mDSNEditText.getText().toString();
+        // 这里使用TVS方案，字段填入规则请阅读LoginProxy#bindPushDevice的文档！
         device.bindType = TVSDeviceBindType.TVS_SPEAKER;
+        device.pushIDExtra = "TVSSpeaker";
         return device;
     }
 }

@@ -8,3 +8,7 @@ javadoc
 /captures
 .externalNativeBuild
 .cxx
+# VS Code
+.project
+.classpath
+.settings/

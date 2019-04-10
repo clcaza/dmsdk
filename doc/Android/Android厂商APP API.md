@@ -240,13 +240,25 @@ public void preBindScreenDevice(TVSDevice device, boolean cancel, TVSCallbac
 
 | 名称 | 说明 |
 |:---|:---|
-| device | 待预绑定的设备的信息 |
+| device | 待预绑定的设备的信息，关于这个参数的字段填入方式，请阅读bindPushDevice(TVSDevice, TVSCallback)的文档 |
 | cancel | 是否取消预绑定 |
 | callback | 请求结果回调 |
 
 ### bindPushDevice
 
 绑定推送设备。
+
+对于绑定（本方法和`preBindScreenDevice(TVSDevice, boolean, TVSCallback)`）、解绑（`unbindPushDevice(TVSDevice, TVSCallback)`）和查询绑定账号（`getBoundAccount(TVSDevice, TVSCallback1)`），这些方法传递的设备信息参数遵循下面的规则：
+
+*   `TVSDevice#productID`和`TVSDevice#dsn`字段不区分方案填写；
+*   如果是TVS方案：
+    +   `TVSDevice#bindType`填`TVSDeviceBindType#TVS_SPEAKER`
+    +   `TVSDevice#pushIDExtra`填字符串常量`TVSSpeaker`
+*   如果是SDK方案：
+    +   `TVSDevice#bindType`填`TVSDeviceBindType#SDK_SPEAKER`
+    +   `TVSDevice#pushIDExtra`填字符串常量`com.tencent.ai.dingdang.sdk`
+
+后续的版本会将这些常量字符串放到`ConstantValues`中。
 
 ```
 public void bindPushDevice(TVSDevice device, TVSCallback callback)
@@ -271,7 +283,7 @@ public void unbindPushDevice(TVSDevice device, TVSCallback callback)
 
 | 名称 | 说明 |
 |:---|:---|
-| device | 待解绑的设备的信息 |
+| device | 待解绑的设备的信息，关于这个参数的字段填入方式，请阅读bindPushDevice(TVSDevice, TVSCallback)的文档 |
 | callback | 请求结果回调 |
 
 ### getDeviceInfoListByDSN
@@ -318,7 +330,7 @@ public void getBoundAccount(TVSDevice device, TVSCallback1<TVSAccountInfo> c
 
 | 名称 | 说明 |
 |:---|:---|
-| device | 待查询账号的设备的信息 |
+| device | 待查询账号的设备的信息，关于这个参数的字段填入方式，请阅读bindPushDevice(TVSDevice, TVSCallback)的文档 |
 | callback | 请求结果回调，成功时参数返回 TVSAccountInfo 对象，其中有效字段仅有登录平台类型、App ID和Open ID |
 
 ### setEnv
