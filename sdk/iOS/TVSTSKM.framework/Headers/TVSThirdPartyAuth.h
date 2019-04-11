@@ -22,7 +22,6 @@
  * @param accountInfo 账号信息，使用本 SDK 做账号登录的传 nil
  * @param deviceInfo 设备信息，其中 productId、dsn、guid 必填！！
  * @param handler 回调，BOOL 表示是否成功
- * @return 第三方账号授权跳转链接
  */
 +(void)gotoAuthWithAccountInfo:(nullable TVSAccountInfo*)accountInfo deviceInfo:(TVSDeviceInfo*)deviceInfo handler:(void(^)(BOOL))handler;
 
