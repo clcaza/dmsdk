@@ -16,13 +16,13 @@
 
 ### Android
 
-### [v2.0.2][6]
+#### [v2.0.2][6]
 
 *   修复Web模块的ProxyData回调收到的JSONObject结构，保持与iOS端DMSDK的结果一致；
 *   修复了二维码模块一个Crash；
 *   修复了TAuthActivity的QQOpenAppID配置错误导致可能无法QQ登录的问题，该问题的具体影响和解决方案请见迁移文档。
 
-### [v2.0.1][3]
+#### [v2.0.1][3]
 
 * H5 模块新增链接加载拦截回调；
 
