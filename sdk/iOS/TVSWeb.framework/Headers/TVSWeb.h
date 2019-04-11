@@ -23,6 +23,10 @@ typedef NS_ENUM(NSInteger,TVSWebPageType) {
      */
     TVSWebPageTypeMusic,
     /*
+     * @brief 第三方账号授权页面
+     */
+    TVSWebPageTypeThirdPartyAuth,
+    /*
      * @brief 账号授权页面
      */
     TVSWebPageTypeAuth,

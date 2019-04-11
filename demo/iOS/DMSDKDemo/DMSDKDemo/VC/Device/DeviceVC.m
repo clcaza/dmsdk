@@ -36,7 +36,8 @@
     TVSDeviceInfo* device = nil;
     if (NotEmpty(_tfPid.text) && NotEmpty(_tfDSN.text)) {
         device = [TVSDeviceInfo new];
-        device.bindType = TVSDeviceBindTypeTVSSpeaker;//注意实际情况设置设备类型
+        device.bindType = TVSDeviceBindTypeTVSSpeaker/*TVSDeviceBindTypeSDKSpeaker*/; //注意设置设备类型!!
+        device.pushIdExtra = PUSH_ID_EXTRA_TVS_SPEAKER/*PUSH_ID_EXTRA_SDK_SPEAKER*/; // 注意绑定设备需要传 pushIdExtra 字段!!
         device.productId = _tfPid.text;
         device.dsn = _tfDSN.text;
     }

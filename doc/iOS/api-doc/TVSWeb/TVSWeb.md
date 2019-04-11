@@ -4,7 +4,9 @@
 
 | 名称 | 描述 |
 | ------ | ------ |
+| TVSWebPageTypeSmartHome | 智能家居页面 |
 | TVSWebPageTypeMusic | QQ 音乐页面 |
+| TVSWebPageTypeThirdPartyAuth | 第三方账号授权页面 |
 | TVSWebPageTypeAuth | 授权页面 |
 | TVSWebPageTypeMember | 会员个人中心页面 |
 | TVSWebPageTypeVIP | 会员领取页面 |

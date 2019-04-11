@@ -10,6 +10,18 @@
 #import "TVSAuth.h"
 
 
+/*
+ * @brief 云端 API 接入方案的音箱绑定时需要传入的 pushIdExtra 常量
+ */
+extern NSString* const PUSH_ID_EXTRA_SDK_SPEAKER;
+
+/*
+ * @brief SDK 接入方案的音箱绑定时需要传入的 pushIdExtra 常量
+ */
+extern NSString* const PUSH_ID_EXTRA_TVS_SPEAKER;
+
+
+
 
 /*
  * @brief 设备绑定类型
@@ -184,7 +196,7 @@ typedef NS_ENUM(NSInteger,TVSDeviceBindType) {
 /*
  * @brief 有屏音箱扫码预绑定
  * @warning 必须确保已登录！！
- * @param device 设备信息，其中 productId 、 dsn、bindType 必传!!
+ * @param device 设备信息，其中 productId、 dsn、bindType 必传!! 绑定 Speaker 设备时还必须传 pushIdExtra 字段（取值为 PUSH_ID_EXTRA_SDK_SPEAKER 或 PUSH_ID_EXTRA_TVS_SPEAKER 常量）！！
  * @param cancel 是否取消预绑定
  * @param handler 回调，BOOL 值表示是否成功
  */
@@ -193,7 +205,7 @@ typedef NS_ENUM(NSInteger,TVSDeviceBindType) {
 /*
  * @brief 绑定设备
  * @warning 必须确保已登录！！
- * @param device 设备信息，其中 productId、 dsn、bindType 必传!!
+ * @param device 设备信息，其中 productId、dsn、bindType 必传!! 绑定 Speaker 设备时还必须传 pushIdExtra 字段（取值为 PUSH_ID_EXTRA_SDK_SPEAKER 或 PUSH_ID_EXTRA_TVS_SPEAKER 常量）！！
  * @param handler 回调，BOOL 值表示是否成功
  */
 -(void)bindDevice:(TVSDeviceInfo*)device handler:(void(^)(BOOL))handler;
@@ -201,7 +213,7 @@ typedef NS_ENUM(NSInteger,TVSDeviceBindType) {
 /*
  * @brief 解绑设备
  * @warning 必须确保已登录！！
- * @param device 设备信息，其中 productId、 dsn、bindType 必传!!
+ * @param device 设备信息，其中 productId、 dsn、bindType 必传!! 解绑 Speaker 设备时还必须传 pushIdExtra 字段（取值为 PUSH_ID_EXTRA_SDK_SPEAKER 或 PUSH_ID_EXTRA_TVS_SPEAKER 常量）！！
  * @param handler 回调，BOOL 值表示是否成功
  */
 -(void)unbindDevice:(TVSDeviceInfo*)device handler:(void(^)(BOOL))handler;
@@ -233,7 +245,7 @@ typedef NS_ENUM(NSInteger,TVSDeviceBindType) {
 
 /*
  * @brief 根据设备信息反查绑定的账号信息
- * @param device 设备信息，其中 productId、 DSN、bindType 必传!!
+ * @param device 设备信息，其中 productId、 dsn、bindType 必传!! 查询 Speaker 设备时还必须传 pushIdExtra 字段（取值为 PUSH_ID_EXTRA_SDK_SPEAKER 或 PUSH_ID_EXTRA_TVS_SPEAKER 常量）！！
  * @param handler 回调，TVSAccountInfo 为账号信息
  */
 -(void)queryAccountWithDevice:(TVSDeviceInfo*)device handler:(void(^)(TVSAccountInfo*))handler;

@@ -139,13 +139,25 @@ typedef NS_ENUM(NSInteger,TVSAuthResult) {
 @property(nonatomic,copy) NSString* userId;
 
 /*
- * @brief 获取 TVS ClientId
+ * @brief 获取 TVS ClientId（适用于使用本 SDK 登录的场景）
  * @warning 必须确保已登录，并且 dsn 和 productId 不为空
  * @param productId TVS 平台申请的产品 ID
  * @param dsn 设备序列号
  * @return TVS ClientId
  */
 +(NSString*)clientIdWithProductId:(NSString*)productId dsn:(NSString*)dsn;
+
+/*
+ * @brief 获取 TVS ClientId（适用于自己做登录的场景）
+ * @warning 其中 productId、dsn、openId 必传！！
+ * @param productId TVS 平台申请的产品 ID
+ * @param dsn 设备序列号
+ * @param openId
+ * @param accessToken
+ * @param refreshToken 
+ * @return TVS ClientId
+ */
++(NSString*)clientIdWithProductId:(NSString*)productId dsn:(NSString*)dsn openId:(NSString*)openId accessToken:(NSString*)accessToken refreshToken:(NSString*)refreshToken;
 
 @end
 

@@ -50,7 +50,7 @@
 
   **描述**:
 
-  获取 TVS 平台 ClientId；
+  获取 TVS 平台 ClientId；（适用于使用本 SDK 登录的场景）
   必须确保已登录！
 
   **参数**：
@@ -59,6 +59,27 @@
   | ------ | ------ | ------ | ------ |
   | productId | NSString* | TVS 后台申请的 appid/accessToken 信息 | 是 |
   | dsn | NSString* | 设备序列号 | 是 |
+
+  **返回**：
+
+  TVS 平台 ClientId;
+
+##### `+(NSString*)clientIdWithProductId:(NSString*)productId dsn:(NSString*)dsn openId:(NSString*)openId accessToken:(NSString*)accessToken refreshToken:(NSString*)refreshToken;`
+
+  **描述**:
+
+  获取 TVS 平台 ClientId；（适用于自己做登录的场景）
+  其中 productId、dsn、openId 必传！！
+
+  **参数**：
+
+  | 名称 | 类型 | 描述 | 是否必填 |
+  | ------ | ------ | ------ | ------ |
+  | productId | NSString* | TVS 后台申请的 appid/accessToken 信息 | 是 |
+  | dsn | NSString* | 设备序列号 | 是 |
+  | openId | NSString* |  | 是 |
+  | accessToken | NSString* |  | 否 |
+  | refreshToken | NSString* |  | 否 |
 
   **返回**：
 

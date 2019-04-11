@@ -139,10 +139,10 @@
 		80A709DB22408F94007A8E51 /* Web */ = {
 			isa = PBXGroup;
 			children = (
-				80814702225B6486000C023D /* BrowserVC.h */,
-				80814705225B6486000C023D /* BrowserVC.m */,
 				80814703225B6486000C023D /* WebVC.h */,
 				80814704225B6486000C023D /* WebVC.m */,
+				80814702225B6486000C023D /* BrowserVC.h */,
+				80814705225B6486000C023D /* BrowserVC.m */,
 			);
 			name = Web;
 			sourceTree = "<group>";

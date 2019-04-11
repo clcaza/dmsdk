@@ -26,7 +26,12 @@ typedef NS_ENUM(NSInteger,TVSServerEnv) {
     /*
      * @brief 测试环境
      */
-    TVSServerEnvTest
+    TVSServerEnvTest,
+    
+    /*
+     * @brief 开发环境
+     */
+    TVSServerEnvDev
 };
 
 

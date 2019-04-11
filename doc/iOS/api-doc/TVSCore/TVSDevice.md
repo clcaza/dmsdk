@@ -1,5 +1,12 @@
 ## 设备管理 <TVSCore/TVSDevice.h>
 
+### 常量
+
+| 名称 | 类型 | 描述 |
+| ------ | ------ | ------ |
+| PUSH_ID_EXTRA_SDK_SPEAKER | NSString* | SDK 接入方案的音箱绑定时需要传入的 pushIdExtra 常量 |
+| PUSH_ID_EXTRA_TVS_SPEAKER | NSString* | 云端 API 接入方案的音箱绑定时需要传入的 pushIdExtra 常量 |
+
 ### TVSDeviceBindType 设备绑定类型枚举
 
 | 名称 | 描述 |
@@ -76,7 +83,7 @@
 
   | 名称 | 类型 | 描述 | 是否必填 |
   | ------ | ------ | ------ | ------ |
-  | device | TVSDeviceInfo* | 设备信息 | 是 |
+  | device | TVSDeviceInfo* | 设备信息 | 其中 productId、dsn、bindType 必须填，其他字段根据需要透传；绑定 Speaker 设备时还必须传 pushIdExtra 字段（取值为 PUSH_ID_EXTRA_SDK_SPEAKER 或 PUSH_ID_EXTRA_TVS_SPEAKER 常量）； |
   | cancel | BOOL | 是否取消 | 是 |
   | handler | void(^)(BOOL) | 回调，BOOL 值表示是否预绑定成功 | 是 |
 
@@ -95,7 +102,7 @@
 
   | 名称 | 类型 | 描述 | 是否必填 |
   | ------ | ------ | ------ | ------ |
-  | device | TVSDeviceInfo* | 设备信息 | 其中 productId、dsn、bindType 必须填，其他字段根据需要透传 |
+  | device | TVSDeviceInfo* | 设备信息 | 其中 productId、dsn、bindType 必须填，其他字段根据需要透传；绑定 Speaker 设备时还必须传 pushIdExtra 字段（取值为 PUSH_ID_EXTRA_SDK_SPEAKER 或 PUSH_ID_EXTRA_TVS_SPEAKER 常量）； |
   | handler | void(^)(BOOL) | 回调，BOOL 标识是否绑定成功 | 是 |
 
   **返回**：
@@ -113,7 +120,7 @@
 
   | 名称 | 类型 | 描述 | 是否必填 |
   | ------ | ------ | ------ | ------ |
-  | device | TVSDeviceInfo* | 设备信息 | 其中 productId、dsn、bindType 必填!! |
+  | device | TVSDeviceInfo* | 设备信息 | 其中 productId、dsn、bindType 必须填，其他字段根据需要透传；解绑 Speaker 设备时还必须传 pushIdExtra 字段（取值为 PUSH_ID_EXTRA_SDK_SPEAKER 或 PUSH_ID_EXTRA_TVS_SPEAKER 常量）； |
   | handler | void(^)(BOOL) | 回调，BOOL标识是否解绑成功 | 是 |
 
   **返回**：
@@ -185,7 +192,7 @@
 
   | 名称 | 类型 | 描述 | 是否必填 |
   | ------ | ------ | ------ | ------ |
-  | device | TVSDeviceInfo* | 设备信息 | 其中 productId、dsn、bindType 必填!! |
+  | device | TVSDeviceInfo* | 设备信息 | 其中 productId、dsn、bindType 必须填，其他字段根据需要透传；查询 Speaker 设备时还必须传 pushIdExtra 字段（取值为 PUSH_ID_EXTRA_SDK_SPEAKER 或 PUSH_ID_EXTRA_TVS_SPEAKER 常量）； |
   | handler | void(^)(TVSAccountInfo*) | 回调，返回账号信息 TVSAccountInfo，具体字段定义详见账号管理部分  | 是 |
 
   **返回**：

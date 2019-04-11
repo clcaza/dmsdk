@@ -43,19 +43,12 @@
                 if (devices && devices.count > 0) {
                     for (TVSDeviceInfo* device in devices) {
                         if ([device.productId isEqualToString:weakSelf.deviceInfo.productId] && [device.dsn isEqualToString:weakSelf.deviceInfo.dsn]) {
-                            TVSAccountType accountType = [TVSAuthManager shared].accountInfo.accountType;
-                            // 通过设备信息和 GUID 拼接云叮当授权跳转链接
-                            NSURL* url = [TVSThirdPartyAuth urlWithAccountType:accountType productId:device.productId dsn:device.dsn deviceGuid:device.guid];
-                            if (url) {
-                                // 打开链接
-                                [[UIApplication sharedApplication]openURL:url options:@{} completionHandler:^(BOOL success) {
-                                    if (!success) {
-                                        [weakSelf showText:@"跳转失败，请安装腾讯云叮当最新版本" view:weakSelf.tvResult];
-                                    }
-                                }];
-                            } else {
-                                [weakSelf showText:@"跳转链接获取失败" view:weakSelf.tvResult];
-                            }
+                            // 跳转云叮当做第三方账号授权
+                            [TVSThirdPartyAuth gotoAuthWithAccountInfo:nil deviceInfo:device handler:^(BOOL success) {
+                                if (!success) {
+                                    [weakSelf showText:@"跳转失败，请安装腾讯云叮当最新版本" view:weakSelf.tvResult];
+                                }
+                            }];
                             return;
                         }
                     }

@@ -45,21 +45,25 @@
 }
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
-    return 3;
+    return 4;
 }
 
 - (NSString*)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
     switch (row) {
-        case TVSServerEnvTest: {
-            return @"测试环境";
+        case TVSServerEnvFormal: {
+            return @"正式环境";
             break;
         }
         case TVSServerEnvExplore: {
             return @"体验环境";
             break;
         }
-        case TVSServerEnvFormal: {
-            return @"正式环境";
+        case TVSServerEnvTest: {
+            return @"测试环境";
+            break;
+        }
+        case TVSServerEnvDev: {
+            return @"开发环境";
             break;
         }
     }

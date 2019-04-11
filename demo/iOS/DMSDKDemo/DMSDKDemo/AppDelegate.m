@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import <TVSCore/TVSCore.h>
+#import "BrowserVC.h"
 
 @implementation AppDelegate
 
@@ -20,7 +21,16 @@
 
 //处理 微信/QQ 等 URL 跳转
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
-    return [[TVSAuthManager shared] handleOpenUrl:url];
+    // 处理微信/QQ 登录跳转
+    if ([[TVSAuthManager shared] handleOpenUrl:url]) return YES;
+    // 处理云叮当 APP 授权后的 URL 回跳
+    if ([url.host isEqualToString:@"tvs-auth"] && [url.query isEqualToString:@"result=0"]) {
+        // 打开第三方授权网页
+        BrowserVC* bv = [BrowserVC new];
+        bv.pageType = TVSWebPageTypeThirdPartyAuth;
+        [(UINavigationController*)(self.window.rootViewController) pushViewController:bv animated:YES];
+    }
+    return NO;
 }
 
 
