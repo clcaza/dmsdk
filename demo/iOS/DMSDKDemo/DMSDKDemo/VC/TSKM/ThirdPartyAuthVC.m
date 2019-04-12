@@ -11,15 +11,12 @@
 
 @interface ThirdPartyAuthVC ()
 
-@property(nonatomic,strong) TVSThirdPartyAuth* auth;
-
 @end
 
 @implementation ThirdPartyAuthVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _auth = [[TVSThirdPartyAuth alloc]initWithTSKMProxy:[self delegate].tskmProxy];
 }
 
 /*
