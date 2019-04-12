@@ -24,7 +24,7 @@
 
   * 技能服务访问代理 [<TVSTSKM/TVSTSKMProxy.h>][7];
 
-  * 云端闹钟管理 [<TVSTSKM/TVSAlarm.h>][14];
+  * 闹钟提醒管理 [<TVSTSKM/TVSAlarmReminder.h>][14];
 
   * 儿童模式 [<TVSTSKM/TVSChildMode.h>][15];
 
@@ -181,7 +181,7 @@ H5 模块做了较大改动。
   
   [13]: https://github.com/AFNetworking/AFNetworking
 
-  [14]: https://github.com/TencentDingdang/dmsdk/blob/master/doc/iOS/api-doc/TVSTSKM/TVSAlarm.md
+  [14]: https://github.com/TencentDingdang/dmsdk/blob/master/doc/iOS/api-doc/TVSTSKM/TVSAlarmReminder.md
 
   [15]: https://github.com/TencentDingdang/dmsdk/blob/master/doc/iOS/api-doc/TVSTSKM/TVSChildMode.md
 

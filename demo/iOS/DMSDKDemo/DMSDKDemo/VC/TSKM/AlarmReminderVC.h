@@ -1,5 +1,5 @@
 //
-//  AlarmManageVC.h
+//  AlarmReminderVC.h
 //  DMSDKDemo
 //
 //  Created by Rinc Liu on 8/4/2019.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface AlarmManageVC : BaseVC
+@interface AlarmReminderVC : BaseVC
 
 @property (strong, nonatomic) IBOutlet UITextView *tvBlob;
 @property (strong, nonatomic) IBOutlet UITextView *tvResult;

@@ -28,7 +28,7 @@
 		8081472D225B6715000C023D /* AuthVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8081472C225B6715000C023D /* AuthVC.m */; };
 		80814731225B6D60000C023D /* libPods-DMSDKDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 80814730225B6D60000C023D /* libPods-DMSDKDemo.a */; };
 		80814735225B6F7B000C023D /* TSKMVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 80814734225B6F7B000C023D /* TSKMVC.m */; };
-		80814738225B6FB2000C023D /* AlarmManageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 80814737225B6FB2000C023D /* AlarmManageVC.m */; };
+		80814738225B6FB2000C023D /* AlarmReminderVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 80814737225B6FB2000C023D /* AlarmReminderVC.m */; };
 		8081473B225B6FCD000C023D /* ChildModeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8081473A225B6FCD000C023D /* ChildModeVC.m */; };
 		8081473E225B705C000C023D /* DeviceControlVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8081473D225B705C000C023D /* DeviceControlVC.m */; };
 		808E8EE82237545F00BEFFB0 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 80599B7F1FD82BFF00901F7C /* libz.tbd */; };
@@ -87,8 +87,8 @@
 		80814730225B6D60000C023D /* libPods-DMSDKDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libPods-DMSDKDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		80814733225B6F7B000C023D /* TSKMVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TSKMVC.h; path = VC/TSKM/TSKMVC.h; sourceTree = "<group>"; };
 		80814734225B6F7B000C023D /* TSKMVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = TSKMVC.m; path = VC/TSKM/TSKMVC.m; sourceTree = "<group>"; };
-		80814736225B6FB2000C023D /* AlarmManageVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AlarmManageVC.h; path = VC/TSKM/AlarmManageVC.h; sourceTree = "<group>"; };
-		80814737225B6FB2000C023D /* AlarmManageVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AlarmManageVC.m; path = VC/TSKM/AlarmManageVC.m; sourceTree = "<group>"; };
+		80814736225B6FB2000C023D /* AlarmReminderVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AlarmReminderVC.h; path = VC/TSKM/AlarmReminderVC.h; sourceTree = "<group>"; };
+		80814737225B6FB2000C023D /* AlarmReminderVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AlarmReminderVC.m; path = VC/TSKM/AlarmReminderVC.m; sourceTree = "<group>"; };
 		80814739225B6FCD000C023D /* ChildModeVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ChildModeVC.h; path = VC/TSKM/ChildModeVC.h; sourceTree = "<group>"; };
 		8081473A225B6FCD000C023D /* ChildModeVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ChildModeVC.m; path = VC/TSKM/ChildModeVC.m; sourceTree = "<group>"; };
 		8081473C225B705C000C023D /* DeviceControlVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DeviceControlVC.h; path = VC/TSKM/DeviceControlVC.h; sourceTree = "<group>"; };
@@ -179,8 +179,8 @@
 			children = (
 				80814733225B6F7B000C023D /* TSKMVC.h */,
 				80814734225B6F7B000C023D /* TSKMVC.m */,
-				80814736225B6FB2000C023D /* AlarmManageVC.h */,
-				80814737225B6FB2000C023D /* AlarmManageVC.m */,
+				80814736225B6FB2000C023D /* AlarmReminderVC.h */,
+				80814737225B6FB2000C023D /* AlarmReminderVC.m */,
 				80814739225B6FCD000C023D /* ChildModeVC.h */,
 				8081473A225B6FCD000C023D /* ChildModeVC.m */,
 				8081473C225B705C000C023D /* DeviceControlVC.h */,
@@ -392,7 +392,7 @@
 				8081470F225B64A9000C023D /* ThirdPartyAuthVC.m in Sources */,
 				8081470A225B6496000C023D /* MemberVC.m in Sources */,
 				8AD8081F1F3DB0E80040C9CF /* main.m in Sources */,
-				80814738225B6FB2000C023D /* AlarmManageVC.m in Sources */,
+				80814738225B6FB2000C023D /* AlarmReminderVC.m in Sources */,
 				8081471A225B669A000C023D /* AppDelegate.m in Sources */,
 				8081473B225B6FCD000C023D /* ChildModeVC.m in Sources */,
 				8081473E225B705C000C023D /* DeviceControlVC.m in Sources */,

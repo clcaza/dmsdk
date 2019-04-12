@@ -1,25 +1,25 @@
 //
-//  AlarmManageVC.m
+//  AlarmReminderVC.m
 //  DMSDKDemo
 //
 //  Created by Rinc Liu on 8/4/2019.
 //  Copyright © 2019 tencent. All rights reserved.
 //
 
-#import "AlarmManageVC.h"
-#import <TVSTSKM/TVSAlarmManager.h>
+#import "AlarmReminderVC.h"
+#import <TVSTSKM/TVSAlarmReminder.h>
 
-@interface AlarmManageVC ()
+@interface AlarmReminderVC ()
 
-@property(nonatomic,strong) TVSAlarmManager* alarmManager;
+@property(nonatomic,strong) TVSAlarmReminder* alarmReminder;
 
 @end
 
-@implementation AlarmManageVC
+@implementation AlarmReminderVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _alarmManager = [[TVSAlarmManager alloc]initWithTSKMProxy:[self delegate].tskmProxy];
+    _alarmReminder = [[TVSAlarmReminder alloc]initWithTSKMProxy:[self delegate].tskmProxy];
 }
 
 /*
@@ -37,7 +37,7 @@
     [_tvBlob resignFirstResponder];
     __weak typeof(self) weakSelf = self;
     if (NotEmpty(_tvBlob.text)) {
-        [_alarmManager manageWithJsonBlob:[self dictFromJson:_tvBlob.text] handler:^(BOOL success, NSDictionary * result) {
+        [_alarmReminder alarmOperation:TVSAlarmReminderOperationManage blob:[self dictFromJson:_tvBlob.text] handler:^(BOOL success, NSDictionary * result) {
             if (success) {
                 if (result) {
                     [weakSelf showText:[NSString stringWithFormat:@"闹钟管理成功:\n%@", result] view:weakSelf.tvResult];

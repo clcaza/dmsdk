@@ -867,10 +867,10 @@
             </objects>
             <point key="canvasLocation" x="1715.9420289855075" y="291.29464285714283"/>
         </scene>
-        <!--闹钟管理-->
+        <!--闹钟提醒-->
         <scene sceneID="RtR-JW-00z">
             <objects>
-                <viewController title="闹钟管理" id="9Qy-cS-v4W" customClass="AlarmManageVC" sceneMemberID="viewController">
+                <viewController title="闹钟提醒" id="9Qy-cS-v4W" customClass="AlarmReminderVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Jtc-bv-89S"/>
                         <viewControllerLayoutGuide type="bottom" id="GcC-dM-JlW"/>
@@ -1477,7 +1477,7 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <inset key="contentEdgeInsets" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                        <state key="normal" title="闹钟管理"/>
+                                        <state key="normal" title="闹钟提醒"/>
                                         <connections>
                                             <segue destination="9Qy-cS-v4W" kind="show" id="7xg-LK-hBb"/>
                                         </connections>
