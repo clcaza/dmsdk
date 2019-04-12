@@ -17,7 +17,7 @@ FOUNDATION_EXPORT const unsigned char TVSTSKMVersionString[];
 // In this header, you should import all the public headers of your framework using statements like #import <TVSTSKM/PublicHeader.h>
 
 #import <TVSTSKM/TVSTSKMProxy.h>
-#import <TVSTSKM/TVSAlarmManager.h>
+#import <TVSTSKM/TVSAlarmReminder.h>
 #import <TVSTSKM/TVSThirdPartyAuth.h>
 #import <TVSTSKM/TVSChildMode.h>
 #import <TVSTSKM/TVSDeviceControl.h>
