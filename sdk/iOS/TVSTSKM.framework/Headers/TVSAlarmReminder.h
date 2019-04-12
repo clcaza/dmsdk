@@ -1,5 +1,5 @@
 //
-//  TVSAlarmManager.h
+//  TVSAlarmReminder.h
 //  TVSTSKM
 //
 //  Created by Rinc Liu on 4/4/2019.
