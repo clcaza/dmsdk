@@ -9,7 +9,7 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.tencent.ai.dobbydemo.R;
-import com.tencent.ai.tvs.ConstantValues;
+import com.tencent.ai.tvs.core.common.ErrCode;
 import com.tencent.ai.tvs.core.common.TVSCallback;
 import com.tencent.ai.tvs.core.common.TVSCallback1;
 import com.tencent.ai.tvs.core.common.TVSCallback3;
@@ -57,7 +57,7 @@ public abstract class ModuleActivity extends AppCompatActivity {
     private void onError(String action, int code, boolean autoJump) {
         logSection(action);
         logLine("Error: code = " + code);
-        if (code == ConstantValues.ERR_LOGIN_REQUIRED) {
+        if (code == ErrCode.ERR_LOGIN_REQUIRED) {
             Toast.makeText(ModuleActivity.this, R.string.login_required, Toast.LENGTH_SHORT).show();
             if (autoJump) {
                 startActivity(new Intent(ModuleActivity.this, AccountActivity.class));

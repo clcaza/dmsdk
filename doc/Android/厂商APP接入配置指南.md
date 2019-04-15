@@ -25,7 +25,7 @@
 ```groovy
 dependencies {
     // ...
-    def tvsVer = '2.0.2'
+    def tvsVer = '2.1.0'
     // 核心模块，必须
     implementation (name: "tvscore-${tvsVer}-release", ext: 'aar')
     // 核心模块依赖微信登录

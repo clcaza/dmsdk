@@ -13,6 +13,7 @@ public class DemoApplication extends Application {
 
         LoginProxy.getInstance().registerApp(this, DemoConstant.APP_ID_WX, DemoConstant.APP_ID_QQ_OPEN);
         TVSWeb.init(new TVSAuthDelegate(this, LoginProxy.getInstance()));
-        TVSWeb.getConfiguration().setEnableBinding(true);
+        // 是否在登录成功后检查绑定。一般而言不需要启用。
+//        TVSWeb.getConfiguration().setEnableBinding(true);
     }
 }

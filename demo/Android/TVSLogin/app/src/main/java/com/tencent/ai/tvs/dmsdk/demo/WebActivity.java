@@ -18,9 +18,11 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 
+import com.tencent.ai.dobbydemo.BuildConfig;
 import com.tencent.ai.dobbydemo.R;
+import com.tencent.ai.tvs.ConstantValues;
 import com.tencent.ai.tvs.LoginProxy;
-import com.tencent.ai.tvs.core.common.TVSDeviceBindType;
+import com.tencent.ai.tvs.core.common.TVSDevice;
 import com.tencent.ai.tvs.env.ELoginPlatform;
 import com.tencent.ai.tvs.env.EUserAttrType;
 import com.tencent.ai.tvs.ui.AndroidBug5497Workaround;
@@ -29,10 +31,8 @@ import com.tencent.ai.tvs.web.TVSWebView;
 
 import org.json.JSONObject;
 
-import tvslogin.smartService.BuildConfig;
-
 public class WebActivity extends ModuleActivity {
-    private String LOG_TAG = "WebActivity";
+    private String LOG_TAG = "DMSDK_WebActivity";
 
     public static final int ACTIVITY_RESULT_CODE_FILECHOOSER = 1000;
 
@@ -46,10 +46,10 @@ public class WebActivity extends ModuleActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.v(LOG_TAG, "onCreate");
         setContentView(R.layout.activity_web);
         mProgressBar = findViewById(R.id.progressBar);
         mURLEditText = findViewById(R.id.urlEditText);
-        mURLEditText.setText("http://dingdang.qq.com");
         mPresetButton = findViewById(R.id.presetButton);
         registerForContextMenu(mPresetButton);
         mPresetButton.setOnClickListener(this::openContextMenu);
@@ -67,9 +67,22 @@ public class WebActivity extends ModuleActivity {
         // TODO: Change hard-coded parameters here before running your demo
         String deviceType = "";
         String deviceOEM = "";
-        mWebViewController.setDeviceInfo(TVSDeviceBindType.TVS_SPEAKER, deviceType, deviceOEM, DemoConstant.PRODUCT_ID, DemoConstant.DSN);
+//        mWebViewController.setDeviceInfo(TVSDeviceBindType.TVS_SPEAKER, deviceType, deviceOEM, DemoConstant.PRODUCT_ID, DemoConstant.DSN);
+        Intent intent = getIntent();
+        TVSDevice tvsDevice = (TVSDevice) intent.getSerializableExtra("devInfo");
+        String targetUrl = intent.getStringExtra("targetUrl");
+        mURLEditText.setText(targetUrl == null ? "http://dingdang.qq.com": targetUrl);
+        mWebViewController.setDeviceInfo(tvsDevice);
         mWebViewController.setUIEventListener(new DemoUIEventListener());
         mWebViewController.setBusinessEventListener(new DemoBusinessEventListener());
+        mWebViewController.loadURL(mURLEditText.getText().toString());
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        Log.v(LOG_TAG, "onNewIntent");
+        mWebViewController.loadURL(ConstantValues.VALID_USERCENTER_TESTENV_URL + ConstantValues.TSKAUTHMGR_URL);
     }
 
     @Override
@@ -144,6 +157,9 @@ public class WebActivity extends ModuleActivity {
             case R.id.iotMenuItem:
                 mWebViewController.toPresetURL(EUserAttrType.IOT);
                 return true;
+            case R.id.tskAuthMgrItem:
+                mWebViewController.toPresetURL(EUserAttrType.TSKAUTHMGR);
+                return true;
         }
         return super.onContextItemSelected(item);
     }
@@ -162,7 +178,7 @@ public class WebActivity extends ModuleActivity {
 
     @Override
     protected void onDestroy() {
-        Log.v(LOG_TAG, "WebActivity-----onDestroy");
+        Log.v(LOG_TAG, "onDestroy");
         mWebViewController.onDestroy();
         super.onDestroy();
     }

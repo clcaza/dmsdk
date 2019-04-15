@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.tencent.ai.tvs.dmsdk.demo.tskm.ChildModeActivity">
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/blobInfoLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/blobInfoEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="5"
+            android:hint="JSON" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <Button
+        android:id="@+id/getButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Get Config"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/setButton"
+        app:layout_constraintTop_toBottomOf="@id/blobInfoLayout" />
+
+    <Button
+        android:id="@+id/setButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Set Config"
+        app:layout_constraintStart_toEndOf="@id/getButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/blobInfoLayout" />
+
+    <com.tencent.ai.tvs.dmsdk.demo.widget.LogView
+        android:id="@+id/logView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/getButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

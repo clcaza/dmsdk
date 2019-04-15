@@ -91,10 +91,10 @@ public class AccountActivity extends ModuleActivity {
     private void reloadState() {
         ELoginPlatform platform = AccountInfoManager.getInstance().getPlatformType();
         mWXTextView.setTextColor(platform == ELoginPlatform.WX ? Color.GREEN : Color.BLACK);
-        mWXLoginButton.setEnabled(platform != ELoginPlatform.QQOpen);
+        mWXLoginButton.setEnabled(platform == null);
         mWXRefreshButton.setEnabled(platform == ELoginPlatform.WX);
         mQQTextView.setTextColor(platform == ELoginPlatform.QQOpen ? Color.GREEN : Color.BLACK);
-        mQQLoginButton.setEnabled(platform != ELoginPlatform.WX);
+        mQQLoginButton.setEnabled(platform == null);
         mQQVerifyButton.setEnabled(platform == ELoginPlatform.QQOpen);
         mAccountInfoButton.setEnabled(platform != null);
         mUserInfoButton.setEnabled(platform != null);

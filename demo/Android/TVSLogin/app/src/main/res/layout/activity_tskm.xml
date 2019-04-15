@@ -38,53 +38,91 @@
 
     </android.support.design.widget.TextInputLayout>
 
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/domainLayout"
+    <RadioGroup
+        android:id="@+id/radioGroup"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/intentLayout"
-        app:layout_constraintTop_toBottomOf="@id/dsnLayout">
-
-        <android.support.design.widget.TextInputEditText
-            android:id="@+id/domainEditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Domain" />
-
-    </android.support.design.widget.TextInputLayout>
-
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/intentLayout"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:orientation="horizontal"
         app:layout_constraintTop_toBottomOf="@id/dsnLayout"
-        app:layout_constraintStart_toEndOf="@id/domainLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <RadioButton
+            android:id="@+id/dmsdkRadioButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="DMSDK账号体系" />
+
+        <RadioButton
+            android:id="@+id/thirdPartyRadioButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="第三方账号体系" />
+
+    </RadioGroup>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/accountIdLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/radioGroup"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
         <android.support.design.widget.TextInputEditText
-            android:id="@+id/intentEditText"
+            android:id="@+id/accountIdEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="intent" />
+            android:hint="Account ID" />
 
     </android.support.design.widget.TextInputLayout>
 
-    <Button
-        android:id="@+id/sendButton"
+    <TextView
+        android:id="@+id/clientIdTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="发送请求"
-        app:layout_constraintTop_toBottomOf="@id/domainLayout"
+        android:minHeight="48dp"
+        android:text="Client ID:"
+        app:layout_constraintTop_toBottomOf="@id/accountIdLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/copyClientIdButton" />
+
+    <ImageButton
+        android:id="@+id/copyClientIdButton"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/ic_content_copy_black_24dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/clientIdTextView"
+        app:layout_constraintBottom_toBottomOf="@id/clientIdTextView" />
+
+    <Button
+        android:id="@+id/alarmButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="闹钟管理"
+        app:layout_constraintTop_toBottomOf="@id/clientIdTextView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <com.tencent.ai.tvs.dmsdk.demo.widget.LogView
-        android:id="@+id/logView"
+    <Button
+        android:id="@+id/childModeButton"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@id/sendButton"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="wrap_content"
+        android:text="儿童模式控制"
+        app:layout_constraintTop_toBottomOf="@id/alarmButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/deviceControlButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="多端互动"
+        app:layout_constraintTop_toBottomOf="@id/childModeButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
