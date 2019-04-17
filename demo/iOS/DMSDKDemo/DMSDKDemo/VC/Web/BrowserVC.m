@@ -45,6 +45,7 @@
     _webview.device.deviceOEM = @"TencentDingdang";
     _webview.device.productId = _pid;
     _webview.device.dsn = _dsn;
+    _webview.device.guid = _deviceGuid;
     [self.view insertSubview:_webview belowSubview:_progressView];
     // 自定义 TVSWebView 内部的 UIScrollView
     _webview.scrollView.bounces = YES;

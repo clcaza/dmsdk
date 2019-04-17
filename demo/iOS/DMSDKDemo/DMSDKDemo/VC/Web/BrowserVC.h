@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface BrowserVC : BaseVC
 
 @property (nonatomic,assign) TVSWebPageType pageType;
-@property (nonatomic,strong) NSString *pid, *dsn, *url;
+@property (nonatomic,strong) NSString *pid, *dsn, *deviceGuid, *url;
 
 @end
 

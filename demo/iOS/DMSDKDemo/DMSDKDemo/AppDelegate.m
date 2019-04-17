@@ -24,12 +24,12 @@
     // 处理微信/QQ 登录跳转
     if ([[TVSAuthManager shared] handleOpenUrl:url]) return YES;
     // 处理云叮当 APP 授权后的 URL 回跳
-    if ([url.host isEqualToString:@"tvs-auth"] && [url.query isEqualToString:@"result=0"]) {
+    /*if ([url.host isEqualToString:@"tvs-auth"] && [url.query isEqualToString:@"result=0"]) {
         // 打开第三方授权网页
         BrowserVC* bv = [BrowserVC new];
         bv.pageType = TVSWebPageTypeThirdPartyAuth;
         [(UINavigationController*)(self.window.rootViewController) pushViewController:bv animated:YES];
-    }
+    }*/
     return NO;
 }
 

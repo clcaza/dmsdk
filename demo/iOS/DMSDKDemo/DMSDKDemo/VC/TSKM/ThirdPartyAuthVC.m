@@ -8,6 +8,7 @@
 
 #import "ThirdPartyAuthVC.h"
 #import <TVSTSKM/TVSThirdPartyAuth.h>
+#import "BrowserVC.h"
 
 @interface ThirdPartyAuthVC ()
 
@@ -41,11 +42,18 @@
                     for (TVSDeviceInfo* device in devices) {
                         if ([device.productId isEqualToString:weakSelf.deviceInfo.productId] && [device.dsn isEqualToString:weakSelf.deviceInfo.dsn]) {
                             // 跳转云叮当做第三方账号授权
-                            [TVSThirdPartyAuth gotoAuthWithAccountInfo:nil deviceInfo:device handler:^(BOOL success) {
+                            /*[TVSThirdPartyAuth gotoAuthWithAccountInfo:nil deviceInfo:device handler:^(BOOL success) {
                                 if (!success) {
                                     [weakSelf showText:@"跳转失败，请安装腾讯云叮当最新版本" view:weakSelf.tvResult];
                                 }
-                            }];
+                            }];*/
+                            // 跳转第三方账号授权 H5
+                            BrowserVC* bv = [BrowserVC new];
+                            bv.pageType = TVSWebPageTypeThirdPartyAuth;
+                            bv.pid = device.productId;
+                            bv.dsn = device.dsn;
+                            bv.deviceGuid = device.guid;
+                            [self.navigationController pushViewController:bv animated:YES];
                             return;
                         }
                     }
