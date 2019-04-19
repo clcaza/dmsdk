@@ -52,6 +52,11 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(mAdapter);
 
         initModuleList();
+
+        // 每次应用启动时应当调用一次票据刷新，尽量保证票据不过期！
+        if (LoginProxy.getInstance().isTokenExist()) {
+            LoginProxy.getInstance().tvsTokenVerify(null);
+        }
     }
 
     private void initModuleList() {

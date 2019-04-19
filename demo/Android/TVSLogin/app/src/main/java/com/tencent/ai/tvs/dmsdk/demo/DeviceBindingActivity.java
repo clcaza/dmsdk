@@ -64,10 +64,11 @@ public class DeviceBindingActivity extends ModuleActivity {
         findViewById(R.id.toCloudDDWebButton).setOnClickListener(v -> {
             Intent intent = new Intent(this, WebActivity.class);
             intent.putExtra("devInfo", mQueriedDevice);
+            intent.putExtra("ddAuthRedirectUrl", "https://sdk.sparta.html5.qq.com/v2m/music");
             intent.putExtra("targetUrl", ConstantValues.VALID_USERCENTER_TESTENV_URL + ConstantValues.TSKAUTHMGR_URL);
             startActivity(intent);
         });
-        findViewById(R.id.toCloudDDNativeButton).setOnClickListener(v -> { TVSThirdPartyAuth.requestCloudDDAuth(DeviceBindingActivity.this, mQueriedDevice, "com.tencent.ai.tvs.dmsdk.demo.DeviceBindingActivity"); });
+        findViewById(R.id.toCloudDDNativeButton).setOnClickListener(v -> { TVSThirdPartyAuth.requestCloudDDAuth(DeviceBindingActivity.this, mQueriedDevice, "com.tencent.ai.tvs.dmsdk.demo.DeviceBindingActivity", ""); });
     }
 
     private TVSDevice getDevice() {

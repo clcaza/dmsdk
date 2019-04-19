@@ -71,8 +71,10 @@ public class WebActivity extends ModuleActivity {
         Intent intent = getIntent();
         TVSDevice tvsDevice = (TVSDevice) intent.getSerializableExtra("devInfo");
         String targetUrl = intent.getStringExtra("targetUrl");
+        String ddAuthRedirectUrl = intent.getStringExtra("ddAuthRedirectUrl");
         mURLEditText.setText(targetUrl == null ? "http://dingdang.qq.com": targetUrl);
         mWebViewController.setDeviceInfo(tvsDevice);
+        mWebViewController.setDDAuthRedirectUrl(ddAuthRedirectUrl);
         mWebViewController.setUIEventListener(new DemoUIEventListener());
         mWebViewController.setBusinessEventListener(new DemoBusinessEventListener());
         mWebViewController.loadURL(mURLEditText.getText().toString());

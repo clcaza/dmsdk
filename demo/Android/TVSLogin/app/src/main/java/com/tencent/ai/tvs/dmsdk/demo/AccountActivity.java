@@ -24,6 +24,7 @@ public class AccountActivity extends ModuleActivity {
     private Button mUserInfoButton;
     private Button mLogoutButton;
 
+    // TODO: 启动后立刻刷票
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

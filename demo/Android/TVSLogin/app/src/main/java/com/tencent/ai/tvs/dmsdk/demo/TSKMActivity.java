@@ -4,7 +4,6 @@ import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -27,15 +26,12 @@ import com.tencent.ai.tvs.dmsdk.demo.tskm.DeviceControlActivity;
 public class TSKMActivity extends AppCompatActivity {
     public static final String EXTRA_PRODUCT_ID = "PRODUCT_ID";
     public static final String EXTRA_DSN = "DSN";
-    public static final String EXTRA_ACCOUNT_ID = "ACCOUNT_ID";
-    private static final String KEY_ACCOUNT_ID = "accountId";
 
     private EditText mProductIDEditText;
     private EditText mDSNEditText;
     private EditText mAccountIdEditText;
     private TextView mClientIdTextView;
     private String mClientId = "";
-    private SharedPreferences mPref;
     private TextWatcher mUpdateClientIdWatcher = new TextWatcher() {
         @Override
         public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -51,7 +47,6 @@ public class TSKMActivity extends AppCompatActivity {
         }
     };
     private ClipboardManager mClipboardManager;
-    private boolean isThirdParty = false;
 
     private final View.OnClickListener mOnClickListener = v -> {
         Intent intent = null;
@@ -68,13 +63,12 @@ public class TSKMActivity extends AppCompatActivity {
         }
         if (intent != null) {
             // Check login!
-            if (!isThirdParty && !LoginProxy.getInstance().isTokenExist()) {
+            if (!ThirdPartyManager.isThirdParty() && !LoginProxy.getInstance().isTokenExist()) {
                 Toast.makeText(this, R.string.login_required, Toast.LENGTH_SHORT).show();
                 intent = new Intent(this, AccountActivity.class);
             } else {
                 intent.putExtra(EXTRA_PRODUCT_ID, mProductIDEditText.getText().toString());
                 intent.putExtra(EXTRA_DSN, mDSNEditText.getText().toString());
-                intent.putExtra(EXTRA_ACCOUNT_ID, mAccountIdEditText.getText().toString());
             }
             startActivity(intent);
         }
@@ -88,8 +82,6 @@ public class TSKMActivity extends AppCompatActivity {
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
-
-        mPref = getSharedPreferences("default", MODE_PRIVATE);
 
         mClipboardManager = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
 
@@ -110,19 +102,20 @@ public class TSKMActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-                if (isThirdParty) {
-                    setThirdPartyAccountId(s.toString());
+                if (ThirdPartyManager.isThirdParty()) {
+                    ThirdPartyManager.setThirdPartyAccountId(s.toString());
                 }
+                mUpdateClientIdWatcher.afterTextChanged(s);
             }
         });
 
         RadioButton dmsdkRadioButton = findViewById(R.id.dmsdkRadioButton);
+        RadioButton thirdPartyRadioButton = findViewById(R.id.thirdPartyRadioButton);
         dmsdkRadioButton.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked) {
                 changeMode(false);
             }
         });
-        RadioButton thirdPartyRadioButton = findViewById(R.id.thirdPartyRadioButton);
         thirdPartyRadioButton.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked) {
                 changeMode(true);
@@ -140,7 +133,8 @@ public class TSKMActivity extends AppCompatActivity {
             Toast.makeText(this, "Client ID copied to clipboard", Toast.LENGTH_SHORT).show();
         });
 
-        dmsdkRadioButton.setChecked(true);
+        dmsdkRadioButton.setChecked(!ThirdPartyManager.isThirdParty());
+        thirdPartyRadioButton.setChecked(ThirdPartyManager.isThirdParty());
     }
 
     @Override
@@ -160,25 +154,17 @@ public class TSKMActivity extends AppCompatActivity {
     }
 
     private void changeMode(boolean isThirdParty) {
-        this.isThirdParty = isThirdParty;
+        ThirdPartyManager.setThirdParty(isThirdParty);
         mAccountIdEditText.setEnabled(isThirdParty);
-        String accountId = isThirdParty ? getThirdPartyAccountId() : AccountInfoManager.getInstance().getOpenID();
+        String accountId = isThirdParty ? ThirdPartyManager.getThirdPartyAccountId() : AccountInfoManager.getInstance().getOpenID();
         mAccountIdEditText.setText(accountId == null ? "" : accountId);
         updateClientId();
-    }
-
-    private String getThirdPartyAccountId() {
-        return mPref.getString(KEY_ACCOUNT_ID, "");
-    }
-
-    private void setThirdPartyAccountId(String accountId) {
-        mPref.edit().putString(KEY_ACCOUNT_ID, accountId).apply();
     }
 
     private void updateClientId() {
         String productId = mProductIDEditText.getText().toString();
         String dsn = mDSNEditText.getText().toString();
-        mClientId = isThirdParty
+        mClientId = ThirdPartyManager.isThirdParty()
                 ? AccountInfoManager.getClientIdForThirdParty(mAccountIdEditText.getText().toString(), "", "", productId, dsn)
                 : AccountInfoManager.getInstance().getClientId(productId, dsn);
         mClientIdTextView.setText("Client ID:" + mClientId);
