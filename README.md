@@ -8,7 +8,7 @@
 
 ## 更新日志：
 
-[Android](#Android) (Latest: v2.1.0)
+[Android](#Android) (Latest: v2.1.1)
 
 [iOS](#iOS) (Latest: v2.1.0)
 
@@ -16,7 +16,16 @@
 
 ### Android
 
-#### v2.1.0
+### 2.1.1
+
+### 更新内容
+
+*   完善了TSKM模块对第三方账号的支持；
+*   完善了云叮当授权的API；
+*   修复了Web模块停止录音时崩溃及execJS、execJSV2调用参数错误的问题；
+*   修复了Core模块QQ登录ClientID不正确的问题。
+
+#### v2.1.0[7]
 
 *   移除了所有兼容1.0版本的废弃接口，请参考2.0.0版本的迁移指南迁移。如果您是直接从2.0.0及以后版本全新接入的则没有影响；
 *   TSKM模块新增了针对各个业务的类用于发送相应的请求，包括闹钟、提醒、多端互动、儿童模式控制；
@@ -93,3 +102,4 @@
 [4]: https://github.com/TencentDingdang/dmsdk/blob/master/doc/iOS/README.md#ios-sdk-v10---v200-%E5%8D%87%E7%BA%A7%E6%8C%87%E5%8D%97
 [5]: https://github.com/TencentDingdang/dmsdk/blob/master/doc/Android/%E7%89%88%E6%9C%AC%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97.md#%E8%BF%81%E7%A7%BB%E6%8C%87%E5%8D%97-1
 [6]: https://github.com/TencentDingdang/dmsdk/tree/v2.0.2-android
+[6]: https://github.com/TencentDingdang/dmsdk/tree/v2.1.0-android

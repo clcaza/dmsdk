@@ -25,7 +25,7 @@
 ```groovy
 dependencies {
     // ...
-    def tvsVer = '2.1.0'
+    def tvsVer = '2.1.1'
     // 核心模块，必须
     implementation (name: "tvscore-${tvsVer}-release", ext: 'aar')
     // 核心模块依赖微信登录
@@ -121,9 +121,8 @@ public class YourApplication extends Application {
         super.onCreate();
 
         // 初始化TVS账号体系模块，依次传入应用上下文、微信AppID和QQ互联AppID；如果只需要支持一种登录平台，则另一个平台的AppID直接传入空字符串即可
+        // 如果需要使用第三方账号体系，或Web模块需要接入非DMSDK账号体系，可以传递到第四个参数，TVSWeb的init方法已经被废弃
         LoginProxy.getInstance().registerApp(this, "YOUR_WEIXIN_APPID", "YOUR_QQ_OPEN_APPID");
-        // 如果要集成HTML5 WebView模块，需要初始化该模块，传入账号认证体系实现类的实例，一般按照下面的方式传入默认实现即可，详见该接口的接口文档
-        TVSWeb.init(new TVSAuthDelegate(this, LoginProxy.getInstance()));
     }
 }
 ```

@@ -44,6 +44,31 @@ public void registerApp(android.content.Context context, java.lang.String wx
 | wxAppID | 微信开放平台注册的 App ID |
 | qqOpenAppID | QQ互联平台注册的 App ID |
 
+### registerApp
+
+初始化核心SDK模块，必须在 Application.onCreate() 中调用。可以自定义AuthDelegate实现。
+
+```
+public void registerApp(android.content.Context context, java.lang.String wxAppID, java.lang.String qqOpenAppID, AuthDelegate authDelegate)
+```
+
+#### 参数
+
+| 名称 | 说明 |
+|:---|:---|
+| context | 应用 Context |
+| wxAppID | 微信开放平台注册的 App ID |
+| qqOpenAppID | QQ互联平台注册的 App ID |
+| authDelegate | 自定义账号模块实现，用于： 1. 第三方账号登录下为SDK内相关接口提供账号信息 2. 已经接入并自行维护微信/QQ登录方案时为Web模块提供账号信息 |
+
+### getAuthDelegate
+
+
+
+```
+public AuthDelegate getAuthDelegate()
+```
+
 ### isTokenExist
 
 是否已经登录。
@@ -524,22 +549,6 @@ public static void requestTSKMUniAccess(java.lang.String productID, java.lang
 
 ### TVSChildMode
 
-创建一个对应指定设备和第三方账号的新实例用于儿童模式控制。
-
-```
-public TVSChildMode(java.lang.String productId, java.lang.String dsn, java.lang.String accountId)
-```
-
-#### 参数
-
-| 名称 | 说明 |
-|:---|:---|
-| productId | 设备的Product ID |
-| dsn | 设备的DSN |
-| accountId | 第三方账号ID |
-
-### TVSChildMode
-
 创建一个对应指定设备和叮当账号体系的新实例用于儿童模式控制。
 
 ```
@@ -575,22 +584,6 @@ public void setConfig(java.lang.String blobInfo, TVSCallback1<java.lang.Strin
 
 ### TVSThirdPartyAuth
 
-创建一个对应指定设备和第三方账号的新实例用于第三方授权。
-
-```
-public TVSThirdPartyAuth(java.lang.String productId, java.lang.String dsn, java.lang.String accountId)
-```
-
-#### 参数
-
-| 名称 | 说明 |
-|:---|:---|
-| productId | 设备的Product ID |
-| dsn | 设备的DSN |
-| accountId | 第三方账号ID |
-
-### TVSThirdPartyAuth
-
 创建一个对应指定设备和叮当账号体系的新实例用于第三方授权。
 
 ```
@@ -609,7 +602,7 @@ public TVSThirdPartyAuth(java.lang.String productId, java.lang.String dsn)
 拉起云叮当登录，必须保证已经登录！
 
 ```
-public static void requestCloudDDAuth(android.content.Context context, TVSDevice tvsDevice, java.lang.String actFullName)
+public static void requestCloudDDAuth(android.content.Context context, TVSDevice tvsDevice, java.lang.String actFullName, java.lang.String ddAuthRedirectUrl)
 ```
 
 #### 参数
@@ -658,22 +651,6 @@ public void getBoundAccountByDevice(TVSDevice device, TVSCallback1<TVSAccount
 
 ### TVSReminder
 
-创建一个对应指定设备和第三方账号的新实例用于闹钟管理。
-
-```
-public TVSReminder(java.lang.String productId, java.lang.String dsn, java.lang.String accountId)
-```
-
-#### 参数
-
-| 名称 | 说明 |
-|:---|:---|
-| productId | 设备的Product ID |
-| dsn | 设备的DSN |
-| accountId | 第三方账号ID |
-
-### TVSReminder
-
 创建一个对应指定设备和叮当账号体系的新实例用于闹钟管理。
 
 ```
@@ -714,22 +691,6 @@ public void clear(java.lang.String blobInfo, TVSCallback1<java.lang.String> 
 ## TVSDeviceControl
 
 多端互动模块。App接入该模块后可以向绑定设备发送控制指令，详细能力请参阅多端互动接入文档。
-
-### TVSDeviceControl
-
-创建一个对应指定设备和第三方账号的新实例用于多端交互设备控制。
-
-```
-public TVSDeviceControl(java.lang.String productId, java.lang.String dsn, java.lang.String accountId)
-```
-
-#### 参数
-
-| 名称 | 说明 |
-|:---|:---|
-| productId | 设备的Product ID |
-| dsn | 设备的DSN |
-| accountId | 第三方账号ID |
 
 ### TVSDeviceControl
 
@@ -783,22 +744,6 @@ public void controlDevice(java.lang.String namespace, java.lang.String name,
 
 ### TVSAlarm
 
-创建一个对应指定设备和第三方账号的新实例用于闹钟管理。
-
-```
-public TVSAlarm(java.lang.String productId, java.lang.String dsn, java.lang.String accountId)
-```
-
-#### 参数
-
-| 名称 | 说明 |
-|:---|:---|
-| productId | 设备的Product ID |
-| dsn | 设备的DSN |
-| accountId | 第三方账号ID |
-
-### TVSAlarm
-
 创建一个对应指定设备和叮当账号体系的新实例用于闹钟管理。
 
 ```
@@ -843,6 +788,14 @@ public void clear(java.lang.String blobInfo, TVSCallback1<java.lang.String> 
 ### TVSAuthDelegate
 
 默认构造器。
+
+```
+public TVSAuthDelegate()
+```
+
+### TVSAuthDelegate
+
+已过时。 改用 TVSAuthDelegate() 带参构造器。
 
 ```
 public TVSAuthDelegate(android.content.Context context, LoginProxy loginProxy)
@@ -2087,6 +2040,14 @@ public void setDeviceInfo(TVSDevice device)
 |:---|:---|
 | device | 设备信息 |
 
+### setDDAuthRedirectUrl
+
+
+
+```
+public void setDDAuthRedirectUrl(java.lang.String url)
+```
+
 ### loadURL
 
 加载指定URL。
@@ -2294,7 +2255,7 @@ HTML5 WebView模块。
 
 ### init
 
-初始化Web模块。必须在 Application.onCreate() 中的 LoginProxy.registerApp(Context, String, String) 之后调用。
+已过时。 AuthDelegate参数现在不仅限于Web模块使用，要自定义AuthDelegate的时候建议改在LoginProxy初始化是传入（LoginProxy.registerApp(Context, String, String, AuthDelegate) ） 初始化Web模块。必须在 Application.onCreate() 中的 LoginProxy.registerApp(Context, String, String) 之后调用。
 
 ```
 public static void init(AuthDelegate authDelegate)
