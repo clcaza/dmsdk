@@ -21,7 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _pageTypeArray = @[@"智能家居", @"QQ 音乐", @"账号授权", @"个人中心", @"会员领取", @"会员充值", @"手机号地址", @"用户反馈"];
+    _pageTypeArray = @[@"智能家居", @"QQ 音乐", @"第三方授权", @"账号授权", @"个人中心", @"会员领取", @"会员充值", @"手机号地址", @"用户反馈"];
     _picker.dataSource = self;
     _picker.delegate = self;
     _pageType = TVSWebPageTypeMember;
