@@ -158,6 +158,14 @@ typedef NS_ENUM(NSInteger,TVSWebPageType) {
  */
 -(void)TVSWebProxyData:(NSDictionary*)data;
 
+@optional
+/*
+ * @brief Web 页面收到 JS 消息
+ * @param msg JS 消息名
+ * @param data JS 消息数据
+ */
+-(void)TVSWebReceivedJSMessage:(NSString*)msg data:(id)data;
+
 @end
 
 
@@ -258,5 +266,12 @@ typedef NS_ENUM(NSInteger,TVSWebPageType) {
  * @return UIScrollView 实例
  */
 -(UIScrollView*)scrollView;
+
+/*
+ * @brief 执行 JS 代码
+ * @param code JS 代码
+ * @param handler 回调，BOOL 表示是否成功
+ */
+-(void)runJSCode:(NSString*)code handler:(void(^)(BOOL))handler;
 
 @end

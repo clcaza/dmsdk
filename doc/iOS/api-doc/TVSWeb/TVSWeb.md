@@ -220,6 +220,23 @@
 
   无;
 
+-(void)TVSWebReceivedJSMessage:(NSString*)msg data:(id)data;`
+
+  **描述**:
+
+  Web 页面收到 JS 消息；
+
+  **参数**:
+
+  | 名称 | 类型 | 描述 |
+  | ------ | ------ | ------ |
+  | msg | NSDictionary* | JS 消息名 |
+  | data | id | JS 消息数据 |
+
+  **返回**:
+
+  无;
+
 ### TVSWebView TVS Web 组件
 
 #### 成员
@@ -379,3 +396,20 @@
   **返回**：
 
   UIScrollView 实例；
+
+##### `-(void)runJSCode:(NSString*)code handler:(void(^)(BOOL))handler;`
+
+  **描述**：
+
+  执行 JS 代码；
+
+  **参数**：
+
+  | 名称 | 类型 | 描述 | 是否必填 |
+  | ------ | ------ | ------ | ------ |
+  | code | NSString* | JS 代码 | 是 |
+  | handler | void(^)(BOOL) | 回调，BOOL 表示是否执行成功 | 是 |
+
+  **返回**：
+
+  无；
