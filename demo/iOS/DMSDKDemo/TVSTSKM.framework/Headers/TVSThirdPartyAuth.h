@@ -25,4 +25,22 @@
  */
 +(void)gotoAuthWithAccountInfo:(nullable TVSAccountInfo*)accountInfo deviceInfo:(TVSDeviceInfo*)deviceInfo handler:(void(^)(BOOL))handler;
 
+/*
+ * @brief TVSThirdPartyAuth 类实例化
+ * @param tskmProxy TSKMProxy 对象
+ * @return TVSThirdPartyAuth 实例
+ */
+-(instancetype)initWithTSKMProxy:(TVSTSKMProxy*)tskmProxy;
+
+/*
+ * @brief 查询绑定的账号信息
+ * @param deviceInfo 设备信息
+ * @param handler 回调
+ */
+-(void)getBindedAccountInfoWithDeviceInfo:(TVSDeviceInfo*)deviceInfo handler:(void(^)(TVSAccountInfo*))handler;
+
+
+
+-(void)setBinded:(BOOL)binded accountInfo:(TVSAccountInfo*)accountInfo deviceInfo:(TVSDeviceInfo*)deviceInfo handler:(void(^)(BOOL))handler;
+
 @end

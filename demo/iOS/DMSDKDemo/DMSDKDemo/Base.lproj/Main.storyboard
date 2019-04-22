@@ -1204,17 +1204,26 @@
                                 <rect key="frame" x="0.0" y="103" width="414" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9MY-Ub-WcM">
-                                        <rect key="frame" x="184" y="5" width="46" height="30"/>
+                                        <rect key="frame" x="50" y="5" width="138" height="30"/>
+                                        <state key="normal" title="查询绑定的账号信息"/>
+                                        <connections>
+                                            <action selector="onClickBtnQueryAcct:" destination="bbO-u2-oB4" eventType="touchUpInside" id="Rj5-su-UbN"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zAU-7i-hh4">
+                                        <rect key="frame" x="318" y="5" width="46" height="30"/>
                                         <state key="normal" title="去授权"/>
                                         <connections>
-                                            <action selector="onClickBtnAuth:" destination="bbO-u2-oB4" eventType="touchUpInside" id="sfE-1e-a9q"/>
+                                            <action selector="onClickBtnAuth:" destination="bbO-u2-oB4" eventType="touchUpInside" id="seK-Su-ZmJ"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="9MY-Ub-WcM" firstAttribute="centerX" secondItem="zV4-Ip-aj1" secondAttribute="centerX" id="7cX-Uk-fUC"/>
+                                    <constraint firstItem="zAU-7i-hh4" firstAttribute="centerY" secondItem="zV4-Ip-aj1" secondAttribute="centerY" id="GUF-50-nUZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="zAU-7i-hh4" secondAttribute="trailing" constant="50" id="MoO-jk-Fdd"/>
                                     <constraint firstAttribute="height" constant="40" id="X0U-Gb-lFY"/>
+                                    <constraint firstItem="9MY-Ub-WcM" firstAttribute="leading" secondItem="zV4-Ip-aj1" secondAttribute="leading" constant="50" id="YeZ-uH-ZkW"/>
                                     <constraint firstItem="9MY-Ub-WcM" firstAttribute="centerY" secondItem="zV4-Ip-aj1" secondAttribute="centerY" id="i4u-tD-Sxh"/>
                                 </constraints>
                             </view>

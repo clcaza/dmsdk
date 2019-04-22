@@ -25,3 +25,36 @@
   **返回**:
 
   无；
+
+##### `-(instancetype)initWithTSKMProxy:(TVSTSKMProxy*)tskmProxy;`
+
+  **描述**:
+
+  实例化方法;
+
+  **参数**:
+
+  | 名称 | 类型 | 描述 | 是否必填 | 备注 |
+  | ------ | ------ | ------ | ------ | ------ |
+  | tskmProxy | TVSTSKMProxy* | 账号信息 | 是 |
+
+  **返回**:
+
+  TVSThirdPartyAuth 实例；
+
+ ##### `-(void)getBindedAccountInfoWithDeviceInfo:(TVSDeviceInfo*)deviceInfo handler:(void(^)(TVSAccountInfo*))handler;`
+
+  **描述**:
+
+  查询绑定的账号信息;
+
+  **参数**:
+
+  | 名称 | 类型 | 描述 | 是否必填 | 备注 |
+  | ------ | ------ | ------ | ------ | ------ |
+  | deviceInfo | TVSDeviceInfo* | 设备信息 | 是 |
+  | handler | void(^)(TVSAccountInfo*) | 回调，参数为账号信息 | 是 |
+
+  **返回**:
+
+  无； 

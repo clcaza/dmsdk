@@ -12,12 +12,15 @@
 
 @interface ThirdPartyAuthVC ()
 
+@property (nonatomic,strong) TVSThirdPartyAuth* auth;
+
 @end
 
 @implementation ThirdPartyAuthVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _auth = [[TVSThirdPartyAuth alloc]initWithTSKMProxy:[[TVSTSKMProxy alloc]initWithDeviceInfo:_deviceInfo accountInfo:nil]];
 }
 
 /*
@@ -30,40 +33,74 @@
 }
 */
 
+// 查询绑定的账号信息
+- (IBAction)onClickBtnQueryAcct:(id)sender {
+    __weak typeof(self) weakSelf = self;
+    [self bindDeviceAndQueryGuidWithHandler:^(BOOL success) {
+        if (self) {
+            [weakSelf.auth getBindedAccountInfoWithDeviceInfo:weakSelf.deviceInfo handler:^(TVSAccountInfo * acct) {
+                if (acct) {
+                    [weakSelf showText:[NSString stringWithFormat:@"查询到绑定的账号信息:\nappId: %@\nopenId: %@", acct.appId, acct.openId] view:weakSelf.tvResult];
+                } else {
+                    [weakSelf showText:@"账号查询失败" view:weakSelf.tvResult];
+                }
+            }];
+        }
+    }];
+}
+
 // 拉起云叮当进行第三方账号授权
 - (IBAction)onClickBtnAuth:(id)sender {
     __weak typeof(self) weakSelf = self;
-    // 绑定设备
-    [[TVSDeviceManager shared]bindDevice:_deviceInfo handler:^(BOOL success) {
+    [self bindDeviceAndQueryGuidWithHandler:^(BOOL success) {
         if (success) {
-            // 查询设备，获取 GUID
-            [[TVSDeviceManager shared]queryDevicesByAccountWithBindType:weakSelf.deviceInfo.bindType handler:^(NSArray<TVSDeviceInfo *> * devices) {
-                if (devices && devices.count > 0) {
-                    for (TVSDeviceInfo* device in devices) {
-                        if ([device.productId isEqualToString:weakSelf.deviceInfo.productId] && [device.dsn isEqualToString:weakSelf.deviceInfo.dsn]) {
-                            // 跳转云叮当做第三方账号授权
-                            /*[TVSThirdPartyAuth gotoAuthWithAccountInfo:nil deviceInfo:device handler:^(BOOL success) {
-                                if (!success) {
-                                    [weakSelf showText:@"跳转失败，请安装腾讯云叮当最新版本" view:weakSelf.tvResult];
-                                }
-                            }];*/
-                            // 跳转第三方账号授权 H5
-                            BrowserVC* bv = [BrowserVC new];
-                            bv.pageType = TVSWebPageTypeThirdPartyAuth;
-                            bv.pid = device.productId;
-                            bv.dsn = device.dsn;
-                            bv.deviceGuid = device.guid;
-                            [self.navigationController pushViewController:bv animated:YES];
-                            return;
-                        }
-                    }
-                }
-                [weakSelf showText:@"设备查询失败" view:weakSelf.tvResult];
-            }];
-        } else {
-            [weakSelf showText:@"设备绑定失败" view:weakSelf.tvResult];
+            // 跳转云叮当做第三方账号授权
+            /*[TVSThirdPartyAuth gotoAuthWithAccountInfo:nil deviceInfo:device handler:^(BOOL success) {
+             if (!success) {
+             [weakSelf showText:@"跳转失败，请安装腾讯云叮当最新版本" view:weakSelf.tvResult];
+             }
+             }];*/
+            // 跳转第三方账号授权 H5
+            BrowserVC* bv = [BrowserVC new];
+            bv.pageType = TVSWebPageTypeThirdPartyAuth;
+            bv.pid = weakSelf.deviceInfo.productId;
+            bv.dsn = weakSelf.deviceInfo.dsn;
+            bv.deviceGuid = weakSelf.deviceInfo.guid;
+            [self.navigationController pushViewController:bv animated:YES];
         }
     }];
+}
+
+// 绑定设备->查询设备->获取后台返回的设备 GUID
+-(void)bindDeviceAndQueryGuidWithHandler:(void(^)(BOOL))handler {
+    __weak typeof(self) weakSelf = self;
+    if (!_deviceInfo.guid) {
+        // 绑定设备
+        [[TVSDeviceManager shared]bindDevice:_deviceInfo handler:^(BOOL success) {
+            if (success) {
+                // 查询设备，获取 GUID
+                [[TVSDeviceManager shared]queryDevicesByAccountWithBindType:weakSelf.deviceInfo.bindType handler:^(NSArray<TVSDeviceInfo *> * devices) {
+                    if (devices && devices.count > 0) {
+                        for (TVSDeviceInfo* device in devices) {
+                            if ([device.productId isEqualToString:weakSelf.deviceInfo.productId] && [device.dsn isEqualToString:weakSelf.deviceInfo.dsn]) {
+                                weakSelf.deviceInfo.guid = device.guid;
+                                if (handler) handler(YES);
+                                return;
+                            }
+                        }
+                    }
+                    [weakSelf showText:@"设备查询失败" view:weakSelf.tvResult];
+                    if (handler) handler(NO);
+                    return;
+                }];
+            } else {
+                [weakSelf showText:@"设备绑定失败" view:weakSelf.tvResult];
+                if (handler) handler(NO);
+            }
+        }];
+    } else {
+        handler(YES);
+    }
 }
 
 @end
