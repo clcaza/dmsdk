@@ -29,12 +29,14 @@
     _btnForward = [self newButtonX:90 title:@"→" sel:@selector(onClickBtnForward:)];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:_vNav];
     
-    _progressView = [[UIProgressView alloc]initWithFrame:CGRectMake(0, [[UIApplication sharedApplication] statusBarFrame].size.height+self.navigationController.navigationBar.frame.size.height, self.view.bounds.size.width, 1)];
+    CGFloat offsetY = kSTATUS_BAR_HEIGHT + kNAVIGATION_BAR_HEIGHT;
+    
+    _progressView = [[UIProgressView alloc]initWithFrame:CGRectMake(0, offsetY, kSCREEN_WIDTH, 1)];
     _progressView.hidden = YES;
     [self.view addSubview:_progressView];
     
     // 添加 TVSWebView
-    _webview = [[TVSWebView alloc] initWithFrame:self.view.bounds];
+    _webview = [[TVSWebView alloc] initWithFrame:CGRectMake(0, offsetY, kSCREEN_WIDTH, kSCREEN_HEIGHT - offsetY - (iPhoneX ? iPhoneX_BOTTOM_SPACE : 0))];
     _webview.webUniversalDelegate = self;
     _webview.webBusinessDelegate = self;
     // QQ 音乐会员相关页面需要设备信息
