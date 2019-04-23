@@ -36,14 +36,18 @@
     if (isLogin) {
         block();
     } else {
-        UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"此功能需要账号信息" preferredStyle:UIAlertControllerStyleAlert];
-        [alert addAction:[UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
-            AuthVC* vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil]instantiateViewControllerWithIdentifier:@"AuthVC"];
-            vc.fromAlert = YES;
-            [self.navigationController pushViewController:vc animated:YES];
-        }]];
-        [self presentViewController:alert animated:YES completion:nil];
+        [self gotoLoginAlert:@"此功能需要账号信息"];
     }
+}
+
+-(void)gotoLoginAlert:(NSString*)alert {
+    UIAlertController* ac = [UIAlertController alertControllerWithTitle:@"提示" message:alert preferredStyle:UIAlertControllerStyleAlert];
+    [ac addAction:[UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+        AuthVC* vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil]instantiateViewControllerWithIdentifier:@"AuthVC"];
+        vc.fromAlert = YES;
+        [self.navigationController pushViewController:vc animated:YES];
+    }]];
+    [self presentViewController:ac animated:YES completion:nil];
 }
 
 -(void)showText:(NSString *)text view:(UITextView *)tv {
@@ -74,6 +78,27 @@
         }
     }
     return dict;
+}
+
+-(void)checkToken:(void (^)(void))block {
+    void(^resultBlock)(TVSAuthResult) = ^(TVSAuthResult result) {
+        if (result == TVSAuthResultSuccess) {
+            if (block) block();
+        } else {
+            [self gotoLoginAlert:@"token已过期，请重新登录"];
+        }
+    };
+    if ([[TVSAuthManager shared]isWXTokenExist]) {
+        [[TVSAuthManager shared] wxTokenRefreshWithHandler:^(TVSAuthResult result) {
+            resultBlock(result);
+        }];
+    } else if ([[TVSAuthManager shared]isQQTokenExist]) {
+        [[TVSAuthManager shared] qqTokenVerifyWithHandler:^(TVSAuthResult result) {
+            resultBlock(result);
+        }];
+    } else {
+        [self gotoLoginAlert:@"此功能需要账号信息"];
+    }
 }
 
 @end

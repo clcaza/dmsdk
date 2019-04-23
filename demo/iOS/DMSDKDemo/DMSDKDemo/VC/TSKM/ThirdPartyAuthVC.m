@@ -37,13 +37,15 @@
 - (IBAction)onClickBtnQueryAcct:(id)sender {
     __weak typeof(self) weakSelf = self;
     [self bindDeviceAndQueryGuidWithHandler:^(BOOL success) {
-        if (self) {
-            [weakSelf.auth getBindedAccountInfoWithDeviceInfo:weakSelf.deviceInfo handler:^(TVSAccountInfo * acct) {
-                if (acct) {
-                    [weakSelf showText:[NSString stringWithFormat:@"查询到绑定的账号信息:\nappId: %@\nopenId: %@", acct.appId, acct.openId] view:weakSelf.tvResult];
-                } else {
-                    [weakSelf showText:@"账号查询失败" view:weakSelf.tvResult];
-                }
+        if (success) {
+            [self checkToken:^{// 所有 TSKM 相关接口都需要先验证 token ！！！
+                [weakSelf.auth getBindedAccountInfoWithDeviceInfo:weakSelf.deviceInfo handler:^(TVSAccountInfo * acct) {
+                    if (acct) {
+                        [weakSelf showText:[NSString stringWithFormat:@"查询到绑定的账号信息:\nappId: %@\nopenId: %@", acct.appId, acct.openId] view:weakSelf.tvResult];
+                    } else {
+                        [weakSelf showText:@"账号查询失败" view:weakSelf.tvResult];
+                    }
+                }];
             }];
         }
     }];
@@ -54,19 +56,21 @@
     __weak typeof(self) weakSelf = self;
     [self bindDeviceAndQueryGuidWithHandler:^(BOOL success) {
         if (success) {
-            // 跳转云叮当做第三方账号授权
-            /*[TVSThirdPartyAuth gotoAuthWithAccountInfo:nil deviceInfo:device handler:^(BOOL success) {
-             if (!success) {
-             [weakSelf showText:@"跳转失败，请安装腾讯云叮当最新版本" view:weakSelf.tvResult];
-             }
-             }];*/
-            // 跳转第三方账号授权 H5
-            BrowserVC* bv = [BrowserVC new];
-            bv.pageType = TVSWebPageTypeThirdPartyAuth;
-            bv.pid = weakSelf.deviceInfo.productId;
-            bv.dsn = weakSelf.deviceInfo.dsn;
-            bv.deviceGuid = weakSelf.deviceInfo.guid;
-            [self.navigationController pushViewController:bv animated:YES];
+            [self checkToken:^{// 所有 TSKM 相关接口都需要先验证 token ！！！
+                // 跳转云叮当做第三方账号授权
+                /*[TVSThirdPartyAuth gotoAuthWithAccountInfo:nil deviceInfo:device handler:^(BOOL success) {
+                 if (!success) {
+                 [weakSelf showText:@"跳转失败，请安装腾讯云叮当最新版本" view:weakSelf.tvResult];
+                 }
+                 }];*/
+                // 跳转第三方账号授权 H5
+                BrowserVC* bv = [BrowserVC new];
+                bv.pageType = TVSWebPageTypeThirdPartyAuth;
+                bv.pid = weakSelf.deviceInfo.productId;
+                bv.dsn = weakSelf.deviceInfo.dsn;
+                bv.deviceGuid = weakSelf.deviceInfo.guid;
+                [self.navigationController pushViewController:bv animated:YES];
+            }];
         }
     }];
 }

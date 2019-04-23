@@ -37,16 +37,18 @@
     [_tvBlob resignFirstResponder];
     __weak typeof(self) weakSelf = self;
     if (NotEmpty(_tvBlob.text)) {
-        [_alarmReminder alarmOperation:TVSAlarmReminderOperationManage blob:[self dictFromJson:_tvBlob.text] handler:^(BOOL success, NSDictionary * result) {
-            if (success) {
-                if (result) {
-                    [weakSelf showText:[NSString stringWithFormat:@"闹钟管理成功:\n%@", result] view:weakSelf.tvResult];
+        [self checkToken:^{// 所有 TSKM 相关接口都需要先验证 token ！！！
+            [weakSelf.alarmReminder alarmOperation:TVSAlarmReminderOperationManage blob:[self dictFromJson:weakSelf.tvBlob.text] handler:^(BOOL success, NSDictionary * result) {
+                if (success) {
+                    if (result) {
+                        [weakSelf showText:[NSString stringWithFormat:@"闹钟管理成功:\n%@", result] view:weakSelf.tvResult];
+                    } else {
+                        [weakSelf showText:@"闹钟管理成功" view:weakSelf.tvResult];
+                    }
                 } else {
-                    [weakSelf showText:@"闹钟管理成功" view:weakSelf.tvResult];
+                    [weakSelf showText:@"闹钟管理失败" view:weakSelf.tvResult];
                 }
-            } else {
-                [weakSelf showText:@"闹钟管理失败" view:weakSelf.tvResult];
-            }
+            }];
         }];
     }
 }
