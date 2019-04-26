@@ -7,7 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		80029D8E222E7FFF003F12F5 /* TVSWeb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80029D8D222E7FFF003F12F5 /* TVSWeb.framework */; };
+		80158C2E2272AFA600DE7F12 /* TVSTSKM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80158C292272AFA600DE7F12 /* TVSTSKM.framework */; };
+		80158C2F2272AFA600DE7F12 /* TVSWeb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80158C2A2272AFA600DE7F12 /* TVSWeb.framework */; };
+		80158C302272AFA600DE7F12 /* TVSMember.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80158C2B2272AFA600DE7F12 /* TVSMember.framework */; };
+		80158C312272AFA600DE7F12 /* TVSSpeech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80158C2C2272AFA600DE7F12 /* TVSSpeech.framework */; };
+		80158C322272AFA600DE7F12 /* TVSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80158C2D2272AFA600DE7F12 /* TVSCore.framework */; };
 		80599B7C1FD82B7000901F7C /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 80599B7B1FD82B7000901F7C /* libWeChatSDK.a */; };
 		80599B7E1FD82BEE00901F7C /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 80599B7D1FD82BEE00901F7C /* libsqlite3.tbd */; };
 		80599B821FD82C4200901F7C /* TencentOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80599B811FD82C4200901F7C /* TencentOpenAPI.framework */; };
@@ -32,10 +36,6 @@
 		8081473B225B6FCD000C023D /* ChildModeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8081473A225B6FCD000C023D /* ChildModeVC.m */; };
 		8081473E225B705C000C023D /* DeviceControlVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8081473D225B705C000C023D /* DeviceControlVC.m */; };
 		808E8EE82237545F00BEFFB0 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 80599B7F1FD82BFF00901F7C /* libz.tbd */; };
-		80AB3A9C2252FBA9003D0DAE /* TVSTSKM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80AB3A9B2252FBA8003D0DAE /* TVSTSKM.framework */; };
-		80AB3AA02252FFD2003D0DAE /* TVSMember.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80AB3A9F2252FFD2003D0DAE /* TVSMember.framework */; };
-		80C3911D2200392700698F7D /* TVSSpeech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80C391192200392700698F7D /* TVSSpeech.framework */; };
-		80FD905321FAB325004FFCA3 /* TVSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80FD905221FAB325004FFCA3 /* TVSCore.framework */; };
 		8AD8081F1F3DB0E80040C9CF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AD8081E1F3DB0E80040C9CF /* main.m */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +54,11 @@
 
 /* Begin PBXFileReference section */
 		80029D8D222E7FFF003F12F5 /* TVSWeb.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TVSWeb.framework; sourceTree = "<group>"; };
+		80158C292272AFA600DE7F12 /* TVSTSKM.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TVSTSKM.framework; path = DMSDK/TVSTSKM.framework; sourceTree = "<group>"; };
+		80158C2A2272AFA600DE7F12 /* TVSWeb.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TVSWeb.framework; path = DMSDK/TVSWeb.framework; sourceTree = "<group>"; };
+		80158C2B2272AFA600DE7F12 /* TVSMember.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TVSMember.framework; path = DMSDK/TVSMember.framework; sourceTree = "<group>"; };
+		80158C2C2272AFA600DE7F12 /* TVSSpeech.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TVSSpeech.framework; path = DMSDK/TVSSpeech.framework; sourceTree = "<group>"; };
+		80158C2D2272AFA600DE7F12 /* TVSCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TVSCore.framework; path = DMSDK/TVSCore.framework; sourceTree = "<group>"; };
 		80599B7B1FD82B7000901F7C /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libWeChatSDK.a; path = WeChat/libWeChatSDK.a; sourceTree = "<group>"; };
 		80599B7D1FD82BEE00901F7C /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		80599B7F1FD82BFF00901F7C /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
@@ -109,12 +114,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80158C2E2272AFA600DE7F12 /* TVSTSKM.framework in Frameworks */,
+				80158C2F2272AFA600DE7F12 /* TVSWeb.framework in Frameworks */,
+				80158C302272AFA600DE7F12 /* TVSMember.framework in Frameworks */,
+				80158C312272AFA600DE7F12 /* TVSSpeech.framework in Frameworks */,
+				80158C322272AFA600DE7F12 /* TVSCore.framework in Frameworks */,
 				80814731225B6D60000C023D /* libPods-DMSDKDemo.a in Frameworks */,
-				80AB3AA02252FFD2003D0DAE /* TVSMember.framework in Frameworks */,
-				80AB3A9C2252FBA9003D0DAE /* TVSTSKM.framework in Frameworks */,
-				80FD905321FAB325004FFCA3 /* TVSCore.framework in Frameworks */,
-				80029D8E222E7FFF003F12F5 /* TVSWeb.framework in Frameworks */,
-				80C3911D2200392700698F7D /* TVSSpeech.framework in Frameworks */,
 				80599B821FD82C4200901F7C /* TencentOpenAPI.framework in Frameworks */,
 				80599B7C1FD82B7000901F7C /* libWeChatSDK.a in Frameworks */,
 				80599B7E1FD82BEE00901F7C /* libsqlite3.tbd in Frameworks */,
@@ -220,6 +225,11 @@
 		8A9738311F418BBD003BD45B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				80158C2D2272AFA600DE7F12 /* TVSCore.framework */,
+				80158C2B2272AFA600DE7F12 /* TVSMember.framework */,
+				80158C2C2272AFA600DE7F12 /* TVSSpeech.framework */,
+				80158C292272AFA600DE7F12 /* TVSTSKM.framework */,
+				80158C2A2272AFA600DE7F12 /* TVSWeb.framework */,
 				80814730225B6D60000C023D /* libPods-DMSDKDemo.a */,
 				80AB3A9F2252FFD2003D0DAE /* TVSMember.framework */,
 				80AB3A9B2252FBA8003D0DAE /* TVSTSKM.framework */,
@@ -543,6 +553,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/DMSDK",
 				);
 				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/WeChat";
 				INFOPLIST_FILE = "$(SRCROOT)/DMSDKDemo/Info.plist";
@@ -574,6 +585,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/DMSDK",
 				);
 				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/WeChat";
 				INFOPLIST_FILE = "$(SRCROOT)/DMSDKDemo/Info.plist";

@@ -13,7 +13,7 @@
 /*
  * @brief TVS 领域服务请求回调
  */
-typedef void(^TVSTSKMCallback)(BOOL,NSDictionary*);
+typedef void(^TVSTSKMCallback)(BOOL,NSInteger,NSDictionary*);
 
 /*
  * @class TVSTSKMProxy

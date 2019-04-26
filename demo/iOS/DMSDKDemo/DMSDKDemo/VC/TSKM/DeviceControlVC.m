@@ -37,7 +37,7 @@
     [self hideKeyBoard];
     __weak typeof(self) weakSelf = self;
     [self checkToken:^{// 所有 TSKM 相关接口都需要先验证 token ！！！
-        [weakSelf.deviceControl bindDeviceWithHandler:^(BOOL success, NSDictionary * result) {
+        [weakSelf.deviceControl bindDeviceWithHandler:^(BOOL success, NSInteger code, NSDictionary * result) {
             if (success) {
                 if (result) {
                     [weakSelf showText:[NSString stringWithFormat:@"绑定成功:\n%@", result] view:weakSelf.tvResult];
@@ -45,7 +45,7 @@
                     [weakSelf showText:@"绑定成功" view:weakSelf.tvResult];
                 }
             } else {
-                [weakSelf showText:@"绑定失败" view:weakSelf.tvResult];
+                [weakSelf showText:[NSString stringWithFormat:@"绑定失败，错误码: %ld", code] view:weakSelf.tvResult];
             }
         }];
     }];
@@ -57,7 +57,7 @@
     __weak typeof(self) weakSelf = self;
     if (NotEmpty(_tvPayload.text) && NotEmpty(_tfNamespace.text) && NotEmpty(_tfName.text)) {
         [self checkToken:^{// 所有 TSKM 相关接口都需要先验证 token ！！！
-            [weakSelf.deviceControl controlDeviceWithNamespace:weakSelf.tfNamespace.text name:weakSelf.tfName.text payload:[weakSelf dictFromJson:weakSelf.tvPayload.text] handler:^(BOOL success, NSDictionary * result) {
+            [weakSelf.deviceControl controlDeviceWithNamespace:weakSelf.tfNamespace.text name:weakSelf.tfName.text payload:[weakSelf dictFromJson:weakSelf.tvPayload.text] handler:^(BOOL success, NSInteger code, NSDictionary * result) {
                 if (success) {
                     if (result) {
                         [weakSelf showText:[NSString stringWithFormat:@"控制成功:\n%@", result] view:weakSelf.tvResult];
@@ -65,7 +65,7 @@
                         [weakSelf showText:@"控制成功" view:weakSelf.tvResult];
                     }
                 } else {
-                    [weakSelf showText:@"控制失败" view:weakSelf.tvResult];
+                    [weakSelf showText:[NSString stringWithFormat:@"控制失败，错误码: %ld", code] view:weakSelf.tvResult];
                 }
             }];
         }];

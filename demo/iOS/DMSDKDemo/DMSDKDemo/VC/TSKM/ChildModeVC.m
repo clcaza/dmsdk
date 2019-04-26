@@ -38,7 +38,7 @@
     __weak typeof(self) weakSelf = self;
     if (NotEmpty(_tvBlob.text)) {
         [self checkToken:^{// 所有 TSKM 相关接口都需要先验证 token ！！！
-            [weakSelf.childMode setConfigWithJsonBlob:[weakSelf dictFromJson:weakSelf.tvBlob.text] handler:^(BOOL success, NSDictionary * result) {
+            [weakSelf.childMode setConfigWithJsonBlob:[weakSelf dictFromJson:weakSelf.tvBlob.text] handler:^(BOOL success, NSInteger code, NSDictionary * result) {
                 if (success) {
                     if (result) {
                         [weakSelf showText:[NSString stringWithFormat:@"保存配置成功:\n%@", result] view:weakSelf.tvResult];
@@ -46,7 +46,7 @@
                         [weakSelf showText:@"保存配置成功" view:weakSelf.tvResult];
                     }
                 } else {
-                    [weakSelf showText:@"保存配置失败" view:weakSelf.tvResult];
+                    [weakSelf showText:[NSString stringWithFormat:@"保存配置失败，错误码: %ld", code] view:weakSelf.tvResult];
                 }
             }];
         }];
@@ -59,7 +59,7 @@
     __weak typeof(self) weakSelf = self;
     if (NotEmpty(_tvBlob.text)) {
         [self checkToken:^{// 所有 TSKM 相关接口都需要先验证 token ！！！
-            [weakSelf.childMode getConfigWithJsonBlob:[weakSelf dictFromJson:weakSelf.tvBlob.text] handler:^(BOOL success, NSDictionary * result) {
+            [weakSelf.childMode getConfigWithJsonBlob:[weakSelf dictFromJson:weakSelf.tvBlob.text] handler:^(BOOL success, NSInteger code, NSDictionary * result) {
                 if (success) {
                     if (result) {
                         [weakSelf showText:[NSString stringWithFormat:@"查询配置成功:\n%@", result] view:weakSelf.tvResult];
@@ -67,7 +67,7 @@
                         [weakSelf showText:@"查询配置成功" view:weakSelf.tvResult];
                     }
                 } else {
-                    [weakSelf showText:@"查询配置失败" view:weakSelf.tvResult];
+                    [weakSelf showText:[NSString stringWithFormat:@"查询配置失败，错误码: %ld", code] view:weakSelf.tvResult];
                 }
             }];
         }];
