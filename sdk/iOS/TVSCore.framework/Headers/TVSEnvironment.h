@@ -48,28 +48,20 @@ typedef NS_ENUM(NSInteger,TVSServerEnv) {
 @property(nonatomic,assign) TVSServerEnv serverEnv;
 
 /*
+ * @brief 后台请求超时时间
+ */
+@property(nonatomic,assign) NSTimeInterval serverReqTimeout;
+
+/*
  * @brief 获得 TVS 环境类单例对象
  * @return TVS 环境类实例
  */
 +(instancetype)shared;
 
 /*
- * @brief 读取 TVS 后台环境配置
- * @return TVS 后台环境
- */
--(TVSServerEnv)serverEnv;
-
-/*
  * @brief 开启日志
  */
 -(void)enableLog;
-
-/*
- * @brief 设置 TVS 后台环境
- * @param env TVS 后台环境
- */
--(void)setServerEnv:(TVSServerEnv)env;
-
 
 /*
  * @brief 获得 SDK 版本

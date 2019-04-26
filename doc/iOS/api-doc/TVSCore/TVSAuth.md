@@ -85,6 +85,22 @@
 
   TVS 平台 ClientId;
 
+##### `-(instancetype)initWithAccountId:(NSString*)accountId;`
+
+  **描述**:
+
+  通过账号 ID 生成账号信息；
+  仅适用于自己实现账号登录且没有token的场景！！
+
+  **参数**:
+
+  | 名称 | 类型 | 描述 | 是否必填 |
+  | accountId | NSString* | 账号唯一ID，比如手机号 | 是 |
+
+  **返回**:
+
+  TVSAccountInfo 实例；
+
 ### TVSUserInfo 用户资料信息类
 
 #### 成员
@@ -219,7 +235,10 @@
 
 #### 成员
 
-  无；
+  | 名称 | 类型 | 描述 | 备注 |
+  | ------ | ------ | ------ | ------ |
+  | accountInfo | TVSAccountInfo* | 账号信息 | 如果不使用本 SDK 做账号授权，必须手动注入账号信息才能使用某些模块（比如设备绑定等）!! |
+  | userInfo | TVSUserInfo* | 设备信息 |  |
 
 #### 方法
 
@@ -435,32 +454,6 @@
   | handler | void(^)(TVSAuthResult) | TVSAuthResult 表示授权结果，成功后即可通过 TVSAccountInfo 读取 tvsId | 是 |
 
   **返回**:
-
-  无；
-  
-##### `-(TVSAccountInfo*)accountInfo;`
-
-  **描述**:
-
-  获取账号信息；
-  必须确保已登录！
-
-  **参数**:
-
-  无；
-
-  **返回**:
-
-  TVSAccountInfo* 账号信息；
-  
-##### `-(TVSUserInfo*)userInfo;`
-
-  **描述**:
-
-  获取用户资料信息；
-  必须确保已登录！
-
-  **参数**:
 
   无；
 

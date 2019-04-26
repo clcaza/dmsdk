@@ -8,7 +8,7 @@
 
 #import "BrowserVC.h"
 
-@interface BrowserVC()<TVSWebUniversalDelegate, TVSWebBusinessDelegate>
+@interface BrowserVC()<TVSWebUniversalDelegate, TVSWebBusinessDelegate, TVSAuthDelegate>
 
 @property(nonatomic,strong) UIView* vNav;
 @property(nonatomic,strong) UIButton *btnBack, *btnReload, *btnStop, *btnForward;
@@ -39,6 +39,7 @@
     _webview = [[TVSWebView alloc] initWithFrame:CGRectMake(0, offsetY, kSCREEN_WIDTH, kSCREEN_HEIGHT - offsetY - (iPhoneX ? iPhoneX_BOTTOM_SPACE : 0))];
     _webview.webUniversalDelegate = self;
     _webview.webBusinessDelegate = self;
+    //_webview.authDelegate = self; //如果自己实现账号登录，必须实现此协议!!
     // QQ 音乐会员相关页面需要设备信息
     _webview.device = [TVSDeviceInfo new];
     _webview.device.bindType = TVSDeviceBindTypeTVSSpeaker;
@@ -153,5 +154,25 @@
 -(BOOL)TVSWebShouldLoadUrl:(NSString *)url {
     return YES;
 }
+
+#pragma mark TVSAuthDelegate
+/*
+-(TVSAccountInfo*)TVSAuthGetAccountInfo {
+    TVSAccountInfo* tai = [TVSAccountInfo new];
+    tai.accountType = TVSAccountTypeQQOpenId;
+    tai.appId = @"1106196086";
+    tai.accessToken = @"7DF675AC82A4F9502C2409B3B4946A46";
+    tai.openId = @"F73223EAB66333A999755D9AAE06C2FC";
+    tai.tvsId = @"11c2670f00050e3f";
+    return tai;
+}
+
+-(TVSUserInfo*)TVSAuthGetUserInfo {
+    TVSUserInfo* tui = [TVSUserInfo new];
+    tui.headImgUrl = @"http:\/\/thirdwx.qlogo.cn\/mmopen\/vi_32\/DYAIOgq83erxUUfG98qavsOLP79zHdbiau61hkAqF0Bp8lJafiaANibvTibsRwPqaLRpTqNicF0ADATOX8nXPfbvricA\/132";
+    tui.nickName = @"Rinc";
+    return tui;
+}
+*/
 
 @end

@@ -13,7 +13,7 @@
 /*
  * @brief TVS 领域服务请求回调
  */
-typedef void(^TVSTSKMCallback)(BOOL,NSDictionary*);
+typedef void(^TVSTSKMCallback)(BOOL,NSInteger,NSDictionary*);
 
 /*
  * @class TVSTSKMProxy
@@ -23,21 +23,11 @@ typedef void(^TVSTSKMCallback)(BOOL,NSDictionary*);
 
 /*
  * @brief 实例化（QQ/微信登录场景）
- * @warning 如果是自己做账号授权，需要手动注入账号信息!!
+ * @warning 如果是自己做账号授权，需要调用 [[TVSAuthManager shared]setAccountInfo:acctInfo] 手动注入账号信息!!
  * @param deviceInfo 设备信息（其中 productId 必填，dsn 和 guid 二选一）
- * @param accountInfo 账号信息（如果自己做账号授权，需要手动注入；否则传 nil）
  * @return 实例
  */
--(instancetype)initWithDeviceInfo:(TVSDeviceInfo*)deviceInfo accountInfo:(TVSAccountInfo*)accountInfo;
-
-/*
- * @brief 实例化（非QQ/微信登录场景）
- * @warning 如果是自己做账号授权，需要手动注入账号信息!!
- * @param deviceInfo 设备信息（其中 productId 必填，dsn 和 guid 二选一）
- * @param accountId 账号唯一ID
- * @return 实例
- */
--(instancetype)initWithDeviceInfo:(TVSDeviceInfo*)deviceInfo accountId:(NSString *)accountId;
+-(instancetype)initWithDeviceInfo:(TVSDeviceInfo*)deviceInfo;
 
 /*
  * @brief 领域服务访问

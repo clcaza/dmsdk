@@ -20,7 +20,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _auth = [[TVSThirdPartyAuth alloc]initWithTSKMProxy:[[TVSTSKMProxy alloc]initWithDeviceInfo:_deviceInfo accountInfo:nil]];
+    _auth = [[TVSThirdPartyAuth alloc]initWithTSKMProxy:[self delegate].tskmProxy];
 }
 
 /*

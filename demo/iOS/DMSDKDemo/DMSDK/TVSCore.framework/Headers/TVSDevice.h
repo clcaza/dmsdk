@@ -183,6 +183,7 @@ typedef NS_ENUM(NSInteger,TVSDeviceBindType) {
 
 /*
  * @class TVSDeviceManager
+ * @warning 如果是自己做账号授权，需要调用 [[TVSAuthManager shared]setAccountInfo:acctInfo] 手动注入账号信息!!
  * @brief TVS 设备管理接口
  */
 @interface TVSDeviceManager : NSObject

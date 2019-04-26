@@ -159,6 +159,12 @@ typedef NS_ENUM(NSInteger,TVSAuthResult) {
  */
 +(NSString*)clientIdWithProductId:(NSString*)productId dsn:(NSString*)dsn openId:(NSString*)openId accessToken:(NSString*)accessToken refreshToken:(NSString*)refreshToken;
 
+/*
+ * @brief 通过账号 ID 生成账号信息（仅适用于自己实现账号登录，且没有token的场景！！）
+ * @param accountId 账号唯一 ID，比如手机号
+ */
+-(instancetype)initWithAccountId:(NSString*)accountId;
+
 @end
 
 
@@ -263,6 +269,17 @@ typedef NS_ENUM(NSInteger,TVSAuthResult) {
 @interface TVSAuthManager: NSObject <TVSAuthDelegate>
 
 /*
+ * @brief 账号信息
+ * @warning 如果不使用本 SDK 做账号授权，必须手动注入账号信息才能使用某些模块（比如设备绑定等）!!
+ */
+@property(nonatomic,strong) TVSAccountInfo* accountInfo;
+
+/*
+ * @brief 用户信息
+ */
+@property(nonatomic,strong) TVSUserInfo* userInfo;
+
+/*
  * @brief 获得 TVS 账号授权类单例对象
  * @return TVS 账号授权类实例
  */
@@ -355,20 +372,6 @@ typedef NS_ENUM(NSInteger,TVSAuthResult) {
  * @param handler 回调，TVSAuthResult 值表示结果
  */
 -(void)verifyQQTokenWithOpenId:(NSString*)openId accessToken:(NSString*)accessToken handler:(void(^)(TVSAuthResult))handler;
-
-/*
- * @brief 获取账号信息
- * @warning 必须确保已登录!!
- * @return accountInfo
- */
--(TVSAccountInfo*)accountInfo;
-
-/*
- * @brief 获取用户信息
- * @warning 必须确保已登录!!
- * @return userInfo
- */
--(TVSUserInfo*)userInfo;
 
 /*
  * @brief 注销登录
