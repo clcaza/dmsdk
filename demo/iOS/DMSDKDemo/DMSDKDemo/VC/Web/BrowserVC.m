@@ -8,7 +8,7 @@
 
 #import "BrowserVC.h"
 
-@interface BrowserVC()<TVSWebUniversalDelegate, TVSWebBusinessDelegate, TVSAuthDelegate>
+@interface BrowserVC()<TVSWebUniversalDelegate, TVSWebBusinessDelegate/*, TVSAuthDelegate*/>
 
 @property(nonatomic,strong) UIView* vNav;
 @property(nonatomic,strong) UIButton *btnBack, *btnReload, *btnStop, *btnForward;
