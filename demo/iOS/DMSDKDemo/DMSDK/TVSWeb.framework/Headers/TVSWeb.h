@@ -94,9 +94,19 @@ typedef NS_ENUM(NSInteger,TVSWebPageType) {
 
 @optional
 /*
- * @brief Web 页面是否加载链接
+ * @brief Web 页面是否允许打开指定 scheme 的链接
+ * @warning 默认只允许打开 http、https、wexin、wtloginm、itms、itms-apps、dingdang 等常规 scheme
+ * @param scheme
+ * @return 是否允许打开
+ */
+-(BOOL)TVSWebShouldOpenScheme:(NSString*)scheme;
+
+@optional
+/*
+ * @brief Web 页面是否允许加载链接
+ * @warning 默认都允许打开
  * @param url 网页链接
- * @return 是否允许链接跳转
+ * @return 是否允许加载
  */
 -(BOOL)TVSWebShouldLoadUrl:(NSString*)url;
 

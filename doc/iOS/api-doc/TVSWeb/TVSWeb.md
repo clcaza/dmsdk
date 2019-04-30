@@ -92,11 +92,29 @@
 
   无;
 
+##### `-(BOOL)TVSWebShouldOpenScheme:(NSString*)scheme;`
+
+  **描述**:
+
+  Web 页面是否允许打开指定 scheme 的链接；
+  默认只允许打开 http、https、wexin、wtloginm、itms、itms-apps、dingdang 等常规 scheme；
+
+  **参数**:
+
+  | 名称 | 类型 | 描述 |
+  | ------ | ------ | ------ |
+  | scheme | NSString* | scheme |
+
+  **返回**:
+
+  是否允许打开；
+
 ##### `-(BOOL)TVSWebShouldLoadUrl:(NSString*)url;`
 
   **描述**:
 
   Web 页面是否允许加载指定链接；
+  默认都允许加载；
 
   **参数**:
 

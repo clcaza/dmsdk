@@ -173,6 +173,11 @@ typedef NS_ENUM(NSInteger,TVSDeviceBindType) {
 @property(nonatomic,strong) NSDictionary* businessExtra;
 
 /*
+ * @brief 配置信息
+ */
+@property(nonatomic,strong) NSDictionary* configInfo;
+
+/*
  * @brief accountinfo 账号信息
  */
 @property(nonatomic,strong) TVSAccountInfo* accountinfo;

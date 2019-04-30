@@ -150,7 +150,12 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-// 是否允许加载指定网页链接
+// 是否允许加载指定scheme链接（默认只允许打开 http、https、wexin、wtloginm、itms、itms-apps、dingdang 等常规 scheme）
+-(BOOL)TVSWebShouldOpenScheme:(NSString *)scheme {
+    return NO;
+}
+
+// 是否允许加载指定网页链接（默认都允许打开）
 -(BOOL)TVSWebShouldLoadUrl:(NSString *)url {
     return YES;
 }
