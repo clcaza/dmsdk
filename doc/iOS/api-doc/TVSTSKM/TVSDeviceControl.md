@@ -24,22 +24,6 @@
 
   TVSDeviceControl 类实例；
 
-##### `-(void)bindDeviceWithHandler:(TVSTSKMCallback)handler;`
-
-  **描述**:
-
-  设备绑定（APP 和设备建立通道）；
-
-  **参数**:
-
-  | 名称 | 类型 | 描述 | 是否必填 |
-  | ------ | ------ | ------ | ------ |
-  | handler | TVSTSKMCallback | 回调 | 是 |
-
-  **返回**:
-
-  无；
-
 ##### `-(NSString *)controlDeviceWithNamespace:(NSString *)nameSpace name:(NSString *)name payload:(NSDictionary *)palyload handler:(TVSTSKMCallback)handler;`
 
   **描述**:
