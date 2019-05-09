@@ -53,12 +53,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		80029D8D222E7FFF003F12F5 /* TVSWeb.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TVSWeb.framework; sourceTree = "<group>"; };
-		80158C292272AFA600DE7F12 /* TVSTSKM.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TVSTSKM.framework; path = DMSDK/TVSTSKM.framework; sourceTree = "<group>"; };
-		80158C2A2272AFA600DE7F12 /* TVSWeb.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TVSWeb.framework; path = DMSDK/TVSWeb.framework; sourceTree = "<group>"; };
-		80158C2B2272AFA600DE7F12 /* TVSMember.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TVSMember.framework; path = DMSDK/TVSMember.framework; sourceTree = "<group>"; };
-		80158C2C2272AFA600DE7F12 /* TVSSpeech.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TVSSpeech.framework; path = DMSDK/TVSSpeech.framework; sourceTree = "<group>"; };
-		80158C2D2272AFA600DE7F12 /* TVSCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TVSCore.framework; path = DMSDK/TVSCore.framework; sourceTree = "<group>"; };
 		8051E0082284235D0013E019 /* TVSSpeech.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TVSSpeech.framework; path = ../../../sdk/iOS/TVSSpeech.framework; sourceTree = "<group>"; };
 		8051E0092284235D0013E019 /* TVSTSKM.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TVSTSKM.framework; path = ../../../sdk/iOS/TVSTSKM.framework; sourceTree = "<group>"; };
 		8051E00A2284235D0013E019 /* TVSWeb.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TVSWeb.framework; path = ../../../sdk/iOS/TVSWeb.framework; sourceTree = "<group>"; };
@@ -103,10 +97,6 @@
 		8081473A225B6FCD000C023D /* ChildModeVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ChildModeVC.m; path = VC/TSKM/ChildModeVC.m; sourceTree = "<group>"; };
 		8081473C225B705C000C023D /* DeviceControlVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DeviceControlVC.h; path = VC/TSKM/DeviceControlVC.h; sourceTree = "<group>"; };
 		8081473D225B705C000C023D /* DeviceControlVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = DeviceControlVC.m; path = VC/TSKM/DeviceControlVC.m; sourceTree = "<group>"; };
-		80AB3A9B2252FBA8003D0DAE /* TVSTSKM.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TVSTSKM.framework; sourceTree = "<group>"; };
-		80AB3A9F2252FFD2003D0DAE /* TVSMember.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TVSMember.framework; sourceTree = "<group>"; };
-		80C391192200392700698F7D /* TVSSpeech.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TVSSpeech.framework; sourceTree = "<group>"; };
-		80FD905221FAB325004FFCA3 /* TVSCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TVSCore.framework; sourceTree = "<group>"; };
 		80FD905421FAB3AA004FFCA3 /* libstdc++.6.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.tbd"; path = "usr/lib/libstdc++.6.tbd"; sourceTree = SDKROOT; };
 		8280EAE70BEB3A47F85369CA /* Pods-DMSDKDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DMSDKDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DMSDKDemo/Pods-DMSDKDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		8AD8081A1F3DB0E80040C9CF /* DMSDKDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DMSDKDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -230,23 +220,13 @@
 		8A9738311F418BBD003BD45B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				80158C2D2272AFA600DE7F12 /* TVSCore.framework */,
 				8051E00C2284235D0013E019 /* TVSCore.framework */,
-				80158C2B2272AFA600DE7F12 /* TVSMember.framework */,
 				8051E00B2284235D0013E019 /* TVSMember.framework */,
-				80158C2C2272AFA600DE7F12 /* TVSSpeech.framework */,
-				80158C292272AFA600DE7F12 /* TVSTSKM.framework */,
-				80158C2A2272AFA600DE7F12 /* TVSWeb.framework */,
 				8051E0082284235D0013E019 /* TVSSpeech.framework */,
 				8051E0092284235D0013E019 /* TVSTSKM.framework */,
 				8051E00A2284235D0013E019 /* TVSWeb.framework */,
 				80814730225B6D60000C023D /* libPods-DMSDKDemo.a */,
-				80AB3A9F2252FFD2003D0DAE /* TVSMember.framework */,
-				80AB3A9B2252FBA8003D0DAE /* TVSTSKM.framework */,
-				80029D8D222E7FFF003F12F5 /* TVSWeb.framework */,
-				80C391192200392700698F7D /* TVSSpeech.framework */,
 				80FD905421FAB3AA004FFCA3 /* libstdc++.6.tbd */,
-				80FD905221FAB325004FFCA3 /* TVSCore.framework */,
 				80599B851FD82CB600901F7C /* CoreTelephony.framework */,
 				80599B831FD82C9F00901F7C /* SystemConfiguration.framework */,
 				80599B811FD82C4200901F7C /* TencentOpenAPI.framework */,
