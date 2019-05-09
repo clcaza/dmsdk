@@ -20,7 +20,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _auth = [[TVSThirdPartyAuth alloc]initWithTSKMProxy:[self delegate].tskmProxy];
+    _auth = [[TVSThirdPartyAuth alloc]initWithTSKMProxy:[self delegate].tskmProxy deviceInfo:_deviceInfo];
 }
 
 /*
@@ -39,7 +39,7 @@
     [self bindDeviceAndQueryGuidWithHandler:^(BOOL success) {
         if (success) {
             [self checkToken:^{// 所有 TSKM 相关接口都需要先验证 token ！！！
-                [weakSelf.auth getBindedAccountInfoWithDeviceInfo:weakSelf.deviceInfo handler:^(TVSAccountInfo * acct) {
+                [weakSelf.auth getBindedAccountInfoWithHandler:^(TVSAccountInfo * acct) {
                     if (acct) {
                         [weakSelf showText:[NSString stringWithFormat:@"查询到绑定的账号信息:\nappId: %@\nopenId: %@", acct.appId, acct.openId] view:weakSelf.tvResult];
                     } else {

@@ -26,7 +26,7 @@
 
   无；
 
-##### `-(instancetype)initWithTSKMProxy:(TVSTSKMProxy*)tskmProxy;`
+##### `-(instancetype)initWithTSKMProxy:(TVSTSKMProxy*)tskmProxy deviceInfo:(TVSDeviceInfo*)deviceInfo;`
 
   **描述**:
 
@@ -37,12 +37,13 @@
   | 名称 | 类型 | 描述 | 是否必填 | 备注 |
   | ------ | ------ | ------ | ------ | ------ |
   | tskmProxy | TVSTSKMProxy* | 账号信息 | 是 |
+  | deviceinfo | TVSDeviceInfo* | 设备信息 | 是 |
 
   **返回**:
 
   TVSThirdPartyAuth 实例；
 
- ##### `-(void)getBindedAccountInfoWithDeviceInfo:(TVSDeviceInfo*)deviceInfo handler:(void(^)(TVSAccountInfo*))handler;`
+ ##### `-(void)getBindedAccountInfoWithHandler:(void(^)(TVSAccountInfo*))handler;`
 
   **描述**:
 
@@ -50,10 +51,26 @@
 
   **参数**:
 
-  | 名称 | 类型 | 描述 | 是否必填 | 备注 |
-  | ------ | ------ | ------ | ------ | ------ |
-  | deviceInfo | TVSDeviceInfo* | 设备信息 | 是 |
+  | 名称 | 类型 | 描述 | 是否必填 |
+  | ------ | ------ | ------ | ------ |
   | handler | void(^)(TVSAccountInfo*) | 回调，参数为账号信息 | 是 |
+
+  **返回**:
+
+  无； 
+
+##### `-(void)unbindWithAccountInfo:(TVSAccountInfo*)accountInfo handler:(void(^)(BOOL))handler;`
+
+  **描述**:
+
+  解绑账号信息;
+
+  **参数**:
+
+  | 名称 | 类型 | 描述 | 是否必填 |
+  | ------ | ------ | ------ | ------ |
+  | accountInfo | TVSAccountInfo* | 账号信息 | 是 |
+  | handler | void(^)(BOOL) | 回调，参数为是否成功 | 是 |
 
   **返回**:
 

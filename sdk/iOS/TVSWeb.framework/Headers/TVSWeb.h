@@ -176,6 +176,13 @@ typedef NS_ENUM(NSInteger,TVSWebPageType) {
  */
 -(void)TVSWebReceivedJSMessage:(NSString*)msg data:(id)data;
 
+@optional
+/*
+ * @brief Web 页面注入额外数据
+ * @return 需要注入的额外数据
+ */
+-(NSDictionary*)TVSWebRequestExtraData;
+
 @end
 
 

@@ -28,19 +28,23 @@
 /*
  * @brief TVSThirdPartyAuth 类实例化
  * @param tskmProxy TSKMProxy 对象
+ * @param deviceInfo 设备信息
  * @return TVSThirdPartyAuth 实例
  */
--(instancetype)initWithTSKMProxy:(TVSTSKMProxy*)tskmProxy;
+-(instancetype)initWithTSKMProxy:(TVSTSKMProxy*)tskmProxy deviceInfo:(TVSDeviceInfo*)deviceInfo;
 
 /*
  * @brief 查询绑定的账号信息
- * @param deviceInfo 设备信息
  * @param handler 回调
  */
--(void)getBindedAccountInfoWithDeviceInfo:(TVSDeviceInfo*)deviceInfo handler:(void(^)(TVSAccountInfo*))handler;
+-(void)getBindedAccountInfoWithHandler:(void(^)(TVSAccountInfo*))handler;
 
+/*
+ * @brief 解绑
+ * @param accountInfo 账号信息
+ * @param handler 回调
+ */
+-(void)unbindWithAccountInfo:(TVSAccountInfo*)accountInfo handler:(void(^)(BOOL))handler;
 
-
--(void)setBinded:(BOOL)binded accountInfo:(TVSAccountInfo*)accountInfo deviceInfo:(TVSDeviceInfo*)deviceInfo handler:(void(^)(BOOL))handler;
 
 @end
