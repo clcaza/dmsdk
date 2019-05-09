@@ -17,6 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) IBOutlet UITextField *tfNamespace;
 @property (strong, nonatomic) IBOutlet UITextField *tfName;
 
+@property(nonatomic,strong) TVSDeviceInfo* deviceInfo;
+
 @end
 
 NS_ASSUME_NONNULL_END

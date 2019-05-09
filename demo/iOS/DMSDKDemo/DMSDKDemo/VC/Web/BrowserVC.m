@@ -130,24 +130,12 @@
     _progressView.progress = 0;
     _btnStop.enabled = NO;
     [self refreshButtons];
-    NSLog(@"TVSWeb load error:%@", error.localizedDescription);
+    NSLog(@"BrowserVC load error:%@", error.localizedDescription);
 }
 
 // 网页拉取到标题
 -(void)TVSWebGotTitle:(NSString *)title {
     self.title = title;
-}
-
-#pragma mark TVSWebBusinessDelegate 网页业务回调
-
-// 网页透传数据
--(void)TVSWebProxyData:(NSDictionary *)data {
-    NSLog(@"TVSWeb proxyData:%@", data);
-}
-
-// 网页请求关闭
--(void)TVSWebRequestExit {
-    [self.navigationController popViewControllerAnimated:YES];
 }
 
 // 是否允许加载指定scheme链接（默认只允许打开 http、https、wexin、wtloginm、itms、itms-apps、dingdang 等常规 scheme）
@@ -158,6 +146,28 @@
 // 是否允许加载指定网页链接（默认都允许打开）
 -(BOOL)TVSWebShouldLoadUrl:(NSString *)url {
     return YES;
+}
+
+#pragma mark TVSWebBusinessDelegate 网页业务回调
+
+// 网页透传数据
+-(void)TVSWebProxyData:(NSDictionary *)data {
+    NSLog(@"BrowserVC proxyData:%@", data);
+}
+
+// 网页请求关闭
+-(void)TVSWebRequestExit {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+// 收到 JS 消息
+-(void)TVSWebReceivedJSMessage:(NSString*)msg data:(id)data {
+    NSLog(@"BrowserVC recv JS msg:%@ data:%@", msg, data);
+}
+
+// 注入额外数据
+-(NSDictionary*)TVSWebRequestExtraData {
+    return @{@"k": @"v"};
 }
 
 #pragma mark TVSAuthDelegate

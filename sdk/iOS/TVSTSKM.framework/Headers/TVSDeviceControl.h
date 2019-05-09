@@ -23,9 +23,12 @@
 -(instancetype)initWithTSKMProxy:(TVSTSKMProxy*)tskmProxy;
 
 /*
- * @brief 设备绑定(APP和设备建立通道)
+ * @brief 设备控制
+ * @param nameSpace
+ * @param name
+ * @param payload
  * @param handler 操作回调
  */
--(void)bindDeviceWithHandler:(TVSTSKMCallback)handler;
+-(NSString*)controlDeviceWithNamespace:(NSString *)nameSpace name:(NSString *)name payload:(NSDictionary *)palyload handler:(TVSTSKMCallback)handler ;
 
 @end

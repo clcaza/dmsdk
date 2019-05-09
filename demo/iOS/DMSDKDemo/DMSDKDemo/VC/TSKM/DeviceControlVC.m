@@ -37,15 +37,11 @@
     [self hideKeyBoard];
     __weak typeof(self) weakSelf = self;
     [self checkToken:^{// 所有 TSKM 相关接口都需要先验证 token ！！！
-        [weakSelf.deviceControl bindDeviceWithHandler:^(BOOL success, NSInteger code, NSDictionary * result) {
+        [[TVSDeviceManager shared]bindDevice:weakSelf.deviceInfo handler:^(BOOL success) {
             if (success) {
-                if (result) {
-                    [weakSelf showText:[NSString stringWithFormat:@"绑定成功:\n%@", result] view:weakSelf.tvResult];
-                } else {
-                    [weakSelf showText:@"绑定成功" view:weakSelf.tvResult];
-                }
+                 [weakSelf showText:@"绑定成功" view:weakSelf.tvResult];
             } else {
-                [weakSelf showText:[NSString stringWithFormat:@"绑定失败，错误码: %ld", code] view:weakSelf.tvResult];
+                [weakSelf showText:@"绑定失败" view:weakSelf.tvResult];
             }
         }];
     }];

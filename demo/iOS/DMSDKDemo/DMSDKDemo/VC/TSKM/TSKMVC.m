@@ -8,6 +8,7 @@
 
 #import "TSKMVC.h"
 #import "ThirdPartyAuthVC.h"
+#import "DeviceControlVC.h"
 
 @interface TSKMVC ()
 
@@ -42,7 +43,7 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // 第三方授权需要设备信息
-    if ([segue.destinationViewController isKindOfClass:[ThirdPartyAuthVC class]]) {
+    if ([segue.destinationViewController isKindOfClass:[ThirdPartyAuthVC class]] || [segue.destinationViewController isKindOfClass:[DeviceControlVC class]]) {
         ThirdPartyAuthVC* vc = (ThirdPartyAuthVC*)segue.destinationViewController;
         vc.deviceInfo = _deviceInfo;
     }
