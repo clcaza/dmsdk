@@ -149,12 +149,21 @@ typedef NS_ENUM(NSInteger,TVSAuthResult) {
 
 /*
  * @brief 获取 TVS ClientId（适用于自己做登录的场景）
+ * @param productId TVS 平台申请的产品 ID
+ * @param dsn 设备序列号
+ * @param accountId 账号唯一ID
+ * @return TVS ClientId
+ */
++(NSString*)clientIdWithProductId:(NSString*)productId dsn:(NSString*)dsn accountId:(NSString*)accountId;
+
+/*
+ * @brief 获取 TVS ClientId（适用于自己做登录的场景）
  * @warning 其中 productId、dsn、openId 必传！！
  * @param productId TVS 平台申请的产品 ID
  * @param dsn 设备序列号
  * @param openId
  * @param accessToken
- * @param refreshToken 
+ * @param refreshToken
  * @return TVS ClientId
  */
 +(NSString*)clientIdWithProductId:(NSString*)productId dsn:(NSString*)dsn openId:(NSString*)openId accessToken:(NSString*)accessToken refreshToken:(NSString*)refreshToken;

@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		80158C2E2272AFA600DE7F12 /* TVSTSKM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80158C292272AFA600DE7F12 /* TVSTSKM.framework */; };
-		80158C2F2272AFA600DE7F12 /* TVSWeb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80158C2A2272AFA600DE7F12 /* TVSWeb.framework */; };
-		80158C302272AFA600DE7F12 /* TVSMember.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80158C2B2272AFA600DE7F12 /* TVSMember.framework */; };
-		80158C312272AFA600DE7F12 /* TVSSpeech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80158C2C2272AFA600DE7F12 /* TVSSpeech.framework */; };
-		80158C322272AFA600DE7F12 /* TVSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80158C2D2272AFA600DE7F12 /* TVSCore.framework */; };
+		8051E00D2284235D0013E019 /* TVSSpeech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8051E0082284235D0013E019 /* TVSSpeech.framework */; };
+		8051E00E2284235D0013E019 /* TVSTSKM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8051E0092284235D0013E019 /* TVSTSKM.framework */; };
+		8051E00F2284235D0013E019 /* TVSWeb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8051E00A2284235D0013E019 /* TVSWeb.framework */; };
+		8051E0102284235D0013E019 /* TVSMember.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8051E00B2284235D0013E019 /* TVSMember.framework */; };
+		8051E0112284235D0013E019 /* TVSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8051E00C2284235D0013E019 /* TVSCore.framework */; };
 		80599B7C1FD82B7000901F7C /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 80599B7B1FD82B7000901F7C /* libWeChatSDK.a */; };
 		80599B7E1FD82BEE00901F7C /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 80599B7D1FD82BEE00901F7C /* libsqlite3.tbd */; };
 		80599B821FD82C4200901F7C /* TencentOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80599B811FD82C4200901F7C /* TencentOpenAPI.framework */; };
@@ -59,6 +59,11 @@
 		80158C2B2272AFA600DE7F12 /* TVSMember.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TVSMember.framework; path = DMSDK/TVSMember.framework; sourceTree = "<group>"; };
 		80158C2C2272AFA600DE7F12 /* TVSSpeech.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TVSSpeech.framework; path = DMSDK/TVSSpeech.framework; sourceTree = "<group>"; };
 		80158C2D2272AFA600DE7F12 /* TVSCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TVSCore.framework; path = DMSDK/TVSCore.framework; sourceTree = "<group>"; };
+		8051E0082284235D0013E019 /* TVSSpeech.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TVSSpeech.framework; path = ../../../sdk/iOS/TVSSpeech.framework; sourceTree = "<group>"; };
+		8051E0092284235D0013E019 /* TVSTSKM.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TVSTSKM.framework; path = ../../../sdk/iOS/TVSTSKM.framework; sourceTree = "<group>"; };
+		8051E00A2284235D0013E019 /* TVSWeb.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TVSWeb.framework; path = ../../../sdk/iOS/TVSWeb.framework; sourceTree = "<group>"; };
+		8051E00B2284235D0013E019 /* TVSMember.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TVSMember.framework; path = ../../../sdk/iOS/TVSMember.framework; sourceTree = "<group>"; };
+		8051E00C2284235D0013E019 /* TVSCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TVSCore.framework; path = ../../../sdk/iOS/TVSCore.framework; sourceTree = "<group>"; };
 		80599B7B1FD82B7000901F7C /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libWeChatSDK.a; path = WeChat/libWeChatSDK.a; sourceTree = "<group>"; };
 		80599B7D1FD82BEE00901F7C /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		80599B7F1FD82BFF00901F7C /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
@@ -114,11 +119,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				80158C2E2272AFA600DE7F12 /* TVSTSKM.framework in Frameworks */,
-				80158C2F2272AFA600DE7F12 /* TVSWeb.framework in Frameworks */,
-				80158C302272AFA600DE7F12 /* TVSMember.framework in Frameworks */,
-				80158C312272AFA600DE7F12 /* TVSSpeech.framework in Frameworks */,
-				80158C322272AFA600DE7F12 /* TVSCore.framework in Frameworks */,
+				8051E00D2284235D0013E019 /* TVSSpeech.framework in Frameworks */,
+				8051E00E2284235D0013E019 /* TVSTSKM.framework in Frameworks */,
+				8051E00F2284235D0013E019 /* TVSWeb.framework in Frameworks */,
+				8051E0102284235D0013E019 /* TVSMember.framework in Frameworks */,
+				8051E0112284235D0013E019 /* TVSCore.framework in Frameworks */,
 				80814731225B6D60000C023D /* libPods-DMSDKDemo.a in Frameworks */,
 				80599B821FD82C4200901F7C /* TencentOpenAPI.framework in Frameworks */,
 				80599B7C1FD82B7000901F7C /* libWeChatSDK.a in Frameworks */,
@@ -226,10 +231,15 @@
 			isa = PBXGroup;
 			children = (
 				80158C2D2272AFA600DE7F12 /* TVSCore.framework */,
+				8051E00C2284235D0013E019 /* TVSCore.framework */,
 				80158C2B2272AFA600DE7F12 /* TVSMember.framework */,
+				8051E00B2284235D0013E019 /* TVSMember.framework */,
 				80158C2C2272AFA600DE7F12 /* TVSSpeech.framework */,
 				80158C292272AFA600DE7F12 /* TVSTSKM.framework */,
 				80158C2A2272AFA600DE7F12 /* TVSWeb.framework */,
+				8051E0082284235D0013E019 /* TVSSpeech.framework */,
+				8051E0092284235D0013E019 /* TVSTSKM.framework */,
+				8051E00A2284235D0013E019 /* TVSWeb.framework */,
 				80814730225B6D60000C023D /* libPods-DMSDKDemo.a */,
 				80AB3A9F2252FFD2003D0DAE /* TVSMember.framework */,
 				80AB3A9B2252FBA8003D0DAE /* TVSTSKM.framework */,
