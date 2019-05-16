@@ -1,7 +1,6 @@
 package com.tencent.ai.tvs.dmsdk.demo.tskm;
 
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.widget.EditText;
 
 import com.tencent.ai.dobbydemo.R;
@@ -26,8 +25,7 @@ public class DeviceControlActivity extends ModuleActivity {
 
         String productId = getIntent().getStringExtra(TSKMActivity.EXTRA_PRODUCT_ID);
         String dsn = getIntent().getStringExtra(TSKMActivity.EXTRA_DSN);
-        String accountId = getIntent().getStringExtra(TSKMActivity.EXTRA_ACCOUNT_ID);
-        mTskm = !TextUtils.isEmpty(accountId) ? new TVSDeviceControl(productId, dsn, accountId) : new TVSDeviceControl(productId, dsn);
+        mTskm = new TVSDeviceControl(productId, dsn);
 
         findViewById(R.id.bindDeviceButton).setOnClickListener(v -> mTskm.bindDevice(new SimpleTVSCallback1<String>("BindDevice") {
             @Override

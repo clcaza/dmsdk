@@ -5,11 +5,11 @@ import android.os.Bundle;
 import android.widget.EditText;
 
 import com.tencent.ai.dobbydemo.R;
-import com.tencent.ai.tvs.ConstantValues;
 import com.tencent.ai.tvs.LoginProxy;
 import com.tencent.ai.tvs.core.account.TVSAccountInfo;
 import com.tencent.ai.tvs.core.common.TVSDevice;
 import com.tencent.ai.tvs.core.common.TVSDeviceBindType;
+import com.tencent.ai.tvs.env.EUserAttrType;
 import com.tencent.ai.tvs.tskm.TVSThirdPartyAuth;
 
 import java.util.ArrayList;
@@ -64,10 +64,13 @@ public class DeviceBindingActivity extends ModuleActivity {
         findViewById(R.id.toCloudDDWebButton).setOnClickListener(v -> {
             Intent intent = new Intent(this, WebActivity.class);
             intent.putExtra("devInfo", mQueriedDevice);
-            intent.putExtra("targetUrl", ConstantValues.VALID_USERCENTER_TESTENV_URL + ConstantValues.TSKAUTHMGR_URL);
+
+            intent.putExtra("ddAuthRedirectUrl", TVSThirdPartyAuth.getRedirectUrl(EUserAttrType.QQ_MUSIC));
+            intent.putExtra("targetUrl", TVSThirdPartyAuth.getTargetUrl());
+
             startActivity(intent);
         });
-        findViewById(R.id.toCloudDDNativeButton).setOnClickListener(v -> { TVSThirdPartyAuth.requestCloudDDAuth(DeviceBindingActivity.this, mQueriedDevice, "com.tencent.ai.tvs.dmsdk.demo.DeviceBindingActivity"); });
+        findViewById(R.id.toCloudDDNativeButton).setOnClickListener(v -> { TVSThirdPartyAuth.requestCloudDDAuth(DeviceBindingActivity.this, mQueriedDevice, "com.tencent.ai.tvs.dmsdk.demo.DeviceBindingActivity", ""); });
     }
 
     private TVSDevice getDevice() {

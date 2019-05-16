@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.tencent.ai.tvs.dmsdk.demo.tskm.ThirdPartBindOpActivity">
+    <Button
+        android:id="@+id/thirdPartyQueryGuidButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="DSN查GUID"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/thirdPartyUnbindButton"
+        />
+    <Button
+        android:id="@+id/thirdPartyUnbindButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="云叮当授权解绑"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/thirdPartyQueryGuidButton"
+        app:layout_constraintEnd_toStartOf="@id/thirdPartyQueryButton"
+        />
+    <Button
+        android:id="@+id/thirdPartyQueryButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="云叮当授权查询"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/thirdPartyUnbindButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+    <com.tencent.ai.tvs.dmsdk.demo.widget.LogView
+        android:id="@+id/logView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/thirdPartyQueryGuidButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+</android.support.constraint.ConstraintLayout>

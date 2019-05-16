@@ -43,6 +43,7 @@
         <activity android:name="com.tencent.ai.tvs.dmsdk.demo.tskm.AlarmActivity" />
         <activity android:name="com.tencent.ai.tvs.dmsdk.demo.tskm.ChildModeActivity" />
         <activity android:name="com.tencent.ai.tvs.dmsdk.demo.tskm.DeviceControlActivity" />
+        <activity android:name="com.tencent.ai.tvs.dmsdk.demo.tskm.ThirdPartBindOpActivity" />
         <activity
             android:name="com.tencent.ai.tvs.dmsdk.demo.AISpeechActivity"
             android:label="@string/module_ai_speech" />

@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.tencent.ai.dobbydemo.R;
 import com.tencent.ai.tvs.LoginProxy;
+import com.tencent.ai.tvs.core.common.TVSDevice;
 import com.tencent.ai.tvs.env.ELoginEnv;
 
 import java.util.ArrayList;
@@ -52,12 +53,24 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(mAdapter);
 
         initModuleList();
+
+        // 每次应用启动时应当调用一次票据刷新，尽量保证票据不过期！
+        if (LoginProxy.getInstance().isTokenExist()) {
+            LoginProxy.getInstance().tvsTokenVerify(null);
+        }
     }
 
     private void initModuleList() {
         mAdapter.addModuleEntry(getString(R.string.module_account), () -> startActivity(new Intent(this, AccountActivity.class)));
         mAdapter.addModuleEntry(getString(R.string.module_device_binding), () -> startActivity(new Intent(this, DeviceBindingActivity.class)));
-        mAdapter.addModuleEntry(getString(R.string.module_web), () -> startActivity(new Intent(this, WebActivity.class)));
+        mAdapter.addModuleEntry(getString(R.string.module_web), () -> {
+            Intent intent = new Intent(this, WebActivity.class);
+            TVSDevice device = new TVSDevice();
+            device.productID = DemoConstant.PRODUCT_ID;
+            device.dsn = DemoConstant.DSN;
+            intent.putExtra("devInfo", device);
+            startActivity(intent);
+        });
         mAdapter.addModuleEntry(getString(R.string.module_member), () -> startActivity(new Intent(this, MemberActivity.class)));
         mAdapter.addModuleEntry(getString(R.string.module_tskm), () -> startActivity(new Intent(this, TSKMActivity.class)));
         mAdapter.addModuleEntry(getString(R.string.module_ai_speech), () -> startActivity(new Intent(this, AISpeechActivity.class)));

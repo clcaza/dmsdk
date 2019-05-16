@@ -8,13 +8,30 @@
 
 ## 更新日志：
 
-[Android](#Android) (Latest: v2.1.0)
+[Android](#Android) (Latest: v2.1.2)
 
 [iOS](#iOS) (Latest: v2.1.0)
 
 **v1.0 到 v2.0.0+ API 变更较大，请阅读升级指南([Android 版][5] | [iOS 版][4])。**
 
-### Android
+#### v2.1.2
+
+*   Web模块修复体验环境无法获得登录态的问题；
+*   TSKM模块的多端互动API发送请求后会返回请求ID；
+*   TSKM模块云叮当授权API优化；
+*   Core模块修复QQ登录回调随机性不被调用的问题；
+*   SDK的请求超时时间缩短为10s；
+*   SDK修改了生成的R文件的报名避免与旧版本腾讯IMSDK冲突；
+*   移除无用资源，减小SDK体积。
+
+#### v2.1.1
+
+该版本是测试版本，因此仅提供更新内容和迁移指南，不提供该版本的SDK。
+
+*   完善了TSKM模块对第三方账号的支持；
+*   完善了云叮当授权的API；
+*   修复了Web模块停止录音时崩溃及execJS、execJSV2调用参数错误的问题；
+*   修复了Core模块QQ登录ClientID不正确的问题。
 
 #### v2.1.0
 

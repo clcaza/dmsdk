@@ -23,6 +23,7 @@ import com.tencent.ai.dobbydemo.R;
 import com.tencent.ai.tvs.ConstantValues;
 import com.tencent.ai.tvs.LoginProxy;
 import com.tencent.ai.tvs.core.common.TVSDevice;
+import com.tencent.ai.tvs.env.ELoginEnv;
 import com.tencent.ai.tvs.env.ELoginPlatform;
 import com.tencent.ai.tvs.env.EUserAttrType;
 import com.tencent.ai.tvs.ui.AndroidBug5497Workaround;
@@ -64,15 +65,13 @@ public class WebActivity extends ModuleActivity {
         AndroidBug5497Workaround.assistActivity(this);
 
         mWebViewController = ((TVSWebView) findViewById(R.id.tvsWebView)).getController();
-        // TODO: Change hard-coded parameters here before running your demo
-        String deviceType = "";
-        String deviceOEM = "";
-//        mWebViewController.setDeviceInfo(TVSDeviceBindType.TVS_SPEAKER, deviceType, deviceOEM, DemoConstant.PRODUCT_ID, DemoConstant.DSN);
         Intent intent = getIntent();
         TVSDevice tvsDevice = (TVSDevice) intent.getSerializableExtra("devInfo");
         String targetUrl = intent.getStringExtra("targetUrl");
+        String ddAuthRedirectUrl = intent.getStringExtra("ddAuthRedirectUrl");
         mURLEditText.setText(targetUrl == null ? "http://dingdang.qq.com": targetUrl);
         mWebViewController.setDeviceInfo(tvsDevice);
+        mWebViewController.setDDAuthRedirectUrl(ddAuthRedirectUrl);
         mWebViewController.setUIEventListener(new DemoUIEventListener());
         mWebViewController.setBusinessEventListener(new DemoBusinessEventListener());
         mWebViewController.loadURL(mURLEditText.getText().toString());
@@ -81,8 +80,16 @@ public class WebActivity extends ModuleActivity {
     @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        Log.v(LOG_TAG, "onNewIntent");
-        mWebViewController.loadURL(ConstantValues.VALID_USERCENTER_TESTENV_URL + ConstantValues.TSKAUTHMGR_URL);
+        Log.v(LOG_TAG, "onNewIntent authResult = " + intent.getStringExtra("authResult"));
+        if (LoginProxy.getInstance().getEnv() == ELoginEnv.FORMAL) {
+            mWebViewController.loadURL(ConstantValues.VALID_USERCENTER_URL + ConstantValues.TSKAUTHMGR_URL);
+        }
+        else if (LoginProxy.getInstance().getEnv() == ELoginEnv.EX) {
+            mWebViewController.loadURL(ConstantValues.VALID_USERCENTER_EXENV_URL + ConstantValues.TSKAUTHMGR_URL);
+        }
+        else if (LoginProxy.getInstance().getEnv() == ELoginEnv.TEST) {
+            mWebViewController.loadURL(ConstantValues.VALID_USERCENTER_TESTENV_URL + ConstantValues.TSKAUTHMGR_URL);
+        }
     }
 
     @Override

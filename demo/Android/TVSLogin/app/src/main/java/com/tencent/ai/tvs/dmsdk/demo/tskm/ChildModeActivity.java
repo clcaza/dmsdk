@@ -1,7 +1,6 @@
 package com.tencent.ai.tvs.dmsdk.demo.tskm;
 
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.widget.EditText;
 
 import com.tencent.ai.dobbydemo.R;
@@ -22,8 +21,7 @@ public class ChildModeActivity extends ModuleActivity {
 
         String productId = getIntent().getStringExtra(TSKMActivity.EXTRA_PRODUCT_ID);
         String dsn = getIntent().getStringExtra(TSKMActivity.EXTRA_DSN);
-        String accountId = getIntent().getStringExtra(TSKMActivity.EXTRA_ACCOUNT_ID);
-        mTskm = !TextUtils.isEmpty(accountId) ? new TVSChildMode(productId, dsn, accountId) : new TVSChildMode(productId, dsn);
+        mTskm = new TVSChildMode(productId, dsn);
 
         findViewById(R.id.getButton).setOnClickListener(v -> mTskm.getConfig(mBlobInfoEditText.getText().toString(), new SimpleTVSCallback1<String>("GetConfig") {
             @Override
