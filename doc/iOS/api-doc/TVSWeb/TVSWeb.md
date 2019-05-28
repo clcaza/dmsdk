@@ -266,6 +266,7 @@
   | authDelegate | TVSAuthDelegate | 账号授权协议 | 如果不使用 SDK 里面的 TVSAuthManager 授权，而是自己调用微信/QQ SDK，则必须实现此协议！ |
   | device | TVSDeviceInfo* | 设备信息 | QQ 音乐会员等页面需要此参数，其中 deviceBindType、deviceType、deviceOEM、productId、DSN 几个字段为必填! |
   | autoCheckDeviceBind | BOOL | 是否自动检查设备绑定 | LinkPlay 设备打开个人中心需要检查绑定 |
+  | showDebugTool | BOOL | 是否展示网页调试工具 |  |
 
 #### 方法
 

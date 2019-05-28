@@ -226,6 +226,11 @@ typedef NS_ENUM(NSInteger,TVSWebPageType) {
 @property(nonatomic,assign) BOOL autoCheckDeviceBind;
 
 /*
+ * @brief 是否显示网页调试工具
+ */
+@property(nonatomic,assign) BOOL showDebugTool;
+
+/*
  * @brief 实例化
  * @param frame
  * @return 实例
