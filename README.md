@@ -14,7 +14,7 @@
 
 **v1.0 到 v2.0.0+ API 变更较大，请阅读升级指南([Android 版][5] | [iOS 版][4])。**
 
-#### v2.1.2
+#### [v2.1.2][9]
 
 *   Web模块修复体验环境无法获得登录态的问题；
 *   TSKM模块的多端互动API发送请求后会返回请求ID；
@@ -24,7 +24,7 @@
 *   SDK修改了生成的R文件的报名避免与旧版本腾讯IMSDK冲突；
 *   移除无用资源，减小SDK体积。
 
-#### v2.1.1
+#### [v2.1.1][8]
 
 该版本是测试版本，因此仅提供更新内容和迁移指南，不提供该版本的SDK。
 
@@ -121,3 +121,5 @@
 [5]: https://github.com/TencentDingdang/dmsdk/blob/master/doc/Android/%E7%89%88%E6%9C%AC%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97.md#%E8%BF%81%E7%A7%BB%E6%8C%87%E5%8D%97-1
 [6]: https://github.com/TencentDingdang/dmsdk/tree/v2.0.2-android
 [7]:  https://github.com/TencentDingdang/dmsdk/tree/v2.1.0-iOS
+[8]: https://github.com/TencentDingdang/dmsdk/tree/v2.1.1-android
+[9]: https://github.com/TencentDingdang/dmsdk/tree/v2.1.2-android
