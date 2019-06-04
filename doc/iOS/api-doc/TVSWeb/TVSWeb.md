@@ -192,22 +192,6 @@
 
   无;
 
-##### `-(void)TVSWebWXPayResult:(BOOL)result;`
-
-  **描述**:
-
-  Web 页面微信支付回调；
-
-  **参数**:
-
-  | 名称 | 类型 | 描述 |
-  | ------ | ------ | ------ |
-  | result | BOOL | 微信支付结果 |
-
-  **返回**:
-
-  无;
-
 ##### `-(void)TVSWebRequestExit;`
 
   **描述**:

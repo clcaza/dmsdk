@@ -72,6 +72,10 @@
 
 ### iOS
 
+#### v2.1.1
+
+* TVSAuthDelegate 新增 QQ 验票回调;
+
 #### [v2.1.0][7]:
 
 * 账号模块新增根据指定用户 openId 查询 UserInfo 接口；

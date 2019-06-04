@@ -150,13 +150,6 @@ typedef NS_ENUM(NSInteger,TVSWebPageType) {
 
 @optional
 /*
- * @brief Web 页面微信支付回调
- * @param result 微信支付结果
- */
--(void)TVSWebWXPayResult:(BOOL)result;
-
-@optional
-/*
  * @brief Web 请求关闭当前页面
  */
 -(void)TVSWebRequestExit;
