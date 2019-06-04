@@ -125,28 +125,28 @@ typedef NS_ENUM(NSInteger,TVSWebPageType) {
  * @brief Web 页面 QQ 登录回调
  * @param result QQ登录结果
  */
--(void)TVSWebQQLoginResult:(BOOL)result;
+-(void)TVSWebQQLoginResult:(TVSAuthResult)result;
 
 @optional
 /*
  * @brief Web 页面微信登录回调
  * @param result 微信登录结果
  */
--(void)TVSWebWXLoginResult:(BOOL)result;
+-(void)TVSWebWXLoginResult:(TVSAuthResult)result;
 
 @optional
 /*
  * @brief Web 页面QQ验票回调
  * @param result QQ验票结果
  */
--(void)TVSWebVerifyQQTokenResult:(BOOL)result;
+-(void)TVSWebVerifyQQTokenResult:(TVSAuthResult)result;
 
 @optional
 /*
  * @brief Web 页面微信刷票回调
  * @param result 微信刷票结果
  */
--(void)TVSWebRefreshWXTokenResult:(BOOL)result;
+-(void)TVSWebRefreshWXTokenResult:(TVSAuthResult)result;
 
 @optional
 /*

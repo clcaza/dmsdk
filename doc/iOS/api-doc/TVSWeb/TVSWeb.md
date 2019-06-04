@@ -128,7 +128,7 @@
 
 ### TVSWebBusinessDelegate Web 页面业务回调协议
 
-##### `-(void)TVSWebQQLoginResult:(BOOL)result;`
+##### `-(void)TVSWebQQLoginResult:(TVSAuthResult)result;`
 
   **描述**:
 
@@ -138,13 +138,13 @@
 
   | 名称 | 类型 | 描述 |
   | ------ | ------ | ------ |
-  | result | BOOL | QQ 登录结果 |
+  | result | TVSAuthResult | QQ 登录结果 |
 
   **返回**:
 
   无;
 
-##### `-(void)TVSWebWXLoginResult:(BOOL)result;`
+##### `-(void)TVSWebWXLoginResult:(TVSAuthResult)result;`
 
   **描述**:
 
@@ -154,13 +154,13 @@
 
   | 名称 | 类型 | 描述 |
   | ------ | ------ | ------ |
-  | result | BOOL | 微信登录结果 |
+  | result | TVSAuthResult | 微信登录结果 |
 
   **返回**:
 
   无;
 
-##### `-(void)TVSWebVerifyQQTokenResult:(BOOL)result;`
+##### `-(void)TVSWebVerifyQQTokenResult:(TVSAuthResult)result;`
 
   **描述**:
 
@@ -170,13 +170,13 @@
 
   | 名称 | 类型 | 描述 |
   | ------ | ------ | ------ |
-  | result | BOOL | QQ 验票是否成功 |
+  | result | TVSAuthResult | QQ 验票是否成功 |
 
   **返回**:
 
   无;
 
-##### `-(void)TVSWebRefreshWXTokenResult:(BOOL)result;`
+##### `-(void)TVSWebRefreshWXTokenResult:(TVSAuthResult)result;`
 
   **描述**:
 
@@ -186,7 +186,7 @@
 
   | 名称 | 类型 | 描述 |
   | ------ | ------ | ------ |
-  | result | BOOL | 微信刷票是否成功 |
+  | result | TVSAuthResult | 微信刷票是否成功 |
 
   **返回**:
 
